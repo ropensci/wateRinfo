@@ -7,7 +7,8 @@
 #' @param frequency char valid frequency for the given variable, for most
 #' variables, the 15min frequency is available
 #'
-#' @importFrom %>% select
+#' @export
+#' @importFrom dplyr %>% select
 #' @seealso supported_variables
 get_stations <- function(variable_name, frequency = "15min") {
 
