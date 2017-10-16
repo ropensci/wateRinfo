@@ -9,6 +9,11 @@ URL: https://github.com/stijnvanhoey/wateRinfo
 Description: The wateRinfo package provides an R interface to the data available
     at waterinfo.be, the data portal provided by the Flemish 
 License: MIT + file LICENSE
+Imports:
+    httr,
+    dplyr,
+    jsonlite
 Encoding: UTF-8
 LazyData: true
 Suggests: testthat
+RoxygenNote: 6.0.1
