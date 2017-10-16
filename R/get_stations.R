@@ -1,8 +1,15 @@
 
 #' For a given timeseriesgroup (variable), provide a list of measurement
-#' stations providing data for the given variable
+#' stations providing data. An overview of the variables is provided by the
+#' function `supported_variables`
 #'
-get_stations <- function(variable_name, frequency = "15min", format = "json") {
+#' @param variable_name char valid nam of available variable as timeseriesgroup
+#' @param frequency char valid frequency for the given variable, for most
+#' variables, the 15min frequency is available
+#'
+#' @importFrom %>% select
+#' @seealso supported_variables
+get_stations <- function(variable_name, frequency = "15min") {
 
     timeseriesgroupid <- resolve_timeseriesgroupid(variable_name, frequency)
 
@@ -23,6 +30,7 @@ get_stations <- function(variable_name, frequency = "15min", format = "json") {
                                                           collapse = ",")),
                      custattr_returnfields = as.character(paste(custom_attributes,
                                                                 collapse = ","))))
+
     stations$content %>% select(ts_id, station_latitude, station_longitude,
                                 station_id, station_no, station_name,
                                 parametertype_name, ts_unitsymbol)
