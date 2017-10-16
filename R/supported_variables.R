@@ -3,7 +3,9 @@
 #'
 #' @param language char nl (dutch) or en (english) variable names
 #'
-#' @importFrom select %>% read.csv
+#' @export
+#' @importFrom dplyr select %>%
+#' @importFrom utils read.csv
 supported_variables <- function(language = "nl") {
     #lookup_file <- system.file("extdata", "lookup_timeseriesgroup",
     #                           package = "wateRinfo")
@@ -26,7 +28,9 @@ supported_variables <- function(language = "nl") {
 #'
 #' @param variable_name char name of a valid variable in either dutch or english
 #'
-#' @importFrom %>% filter select read.csv
+#' @export
+#' @importFrom dplyr %>% filter select
+#' @importFrom utils read.csv
 supported_frequencies <- function(variable_name) {
     #lookup_file <- system.file("extdata", "lookup_timeseriesgroup",
     #                           package = "wateRinfo")
