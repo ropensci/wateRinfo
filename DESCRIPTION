@@ -2,8 +2,10 @@ Package: wateRinfo
 Type: Package
 Title: Download TimeSeries Data From Waterinfo.be
 Version: 0.1.0
-Author: Stijn Van Hoey
-Maintainer: Stijn Van Hoey stijn.vanhoey@inbo.be
+Authors@R: c(person("Stijn", "Van Hoey", role = c("aut", "cre"),
+    email = "stijnvanhoey@gmail.com",
+    comment = "http://orcid.org/0000-0001-6413-3185"))
+URL: https://github.com/stijnvanhoey/wateRinfo
 Description: The wateRinfo package provides an R interface to the data available
     at waterinfo.be, the data portal provided by the Flemish 
 License: MIT + file LICENSE
