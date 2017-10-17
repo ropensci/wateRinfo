@@ -1,0 +1,58 @@
+
+library(wateRinfo)
+context("formatting of the period arguments")
+
+test_that("VMM tutorial valid examples", {
+    expect_true(check_period_format("P3D"))
+    expect_true(check_period_format("P1Y"))
+    expect_true(check_period_format("P1DT12H"))
+    expect_true(check_period_format("PT6H"))
+    expect_true(check_period_format("P1Y6M3DT4H20M30S"))
+})
+
+test_that("days and week info can not be combined", {
+    expect_error(check_period_format("P2W2D"))
+})
+
+test_that("Periods are defined by P symbol", {
+    expect_error(check_period_format("3D"))
+})
+
+test_that("Periods need at least a time definition", {
+    expect_error(check_period_format("P"))
+})
+
+test_that("Time definitions are preceded by number", {
+    expect_error(check_period_format("PY"))
+    expect_true(check_period_format("P3Y"))
+    expect_error(check_period_format("P3YM"))
+    expect_true(check_period_format("P3Y4M"))
+    expect_error(check_period_format("P3Y4MD"))
+    expect_true(check_period_format("P3Y4M5D"))
+    expect_error(check_period_format("P3Y4M5DTH"))
+    expect_true(check_period_format("P3Y4M5DT3H"))
+    expect_error(check_period_format("P3Y4M5DT4HM"))
+    expect_true(check_period_format("P3Y4M5DT4H3M"))
+    expect_error(check_period_format("P3Y4M5DT4H3MS"))
+    expect_true(check_period_format("P3Y4M5DT4H3M2S"))
+})
+
+test_that("Subday information requires the T symbol are defined by P symbol", {
+    # Actually the first example will work in waterinfo API, but this is rather
+    # inconsistent from the API side and the docs of VMM says otherwise
+    expect_error(check_period_format("P3H"))
+    expect_error(check_period_format("P3H"))
+    expect_true(check_period_format("PT3H"))
+    expect_true(check_period_format("PT3M"))
+})
+
+test_that("Impossible date/period input combinations", {
+    expect_error(parse_period(from = "2012-11-01",
+                              to = "2013-12-01",
+                              period = "P3D")) # all filled in
+    expect_error(parse_period(from = NULL, to = NULL,
+                              period = NULL)) # None filled in
+    expect_error(parse_period(from = NULL, to = "2017/01/01",
+                              period = NULL)) # only to used
+
+})
