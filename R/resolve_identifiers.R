@@ -17,7 +17,13 @@ resolve_timeseriesid <- function(station, variable, format = "json") {
 #'
 #' The lookup table is provided as external data of the package,
 #' see inst/extdata
-resolve_timeseriesgroupid <- function(variable_name, frequency="15min") {
+#'
+#' @param variable_name valid variable name, supported by VMM API
+#' @param frequency valid frequency for the given variable
+#'
+#' @export
+#' @importFrom dplyr %>% filter select
+resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
 
     lookup_file <- system.file("extdata", "lookup_timeseriesgroup",
                                package = "wateRinfo")
