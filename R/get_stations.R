@@ -3,6 +3,9 @@
 #' stations providing data. An overview of the variables is provided by the
 #' function `supported_variables`
 #'
+#' For the moment, this only works for measurement stations of VMM (meetnet 1),
+#' and stations from other measurement nets are not included in the list
+#'
 #' @param variable_name char valid nam of available variable as timeseriesgroup
 #' @param frequency char valid frequency for the given variable, for most
 #' variables, the 15min frequency is available
@@ -32,7 +35,9 @@ get_stations <- function(variable_name, frequency = "15min") {
                      custattr_returnfields = as.character(paste(custom_attributes,
                                                                 collapse = ","))))
 
-    stations$content %>% select(ts_id, station_latitude, station_longitude,
-                                station_id, station_no, station_name,
-                                parametertype_name, ts_unitsymbol)
+    stations$content %>% select('ts_id', 'station_latitude',
+                                 'station_longitude', 'station_id',
+                                 'station_no', 'station_name',
+                                 'parametertype_name', 'ts_unitsymbol',
+                                 'dataprovider')
 }
