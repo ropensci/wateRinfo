@@ -1,5 +1,4 @@
 
-
 #' For a given station, provide a list of the available variables
 #'
 #' @param station_no 'stations-nummer' as it appears on the download page of
@@ -15,7 +14,8 @@ get_variables <- function(station_no) {
 
     # query arguments for the API request
     return_fields <- c("station_name", "station_no", "ts_id",
-                       "ts_name", "parametertype_name")
+                       "ts_name", "parametertype_name",
+                       "stationparameter_name")
     query_list <- list(type = "queryServices", service = "kisters",
                        request = "getTimeseriesList", format = "json",
                        datasource = datasource, station_no = station_no,
@@ -33,11 +33,12 @@ get_variables <- function(station_no) {
 
     stations <- station_variables$content
     if (dim(stations)[1] == 2) {
-        df <- as.data.frame(t(stations[2:nrow(stations),]),
-                            col.names = stations[1,])
+        df <- as.data.frame(t(stations[2:nrow(stations),]))
+        colnames(df) <- stations[1,]
+
     } else {
-        df <- as.data.frame(stations[2:nrow(stations),],
-                            col.names = stations[1,])
+        df <- as.data.frame(stations[2:nrow(stations),])
+        colnames(df) <- stations[1,]
     }
 
     df
