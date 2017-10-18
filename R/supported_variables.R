@@ -6,18 +6,19 @@
 #' @export
 #' @importFrom dplyr select %>%
 #' @importFrom utils read.csv
+#' @importFrom rlang quo
 supported_variables <- function(language = "nl") {
     lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
                                package = "wateRinfo")
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     if (language == "nl" ) {
-        column_name <- "variable_nl"}
+        column_name <- quo(variable_nl)}
     else {
-        column_name <- "variable_en"}
+        column_name <- quo(variable_en)}
 
     lookup %>%
-        select(column_name) %>%
+        select(!!column_name) %>%
         unique()
 }
 
