@@ -36,8 +36,10 @@ get_stations <- function(variable_name, frequency = "15min") {
                                                                 collapse = ","))))
 
     stations$content %>% select('ts_id', 'station_latitude',
-                                 'station_longitude', 'station_id',
-                                 'station_no', 'station_name',
-                                 'parametertype_name', 'ts_unitsymbol',
-                                 'dataprovider')
+                                'station_longitude', 'station_id',
+                                'station_no', 'station_name',
+                                'stationparameter_name',
+                                'parametertype_name',
+                                'ts_unitsymbol',
+                                'dataprovider')
 }
