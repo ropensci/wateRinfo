@@ -22,10 +22,11 @@ call_waterinfo <- function(query) {
     if (http_error(res)) {
         stop(
             sprintf(
-                "Waterinfo API request failed [%s]\n%s\n<%s>",
+                "Waterinfo API request failed [%s]\nWaterinfo %s: %s\nWaterinfo return message: %s",
                 status_code(res),
-                parsed$message,
-                parsed$documentation_url
+                parsed$type,
+                parsed$code,
+                parsed$message
             ),
             call. = FALSE
         )
