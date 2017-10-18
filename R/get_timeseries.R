@@ -7,8 +7,8 @@ get_timeseries <- function(station, variable, period = NULL, from = NULL,
     # resolve the identifier
     db_identifier <- resolve_timeseriesid(...)
 
-    get_timeseries_tsid(db_identifier, period)
-    return(df)
+    get_timeseries_tsid(db_identifier, period = period,
+                        from = from, to = to, metadata = metadata)
 }
 
 
@@ -34,14 +34,19 @@ get_timeseries <- function(station, variable, period = NULL, from = NULL,
 #' @param from date of datestring as start of the time series
 #' @param to date of datestring as end of the time series
 #' @param metadata boolean provide metadata
+#' @param datasource int [0-3] defines the `meetnet` of which the measurement
+#' station is part of. VMM based stations are net '1', MOW-HIC is net '2'
 #'
-#' @return
+#' @return data.frame with the timestamps, values and quality code
 #' @export
+#' @importFrom lubridate ymd_hms
 #'
 #' @examples
 #' get_timeseries_tsid("35055042", from="2017-01-01", to="2017-01-02")
+#' get_timeseries_tsid("5156042", period = "P3D")
+#' get_timeseries_tsid("2813562", period = "P1D", datasource = 2)
 get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
-                                to = NULL, metadata = TRUE) {
+                                to = NULL, metadata = TRUE, datasource = 1) {
     # define the date fields we require
     return_fields <- c("Timestamp", "Value", "Quality Code")
 
@@ -52,16 +57,22 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
     query_list <- list(type = "queryServices", service = "kisters",
                        request = "getTimeseriesvalues",
                        ts_id = ts_id, format = "json",
-                       datasource = "1",
+                       datasource = datasource,
                        returnfields = as.character(paste(return_fields,
                                                          collapse = ",")))
 
     # http GET call to waterinfo for the dataframe
     time_series <- call_waterinfo(query = c(query_list, period_info))
+
+    if (time_series$content$rows == 0) {
+        stop("The data request resulted in an empty data.frame,
+             no data available")
+    }
+
     df <- as.data.frame(time_series$content$data)
 
     # data formatting:
-    df$X1 <- as.POSIXct(df$X1, format = "%Y-%m-%dT%H:%M:%S")
+    df$X1 <- ymd_hms(df$X1)
     df$X2 <- as.double(as.character(df$X2))
     colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
     return(df)

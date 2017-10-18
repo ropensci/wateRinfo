@@ -7,9 +7,8 @@
 #' @importFrom dplyr select %>%
 #' @importFrom utils read.csv
 supported_variables <- function(language = "nl") {
-    #lookup_file <- system.file("extdata", "lookup_timeseriesgroup",
-    #                           package = "wateRinfo")
-    lookup_file <- "./inst/extdata/lookup_timeseriesgroup.txt"
+    lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
+                               package = "wateRinfo")
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     if (language == "nl" ) {
@@ -32,14 +31,14 @@ supported_variables <- function(language = "nl") {
 #' @importFrom dplyr %>% filter select
 #' @importFrom utils read.csv
 supported_frequencies <- function(variable_name) {
-    #lookup_file <- system.file("extdata", "lookup_timeseriesgroup",
-    #                           package = "wateRinfo")
-    lookup_file <- "./inst/extdata/lookup_timeseriesgroup.txt"
+    lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
+                               package = "wateRinfo")
+    #lookup_file <- "./inst/extdata/lookup_timeseriesgroup.txt"
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     variable_subset <- lookup %>%
-        filter(variable_en == variable_name | variable_nl == variable_name) %>%
-        select(frequency_en)
+        filter("variable_en" == variable_name | "variable_nl" == variable_name) %>%
+        select("frequency_en")
 
     paste(variable_subset$frequency_en, collapse = ", ")
 }

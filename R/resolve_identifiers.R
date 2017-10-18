@@ -13,7 +13,7 @@ resolve_timeseriesid <- function(station, variable, format = "json") {
 #' timeseriesgroupID, based on the provided lookup table from VMM
 #'
 #' Remark that this information is NOT based on a query, but on information
-#' provided by the package itself;
+#' provided by the package itself to make variable names more readable
 #'
 #' The lookup table is provided as external data of the package,
 #' see inst/extdata
@@ -22,16 +22,16 @@ resolve_timeseriesid <- function(station, variable, format = "json") {
 #' @param frequency valid frequency for the given variable
 #'
 #' @export
-#' @importFrom dplyr %>% filter select
+#' @importFrom dplyr %>% filter_ select
+#' @importFrom rlang .data
 resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
 
-    lookup_file <- system.file("extdata", "lookup_timeseriesgroup",
+    lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
                                package = "wateRinfo")
-    lookup_file <- "./inst/extdata/lookup_timeseriesgroup"
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     selected_variable <- lookup %>%
-        filter(variable_en == variable_name | variable_nl == variable_name)
+        filter(.data$variable_en == variable_name | .data$variable_nl == variable_name)
 
     if (nrow(selected_variable) == 0) {
         stop('The provided variable is not available. ',
@@ -40,7 +40,7 @@ resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
     }
 
     selected_variable <- selected_variable %>%
-        filter(frequency_nl == frequency | frequency_en == frequency)
+        filter(.data$frequency_nl == frequency | .data$frequency_en == frequency)
 
     if (nrow(selected_variable) == 0) {
         stop('The provided frequency for this variable is not available. ',
@@ -54,6 +54,6 @@ resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
     }
 
     selected_variable %>%
-        select(timeseriesgroup_id) %>%
+        select(.data$timeseriesgroup_id) %>%
         as.list()
 }
