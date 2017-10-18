@@ -65,15 +65,19 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
     time_series <- call_waterinfo(query = c(query_list, period_info))
 
     if (time_series$content$rows == 0) {
-        stop("The data request resulted in an empty data.frame,
-             no data available")
+        df <- data.frame(Timestamp = as.POSIXct(character()),
+                         Value = double(),
+                         'Quality Code' = character(),
+                         stringsAsFactors = FALSE)
+    } else {
+        df <- as.data.frame(time_series$content$data,
+                            stringsAsFactors = FALSE)
+
+        # data formatting:
+        df$X1 <- ymd_hms(df$X1)
+        df$X2 <- as.double(as.character(df$X2))
+        colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
     }
 
-    df <- as.data.frame(time_series$content$data)
-
-    # data formatting:
-    df$X1 <- ymd_hms(df$X1)
-    df$X2 <- as.double(as.character(df$X2))
-    colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
     return(df)
 }
