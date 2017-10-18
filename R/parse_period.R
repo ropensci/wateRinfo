@@ -117,7 +117,7 @@ parse_period <- function(from = NULL, to = NULL, period = NULL) {
 
     if (!is.null(period)) {
         period <- check_period_format(period)
-        period_info["from"] = period
+        period_info["period"] = period
     }
 
     return(period_info)
