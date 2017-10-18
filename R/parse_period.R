@@ -16,7 +16,7 @@
 #' Instead of D (days), the usage of W - weeks is possible as well
 #' Examples of valid period strings: P3D, P1Y, P1DT12H, PT6H, P1Y6M3DT4H20M30S.
 #'
-#' @return
+#' @return str period string itself if valid
 #' @export
 check_period_format <- function(period_string) {
     regex <- paste("^P(?=[0-9]+|T)[0-9]*Y?(?!M)[0-9]*M?(?![DW])[0-9]*[D,W]?",
@@ -41,7 +41,7 @@ check_period_format <- function(period_string) {
 #' @export
 #'
 #' @examples
-#' isdate("1985-11-21")
+#' isdatetime("1985-11-21")
 #'
 #' @importFrom lubridate parse_date_time
 isdatetime <- function(datetime) {
@@ -58,7 +58,7 @@ isdatetime <- function(datetime) {
 #'
 #' @param datetime string representation of the date
 #'
-#' @return
+#' @return POSIXct date-time object is date is valid representation
 #' @export
 check_date_format <- function(datetime) {
     date_parsed <- isdatetime(datetime)
@@ -107,12 +107,12 @@ parse_period <- function(from = NULL, to = NULL, period = NULL) {
         from <- check_date_format(from)
         # Remark that VMM accepts just year as input for from, but we just
         # standardize it here, lubridate will translate to same moment
-        period_info["from"] = strftime(from, "%y-%m-%d %H:%M:%S")
+        period_info["from"] = strftime(from, "%Y-%m-%d %H:%M:%S")
     }
 
     if (!is.null(to)) {
         to <- check_date_format(from)
-        period_info["to"] = strftime(to, "%y-%m-%d %H:%M:%S")
+        period_info["to"] = strftime(to, "%Y-%m-%d %H:%M:%S")
     }
 
     if (!is.null(period)) {
