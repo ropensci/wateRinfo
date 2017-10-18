@@ -52,6 +52,7 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
     query_list <- list(type = "queryServices", service = "kisters",
                        request = "getTimeseriesvalues",
                        ts_id = ts_id, format = "json",
+                       datasource = "1",
                        returnfields = as.character(paste(return_fields,
                                                          collapse = ",")))
 
