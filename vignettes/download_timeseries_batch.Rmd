@@ -1,0 +1,57 @@
+---
+title: "Downloading time series in batch"
+author: "Stijn Van Hoey"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{downloading_batch}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Downloading time series in batch 
+
+## Download all stations for a given variable
+
+```{r station_of_var, eval = FALSE}
+# http://r-pkgs.had.co.nz/vignettes.html - options vignette
+# extract the available stations for a predefined variable
+variable_of_interest <- "luchtdruk"
+stations <- get_stations(variable_of_interest)
+
+# Download the data for a given period for each of the stations
+station_data <- stations %>%
+    group_by(ts_id) %>%
+    do(get_timeseries_tsid(.$ts_id, period = "P1D")) %>%
+    ungroup() %>%
+    left_join(stations, by = "ts_id")
+
+# create a plot of the individua datasets
+station_data %>% 
+    ggplot(aes(x = Timestamp, y = Value)) + 
+    geom_point() + 
+    facet_wrap(c("station_name", "stationparameter_name"))
+```
+
+## Download set of variables from a station
+
+```{r var_of_station, eval = FALSE}
+station_of_interest <- "ME07_006"
+variables <- get_variables(station_of_interest)
+
+variables_to_download <- variables %>% 
+    filter(parametertype_name == "Bodemvocht") %>%
+    filter(ts_name == "P.15")
+
+variables_updated <- variables_to_download %>%
+    group_by(ts_id) %>%
+    do(get_timeseries_tsid(.$ts_id, period = "P1D")) %>%
+    ungroup() %>%
+    left_join(variables, by = "ts_id")
+
+variables_updated %>% 
+    ggplot(aes(x = Timestamp, y = Value)) + 
+    geom_point() + 
+    facet_wrap(c("ts_name", "stationparameter_name"), scales = "free")
+```
+
