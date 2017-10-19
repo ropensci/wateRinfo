@@ -111,7 +111,7 @@ parse_period <- function(from = NULL, to = NULL, period = NULL) {
     }
 
     if (!is.null(to)) {
-        to <- check_date_format(from)
+        to <- check_date_format(to)
         period_info["to"] = strftime(to, "%Y-%m-%d %H:%M:%S")
     }
 
