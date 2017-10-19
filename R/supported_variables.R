@@ -31,15 +31,14 @@ supported_variables <- function(language = "nl") {
 #' @export
 #' @importFrom dplyr %>% filter select
 #' @importFrom utils read.csv
+#' @importFrom rlang .data
 supported_frequencies <- function(variable_name) {
     lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
                                package = "wateRinfo")
-    #lookup_file <- "./inst/extdata/lookup_timeseriesgroup.txt"
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     variable_subset <- lookup %>%
-        filter("variable_en" == variable_name | "variable_nl" == variable_name) %>%
-        select("frequency_en")
+        filter(.data$variable_en == variable_name | .data$variable_nl == variable_name)
 
     paste(variable_subset$frequency_en, collapse = ", ")
 }
