@@ -1,0 +1,17 @@
+---
+title: "Definition of the date period to download"
+author: "Stijn Van Hoey"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{date_definition}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Introduction
+
+
+## Period
+
+
