@@ -1,17 +1,59 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "Download time series from Waterinfo.be"
+author: "Stijn Van Hoey"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{downloading}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
+# Introduction
+
+The [waterinfo.be](https://www.waterinfo.be) API uses a system of identifiers, called `ts_id` to define individual time series. For example, the identifier `ts_id` = `78073042` corresponds to the time series of air pressure data for the measurement station in Liedekerke, with a 15 min time resolution. Hence, the `ts_id` identifier defines a variable of interest from a measurement station of interest with a specific frequency (e.g. 15 min, hourly,...). The knowledge of the proper identifier is essential to be able to download the corresponding data.
+
+```{r}
+library(wateRinfo)
+library(dplyr)
+```
+
+
+# Downloading with known identifier
+
+In case you already know the `ts_id` identifier that defines your time serie, the package provides the function `get_timeseries_tsid` to download a specific period of the time series. 
+
+As an example, to download the air pressure data of Liedekerke for the first of January 2016:
+
+```{r tsdownload}
+my_data <- get_timeseries_tsid("78073042", from = "2016-01-01", to = "2016-01-02")
+knitr::kable(head(my_data), align = "lcc")
+```
+
+For more information on the possibilities in defining the period of the download, a separate vignette is available. Let's have a visual check of our downloaded data, using the `ggplot2` package:
+
+```{r}
+library(ggplot2)
+my_data %>% 
+    ggplot(aes(Timestamp, Value)) + 
+    geom_line()
+```
+
+
+# Search identifier based on station name
+
+
+
+# Search identifier based on variable name
+
+
+
+# Downloading time series in batch 
+
 ## Download all stations for a given variable
 
-```{r station_of_var}
+```{r station_of_var, eval = FALSE}
+# http://r-pkgs.had.co.nz/vignettes.html - options vignette
 # extract the available stations for a predefined variable
 variable_of_interest <- "luchtdruk"
 stations <- get_stations(variable_of_interest)
@@ -32,7 +74,7 @@ station_data %>%
 
 ## Download set of variables from a station
 
-```{r var_of_station}
+```{r var_of_station, eval = FALSE}
 station_of_interest <- "ME07_006"
 variables <- get_variables(station_of_interest)
 
@@ -51,19 +93,6 @@ variables_updated %>%
     geom_point() + 
     facet_wrap(c("ts_name", "stationparameter_name"), scales = "free")
 ```
-
-
-## intro
-
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
-
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
-
-## Vignette Info
-
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
 
 ## Styles
 
