@@ -9,125 +9,118 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-# Introduction
-
-The [waterinfo.be](https://www.waterinfo.be) API uses a system of identifiers, called `ts_id` to define individual time series. For example, the identifier `ts_id` = `78073042` corresponds to the time series of air pressure data for the measurement station in Liedekerke, with a 15 min time resolution. Hence, the `ts_id` identifier defines a variable of interest from a measurement station of interest with a specific frequency (e.g. 15 min, hourly,...). The knowledge of the proper identifier is essential to be able to download the corresponding data.
-
-```{r}
-library(wateRinfo)
+```{r, include=FALSE}
 library(dplyr)
 ```
 
+## Introduction
 
-# Downloading with known identifier
+The [waterinfo.be](https://www.waterinfo.be) API uses a system of identifiers, called `ts_id` to define individual time series. For example, the identifier `ts_id` = `78073042` corresponds to the time series of air pressure data for the measurement station in Liedekerke, with a 15 min time resolution. Hence, the `ts_id` identifier defines a variable of interest from a measurement station of interest with a specific frequency (e.g. 15 min, hourly,...). The knowledge of the proper identifier is essential to be able to download the corresponding data.
+
+```{r load_lib, echo = FALSE}
+library(wateRinfo)
+```
+
+
+## Downloading with known `ts` identifier
 
 In case you already know the `ts_id` identifier that defines your time serie, the package provides the function `get_timeseries_tsid` to download a specific period of the time series. 
 
-As an example, to download the air pressure data of Liedekerke for the first of January 2016:
+As an example, to download the air pressure time series data of Liedekerke with a 15 min resolution (`ts_id` = `78073042`) for the first of January 2016:
 
 ```{r tsdownload}
 my_data <- get_timeseries_tsid("78073042", from = "2016-01-01", to = "2016-01-02")
 knitr::kable(head(my_data), align = "lcc")
 ```
 
-For more information on the possibilities in defining the period of the download, a separate vignette is available. Let's have a visual check of our downloaded data, using the `ggplot2` package:
+For more information on defining the period of the download, a separate vignette is available. Let's have a visual check of our data, using the `ggplot2` package:
 
-```{r}
+```{r tsvisual, fig.width = 7}
 library(ggplot2)
-my_data %>% 
-    ggplot(aes(Timestamp, Value)) + 
+
+ggplot(my_data, aes(Timestamp, Value)) + 
     geom_line()
 ```
 
+## Search identifier based on variable name
 
-# Search identifier based on station name
+For a number of variables, the [documentation of the Waterinfo.be API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) provides a direct overview option of all available VMM measurement stations, using the so-called `Timeseriesgroup_id`. For these variables, the package provides the function `get_stations` to download an overview of available measurement stations and the related `ts_id` identifiers. The latter can be used to [download the time series](#Downloading-with-known-ts-identifier). 
 
-
-
-# Search identifier based on variable name
-
-
-
-# Downloading time series in batch 
-
-## Download all stations for a given variable
-
-```{r station_of_var, eval = FALSE}
-# http://r-pkgs.had.co.nz/vignettes.html - options vignette
-# extract the available stations for a predefined variable
-variable_of_interest <- "luchtdruk"
-stations <- get_stations(variable_of_interest)
-
-# Download the data for a given period for each of the stations
-station_data <- stations %>%
-    group_by(ts_id) %>%
-    do(get_timeseries_tsid(.$ts_id, period = "P1D")) %>%
-    ungroup() %>%
-    left_join(stations, by = "ts_id")
-
-# create a plot of the individua datasets
-station_data %>% 
-    ggplot(aes(x = Timestamp, y = Value)) + 
-    geom_point() + 
-    facet_wrap(c("station_name", "stationparameter_name"))
+```{r statofvar}
+library('kableExtra')
+library('knitr')
+get_stations("air_pressure") %>%
+    kable("html") %>%
+    scroll_box(width = "700px", height = "300px")
 ```
 
-## Download set of variables from a station
+By default, the expected frequency is the 15 min frequency of the time series. However, for some of the variables, multiple frequencies are supported by the API. The package provides the functionalities to check which variables and frequencies are supported. An overview of the currently supported variables can be requested with the command `supported_variables`. Actually, more variables are available with the API (see next section), but for each of these variables the `get_stations` function is supported (i.e. the `Timeseriesgroup_id` is documented by VMM). 
 
-```{r var_of_station, eval = FALSE}
-station_of_interest <- "ME07_006"
-variables <- get_variables(station_of_interest)
-
-variables_to_download <- variables %>% 
-    filter(parametertype_name == "Bodemvocht") %>%
-    filter(ts_name == "P.15")
-
-variables_updated <- variables_to_download %>%
-    group_by(ts_id) %>%
-    do(get_timeseries_tsid(.$ts_id, period = "P1D")) %>%
-    ungroup() %>%
-    left_join(variables, by = "ts_id")
-
-variables_updated %>% 
-    ggplot(aes(x = Timestamp, y = Value)) + 
-    geom_point() + 
-    facet_wrap(c("ts_name", "stationparameter_name"), scales = "free")
+```{r suppvar}
+supported_variables("en") %>% 
+    as.list()
 ```
 
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+To check which predefined frequencies are provided by the Waterinfo.be API, the `supported_frequencies` function is available:
+```{r suppfreq1}
+supported_frequencies(variable_name = "air_pressure")
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+Hence, for air_pressure, only the 15 min resolution is supported. Compared to evaporation derived by [Monteith equation](https://en.wikipedia.org/wiki/Penman%E2%80%93Monteith_equation):
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+```{r suppfreq2}
+supported_frequencies(variable_name = "evaporation_monteith")
 ```
 
-Also a quote using `>`:
+multiple resolutions are available. Using the coarser time resolutions can be helpful when you want to download longer time series while keeping the number of records to download low (if the frequency would be sufficient for your analysis).
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+
+```{r statofvarwithfreq}
+stations <- get_stations("evaporation_monteith", frequency = "year")
+subset_of_columns <- stations %>% select(ts_id, station_no, station_name, 
+                                         parametertype_name, ts_unitsymbol)
+knitr::kable(subset_of_columns)
+```
+
+When interesed in the data of `Herentals_ME`, we can use the corresponding `ts_id` to download the time series of PET with a yearly frequency:
+
+```{r yearly_pet, fig.width = 7}
+pet_yearly <- get_timeseries_tsid("94526042", period = "P10Y")
+pet_yearly %>% 
+    na.omit() %>%
+    ggplot(aes(Timestamp, Value)) + 
+    geom_bar(stat = "identity") +
+    scale_x_datetime(date_labels = "%Y", date_breaks = "1 year") + 
+    xlab("") + ylab("PET Herentals (mm)")
+```
+
+**Remark:** this option only works for those measurement stations belonging to the VMM `meetnet` (network), related to the so-called `datasource = 1`. For [other networks](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting), i.e. `datasource = 2`, the enlisting is not supported. Still, a search for data is provided starting from a given station name (next section).
+
+## Search identifier based on station name
+
+Apart from the option to check the measurement stations that can provide data for a given variable, the package provides the function `get_variables` to get an overview of the available variables for a given station, using the `station_no`. The advantage compared to the `ts_id` is that these `station_no` names are provided by the waterinfo.be website itself when exploring the data. When clicking on a measurement station on the map and checking the time series graph, the `station_no` is provided in the upper left corner in between brackets. 
+
+![waterinfo_example_station_no](./waterinfo_screen.png){ width = 80% }
+
+So, for the example in the figure, i.e. `station_no` = `zes42a-1066`, the available time series are retrieved by using the `get_variables` command:
+
+```{r varforstat}
+available_variables <- get_variables("zes42a-1066")
+available_variables %>% select(ts_id, station_name, ts_name, 
+                               parametertype_name)
+```
+
+The available number of variables depends on the measurement station. The representation is not standardized and depends also from the type of [`meetnet`](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting). Nevertheless, one can derive the required `ts_id` from the list when interpreting the field names. Remark that the datasource can be 2 instead of 1 for specific `meetnetten` (networks). This is printed when asking the variables for a station.
+
+In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the `ts_id` = `2810011` can be used in the `get_timeseries_tsid` function:
+
+```{r downloadstamands, fig.width = 7}
+tide_stamands <- get_timeseries_tsid("2810011", 
+                                     from = "2017-06-01", to = "2017-06-05",
+                                     datasource = 2)
+ggplot(tide_stamands, aes(Timestamp, Value)) + 
+    geom_line() + xlab("") + ylab("waterlevel")
+```
+
+
+
