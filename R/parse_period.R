@@ -64,7 +64,7 @@ check_date_format <- function(datetime) {
     date_parsed <- isdatetime(datetime)
     if (date_parsed == FALSE) {
         stop("The date string can not be properly parsed in any of the
-             in any of the following formats: ymd_hms, ymd, ym, y)")
+             following formats: ymd_hms, ymd, ym, y)")
     }
     date_parsed
 }
