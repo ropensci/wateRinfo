@@ -12,6 +12,7 @@ test_that("VMM tutorial valid examples", {
 
 test_that("days and week info can not be combined", {
     expect_error(check_period_format("P2W2D"))
+    expect_equal(check_period_format("P2WT12H"), "P2WT12H")
 })
 
 test_that("Periods are defined by P symbol", {
@@ -55,4 +56,16 @@ test_that("Impossible date/period input combinations", {
     expect_error(parse_period(from = NULL, to = "2017/01/01",
                               period = NULL)) # only to used
 
+})
+
+test_that("Proper date formats to accept", {
+    expect_is(isdatetime("2017-01-01 11:00:00"), class = c("POSIXct", "POSIXt"))
+    expect_is(isdatetime("2017-01-01"), class = c("POSIXct", "POSIXt"))
+    expect_is(isdatetime("2017/01/01"), class = c("POSIXct", "POSIXt"))
+    expect_is(isdatetime("20170101"), class = c("POSIXct", "POSIXt"))
+    expect_is(isdatetime("2017 01 01"), class = c("POSIXct", "POSIXt"))
+    expect_is(isdatetime("2017-01"), class = c("POSIXct", "POSIXt"))
+    expect_is(isdatetime("2017"), class = c("POSIXct", "POSIXt"))
+    expect_false(isdatetime("01/01/2017"))
+    expect_false(isdatetime("01-01-2017"))
 })
