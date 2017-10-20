@@ -13,6 +13,8 @@ Description: The wateRinfo package provides an R interface to the data available
     download time series using the database identifiers as well as station 
     names.
 License: MIT + file LICENSE
+Depends:
+    R (>= 2.10)
 Imports:
     httr,
     dplyr,
