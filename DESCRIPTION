@@ -19,7 +19,7 @@ Imports:
     httr,
     dplyr,
     jsonlite,
-    lubridate (>=1.6),
+    lubridate (>= 1.6.0),
     rlang
 Encoding: UTF-8
 LazyData: true
