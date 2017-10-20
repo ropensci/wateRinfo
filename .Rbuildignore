@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+draft_calls.R
+^README\.Rmd$
+^README-.*\.png$
+figures/
