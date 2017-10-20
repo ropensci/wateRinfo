@@ -103,7 +103,7 @@ Making a plot of the data with ggplot:
 
 ![](./figures/README-plot_pressure-1.png)
 
-Another option is to check the available variables for a given station, with the function `get_variables`. Let's consider again Overpelt (`ME11_002`) and check the first then available variables at the Overpelt measurement station:
+Another option is to check the available variables for a given station, with the function `get_variables`. Let's consider again Overpelt (`ME11_002`) and check the first ten available variables at the Overpelt measurement station:
 
 ``` r
 vars_overpelt <- get_variables("ME11_002")
