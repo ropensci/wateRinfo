@@ -53,7 +53,7 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
     if (time_series$content$rows == 0) {
         df <- data.frame(Timestamp = as.POSIXct(character()),
                          Value = double(),
-                         'Quality Code' = character(),
+                         "Quality Code" = character(),
                          stringsAsFactors = FALSE)
     } else {
         df <- as.data.frame(time_series$content$data,

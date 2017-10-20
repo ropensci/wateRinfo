@@ -33,12 +33,12 @@ get_variables <- function(station_no) {
 
     stations <- station_variables$content
     if (dim(stations)[1] == 2) {
-        df <- as.data.frame(t(stations[2:nrow(stations),]))
-        colnames(df) <- stations[1,]
+        df <- as.data.frame(t(stations[2:nrow(stations), ]))
+        colnames(df) <- stations[1, ]
 
     } else {
-        df <- as.data.frame(stations[2:nrow(stations),])
-        colnames(df) <- stations[1,]
+        df <- as.data.frame(stations[2:nrow(stations), ])
+        colnames(df) <- stations[1, ]
     }
 
     print(sprintf("Use datasource: %s for data requests of this station!",

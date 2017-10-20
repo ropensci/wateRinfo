@@ -13,9 +13,11 @@ supported_variables <- function(language = "nl") {
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     if (language == "nl" ) {
-        column_name <- quo(variable_nl)}
+        column_name <- quo(variable_nl)
+        }
     else {
-        column_name <- quo(variable_en)}
+        column_name <- quo(variable_en)
+        }
 
     lookup %>%
         select(!!column_name) %>%
@@ -38,7 +40,8 @@ supported_frequencies <- function(variable_name) {
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     variable_subset <- lookup %>%
-        filter(.data$variable_en == variable_name | .data$variable_nl == variable_name)
+        filter(.data$variable_en == variable_name |
+                   .data$variable_nl == variable_name)
 
     paste(variable_subset$frequency_en, collapse = ", ")
 }

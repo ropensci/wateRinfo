@@ -19,5 +19,3 @@ test_that("variables in en and nl", {
     expect_is(freqs, "character")
     expect_true(grepl("15min", freqs))
 })
-
-
