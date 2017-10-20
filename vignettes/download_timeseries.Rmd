@@ -11,6 +11,7 @@ vignette: >
 
 ```{r, include=FALSE}
 library(dplyr)
+library(ggplot2)
 ```
 
 ## Introduction
@@ -36,8 +37,6 @@ knitr::kable(head(my_data), align = "lcc")
 For more information on defining the period of the download, a separate vignette is available. Let's have a visual check of our data, using the `ggplot2` package:
 
 ```{r tsvisual, fig.width = 7}
-library(ggplot2)
-
 ggplot(my_data, aes(Timestamp, Value)) + 
     geom_line()
 ```
