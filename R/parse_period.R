@@ -46,7 +46,7 @@ check_period_format <- function(period_string) {
 #' @importFrom lubridate parse_date_time
 isdatetime <- function(datetime) {
     tryCatch(parse_date_time(datetime,
-                             orders = c("ymd_hms", "ymd", "ym", "y")),
+                             orders = c("ymd_HMS", "ymd", "ym", "y")),
              warning = function(err) {FALSE})
 }
 
