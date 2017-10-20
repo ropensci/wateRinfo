@@ -3,6 +3,8 @@
 wateRinfo
 =========
 
+[![Build Status](https://travis-ci.org/stijnvanhoey/wateRinfo.svg?branch=addci)](https://travis-ci.org/stijnvanhoey/wateRinfo) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/stijnvanhoey/wateRinfo?branch=master&svg=true)](https://ci.appveyor.com/project/stijnvanhoey/wateRinfo)
+
 The goal of wateRinfo is to facilitate access to the variety of data available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
 
 An [API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) is provided by waterinfo.be to request time series data. However, this still requires the proper composition of the URL with the identification codes (`Timeseriesgroup_id` and `ts_id`) as used by the system itself. To facilitate the user in searching for stations and variables and consequently download the data of interest, this package provides some general R functions to download the `waterinfo.be` data.
