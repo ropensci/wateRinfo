@@ -3,7 +3,7 @@
 #' Check if the format of the period is conform the specifications of VMM
 #'
 #' @param period_string input string according to format required by waterinfo:
-#' De period string is provided as P#Y#M#DT#H#M#S, with P defines `Period`,
+#' The period string is provided as P#Y#M#DT#H#M#S, with P defines `Period`,
 #' each # is an integer value and the codes define the number of...
 #' Y - years
 #' M - months
