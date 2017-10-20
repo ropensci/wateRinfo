@@ -6,7 +6,7 @@
 date period}
 \usage{
 get_timeseries_tsid(ts_id, period = NULL, from = NULL, to = NULL,
-  metadata = TRUE, datasource = 1)
+  datasource = 1)
 }
 \arguments{
 \item{ts_id}{waterinfo.be database ts_id, defining a timeserie variable and
@@ -29,8 +29,6 @@ Examples of valid period strings: P3D, P1Y, P1DT12H, PT6H, P1Y6M3DT4H20M30S.}
 \item{from}{date of datestring as start of the time series}
 
 \item{to}{date of datestring as end of the time series}
-
-\item{metadata}{boolean provide metadata}
 
 \item{datasource}{int [0-3] defines the `meetnet` of which the measurement
 station is part of. VMM based stations are net '1', MOW-HIC is net '2'}

@@ -10,6 +10,9 @@ resolve_datasource(station_no)
 \item{station_no}{'stations-nummer' as it appears on the download page of
 https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}
 }
+\value{
+integer 1 for VMM, 2 for other meetnetten
+}
 \description{
 Using the 'stations-nummer' as provided on
 https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden, this

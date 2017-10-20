@@ -8,7 +8,7 @@ check_period_format(period_string)
 }
 \arguments{
 \item{period_string}{input string according to format required by waterinfo:
-De period string is provided as P#Y#M#DT#H#M#S, with P defines `Period`,
+The period string is provided as P#Y#M#DT#H#M#S, with P defines `Period`,
 each # is an integer value and the codes define the number of...
 Y - years
 M - months
