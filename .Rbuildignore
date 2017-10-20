@@ -4,3 +4,4 @@ draft_calls.R
 ^README\.Rmd$
 ^README-.*\.png$
 figures/
+^\.travis\.yml$
