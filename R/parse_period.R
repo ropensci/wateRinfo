@@ -80,6 +80,7 @@ check_date_format <- function(datetime) {
 #' @param period input string according to format required by waterinfo
 #'
 #' @seealso check_period_format
+#' @export
 #' @return list with the relevant period/date information
 parse_period <- function(from = NULL, to = NULL, period = NULL) {
 
