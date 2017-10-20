@@ -59,6 +59,7 @@ call_waterinfo <- function(query, base_url = "download") {
 #' Custom print function of the API request response
 #'
 #' @param x waterinfo_api
+#' @param ... args further arguments passed to or from other methods.
 #'
 #' @export
 #'

@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{x}{waterinfo_api}
+
+\item{...}{args further arguments passed to or from other methods.}
 }
 \description{
 Custom print function of the API request response
