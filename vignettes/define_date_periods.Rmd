@@ -99,8 +99,8 @@ ggplot(irr_lasthours, aes(Timestamp, Value)) +
 
 ```{r historic, fig.width = 7}
 irr_2014 <- get_timeseries_tsid("78930042", 
-                                from = "2014-07", 
-                                to = "2014-08")
+                                from = "2014-07-01", 
+                                to = "2014-08-01")
 ggplot(irr_2014, aes(Timestamp, Value)) +
     geom_line() + xlab("") + ylab("irradiance (W/m2)")
 ```

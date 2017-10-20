@@ -1,5 +1,3 @@
-
-library(wateRinfo)
 context("formatting of the period arguments")
 
 test_that("VMM tutorial valid examples", {
@@ -55,17 +53,23 @@ test_that("Impossible date/period input combinations", {
                               period = NULL)) # None filled in
     expect_error(parse_period(from = NULL, to = "2017/01/01",
                               period = NULL)) # only to used
-
+    expect_is(parse_period(from = "2012-11-01", to = "2013-12-01"),
+              class = "list")
+    expect_is(parse_period(from = "2012-11-01", period = "P3D"),
+              class = "list")
+    expect_is(parse_period(to = "2012-11-01", period = "P3D"),
+              class = "list")
 })
 
 test_that("Proper date formats to accept", {
-    expect_is(isdatetime("2017-01-01 11:00:00"), class = c("POSIXct", "POSIXt"))
-    expect_is(isdatetime("2017-01-01"), class = c("POSIXct", "POSIXt"))
-    expect_is(isdatetime("2017/01/01"), class = c("POSIXct", "POSIXt"))
-    expect_is(isdatetime("20170101"), class = c("POSIXct", "POSIXt"))
-    expect_is(isdatetime("2017 01 01"), class = c("POSIXct", "POSIXt"))
-    expect_is(isdatetime("2017-01"), class = c("POSIXct", "POSIXt"))
-    expect_is(isdatetime("2017"), class = c("POSIXct", "POSIXt"))
+    expect_is(check_date_format("2017-01-01 11:00:00"),
+              class = c("POSIXct", "POSIXt"))
+    expect_is(check_date_format("2017-01-01"), class = c("POSIXct", "POSIXt"))
+    expect_is(check_date_format("2017/01/01"), class = c("POSIXct", "POSIXt"))
+    expect_is(check_date_format("20170101"), class = c("POSIXct", "POSIXt"))
+    expect_is(check_date_format("2017 01 01"), class = c("POSIXct", "POSIXt"))
+    expect_is(check_date_format("2017-01"), class = c("POSIXct", "POSIXt"))
+    expect_is(check_date_format("2017"), class = c("POSIXct", "POSIXt"))
     expect_false(isdatetime("01/01/2017"))
     expect_false(isdatetime("01-01-2017"))
 })

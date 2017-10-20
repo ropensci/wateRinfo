@@ -46,7 +46,7 @@ check_period_format <- function(period_string) {
 #' @importFrom lubridate parse_date_time
 isdatetime <- function(datetime) {
     tryCatch(parse_date_time(datetime,
-                             orders = c("ymd_hms", "ymd", "ym", "y")),
+                             orders = c("ymd_HMS", "ymd", "ym", "y")),
              warning = function(err) {FALSE})
 }
 
@@ -64,7 +64,7 @@ check_date_format <- function(datetime) {
     date_parsed <- isdatetime(datetime)
     if (date_parsed == FALSE) {
         stop("The date string can not be properly parsed in any of the
-             in any of the following formats: ymd_hms, ymd, ym, y)")
+             following formats: ymd_hms, ymd, ym, y)")
     }
     date_parsed
 }
@@ -80,6 +80,7 @@ check_date_format <- function(datetime) {
 #' @param period input string according to format required by waterinfo
 #'
 #' @seealso check_period_format
+#' @export
 #' @return list with the relevant period/date information
 parse_period <- function(from = NULL, to = NULL, period = NULL) {
 
