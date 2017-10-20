@@ -1,17 +1,4 @@
 
-
-
-get_timeseries <- function(station, variable, period = NULL, from = NULL,
-                           to = NULL, metadata = TRUE) {
-
-    # resolve the identifier
-    db_identifier <- resolve_timeseriesid(...)
-
-    get_timeseries_tsid(db_identifier, period = period,
-                        from = from, to = to, metadata = metadata)
-}
-
-
 #' Get timeseries data from waterinfo.be, using the ts_id codes for a given
 #' date period
 #'
@@ -33,7 +20,6 @@ get_timeseries <- function(station, variable, period = NULL, from = NULL,
 #' Examples of valid period strings: P3D, P1Y, P1DT12H, PT6H, P1Y6M3DT4H20M30S.
 #' @param from date of datestring as start of the time series
 #' @param to date of datestring as end of the time series
-#' @param metadata boolean provide metadata
 #' @param datasource int [0-3] defines the `meetnet` of which the measurement
 #' station is part of. VMM based stations are net '1', MOW-HIC is net '2'
 #'
@@ -46,7 +32,7 @@ get_timeseries <- function(station, variable, period = NULL, from = NULL,
 #' get_timeseries_tsid("5156042", period = "P3D")
 #' get_timeseries_tsid("2813562", period = "P1D", datasource = 2)
 get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
-                                to = NULL, metadata = TRUE, datasource = 1) {
+                                to = NULL, datasource = 1) {
     # define the date fields we require
     return_fields <- c("Timestamp", "Value", "Quality Code")
 

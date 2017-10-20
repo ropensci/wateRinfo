@@ -11,7 +11,7 @@
 #' @param station_no 'stations-nummer' as it appears on the download page of
 #' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden
 #'
-#' @return
+#' @return integer 1 for VMM, 2 for other meetnetten
 #' @export
 #'
 #' @examples
@@ -42,16 +42,6 @@ resolve_datasource <- function(station_no) {
     }
 
     return(datasource)
-}
-
-
-#' Translate the usage of measurement station identifiers in the user interface
-#' and the required variable to the corresponding timeseriesID
-#'
-#'
-resolve_timeseriesid <- function(station, variable, format = "json") {
-    station_variables <- #custom call... TODO
-    station_variables %>% filter() # check if specific column is wanted variable
 }
 
 
