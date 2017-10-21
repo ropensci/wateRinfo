@@ -2,8 +2,7 @@
 % Please edit documentation in R/parse_period.R
 \name{parse_period}
 \alias{parse_period}
-\title{Handle the information of provided date information on the period and provide
-feedback to the user}
+\title{Check the from/to/period arguments}
 \usage{
 parse_period(from = NULL, to = NULL, period = NULL)
 }
@@ -18,7 +17,8 @@ parse_period(from = NULL, to = NULL, period = NULL)
 list with the relevant period/date information
 }
 \description{
-valid combinations of the arguments are:
+Handle the information of provided date information on the period and provide
+feedback to the user. Valid combinations of the arguments are:
 from/to, from/period, to/period, period, from
 }
 \seealso{

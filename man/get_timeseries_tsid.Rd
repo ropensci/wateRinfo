@@ -2,8 +2,7 @@
 % Please edit documentation in R/get_timeseries.R
 \name{get_timeseries_tsid}
 \alias{get_timeseries_tsid}
-\title{Get timeseries data from waterinfo.be, using the ts_id codes for a given
-date period}
+\title{Download timeseries data from waterinfo.be}
 \usage{
 get_timeseries_tsid(ts_id, period = NULL, from = NULL, to = NULL,
   datasource = 1)
@@ -37,8 +36,8 @@ station is part of. VMM based stations are net '1', MOW-HIC is net '2'}
 data.frame with the timestamps, values and quality code
 }
 \description{
-Get timeseries data from waterinfo.be, using the ts_id codes for a given
-date period
+Using the ts_id codes  and by providing a given date period, download the
+corresponding time series from the waterinfo.be website
 }
 \examples{
 get_timeseries_tsid("35055042", from="2017-01-01", to="2017-01-02")

@@ -45,6 +45,8 @@ resolve_datasource <- function(station_no) {
 }
 
 
+#' Get timeseriesgroupID for a supported variable
+#'
 #' Translate the usage of available variables to the corresponding
 #' timeseriesgroupID, based on the provided lookup table from VMM
 #'
@@ -67,26 +69,28 @@ resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     selected_variable <- lookup %>%
-        filter(.data$variable_en == variable_name | .data$variable_nl == variable_name)
+        filter(.data$variable_en == variable_name |
+                   .data$variable_nl == variable_name)
 
     if (nrow(selected_variable) == 0) {
-        stop('The provided variable is not available. ',
-             'Supported variables as timeseriesgroup are: ',
+        stop("The provided variable is not available. ",
+             "Supported variables as timeseriesgroup are: ",
              paste(supported_variables("en")$variable_en, collapse = ", "))
     }
 
     selected_variable <- selected_variable %>%
-        filter(.data$frequency_nl == frequency | .data$frequency_en == frequency)
+        filter(.data$frequency_nl == frequency |
+                   .data$frequency_en == frequency)
 
     if (nrow(selected_variable) == 0) {
-        stop('The provided frequency for this variable is not available. ',
-             'Supported frequencies for this variable are: ',
+        stop("The provided frequency for this variable is not available. ",
+             "Supported frequencies for this variable are: ",
              paste(supported_frequencies(variable_name), collapse = ", "))
     }
 
     if (nrow(selected_variable) > 1 ) {
-        stop('The provided combination of variable and frequence can not
-             unambigiously be linked to a single timeseriesgroupid')
+        stop("The provided combination of variable and frequence can not
+             unambigiously be linked to a single timeseriesgroupid")
     }
 
     selected_variable %>%

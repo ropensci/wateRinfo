@@ -1,5 +1,7 @@
 
 
+#' Check period string format
+#'
 #' Check if the format of the period is conform the specifications of VMM
 #'
 #' @param period_string input string according to format required by waterinfo:
@@ -32,8 +34,8 @@ check_period_format <- function(period_string) {
 }
 
 #' Check if the string input can be converted to a date
-#' (acknowledgments to micstr/isdate.R)
 #'
+#' (acknowledgments to micstr/isdate.R)
 #'
 #' @param datetime string representation of a date
 #'
@@ -47,7 +49,9 @@ check_period_format <- function(period_string) {
 isdatetime <- function(datetime) {
     tryCatch(parse_date_time(datetime,
                              orders = c("ymd_HMS", "ymd", "ym", "y")),
-             warning = function(err) {FALSE})
+             warning = function(err) {
+                 FALSE
+                 })
 }
 
 
@@ -69,10 +73,10 @@ check_date_format <- function(datetime) {
     date_parsed
 }
 
-#' Handle the information of provided date information on the period and provide
-#' feedback to the user
+#' Check the from/to/period arguments
 #'
-#' valid combinations of the arguments are:
+#' Handle the information of provided date information on the period and provide
+#' feedback to the user. Valid combinations of the arguments are:
 #' from/to, from/period, to/period, period, from
 #'
 #' @param from string representing date of datetime object
@@ -86,20 +90,20 @@ parse_period <- function(from = NULL, to = NULL, period = NULL) {
 
     # if none of 3 provided, error
     if (is.null(from) & is.null(to) & is.null(period)) {
-        stop('Date information should be provided by a combination of 2
-             parameters out of from/to/period')
+        stop("Date information should be provided by a combination of 2
+             parameters out of from/to/period")
     }
 
     # if all 3 provided, error
     if (!is.null(from) & !is.null(to) & !is.null(period)) {
-        stop('Date information should be provided by a combination of maximum 2
-             parameters out of from/to/period')
+        stop("Date information should be provided by a combination of maximum 2
+             parameters out of from/to/period")
     }
 
     # if only 'to' provided, error
     if (is.null(from) & !is.null(to) & is.null(period)) {
-        stop('Date information should be provided by providing a from or period
-             input')
+        stop("Date information should be provided by providing a from or period
+             input")
     }
 
     period_info <- list()
@@ -108,17 +112,17 @@ parse_period <- function(from = NULL, to = NULL, period = NULL) {
         from <- check_date_format(from)
         # Remark that VMM accepts just year as input for from, but we just
         # standardize it here, lubridate will translate to same moment
-        period_info["from"] = strftime(from, "%Y-%m-%d %H:%M:%S")
+        period_info["from"] <- strftime(from, "%Y-%m-%d %H:%M:%S")
     }
 
     if (!is.null(to)) {
         to <- check_date_format(to)
-        period_info["to"] = strftime(to, "%Y-%m-%d %H:%M:%S")
+        period_info["to"] <- strftime(to, "%Y-%m-%d %H:%M:%S")
     }
 
     if (!is.null(period)) {
         period <- check_period_format(period)
-        period_info["period"] = period
+        period_info["period"] <- period
     }
 
     return(period_info)

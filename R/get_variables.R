@@ -1,5 +1,5 @@
 
-#' For a given station, provide a list of the available variables
+#' Get list of variables for a given station
 #'
 #' @param station_no 'stations-nummer' as it appears on the download page of
 #' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden
@@ -33,12 +33,12 @@ get_variables <- function(station_no) {
 
     stations <- station_variables$content
     if (dim(stations)[1] == 2) {
-        df <- as.data.frame(t(stations[2:nrow(stations),]))
-        colnames(df) <- stations[1,]
+        df <- as.data.frame(t(stations[2:nrow(stations), ]))
+        colnames(df) <- stations[1, ]
 
     } else {
-        df <- as.data.frame(stations[2:nrow(stations),])
-        colnames(df) <- stations[1,]
+        df <- as.data.frame(stations[2:nrow(stations), ])
+        colnames(df) <- stations[1, ]
     }
 
     print(sprintf("Use datasource: %s for data requests of this station!",

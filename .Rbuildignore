@@ -6,3 +6,5 @@ draft_calls.R
 figures/
 ^\.travis\.yml$
 ^appveyor\.yml$
+^docs$
+^_pkgdown\.yml$

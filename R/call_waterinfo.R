@@ -1,8 +1,15 @@
 
-waterinfo_base <- function() "http://download.waterinfo.be/tsmdownload/KiWIS/KiWIS"
-waterinfo_pro_base <- function() "http://pro.waterinfo.be/tsmpro/KiWIS/KiWIS"
+waterinfo_base <- function() {
+    "http://download.waterinfo.be/tsmdownload/KiWIS/KiWIS"
+}
+waterinfo_pro_base <- function() {
+    "http://pro.waterinfo.be/tsmpro/KiWIS/KiWIS"
+}
 
-#' Basic http call to waterinfo.be, providing error handling and json parsing
+#' http call to waterinfo.be
+#'
+#' General call used to request information and data from waterinfo.be,
+#' providing error handling and json parsing
 #'
 #' @param query list of query options to be used together with the base string
 #' @param base_url str download | pro, default download defined
@@ -16,9 +23,9 @@ call_waterinfo <- function(query, base_url = "download") {
 
     # check the base url, which depends of the query to execute
     if (base_url == "download") {
-        base  = waterinfo_base()
+        base  <- waterinfo_base()
     } else if (base_url == "pro") {
-        base  = waterinfo_pro_base()
+        base  <- waterinfo_pro_base()
     } else {
         stop("Base url should be download or pro")
     }

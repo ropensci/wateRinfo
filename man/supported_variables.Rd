@@ -2,8 +2,7 @@
 % Please edit documentation in R/supported_variables.R
 \name{supported_variables}
 \alias{supported_variables}
-\title{Provide list of VMM supported variables in the timeseriesgroupID
-in either dutch or english}
+\title{VMM supported timeseriesgroups variables}
 \usage{
 supported_variables(language = "nl")
 }

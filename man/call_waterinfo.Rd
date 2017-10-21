@@ -2,7 +2,7 @@
 % Please edit documentation in R/call_waterinfo.R
 \name{call_waterinfo}
 \alias{call_waterinfo}
-\title{Basic http call to waterinfo.be, providing error handling and json parsing}
+\title{http call to waterinfo.be}
 \usage{
 call_waterinfo(query, base_url = "download")
 }
@@ -15,5 +15,6 @@ call_waterinfo(query, base_url = "download")
 waterinfo_api class object with content and info about call
 }
 \description{
-Basic http call to waterinfo.be, providing error handling and json parsing
+General call used to request information and data from waterinfo.be,
+providing error handling and json parsing
 }

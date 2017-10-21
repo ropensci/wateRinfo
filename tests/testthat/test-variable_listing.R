@@ -10,9 +10,9 @@ test_that("works as expected", {
     expect_is(ostend, "data.frame")
 
     expect_true(78118042 %in% overpelt$ts_id)
-    expect_true('ts_id' %in% colnames(overpelt))
+    expect_true("ts_id" %in% colnames(overpelt))
     expect_true(2394848 %in% ostend$ts_id)
-    expect_true('ts_id' %in% colnames(ostend))
+    expect_true("ts_id" %in% colnames(ostend))
 
     expect_equal(colnames(overpelt),
                  c("station_name", "station_no", "ts_id",
@@ -24,5 +24,3 @@ test_that("unexisting station", {
 
     expect_error(get_variables("abracadabre"))
 })
-
-

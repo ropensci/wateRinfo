@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_period.R
 \name{check_period_format}
 \alias{check_period_format}
-\title{Check if the format of the period is conform the specifications of VMM}
+\title{Check period string format}
 \usage{
 check_period_format(period_string)
 }
