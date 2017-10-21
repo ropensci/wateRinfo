@@ -3,7 +3,7 @@
 wateRinfo
 =========
 
-[![Build Status](https://travis-ci.org/stijnvanhoey/wateRinfo.svg?branch=addci)](https://travis-ci.org/stijnvanhoey/wateRinfo) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/stijnvanhoey/wateRinfo?branch=master&svg=true)](https://ci.appveyor.com/project/stijnvanhoey/wateRinfo)
+[![Build Status](https://travis-ci.org/stijnvanhoey/wateRinfo.svg?branch=addci)](https://travis-ci.org/stijnvanhoey/wateRinfo) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/stijnvanhoey/wateRinfo?branch=master&svg=true)](https://ci.appveyor.com/project/stijnvanhoey/wateRinfo) [![Coverage Status](https://coveralls.io/repos/github/stijnvanhoey/wateRinfo/badge.svg)](https://coveralls.io/r/stijnvanhoey/wateRinfo?branch=master)
 
 The goal of wateRinfo is to facilitate access to the variety of data available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
 
@@ -103,7 +103,15 @@ head(overpelt_pressure)
 
 Making a plot of the data with ggplot:
 
-![](./figures/README-plot_pressure-1.png)
+``` r
+library(ggplot2)
+ggplot(overpelt_pressure, aes(x = Timestamp, y = Value)) + 
+    geom_line() + 
+    xlab("") + ylab("hPa") + 
+    scale_x_datetime(date_labels = "%H:%M\n%Y-%m-%d", date_breaks = "6 hours")
+```
+
+<img src="./figures/README-plot_pressure-1.png" width="80%" />
 
 Another option is to check the available variables for a given station, with the function `get_variables`. Let's consider again Overpelt (`ME11_002`) and check the first ten available variables at the Overpelt measurement station:
 
@@ -151,7 +159,14 @@ head(overpelt_rh_daily)
 #> 6 2017-04-06 23:00:00 82.71          130
 ```
 
-![](./figures/README-plot_rh-1.png)
+``` r
+ggplot(overpelt_rh_daily, aes(x = Timestamp, y = Value)) + 
+    geom_line() + 
+    xlab("") + ylab(" RH (%)") + 
+    scale_x_datetime(date_labels = "%b-%d\n%Y", date_breaks = "5 days")
+```
+
+<img src="./figures/README-plot_rh-1.png" width="80%" />
 
 Unfortunately, not all variables are documented, for which the check for the appropriate variable is not (yet) fully supported by the package.
 
@@ -166,3 +181,12 @@ Acknowledgements
 ----------------
 
 This package is just a small wrapper around waterinfo.be to facilitate researchers and other stakeholders in downloading the data from [waterinfo.be](http://www.waterinfo.be). The availability of this data is made possible by *de Vlaamse Milieumaatschappij, Waterbouwkundig Laboratorium, Maritieme Dienstverlening & Kust, Waterwegen en Zeekanaal NV en De Scheepvaart NV*.
+
+Furthermore...
+--------------
+
+This package is an experimental open-source project. All functionalities are provided as is, without any guarantee.
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+Please [report any issues or bugs](https://github.com/stijnvanhoey/wateRinfo/issues/new).

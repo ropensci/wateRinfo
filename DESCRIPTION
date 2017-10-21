@@ -27,6 +27,7 @@ Suggests: testthat,
     knitr,
     rmarkdown,
     ggplot2,
-    dplyr
+    dplyr,
+    covr
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr

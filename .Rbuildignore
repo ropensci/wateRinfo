@@ -8,3 +8,4 @@ figures/
 ^appveyor\.yml$
 ^docs$
 ^_pkgdown\.yml$
+^CONDUCT\.md$
