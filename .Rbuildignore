@@ -5,3 +5,4 @@ draft_calls.R
 ^README-.*\.png$
 figures/
 ^\.travis\.yml$
+^appveyor\.yml$
