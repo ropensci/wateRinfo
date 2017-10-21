@@ -1,5 +1,5 @@
 
-#' For a given station, provide a list of the available variables
+#' Get list of variables for a given station
 #'
 #' @param station_no 'stations-nummer' as it appears on the download page of
 #' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden

@@ -45,6 +45,8 @@ resolve_datasource <- function(station_no) {
 }
 
 
+#' Get timeseriesgroupID for a supported variable
+#'
 #' Translate the usage of available variables to the corresponding
 #' timeseriesgroupID, based on the provided lookup table from VMM
 #'

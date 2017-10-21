@@ -1,6 +1,8 @@
 
-#' Get timeseries data from waterinfo.be, using the ts_id codes for a given
-#' date period
+#' Download timeseries data from waterinfo.be
+#'
+#' Using the ts_id codes  and by providing a given date period, download the
+#' corresponding time series from the waterinfo.be website
 #'
 #'
 #' @param ts_id waterinfo.be database ts_id, defining a timeserie variable and

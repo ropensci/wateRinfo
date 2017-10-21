@@ -1,3 +1,5 @@
+#' VMM supported timeseriesgroups variables
+#'
 #' Provide list of VMM supported variables in the timeseriesgroupID
 #' in either dutch or english
 #'
@@ -25,6 +27,8 @@ supported_variables <- function(language = "nl") {
 }
 
 
+#' VMM supported timeseriesgroups frequencies
+#'
 #' Provide list of VMM supported frequencies for a given timeseriesgroupID
 #' in either dutch or english
 #'

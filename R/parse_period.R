@@ -1,5 +1,7 @@
 
 
+#' Check period string format
+#'
 #' Check if the format of the period is conform the specifications of VMM
 #'
 #' @param period_string input string according to format required by waterinfo:
@@ -32,8 +34,8 @@ check_period_format <- function(period_string) {
 }
 
 #' Check if the string input can be converted to a date
-#' (acknowledgments to micstr/isdate.R)
 #'
+#' (acknowledgments to micstr/isdate.R)
 #'
 #' @param datetime string representation of a date
 #'
@@ -71,10 +73,10 @@ check_date_format <- function(datetime) {
     date_parsed
 }
 
-#' Handle the information of provided date information on the period and provide
-#' feedback to the user
+#' Check the from/to/period arguments
 #'
-#' valid combinations of the arguments are:
+#' Handle the information of provided date information on the period and provide
+#' feedback to the user. Valid combinations of the arguments are:
 #' from/to, from/period, to/period, period, from
 #'
 #' @param from string representing date of datetime object

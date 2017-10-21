@@ -1,4 +1,6 @@
 
+#' Get list of stations for a variable
+#'
 #' For a given timeseriesgroup (variable), provide a list of measurement
 #' stations providing data. An overview of the variables is provided by the
 #' function `supported_variables`

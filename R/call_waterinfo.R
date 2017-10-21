@@ -6,7 +6,10 @@ waterinfo_pro_base <- function() {
     "http://pro.waterinfo.be/tsmpro/KiWIS/KiWIS"
 }
 
-#' Basic http call to waterinfo.be, providing error handling and json parsing
+#' http call to waterinfo.be
+#'
+#' General call used to request information and data from waterinfo.be,
+#' providing error handling and json parsing
 #'
 #' @param query list of query options to be used together with the base string
 #' @param base_url str download | pro, default download defined
