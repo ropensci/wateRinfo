@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_variables.R
 \name{get_variables}
 \alias{get_variables}
-\title{For a given station, provide a list of the available variables}
+\title{Get list of variables for a given station}
 \usage{
 get_variables(station_no)
 }
@@ -15,5 +15,5 @@ data.frame with the station_name, station_no, ts_id, ts_name  and
 parametertype_name for each of the variables for this station
 }
 \description{
-For a given station, provide a list of the available variables
+Get list of variables for a given station
 }

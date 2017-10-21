@@ -2,8 +2,7 @@
 % Please edit documentation in R/parse_period.R
 \name{isdatetime}
 \alias{isdatetime}
-\title{Check if the string input can be converted to a date
-(acknowledgments to micstr/isdate.R)}
+\title{Check if the string input can be converted to a date}
 \usage{
 isdatetime(datetime)
 }
@@ -14,7 +13,6 @@ isdatetime(datetime)
 boolean
 }
 \description{
-Check if the string input can be converted to a date
 (acknowledgments to micstr/isdate.R)
 }
 \examples{

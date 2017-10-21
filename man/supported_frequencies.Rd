@@ -2,8 +2,7 @@
 % Please edit documentation in R/supported_variables.R
 \name{supported_frequencies}
 \alias{supported_frequencies}
-\title{Provide list of VMM supported frequencies for a given timeseriesgroupID
-in either dutch or english}
+\title{VMM supported timeseriesgroups frequencies}
 \usage{
 supported_frequencies(variable_name)
 }

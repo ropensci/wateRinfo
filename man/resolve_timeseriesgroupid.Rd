@@ -2,8 +2,7 @@
 % Please edit documentation in R/resolve_identifiers.R
 \name{resolve_timeseriesgroupid}
 \alias{resolve_timeseriesgroupid}
-\title{Translate the usage of available variables to the corresponding
-timeseriesgroupID, based on the provided lookup table from VMM}
+\title{Get timeseriesgroupID for a supported variable}
 \usage{
 resolve_timeseriesgroupid(variable_name, frequency = "15min")
 }
@@ -13,10 +12,13 @@ resolve_timeseriesgroupid(variable_name, frequency = "15min")
 \item{frequency}{valid frequency for the given variable}
 }
 \description{
-Remark that this information is NOT based on a query, but on information
-provided by the package itself to make variable names more readable
+Translate the usage of available variables to the corresponding
+timeseriesgroupID, based on the provided lookup table from VMM
 }
 \details{
+Remark that this information is NOT based on a query, but on information
+provided by the package itself to make variable names more readable
+
 The lookup table is provided as external data of the package,
 see inst/extdata
 }

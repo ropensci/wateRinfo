@@ -2,9 +2,7 @@
 % Please edit documentation in R/get_stations.R
 \name{get_stations}
 \alias{get_stations}
-\title{For a given timeseriesgroup (variable), provide a list of measurement
-stations providing data. An overview of the variables is provided by the
-function `supported_variables`}
+\title{Get list of stations for a variable}
 \usage{
 get_stations(variable_name, frequency = "15min")
 }
@@ -15,6 +13,11 @@ get_stations(variable_name, frequency = "15min")
 variables, the 15min frequency is available}
 }
 \description{
+For a given timeseriesgroup (variable), provide a list of measurement
+stations providing data. An overview of the variables is provided by the
+function `supported_variables`
+}
+\details{
 For the moment, this only works for measurement stations of VMM (meetnet 1),
 and stations from other measurement nets are not included in the list
 }
