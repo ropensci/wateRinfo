@@ -1,0 +1,41 @@
+
+reference:
+  - title: "Main download functionalities"
+    desc: "Functions for downloading stations, variables and time series"
+    contents:
+      - get_stations
+      - get_variables
+      - get_timeseries_tsid
+  - title: "Check the VMM supported variables"
+    desc: "The supported variables can be requested on timeseriesgroupID"
+    contents:
+      - supported_frequencies
+      - supported_variables
+  - title: "Example datasets"
+    contents:
+      - liedekerke
+      - air_pressure
+  - title: "Resolving of identifiers to names"
+    contents:
+      - resolve_timeseriesgroupid
+      - resolve_datasource
+  - title: "Date handling support functions"
+    contents:
+      - isdatetime
+      - check_date_format
+      - check_period_format
+      - parse_period
+  - title: "Underlying API request function"
+    contents:
+      - call_waterinfo
+
+articles:
+  - title: "Tutorial on the main downloading functionalities"
+    contents:
+    - download_timeseries
+  - title: "How to define the period?"
+    contents:
+    - define_date_periods
+  - title: "Downloading the data of multiple stations/variables"
+    contents:
+    - download_timeseries_batch
