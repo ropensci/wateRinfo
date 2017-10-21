@@ -103,7 +103,15 @@ head(overpelt_pressure)
 
 Making a plot of the data with ggplot:
 
-![](./figures/README-plot_pressure-1.png)
+``` r
+library(ggplot2)
+ggplot(overpelt_pressure, aes(x = Timestamp, y = Value)) + 
+    geom_line() + 
+    xlab("") + ylab("hPa") + 
+    scale_x_datetime(date_labels = "%H:%M\n%Y-%m-%d", date_breaks = "6 hours")
+```
+
+<img src="./figures/README-plot_pressure-1.png" width="80%" />
 
 Another option is to check the available variables for a given station, with the function `get_variables`. Let's consider again Overpelt (`ME11_002`) and check the first ten available variables at the Overpelt measurement station:
 
@@ -151,7 +159,14 @@ head(overpelt_rh_daily)
 #> 6 2017-04-06 23:00:00 82.71          130
 ```
 
-![](./figures/README-plot_rh-1.png)
+``` r
+ggplot(overpelt_rh_daily, aes(x = Timestamp, y = Value)) + 
+    geom_line() + 
+    xlab("") + ylab(" RH (%)") + 
+    scale_x_datetime(date_labels = "%b-%d\n%Y", date_breaks = "5 days")
+```
+
+<img src="./figures/README-plot_rh-1.png" width="80%" />
 
 Unfortunately, not all variables are documented, for which the check for the appropriate variable is not (yet) fully supported by the package.
 
