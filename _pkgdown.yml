@@ -1,4 +1,25 @@
 
+navbar:
+  title: wateRinfo
+  type: default
+  left:
+  - icon: fa-home fa-lg
+    href: index.html
+  - text: Tutorials
+    href: articles/index.html
+    menu:
+    - text: Definition of the date period to download
+      href: articles/define_date_periods.html
+    - text: Downloading time series in batch
+      href: articles/download_timeseries_batch.html
+    - text: Download time series from Waterinfo.be
+      href: articles/download_timeseries.html
+  - text: Functions
+    href: reference/index.html
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/stijnvanhoey/wateRinfo
+
 reference:
   - title: "Main download functionalities"
     desc: "Functions for downloading stations, variables and time series"
