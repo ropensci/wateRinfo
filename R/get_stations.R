@@ -15,7 +15,13 @@
 #' @export
 #' @importFrom dplyr %>% select
 #' @seealso supported_variables
-get_stations <- function(variable_name, frequency = "15min") {
+get_stations <- function(variable_name = NULL, frequency = "15min") {
+
+    if (is.null(variable_name)) {
+        vars2use <- paste(as.list(supported_variables("en"))[[1]],
+                          collapse = ", ")
+        stop("Please select a variable: ", vars2use, call. = FALSE)
+    }
 
     timeseriesgroupid <- resolve_timeseriesgroupid(variable_name, frequency)
 
