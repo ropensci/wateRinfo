@@ -33,7 +33,14 @@ call_waterinfo <- function(query, base_url = "download") {
     res <- GET(base, query = query)
 
     if (http_type(res) != "application/json") {
-        stop("API did not return json", call. = FALSE)
+        if (http_type(res) != "application/xml") {
+            custom_error <- content(res, "text", encoding = "UTF-8")
+            pattern <- "(?<=ExceptionText>).*(?=</ExceptionText>)"
+            error_message <- regmatches(custom_error,
+                                        regexpr(pattern, custom_error,
+                                                perl = TRUE))
+        }
+        stop("API did not return json - ", error_message, call. = FALSE)
     }
 
     parsed <- fromJSON(content(res, "text"))
