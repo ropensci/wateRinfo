@@ -29,6 +29,10 @@ resolve_datasource <- function(station_no) {
         sprintf("Station %s belongs to Meetnet EMT - afdeling Bovenschelde",
                 station_no)
         datasource <- 2
+    } else if (grepl(".*-1074", station_no)) {
+        sprintf("Station %s belongs HIC",
+                station_no)
+        datasource <- 2
     } else if (grepl(".*-1095", station_no)) {
         sprintf("Station %s belongs to Meetnet W&Znv - afdeling Zeekanaal",
                 station_no)
