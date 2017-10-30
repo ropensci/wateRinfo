@@ -1,4 +1,4 @@
-library(testthat)
+library(httptest)
 library(wateRinfo)
 
 test_check("wateRinfo")
