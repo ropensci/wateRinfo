@@ -13,13 +13,14 @@ waterinfo_pro_base <- function() {
 #'
 #' @param query list of query options to be used together with the base string
 #' @param base_url str download | pro, default download defined
+#' @param token token to use with the call (optional, can be retrieved via \code{\link{get.token}})
 #'
 #' @return waterinfo_api class object with content and info about call
 #'
 #' @export
 #' @importFrom httr GET http_type status_code http_error content
 #' @importFrom jsonlite fromJSON
-call_waterinfo <- function(query, base_url = "download") {
+call_waterinfo <- function(query, base_url = "download", token = NULL) {
 
     # check the base url, which depends of the query to execute
     if (base_url == "download") {
@@ -29,9 +30,17 @@ call_waterinfo <- function(query, base_url = "download") {
     } else {
         stop("Base url should be download or pro")
     }
-
-    res <- GET(base, query = query)
-
+    
+    if (is.null(token)) {
+        res <- GET(base, query = query)
+    } else {
+        if (inherits(token,'token')){            
+            res <- GET(base, query = query,
+                   config=httr::add_headers('Authorization' = paste0(attr(token,'type'),' ',token)))
+        } else {
+            stop("token must be object of class token, retrieve a token via function get.token")
+        }
+    }
     if (http_type(res) != "application/json") {
         if (http_type(res) != "application/xml") {
             custom_error <- content(res, "text", encoding = "UTF-8")
