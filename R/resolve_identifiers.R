@@ -68,6 +68,8 @@ resolve_datasource <- function(station_no) {
 #' @importFrom rlang .data
 resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
 
+    is_supported_variable(variable_name)
+
     lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
                                package = "wateRinfo")
     lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
@@ -75,12 +77,6 @@ resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
     selected_variable <- lookup %>%
         filter(.data$variable_en == variable_name |
                    .data$variable_nl == variable_name)
-
-    if (nrow(selected_variable) == 0) {
-        stop("The provided variable is not available. ",
-             "Supported variables as timeseriesgroup are: ",
-             paste(supported_variables("en")$variable_en, collapse = ", "))
-    }
 
     selected_variable <- selected_variable %>%
         filter(.data$frequency_nl == frequency |
