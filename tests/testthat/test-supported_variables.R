@@ -56,7 +56,11 @@ test_that("handling when frequency for this var is not available", {
                  regexp = "provided frequency .* is not available")
 })
 
-test_that("hchecking all ids are unique linked to var-freq combination", {
+test_that("checking all ids are unique linked to var-freq combination", {
+
+    lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
+                               package = "wateRinfo")
+    lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
     nl_ids <- lookup %>%
         select(variable_nl, frequency_nl) %>%
