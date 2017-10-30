@@ -13,6 +13,7 @@ test_that("variables in en and nl", {
 
 })
 
+
 test_that("variables in en and nl", {
     freqs <- supported_frequencies("afvoer")
 
