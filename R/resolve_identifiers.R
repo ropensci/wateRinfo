@@ -92,11 +92,6 @@ resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
              paste(supported_frequencies(variable_name), collapse = ", "))
     }
 
-    if (nrow(selected_variable) > 1 ) {
-        stop("The provided combination of variable and frequence can not
-             unambigiously be linked to a single timeseriesgroupid")
-    }
-
     selected_variable %>%
         select(.data$timeseriesgroup_id) %>%
         as.list()
