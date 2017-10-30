@@ -57,6 +57,8 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
                          Value = double(),
                          "Quality Code" = character(),
                          stringsAsFactors = FALSE)
+        colnames(df) <- return_fields
+
     } else {
         df <- as.data.frame(time_series$content$data,
                             stringsAsFactors = FALSE)
