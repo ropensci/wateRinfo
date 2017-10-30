@@ -4,7 +4,7 @@
 \alias{get_stations}
 \title{Get list of stations for a variable}
 \usage{
-get_stations(variable_name, frequency = "15min")
+get_stations(variable_name = NULL, frequency = "15min")
 }
 \arguments{
 \item{variable_name}{char valid nam of available variable as timeseriesgroup}
