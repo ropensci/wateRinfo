@@ -13,7 +13,7 @@ waterinfo_pro_base <- function() {
 #'
 #' @param query list of query options to be used together with the base string
 #' @param base_url str download | pro, default download defined
-#' @param token token to use with the call (optional, can be retrieved via \code{\link{get.token}})
+#' @param token token to use with the call (optional, can be retrieved via \code{\link{get_token}})
 #'
 #' @return waterinfo_api class object with content and info about call
 #'
