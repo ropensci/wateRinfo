@@ -172,10 +172,23 @@ Unfortunately, not all variables are documented, for which the check for the app
 
 More detailed tutorials are available in the package vignettes!
 
-Note on restrictions of the downloads
--------------------------------------
+Tokens and restrictions of the downloads
+----------------------------------------
 
-The number of downloads on waterinfo.be is limited. When you require more extended data requests, please contact the developers of waterinfo.be themselve on the e-mail adress <hydrometrie@waterinfo.be>.
+The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
+
+Get token with client-credit code: (limited client-credit code for testing purposes)
+``` r
+client <- 'MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=='
+my.token <- get_token(client=client)
+print(my.token)
+is.expired(my.token)
+expires.in(my.token)
+```
+Use token when retrieving data:
+``` r
+get_stations(variable_name='neerslag',token=my.token)
+```
 
 Acknowledgements
 ----------------
