@@ -172,8 +172,8 @@ Unfortunately, not all variables are documented, for which the check for the app
 
 More detailed tutorials are available in the package vignettes!
 
-Tokens and restrictions of the downloads
-----------------------------------------
+Tokens and restrictions on download volumes
+-------------------------------------------
 
 The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
 
@@ -206,15 +206,15 @@ get_stations(variable_name='verdamping_monteith',token=my.token)
 #> 6 94460042         51.27226          3.728299      12207   ME03_017            Boekhoute_ME                   pET
 #> 7 94502042         50.88663          4.094898      12210   ME07_006           Liedekerke_ME                   pET
 #> 8 94474042         51.24379          4.266912      12208   ME04_001              Melsele_ME                   pET
-  parametertype_name ts_unitsymbol dataprovider
-1                PET            mm          VMM
-2                PET            mm          VMM
-3                PET            mm          VMM
-4                PET            mm          VMM
-5                PET            mm          VMM
-6                PET            mm          VMM
-7                PET            mm          VMM
-8                PET            mm          VMM
+#>   parametertype_name ts_unitsymbol dataprovider
+#> 1                PET            mm          VMM
+#> 2                PET            mm          VMM
+#> 3                PET            mm          VMM
+#> 4                PET            mm          VMM
+#> 5                PET            mm          VMM
+#> 6                PET            mm          VMM
+#> 7                PET            mm          VMM
+#> 8                PET            mm          VMM
 ```
 
 Acknowledgements
