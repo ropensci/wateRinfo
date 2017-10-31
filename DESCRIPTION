@@ -17,6 +17,7 @@ Depends:
     R (>= 2.10)
 Imports:
     httr,
+    openssl,
     dplyr,
     jsonlite,
     lubridate (>= 1.6.0),
@@ -28,7 +29,6 @@ Suggests: testthat,
     knitr,
     rmarkdown,
     ggplot2,
-    dplyr,
     covr
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
