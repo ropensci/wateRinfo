@@ -56,5 +56,4 @@ my.token <- get_token(client=client)
 print(my.token)
 is.expired(my.token)
 expires.in(my.token)
-
 }
