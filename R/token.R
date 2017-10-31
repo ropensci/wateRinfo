@@ -31,7 +31,6 @@
 #' is.expired(my.token)
 #' expires.in(my.token)
 #' 
-#' @importFrom xts timeBased
 #' @importFrom httr POST add_headers content
 #' @importFrom openssl base64_encode
 #' @export
@@ -81,11 +80,6 @@ token <- function(value,url,type,expires){
       stop('type must be a character string')
     }
   }
-  if (!xts::timeBased(expires)){
-    if(length(type)!=1){
-      stop("expires must be a time-based object of length 1")
-    }
-  }
   token <- structure(.Data=value,url=url,type=type,expires=expires,class='token')
   return(token)
 }
@@ -104,7 +98,7 @@ show.token <- function(object){
   invisible(object)
 }
 
-#' @rdname get.token
+#' @rdname get_token
 #' @export
 
 is.expired <- function(token){
@@ -117,7 +111,7 @@ is.expired.token <- function(token){
   return(Sys.time() > attr(token,'expires'))
 }
 
-#' @rdname get.token
+#' @rdname get_token
 #' @export
 
 expires.in <- function(token){
