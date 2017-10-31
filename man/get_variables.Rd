@@ -4,11 +4,13 @@
 \alias{get_variables}
 \title{Get list of variables for a given station}
 \usage{
-get_variables(station_no)
+get_variables(station_no, token = NULL)
 }
 \arguments{
 \item{station_no}{'stations-nummer' as it appears on the download page of
 https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}
+
+\item{token}{token to use with the call (optional, can be retrieved via \code{\link{get_token}})}
 }
 \value{
 data.frame with the station_name, station_no, ts_id, ts_name  and
