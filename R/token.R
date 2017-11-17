@@ -27,12 +27,12 @@
 #' # Get token via client_id and client_secret
 #' client_id <- '32dceece-826c-4b98-9c2d-b16978f0ca6a'
 #' client_secret <- '4ada871a-9528-4b4d-bfd5-b570ce8f4d2d'
-#' my.token <- get_token(client_id=client_id,client_secret=client_secret)
+#' my.token <- get_token(client_id = client_id,client_secret = client_secret)
 #' print(my.token)
 #' # get token via client
 #' client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
 #'                 'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==')
-#' my.token <- get_token(client=client)
+#' my.token <- get_token(client = client)
 #' print(my.token)
 #' is.expired(my.token)
 #' expires.in(my.token)
