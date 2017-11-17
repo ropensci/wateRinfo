@@ -32,7 +32,8 @@ Examples of valid period strings: P3D, P1Y, P1DT12H, PT6H, P1Y6M3DT4H20M30S.}
 \item{datasource}{int [0-3] defines the `meetnet` of which the measurement
 station is part of. VMM based stations are net '1', MOW-HIC is net '2'}
 
-\item{token}{token to use with the call (optional, can be retrieved via \code{\link{get_token}})}
+\item{token}{token to use with the call (optional, can be retrieved via
+\code{\link{get_token}})}
 }
 \value{
 data.frame with the timestamps, values and quality code
