@@ -82,7 +82,7 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/stijnvanhoey/wateRinfo">
+  <a href="https://github.com/inbo/wateRinfo">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -107,7 +107,7 @@ stations providing data. An overview of the variables is provided by the
 function `supported_variables`</p>
     
 
-    <pre class="usage"><span class='fu'>get_stations</span>(<span class='kw'>variable_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>frequency</span> <span class='kw'>=</span> <span class='st'>"15min"</span>)</pre>
+    <pre class="usage"><span class='fu'>get_stations</span>(<span class='kw'>variable_name</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>frequency</span> <span class='kw'>=</span> <span class='st'>"15min"</span>, <span class='kw'>token</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -120,6 +120,11 @@ function `supported_variables`</p>
       <th>frequency</th>
       <td><p>char valid frequency for the given variable, for most
 variables, the 15min frequency is available</p></td>
+    </tr>
+    <tr>
+      <th>token</th>
+      <td><p>token to use with the call (optional, can be retrieved via
+<code><a href='get_token.html'>get_token</a></code>)</p></td>
     </tr>
     </table>
     

@@ -175,8 +175,6 @@ More detailed tutorials are available in the package vignettes!
 Note on restrictions of the downloads
 -------------------------------------
 
-The number of downloads on waterinfo.be is limited. When you require more extended data requests, please contact the developers of waterinfo.be themselve on the e-mail adress <hydrometrie@waterinfo.be>. Tokens and restrictions on download volumes -------------------------------------------
-
 The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
 
 Get token with client-credit code: (limited client-credit code for testing purposes)
@@ -187,12 +185,12 @@ client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
 my.token <- get_token(client = client)
 print(my.token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjMzBhYzFkYi0zNjM2LTQ5NGMtYTc4Ny1kNDQ3NjFkMDBkYjQiLCJpYXQiOjE1MTA5MjQ1MDMsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTExMDEwOTAzfQ.5NmllTQNKTDefrgJ6mDIWA3uTAUyUA33vbjKzfxoBjE
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyYjVmOGY5ZS1lOWUwLTQ3ZWMtYjk4Ni00MjQ2MzQ2MmM4OTciLCJpYXQiOjE1MTA5MzAxMzYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTExMDE2NTM2fQ.klb49i75DrSyYRg0CfpWQa7mrIet1K--8aD0qAvkk3s
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2017-11-18 14:15:02 CET
+#>  expires: 2017-11-18 15:48:56 CET
 ```
 
 Receive information on the validity of the token:

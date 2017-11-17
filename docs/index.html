@@ -58,7 +58,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/stijnvanhoey/wateRinfo">
+  <a href="https://github.com/inbo/wateRinfo">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -214,7 +214,54 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="note-on-restrictions-of-the-downloads" class="section level2">
 <h2 class="hasAnchor">
 <a href="#note-on-restrictions-of-the-downloads" class="anchor"></a>Note on restrictions of the downloads</h2>
-<p>The number of downloads on waterinfo.be is limited. When you require more extended data requests, please contact the developers of waterinfo.be themselve on the e-mail adress <a href="mailto:hydrometrie@waterinfo.be">hydrometrie@waterinfo.be</a>.</p>
+<p>The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <a href="mailto:hydrometrie@waterinfo.be">hydrometrie@waterinfo.be</a> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.</p>
+<p>Get token with client-credit code: (limited client-credit code for testing purposes)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">client &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">'MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4'</span>,
+                 <span class="st">'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=='</span>)
+my.token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
+<span class="kw">print</span>(my.token)
+<span class="co">#&gt; Token:</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlZjA0Y2YzNC1iYTcyLTRmYTktOWQ1Yy05ZTA1ZDJkMmFkZGYiLCJpYXQiOjE1MTA5MzAxNDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTExMDE2NTQwfQ.uuKLrh-D5AoJCwPtjVLI2QXGVf5p48ouZ9hbvcqD_UA</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attributes:</span>
+<span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
+<span class="co">#&gt;  type: Bearer</span>
+<span class="co">#&gt;  expires: 2017-11-18 15:49:00 CET</span></code></pre></div>
+<p>Receive information on the validity of the token:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.expired</span>(my.token)
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
+<p>Check when the token expires:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expires.in</span>(my.token)
+<span class="co">#&gt; Time difference of 24 hours</span></code></pre></div>
+<p>Use token when retrieving data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">'verdamping_monteith'</span>, <span class="dt">token =</span> my.token)
+<span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
+<span class="co">#&gt; 1 94310042         51.02263          2.970584      12206   ME01_003</span>
+<span class="co">#&gt; 2 94530042         51.16224          4.845708      12212   ME10_011</span>
+<span class="co">#&gt; 3 94516042         50.73795          5.141976      12211   ME09_012</span>
+<span class="co">#&gt; 4 94544042         51.20300          5.439589      12213   ME11_002</span>
+<span class="co">#&gt; 5 94488042         50.86149          3.411318      12209   ME05_019</span>
+<span class="co">#&gt; 6 94460042         51.27226          3.728299      12207   ME03_017</span>
+<span class="co">#&gt; 7 94502042         50.88663          4.094898      12210   ME07_006</span>
+<span class="co">#&gt; 8 94474042         51.24379          4.266912      12208   ME04_001</span>
+<span class="co">#&gt;              station_name stationparameter_name parametertype_name</span>
+<span class="co">#&gt; 1               Zarren_ME                   pET                PET</span>
+<span class="co">#&gt; 2            Herentals_ME                   pET                PET</span>
+<span class="co">#&gt; 3 Niel-bij-St.-Truiden_ME                   pET                PET</span>
+<span class="co">#&gt; 4             Overpelt_ME                   pET                PET</span>
+<span class="co">#&gt; 5              Waregem_ME                   pET                PET</span>
+<span class="co">#&gt; 6            Boekhoute_ME                   pET                PET</span>
+<span class="co">#&gt; 7           Liedekerke_ME                   pET                PET</span>
+<span class="co">#&gt; 8              Melsele_ME                   pET                PET</span>
+<span class="co">#&gt;   ts_unitsymbol dataprovider</span>
+<span class="co">#&gt; 1            mm          VMM</span>
+<span class="co">#&gt; 2            mm          VMM</span>
+<span class="co">#&gt; 3            mm          VMM</span>
+<span class="co">#&gt; 4            mm          VMM</span>
+<span class="co">#&gt; 5            mm          VMM</span>
+<span class="co">#&gt; 6            mm          VMM</span>
+<span class="co">#&gt; 7            mm          VMM</span>
+<span class="co">#&gt; 8            mm          VMM</span></code></pre></div>
 </div>
 <div id="acknowledgements" class="section level2">
 <h2 class="hasAnchor">
@@ -236,7 +283,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
     <h2 class="hasAnchor">
 <a href="#sidebar" class="anchor"></a>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/stijnvanhoey/wateRinfo">https://​github.com/​stijnvanhoey/​wateRinfo</a>
+<li>Browse source code at <br><a href="https://github.com/inbo/wateRinfo">https://​github.com/​inbo/​wateRinfo</a>
 </li>
 </ul>
 <h2>License</h2>
