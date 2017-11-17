@@ -3,7 +3,7 @@
 wateRinfo
 =========
 
-[![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/stijnvanhoey/wateRinfo?branch=master&svg=true)](https://ci.appveyor.com/project/stijnvanhoey/wateRinfo) [![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg)](https://coveralls.io/r/inbo/wateRinfo?branch=master)
+[![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg)](https://coveralls.io/r/inbo/wateRinfo?branch=master)
 
 The goal of wateRinfo is to facilitate access to the variety of data available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
 
