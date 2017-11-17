@@ -11,7 +11,8 @@ call_waterinfo(query, base_url = "download", token = NULL)
 
 \item{base_url}{str download | pro, default download defined}
 
-\item{token}{token to use with the call (optional, can be retrieved via \code{\link{get_token}})}
+\item{token}{token to use with the call (optional, can be retrieved via
+\code{\link{get_token}})}
 }
 \value{
 waterinfo_api class object with content and info about call
