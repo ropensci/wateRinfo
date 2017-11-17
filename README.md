@@ -3,7 +3,7 @@
 wateRinfo
 =========
 
-[![Build Status](https://travis-ci.org/stijnvanhoey/wateRinfo.svg?branch=addci)](https://travis-ci.org/stijnvanhoey/wateRinfo) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/stijnvanhoey/wateRinfo?branch=master&svg=true)](https://ci.appveyor.com/project/stijnvanhoey/wateRinfo) [![Coverage Status](https://coveralls.io/repos/github/stijnvanhoey/wateRinfo/badge.svg?branch=master)](https://coveralls.io/github/stijnvanhoey/wateRinfo?branch=master)
+[![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/inbo/wateRinfo?branch=master&svg=true)](https://ci.appveyor.com/project/inbo/wateRinfo) [![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg?branch=master)](https://coveralls.io/github/inbo/wateRinfo?branch=master)
 
 The goal of wateRinfo is to facilitate access to the variety of data available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
 
@@ -16,7 +16,7 @@ You can install wateRinfo from github with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("stijnvanhoey/wateRinfo")
+devtools::install_github("inbo/wateRinfo")
 ```
 
 when succesfull, load it as usual:
@@ -229,4 +229,4 @@ This package is an experimental open-source project. All functionalities are pro
 
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-Please [report any issues or bugs](https://github.com/stijnvanhoey/wateRinfo/issues/new).
+Please [report any issues or bugs](https://github.com/inbo/wateRinfo/issues/new).
