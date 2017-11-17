@@ -114,23 +114,23 @@ Get token with client-credit code: (limited client-credit code for testing purpo
 ```{r token_receive}
 client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
                  'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==')
-my.token <- get_token(client = client)
-print(my.token)
+my_token <- get_token(client = client)
+print(my_token)
 ```
 
 Receive information on the validity of the token:
 ```{r token_expired}
-is.expired(my.token)
+is.expired(my_token)
 ```
 
 Check when the token expires:
 ```{r token_expires_when}
-expires.in(my.token)
+expires.in(my_token)
 ```
 
 Use token when retrieving data:
 ```{r use_expires_when}
-get_stations(variable_name = 'verdamping_monteith', token = my.token)
+get_stations(variable_name = 'verdamping_monteith', token = my_token)
 ```
 
 ## Acknowledgements

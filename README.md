@@ -182,35 +182,35 @@ Get token with client-credit code: (limited client-credit code for testing purpo
 ``` r
 client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
                  'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==')
-my.token <- get_token(client = client)
-print(my.token)
+my_token <- get_token(client = client)
+print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyYjVmOGY5ZS1lOWUwLTQ3ZWMtYjk4Ni00MjQ2MzQ2MmM4OTciLCJpYXQiOjE1MTA5MzAxMzYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTExMDE2NTM2fQ.klb49i75DrSyYRg0CfpWQa7mrIet1K--8aD0qAvkk3s
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJiNzk2OWFhZS1jZGQ5LTQ1MDItOGJiMS0yYWE2YTU2Yzk2M2YiLCJpYXQiOjE1MTA5MzQ2NDQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTExMDIxMDQ0fQ.WvJvysqs8rpCvN_edxaUZhBtgkrwkEej7h6JBCl5obw
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2017-11-18 15:48:56 CET
+#>  expires: 2017-11-18 17:04:04 CET
 ```
 
 Receive information on the validity of the token:
 
 ``` r
-is.expired(my.token)
+is.expired(my_token)
 #> [1] FALSE
 ```
 
 Check when the token expires:
 
 ``` r
-expires.in(my.token)
+expires.in(my_token)
 #> Time difference of 24 hours
 ```
 
 Use token when retrieving data:
 
 ``` r
-get_stations(variable_name = 'verdamping_monteith', token = my.token)
+get_stations(variable_name = 'verdamping_monteith', token = my_token)
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 94310042         51.02263          2.970584      12206   ME01_003
 #> 2 94530042         51.16224          4.845708      12212   ME10_011
