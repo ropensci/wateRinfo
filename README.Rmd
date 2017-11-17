@@ -107,10 +107,6 @@ More detailed tutorials are available in the package vignettes!
 
 ## Note on restrictions of the downloads
 
-The number of downloads on waterinfo.be is limited. When you require more extended data requests, please contact the developers of waterinfo.be themselve on the e-mail adress hydrometrie@waterinfo.be.
-Tokens and restrictions on download volumes
--------------------------------------------
-
 The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
 
 Get token with client-credit code: (limited client-credit code for testing purposes)
