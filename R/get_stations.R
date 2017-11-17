@@ -11,12 +11,14 @@
 #' @param variable_name char valid nam of available variable as timeseriesgroup
 #' @param frequency char valid frequency for the given variable, for most
 #' variables, the 15min frequency is available
-#' @param token token to use with the call (optional, can be retrieved via \code{\link{get_token}})
+#' @param token token to use with the call (optional, can be retrieved via
+#' \code{\link{get_token}})
 #'
 #' @export
 #' @importFrom dplyr %>% select
 #' @seealso supported_variables
-get_stations <- function(variable_name = NULL, frequency = "15min", token = NULL) {
+get_stations <- function(variable_name = NULL, frequency = "15min",
+                         token = NULL) {
 
     if (is.null(variable_name)) {
         vars2use <- paste(as.list(supported_variables("en"))[[1]],
@@ -44,7 +46,7 @@ get_stations <- function(variable_name = NULL, frequency = "15min", token = NULL
                      custattr_returnfields =
                          as.character(paste(custom_attributes,
                                             collapse = ","))),
-    token=token)
+        token = token)
 
     stations$content %>% select("ts_id", "station_latitude",
                                 "station_longitude", "station_id",
