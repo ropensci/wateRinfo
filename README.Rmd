@@ -14,9 +14,7 @@ knitr::opts_chunk$set(
 
 # wateRinfo
 
-[![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/stijnvanhoey/wateRinfo?branch=master&svg=true)](https://ci.appveyor.com/project/stijnvanhoey/wateRinfo)
-[![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg)](https://coveralls.io/r/inbo/wateRinfo?branch=master)
+[![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/stijnvanhoey/wateRinfo?branch=master&svg=true)](https://ci.appveyor.com/project/stijnvanhoey/wateRinfo) [![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg)](https://coveralls.io/r/inbo/wateRinfo?branch=master)
 
 The goal of wateRinfo is to facilitate access to the variety of data available on [waterinfo.be](https://www.waterinfo.be/)  by providing an R-interface to download time series data. 
 
@@ -109,7 +107,31 @@ More detailed tutorials are available in the package vignettes!
 
 ## Note on restrictions of the downloads
 
-The number of downloads on waterinfo.be is limited. When you require more extended data requests, please contact the developers of waterinfo.be themselve on the e-mail adress hydrometrie@waterinfo.be.
+The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
+
+Get token with client-credit code: (limited client-credit code for testing purposes)
+
+```{r token_receive}
+client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
+                 'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==')
+my_token <- get_token(client = client)
+print(my_token)
+```
+
+Receive information on the validity of the token:
+```{r token_expired}
+is.expired(my_token)
+```
+
+Check when the token expires:
+```{r token_expires_when}
+expires.in(my_token)
+```
+
+Use token when retrieving data:
+```{r use_expires_when}
+get_stations(variable_name = 'verdamping_monteith', token = my_token)
+```
 
 ## Acknowledgements
 

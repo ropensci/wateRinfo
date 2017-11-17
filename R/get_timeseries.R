@@ -24,6 +24,8 @@
 #' @param to date of datestring as end of the time series
 #' @param datasource int [0-3] defines the `meetnet` of which the measurement
 #' station is part of. VMM based stations are net '1', MOW-HIC is net '2'
+#' @param token token to use with the call (optional, can be retrieved via
+#' \code{\link{get_token}})
 #'
 #' @return data.frame with the timestamps, values and quality code
 #' @export
@@ -34,7 +36,7 @@
 #' get_timeseries_tsid("5156042", period = "P3D")
 #' get_timeseries_tsid("2813562", period = "P1D", datasource = 2)
 get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
-                                to = NULL, datasource = 1) {
+                                to = NULL, datasource = 1, token = NULL) {
     # define the date fields we require
     return_fields <- c("Timestamp", "Value", "Quality Code")
 
@@ -50,7 +52,8 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
                                                          collapse = ",")))
 
     # http GET call to waterinfo for the dataframe
-    time_series <- call_waterinfo(query = c(query_list, period_info))
+    time_series <- call_waterinfo(query = c(query_list, period_info),
+                                  token = token)
 
     if (time_series$content$rows == 0) {
         df <- data.frame(Timestamp = as.POSIXct(character()),

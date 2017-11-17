@@ -82,7 +82,7 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/stijnvanhoey/wateRinfo">
+  <a href="https://github.com/inbo/wateRinfo">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -106,7 +106,7 @@
 providing error handling and json parsing</p>
     
 
-    <pre class="usage"><span class='fu'>call_waterinfo</span>(<span class='no'>query</span>, <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='st'>"download"</span>)</pre>
+    <pre class="usage"><span class='fu'>call_waterinfo</span>(<span class='no'>query</span>, <span class='kw'>base_url</span> <span class='kw'>=</span> <span class='st'>"download"</span>, <span class='kw'>token</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -118,6 +118,11 @@ providing error handling and json parsing</p>
     <tr>
       <th>base_url</th>
       <td><p>str download | pro, default download defined</p></td>
+    </tr>
+    <tr>
+      <th>token</th>
+      <td><p>token to use with the call (optional, can be retrieved via
+<code><a href='get_token.html'>get_token</a></code>)</p></td>
     </tr>
     </table>
     

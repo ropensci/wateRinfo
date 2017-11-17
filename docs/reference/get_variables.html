@@ -82,7 +82,7 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/stijnvanhoey/wateRinfo">
+  <a href="https://github.com/inbo/wateRinfo">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -105,7 +105,7 @@
     <p>Get list of variables for a given station</p>
     
 
-    <pre class="usage"><span class='fu'>get_variables</span>(<span class='no'>station_no</span>)</pre>
+    <pre class="usage"><span class='fu'>get_variables</span>(<span class='no'>station_no</span>, <span class='kw'>token</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -114,6 +114,11 @@
       <th>station_no</th>
       <td><p>'stations-nummer' as it appears on the download page of
 https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden</p></td>
+    </tr>
+    <tr>
+      <th>token</th>
+      <td><p>token to use with the call (optional, can be retrieved via
+<code><a href='get_token.html'>get_token</a></code>)</p></td>
     </tr>
     </table>
     

@@ -175,7 +175,70 @@ More detailed tutorials are available in the package vignettes!
 Note on restrictions of the downloads
 -------------------------------------
 
-The number of downloads on waterinfo.be is limited. When you require more extended data requests, please contact the developers of waterinfo.be themselve on the e-mail adress <hydrometrie@waterinfo.be>.
+The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
+
+Get token with client-credit code: (limited client-credit code for testing purposes)
+
+``` r
+client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
+                 'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==')
+my_token <- get_token(client = client)
+print(my_token)
+#> Token:
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJiNzk2OWFhZS1jZGQ5LTQ1MDItOGJiMS0yYWE2YTU2Yzk2M2YiLCJpYXQiOjE1MTA5MzQ2NDQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTExMDIxMDQ0fQ.WvJvysqs8rpCvN_edxaUZhBtgkrwkEej7h6JBCl5obw
+#> 
+#> Attributes:
+#>  url: http://download.waterinfo.be/kiwis-auth/token
+#>  type: Bearer
+#>  expires: 2017-11-18 17:04:04 CET
+```
+
+Receive information on the validity of the token:
+
+``` r
+is.expired(my_token)
+#> [1] FALSE
+```
+
+Check when the token expires:
+
+``` r
+expires.in(my_token)
+#> Time difference of 24 hours
+```
+
+Use token when retrieving data:
+
+``` r
+get_stations(variable_name = 'verdamping_monteith', token = my_token)
+#>      ts_id station_latitude station_longitude station_id station_no
+#> 1 94310042         51.02263          2.970584      12206   ME01_003
+#> 2 94530042         51.16224          4.845708      12212   ME10_011
+#> 3 94516042         50.73795          5.141976      12211   ME09_012
+#> 4 94544042         51.20300          5.439589      12213   ME11_002
+#> 5 94488042         50.86149          3.411318      12209   ME05_019
+#> 6 94460042         51.27226          3.728299      12207   ME03_017
+#> 7 94502042         50.88663          4.094898      12210   ME07_006
+#> 8 94474042         51.24379          4.266912      12208   ME04_001
+#>              station_name stationparameter_name parametertype_name
+#> 1               Zarren_ME                   pET                PET
+#> 2            Herentals_ME                   pET                PET
+#> 3 Niel-bij-St.-Truiden_ME                   pET                PET
+#> 4             Overpelt_ME                   pET                PET
+#> 5              Waregem_ME                   pET                PET
+#> 6            Boekhoute_ME                   pET                PET
+#> 7           Liedekerke_ME                   pET                PET
+#> 8              Melsele_ME                   pET                PET
+#>   ts_unitsymbol dataprovider
+#> 1            mm          VMM
+#> 2            mm          VMM
+#> 3            mm          VMM
+#> 4            mm          VMM
+#> 5            mm          VMM
+#> 6            mm          VMM
+#> 7            mm          VMM
+#> 8            mm          VMM
+```
 
 Acknowledgements
 ----------------

@@ -4,13 +4,16 @@
 \alias{get_stations}
 \title{Get list of stations for a variable}
 \usage{
-get_stations(variable_name = NULL, frequency = "15min")
+get_stations(variable_name = NULL, frequency = "15min", token = NULL)
 }
 \arguments{
 \item{variable_name}{char valid nam of available variable as timeseriesgroup}
 
 \item{frequency}{char valid frequency for the given variable, for most
 variables, the 15min frequency is available}
+
+\item{token}{token to use with the call (optional, can be retrieved via
+\code{\link{get_token}})}
 }
 \description{
 For a given timeseriesgroup (variable), provide a list of measurement
