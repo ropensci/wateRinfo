@@ -3,7 +3,8 @@
 #'
 #' @param station_no 'stations-nummer' as it appears on the download page of
 #' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden
-#' @param token token to use with the call (optional, can be retrieved via \code{\link{get_token}})
+#' @param token token to use with the call (optional, can be retrieved via
+#' \code{\link{get_token}})
 #'
 #' @return data.frame with the station_name, station_no, ts_id, ts_name  and
 #' parametertype_name for each of the variables for this station
@@ -24,7 +25,8 @@ get_variables <- function(station_no, token = NULL) {
                                                          collapse = ",")))
 
     # http GET call to waterinfo for the dataframe
-    station_variables <- call_waterinfo(query = query_list, base_url = "pro", token = token)
+    station_variables <- call_waterinfo(query = query_list, base_url = "pro",
+                                        token = token)
 
     if (length(station_variables$content) == 1 &&
         station_variables$content == "No matches.") {
