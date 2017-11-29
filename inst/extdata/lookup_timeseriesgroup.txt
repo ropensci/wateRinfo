@@ -33,3 +33,10 @@ watersnelheid dag 192903 water_velocity day
 watersnelheid maand 192904 water_velocity month
 watersnelheid jaar 192905 water_velocity year
 waterstand 15min 192780 water_level 15min
+waterstand uur 192785 water_level hour
+waterstand dag 192782 water_level day
+waterstand maand 192783 water_level month
+waterstand jaar 192784 water_level year
+watertemperatuur 15min 325066 water_temperature 15min
+windrichting 15min 192926 wind_direction 15min
+windsnelheid 15min 192925 wind_speed 15min
