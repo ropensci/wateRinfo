@@ -10,7 +10,7 @@ You can contribute in many ways:
 
 ### Bugs?
 
-* Submit an issue on the Issues page [here](https://github.com/stijnvanhoey/wateRinfo/issues)
+* Submit an issue on the Issues page [here](https://github.com/inbo/wateRinfo/issues)
 
 If you are reporting a bug, please include:
 
@@ -28,7 +28,7 @@ Look through the GitHub issues for bugs. Anything tagged with "bug" and "help wa
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/stijnvanhoey/wateRinfo/issues.
+The best way to send feedback is to file an issue at https://github.com/inbo/wateRinfo/issues.
 
 If you are proposing a feature:
 
@@ -70,6 +70,6 @@ Ready to contribute? Here's how to set up `wateRinfo` for local development.
     $ git push origin name-of-your-bugfix-or-feature
   ```
 
-6. Submit a pull request through the [GitHub website](https://github.com/stijnvanhoey/wateRinfo/pulls).
+6. Submit a pull request through the [GitHub website](https://github.com/inbo/wateRinfo/pulls).
 
 ### Thanks for contributing!
