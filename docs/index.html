@@ -116,7 +116,10 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; 21  evaporation_monteith</span>
 <span class="co">#&gt; 25    evaporation_penman</span>
 <span class="co">#&gt; 29        water_velocity</span>
-<span class="co">#&gt; 34           water_level</span></code></pre></div>
+<span class="co">#&gt; 34           water_level</span>
+<span class="co">#&gt; 39     water_temperature</span>
+<span class="co">#&gt; 40        wind_direction</span>
+<span class="co">#&gt; 41            wind_speed</span></code></pre></div>
 <p>Listing the available air_pressure stations:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="st">'air_pressure'</span>)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
@@ -218,23 +221,23 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <p>Get token with client-credit code: (limited client-credit code for testing purposes)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">client &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">'MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4'</span>,
                  <span class="st">'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=='</span>)
-my.token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
-<span class="kw">print</span>(my.token)
+my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
+<span class="kw">print</span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlZjA0Y2YzNC1iYTcyLTRmYTktOWQ1Yy05ZTA1ZDJkMmFkZGYiLCJpYXQiOjE1MTA5MzAxNDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTExMDE2NTQwfQ.uuKLrh-D5AoJCwPtjVLI2QXGVf5p48ouZ9hbvcqD_UA</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0ZWMwM2QwMi0zYjU0LTRmYWQtYjRmMy1mNTk2ZmEzOTcwYjMiLCJpYXQiOjE1MTYyNzIyNDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTE2MzU4NjQwfQ.RMlZwxAvtgRyktJEhQ-2eRBMJot5PLr1xXwDMuXXMTs</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2017-11-18 15:49:00 CET</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-01-19 11:44:00 CET</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.expired</span>(my.token)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.expired</span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expires.in</span>(my.token)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expires.in</span>(my_token)
 <span class="co">#&gt; Time difference of 24 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">'verdamping_monteith'</span>, <span class="dt">token =</span> my.token)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">'verdamping_monteith'</span>, <span class="dt">token =</span> my_token)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
 <span class="co">#&gt; 1 94310042         51.02263          2.970584      12206   ME01_003</span>
 <span class="co">#&gt; 2 94530042         51.16224          4.845708      12212   ME10_011</span>
@@ -296,7 +299,7 @@ my.token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/inbo/wateRinfo"><img src="https://travis-ci.org/inbo/wateRinfo.svg?branch=addci" alt="Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/stijnvanhoey/wateRinfo"><img src="https://ci.appveyor.com/api/projects/status/github/stijnvanhoey/wateRinfo?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
+<li><a href="https://ci.appveyor.com/project/stijnvanhoey/waterinfo/branch/master"><img src="https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true" alt="AppVeyor Build status"></a></li>
 <li><a href="https://coveralls.io/r/inbo/wateRinfo?branch=master"><img src="https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg" alt="Coverage Status"></a></li>
 </ul>
 </div>
