@@ -33,13 +33,13 @@ check_period_format <- function(period_string) {
     period_string
 }
 
-#' Check if the string input can be converted to a date
+#' Check if the string input can be converted to a date, provides FALSE or date
 #'
 #' (acknowledgments to micstr/isdate.R)
 #'
 #' @param datetime string representation of a date
 #'
-#' @return boolean
+#' @return FALSE | "POSIXct" "POSIXt"
 #' @export
 #'
 #' @examples
@@ -47,11 +47,16 @@ check_period_format <- function(period_string) {
 #'
 #' @importFrom lubridate parse_date_time
 isdatetime <- function(datetime) {
-    tryCatch(parse_date_time(datetime,
-                             orders = c("ymd_HMS", "ymd", "ym", "y")),
-             warning = function(err) {
-                 FALSE
-                 })
+    parsed <- tryCatch(parse_date_time(datetime,
+                                       orders = c("ymd_HMS", "ymd", "ym", "y")),
+                       warning = function(err) {
+                           FALSE
+                           })
+    # date can be parsed, but none-existing date
+    if (is.na(parsed)) {
+        parsed <- FALSE
+    }
+    parsed
 }
 
 
