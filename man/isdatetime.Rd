@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_period.R
 \name{isdatetime}
 \alias{isdatetime}
-\title{Check if the string input can be converted to a date}
+\title{Check if the string input can be converted to a date, provides FALSE or date}
 \usage{
 isdatetime(datetime)
 }
@@ -10,7 +10,7 @@ isdatetime(datetime)
 \item{datetime}{string representation of a date}
 }
 \value{
-boolean
+FALSE | "POSIXct" "POSIXt"
 }
 \description{
 (acknowledgments to micstr/isdate.R)

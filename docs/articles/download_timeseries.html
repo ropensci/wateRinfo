@@ -78,7 +78,7 @@
       <h1>Download time series from Waterinfo.be</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2017-11-17</h4>
+            <h4 class="date">2018-01-18</h4>
           </div>
 
     
@@ -184,7 +184,8 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 ##  [9] "air_temperature_175cm" "rainfall"             
 ## [11] "relative_humidity"     "evaporation_monteith" 
 ## [13] "evaporation_penman"    "water_velocity"       
-## [15] "water_level"</code></pre>
+## [15] "water_level"           "water_temperature"    
+## [17] "wind_direction"        "wind_speed"</code></pre>
 <p>To check which predefined frequencies are provided by the Waterinfo.be API for a given variable, the <code>supported_frequencies</code> function is available:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/supported_frequencies.html">supported_frequencies</a></span>(<span class="dt">variable_name =</span> <span class="st">"air_pressure"</span>)</code></pre></div>
 <pre><code>## [1] "15min"</code></pre>

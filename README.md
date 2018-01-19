@@ -50,6 +50,9 @@ supported_variables('en')
 #> 25    evaporation_penman
 #> 29        water_velocity
 #> 34           water_level
+#> 39     water_temperature
+#> 40        wind_direction
+#> 41            wind_speed
 ```
 
 Listing the available air\_pressure stations:
@@ -185,12 +188,12 @@ client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJiNzk2OWFhZS1jZGQ5LTQ1MDItOGJiMS0yYWE2YTU2Yzk2M2YiLCJpYXQiOjE1MTA5MzQ2NDQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTExMDIxMDQ0fQ.WvJvysqs8rpCvN_edxaUZhBtgkrwkEej7h6JBCl5obw
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2YTljN2QwNy1iNTc3LTRkOTUtYTBlYS01MjE2ZTNlNDdiY2MiLCJpYXQiOjE1MTYyNzIyMzYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTE2MzU4NjM2fQ.YyrlGAiuNivswyi3uKR_hkwu2OEM5qixxWJ25NRfBro
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2017-11-18 17:04:04 CET
+#>  expires: 2018-01-19 11:43:55 CET
 ```
 
 Receive information on the validity of the token:
@@ -204,7 +207,7 @@ Check when the token expires:
 
 ``` r
 expires.in(my_token)
-#> Time difference of 24 hours
+#> Time difference of 23.99999 hours
 ```
 
 Use token when retrieving data:

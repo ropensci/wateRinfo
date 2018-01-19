@@ -72,4 +72,7 @@ test_that("Proper date formats to accept", {
     expect_is(check_date_format("2017"), class = c("POSIXct", "POSIXt"))
     expect_false(isdatetime("01/01/2017"))
     expect_false(isdatetime("01-01-2017"))
+    expect_false(isdatetime("01-01-2017"))
+    expect_false(isdatetime("2017-11-31"))
+    expect_error(check_date_format("2017-11-31"))
 })
