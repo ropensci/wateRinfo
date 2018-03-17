@@ -164,20 +164,21 @@
 <p>Clone your fork locally:</p>
 <p><code>basic  $ git clone git@github.com:your_name_here/wateRinfo.git</code></p>
 </li>
-<li><p>Create a branch for local development:</p></li>
-</ol>
-<p><code>basic     $ git checkout -b name-of-your-bugfix-or-feature</code></p>
-<p>Now you can make your changes locally.</p>
-<ol>
+<li>
+<p>Create a branch for local development:</p>
+<pre class="basic"><code>$ git checkout -b name-of-your-bugfix-or-feature</code></pre>
+</li>
 <li>
 <p>When you’re done making changes (please include unit tests as well), make a check on the code behavior and aim for 0 errors and 0 warnings. In R, you can use the check of the <code>devtools</code> package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/check">check</a></span>(<span class="dt">document =</span> <span class="ot">FALSE</span>, <span class="dt">cleanup =</span> <span class="ot">FALSE</span>, <span class="dt">args =</span> <span class="kw">c</span>(<span class="st">'--as-cran'</span>))</code></pre></div>
 </li>
-<li><p>Commit your changes and push your branch to GitHub:</p></li>
-</ol>
-<p><code>basic     $ git add .     $ git commit -m "Your detailed description of your changes."     $ git push origin name-of-your-bugfix-or-feature</code></p>
-<ol>
-<li>Submit a pull request through the <a href="https://github.com/inbo/wateRinfo/pulls">GitHub website</a>.</li>
+<li>
+<p>Commit your changes and push your branch to GitHub. Commit regularly to clarify the individual steps.</p>
+<pre class="basic"><code>$ git add .
+$ git commit -m "Your detailed description of your changes."
+$ git push origin name-of-your-bugfix-or-feature</code></pre>
+</li>
+<li><p>Submit a pull request through the <a href="https://github.com/inbo/wateRinfo/pulls">GitHub website</a>.</p></li>
 </ol>
 <div id="thanks-for-contributing" class="section level3">
 <h3 class="hasAnchor">
