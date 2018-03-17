@@ -19,6 +19,8 @@ navbar:
   - text: Contributing
     href: CONTRIBUTING.html
   right:
+  - icon: fa-twitter fa-lg
+    href: https://twitter.com/SVanHoey
   - icon: fa-github fa-lg
     href: https://github.com/inbo/wateRinfo
 
@@ -26,7 +28,9 @@ home:
   links:
   - text: Report a bug at
     href: https://github.com/inbo/wateRinfo/issues
-  - text: Waterinfo application
+  - text: Developed by Lifewatch INBO
+    href: https://lifewatch.inbo.be
+  - text: Check Waterinfo webapplication
     href: https://www.waterinfo.be/
 
 reference:
