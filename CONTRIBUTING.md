@@ -48,11 +48,9 @@ Ready to contribute? Here's how to set up `wateRinfo` for local development.
 
 3. Create a branch for local development:
 
-   ```basic
+    ```basic
     $ git checkout -b name-of-your-bugfix-or-feature
-   ```
-
-   Now you can make your changes locally.
+    ```
 
 4. When you're done making changes (please include unit tests as well), make a check on the code behavior and aim for 0 errors and 0 warnings. In R, you can use the check of the `devtools` package:
 
@@ -60,7 +58,7 @@ Ready to contribute? Here's how to set up `wateRinfo` for local development.
     devtools::check(document = FALSE, cleanup = FALSE, args = c('--as-cran'))
     ```
 
-5. Commit your changes and push your branch to GitHub:
+5. Commit your changes and push your branch to GitHub. Commit regularly to clarify the individual steps.
 
     ```basic
     $ git add .
