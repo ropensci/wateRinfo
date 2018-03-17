@@ -16,9 +16,22 @@ navbar:
       href: articles/download_timeseries.html
   - text: Functions
     href: reference/index.html
+  - text: Contributing
+    href: CONTRIBUTING.html
   right:
+  - icon: fa-twitter fa-lg
+    href: https://twitter.com/SVanHoey
   - icon: fa-github fa-lg
     href: https://github.com/inbo/wateRinfo
+
+home:
+  links:
+  - text: Report a bug at
+    href: https://github.com/inbo/wateRinfo/issues
+  - text: Developed by Lifewatch INBO
+    href: https://lifewatch.inbo.be
+  - text: Check Waterinfo webapplication
+    href: https://www.waterinfo.be/
 
 reference:
   - title: "Main download functionalities"
@@ -32,10 +45,7 @@ reference:
     contents:
       - supported_frequencies
       - supported_variables
-  - title: "Example datasets"
-    contents:
-      - liedekerke
-      - air_pressure
+      - is_supported_variable
   - title: "Resolving of identifiers to names"
     contents:
       - resolve_timeseriesgroupid
@@ -46,9 +56,16 @@ reference:
       - check_date_format
       - check_period_format
       - parse_period
+  - title: "Token handling"
+    contents:
+      - get_token
   - title: "Underlying API request function"
     contents:
       - call_waterinfo
+  - title: "Example datasets"
+    contents:
+      - liedekerke
+      - air_pressure
 
 articles:
   - title: "Tutorial on the main downloading functionalities"

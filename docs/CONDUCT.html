@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Air pressure data of January 1st, 2017 — air_pressure • wateRinfo</title>
+<title>Contributor Code of Conduct • wateRinfo</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -22,14 +22,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
-<script src="../pkgdown.js"></script>
-<meta property="og:title" content="Air pressure data of January 1st, 2017 — air_pressure" />
-
-<meta property="og:description" content="A dataset compiled by downloading 1 day of air pressure data for the
-available stations of Waterinfo.be" />
-<meta name="twitter:card" content="summary" />
+<link href="pkgdown.css" rel="stylesheet">
+<script src="jquery.sticky-kit.min.js"></script>
+<script src="pkgdown.js"></script>
+<meta property="og:title" content="Contributor Code of Conduct" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -42,7 +38,7 @@ available stations of Waterinfo.be" />
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -52,12 +48,12 @@ available stations of Waterinfo.be" />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <a class="navbar-brand" href="index.html">wateRinfo</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
+  <a href="index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
@@ -70,21 +66,21 @@ available stations of Waterinfo.be" />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/define_date_periods.html">Definition of the date period to download</a>
+      <a href="articles/define_date_periods.html">Definition of the date period to download</a>
     </li>
     <li>
-      <a href="../articles/download_timeseries_batch.html">Downloading time series in batch</a>
+      <a href="articles/download_timeseries_batch.html">Downloading time series in batch</a>
     </li>
     <li>
-      <a href="../articles/download_timeseries.html">Download time series from Waterinfo.be</a>
+      <a href="articles/download_timeseries.html">Download time series from Waterinfo.be</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="../reference/index.html">Functions</a>
+  <a href="reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="CONTRIBUTING.html">Contributing</a>
 </li>
       </ul>
       
@@ -110,54 +106,25 @@ available stations of Waterinfo.be" />
       </header>
 
       <div class="row">
-  <div class="col-md-9 contents">
+  <div class="contents col-md-9">
     <div class="page-header">
-    <h1>Air pressure data of January 1st, 2017</h1>
-    <small>Source: <a href='https:/github.com/inbo/wateRinfo/blob/master/R/data.R'><code>R/data.R</code></a></small>
+      <h1>Contributor Code of Conduct</h1>
     </div>
 
-    
-    <p>A dataset compiled by downloading 1 day of air pressure data for the
-available stations of Waterinfo.be</p>
-    
+<div id="contributor-code-of-conduct" class="section level1">
 
-    <pre class="usage"><span class='no'>air_pressure</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A data frame with 710 rows and 13 variables:</p><dl class='dl-horizontal'>
-  <dt>ts_id</dt><dd><p>identifier of the downloaded time serie</p></dd>
-  <dt>Timestamp</dt><dd><p>datetime</p></dd>
-  <dt>Value</dt><dd><p>measured value of the variable</p></dd>
-  <dt>Quality Code</dt><dd><p>Quality code of the measurement</p></dd>
-  <dt>station_latitude</dt><dd><p>latitude coordinate</p></dd>
-  <dt>station_longitude</dt><dd><p>longitude coordinate</p></dd>
-  <dt>station_id</dt><dd><p>identifier of the measurement station</p></dd>
-  <dt>station_no</dt><dd><p>short code name of the measurement station</p></dd>
-  <dt>station_name</dt><dd><p>full name of the measurement station</p></dd>
-  <dt>stationparameter_name</dt><dd><p>parameter name on station level</p></dd>
-  <dt>parametertype_name</dt><dd><p>parameter type name</p></dd>
-  <dt>ts_unitsymbol</dt><dd><p>unit of the variable</p></dd>
-  <dt>dataprovider</dt><dd><p>provider of the time series value</p></dd>
-</dl>
-    
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p><a href='https://www.waterinfo.be/'>https://www.waterinfo.be/</a></p>
-    
-
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      
-      <li><a href="#format">Format</a></li>
-
-      <li><a href="#source">Source</a></li>
-          </ul>
-
-  </div>
+<p>As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.</p>
+<p>We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.</p>
+<p>Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.</p>
+<p>Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. Project maintainers who do not follow the Code of Conduct may be removed from the project team.</p>
+<p>Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.</p>
+<p>This Code of Conduct is adapted from the Contributor Covenant (<a href="http:contributor-covenant.org" class="uri">http:contributor-covenant.org</a>), version 1.0.0, available at <a href="http://contributor-covenant.org/version/1/0/0/" class="uri">http://contributor-covenant.org/version/1/0/0/</a></p>
 </div>
+
+  </div>
+
+</div>
+
 
       <footer>
       <div class="copyright">

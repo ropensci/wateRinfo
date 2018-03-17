@@ -90,6 +90,7 @@ pet_yearly %>%
     scale_x_datetime(date_labels = "%Y", date_breaks = "1 year") + 
     xlab("") + ylab("PET Herentals (mm)")
 ```
+
 (see the vignette on defining date periods for more information on the period argument used)
 
 

@@ -18,13 +18,14 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+<meta property="og:title" content="Function reference" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -78,10 +79,19 @@
 <li>
   <a href="../reference/index.html">Functions</a>
 </li>
+<li>
+  <a href="../CONTRIBUTING.html">Contributing</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         <li>
+  <a href="https://twitter.com/SVanHoey">
+    <span class="fa fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="https://github.com/inbo/wateRinfo">
     <span class="fa fa-github fa-lg"></span>
      
@@ -122,19 +132,19 @@
         <tr>
           <!--  -->
           <td>
-            <p><code><a href="get_stations.html">get_stations</a></code> </p>
+            <p><code><a href="get_stations.html">get_stations()</a></code> </p>
           </td>
           <td><p>Get list of stations for a variable</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="get_variables.html">get_variables</a></code> </p>
+            <p><code><a href="get_variables.html">get_variables()</a></code> </p>
           </td>
           <td><p>Get list of variables for a given station</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="get_timeseries_tsid.html">get_timeseries_tsid</a></code> </p>
+            <p><code><a href="get_timeseries_tsid.html">get_timeseries_tsid()</a></code> </p>
           </td>
           <td><p>Download timeseries data from waterinfo.be</p></td>
         </tr>
@@ -148,15 +158,101 @@
         <tr>
           <!--  -->
           <td>
-            <p><code><a href="supported_frequencies.html">supported_frequencies</a></code> </p>
+            <p><code><a href="supported_frequencies.html">supported_frequencies()</a></code> </p>
           </td>
           <td><p>VMM supported timeseriesgroups frequencies</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="supported_variables.html">supported_variables</a></code> </p>
+            <p><code><a href="supported_variables.html">supported_variables()</a></code> </p>
           </td>
           <td><p>VMM supported timeseriesgroups variables</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="is_supported_variable.html">is_supported_variable()</a></code> </p>
+          </td>
+          <td><p>Check if variable is supported by VMM ts group id</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-resolving-of-identifiers-to-names" class="hasAnchor"><a href="#section-resolving-of-identifiers-to-names" class="anchor"></a>Resolving of identifiers to names</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="resolve_timeseriesgroupid.html">resolve_timeseriesgroupid()</a></code> </p>
+          </td>
+          <td><p>Get timeseriesgroupID for a supported variable</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="resolve_datasource.html">resolve_datasource()</a></code> </p>
+          </td>
+          <td><p>Define the datasource using the station number</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-date-handling-support-functions" class="hasAnchor"><a href="#section-date-handling-support-functions" class="anchor"></a>Date handling support functions</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="isdatetime.html">isdatetime()</a></code> </p>
+          </td>
+          <td><p>Check if the string input can be converted to a date, provides FALSE or date</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="check_date_format.html">check_date_format()</a></code> </p>
+          </td>
+          <td><p>Check if the date can be parsed to a datetim object in R</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="check_period_format.html">check_period_format()</a></code> </p>
+          </td>
+          <td><p>Check period string format</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="parse_period.html">parse_period()</a></code> </p>
+          </td>
+          <td><p>Check the from/to/period arguments</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-token-handling" class="hasAnchor"><a href="#section-token-handling" class="anchor"></a>Token handling</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="get_token.html">get_token()</a></code> <code><a href="get_token.html">is.expired()</a></code> <code><a href="get_token.html">expires.in()</a></code> </p>
+          </td>
+          <td><p>Get waterinfo Token</p></td>
+        </tr>
+      </tbody><tbody>
+        <tr>
+          <th colspan="2">
+            <h2 id="section-underlying-api-request-function" class="hasAnchor"><a href="#section-underlying-api-request-function" class="anchor"></a>Underlying API request function</h2>
+            <p class="section-desc"></p>
+          </th>
+        </tr>
+        <tr>
+          <!--  -->
+          <td>
+            <p><code><a href="call_waterinfo.html">call_waterinfo()</a></code> </p>
+          </td>
+          <td><p>http call to waterinfo.be</p></td>
         </tr>
       </tbody><tbody>
         <tr>
@@ -178,72 +274,6 @@
           </td>
           <td><p>Air pressure data of January 1st, 2017</p></td>
         </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-resolving-of-identifiers-to-names" class="hasAnchor"><a href="#section-resolving-of-identifiers-to-names" class="anchor"></a>Resolving of identifiers to names</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="resolve_timeseriesgroupid.html">resolve_timeseriesgroupid</a></code> </p>
-          </td>
-          <td><p>Get timeseriesgroupID for a supported variable</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="resolve_datasource.html">resolve_datasource</a></code> </p>
-          </td>
-          <td><p>Define the datasource using the station number</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-date-handling-support-functions" class="hasAnchor"><a href="#section-date-handling-support-functions" class="anchor"></a>Date handling support functions</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="isdatetime.html">isdatetime</a></code> </p>
-          </td>
-          <td><p>Check if the string input can be converted to a date, provides FALSE or date</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_date_format.html">check_date_format</a></code> </p>
-          </td>
-          <td><p>Check if the date can be parsed to a datetim object in R</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_period_format.html">check_period_format</a></code> </p>
-          </td>
-          <td><p>Check period string format</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="parse_period.html">parse_period</a></code> </p>
-          </td>
-          <td><p>Check the from/to/period arguments</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-underlying-api-request-function" class="hasAnchor"><a href="#section-underlying-api-request-function" class="anchor"></a>Underlying API request function</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="call_waterinfo.html">call_waterinfo</a></code> </p>
-          </td>
-          <td><p>http call to waterinfo.be</p></td>
-        </tr>
       </tbody>
       </table>
     </div>
@@ -254,10 +284,11 @@
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#section-main-download-functionalities">Main download functionalities</a></li>
       <li><a href="#section-check-the-vmm-supported-variables">Check the VMM supported variables</a></li>
-      <li><a href="#section-example-datasets">Example datasets</a></li>
       <li><a href="#section-resolving-of-identifiers-to-names">Resolving of identifiers to names</a></li>
       <li><a href="#section-date-handling-support-functions">Date handling support functions</a></li>
+      <li><a href="#section-token-handling">Token handling</a></li>
       <li><a href="#section-underlying-api-request-function">Underlying API request function</a></li>
+      <li><a href="#section-example-datasets">Example datasets</a></li>
     </ul>
   </div>
 </div>
@@ -268,7 +299,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
@@ -276,3 +307,4 @@
 
   </body>
 </html>
+

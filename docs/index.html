@@ -8,8 +8,16 @@
 <title>Download TimeSeries Data From Waterinfo.be • wateRinfo</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="Download TimeSeries Data From Waterinfo.be">
+<meta property="og:description" content="The wateRinfo package provides an R interface to the data available
+    at waterinfo.be, the data portal provided by the Flemish Environmental
+    Agency. The package provides R functions to check the available stations for 
+    a given variable, check the available variable for a given station and 
+    download time series using the database identifiers as well as station 
+    names.">
+<meta name="twitter:card" content="summary">
+<!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -55,8 +63,17 @@
 <li>
   <a href="reference/index.html">Functions</a>
 </li>
+<li>
+  <a href="CONTRIBUTING.html">Contributing</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://twitter.com/SVanHoey">
+    <span class="fa fa-twitter fa-lg"></span>
+     
+  </a>
+</li>
 <li>
   <a href="https://github.com/inbo/wateRinfo">
     <span class="fa fa-github fa-lg"></span>
@@ -167,7 +184,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_path">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"hPa"</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_date">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M</span><span class="ch">\n</span><span class="st">%Y-%m-%d"</span>, <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</code></pre></div>
-<p><img src="figures/README-plot_pressure-1.png" width="80%"></p>
+<p><img src="/home/stijn_vanhoey/githubs/dev_wateRinfo/figures/README-plot_pressure-1.png" width="80%"></p>
 <p>Another option is to check the available variables for a given station, with the function <code>get_variables</code>. Let’s consider again Overpelt (<code>ME11_002</code>) and check the first ten available variables at the Overpelt measurement station:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars_overpelt &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_variables.html">get_variables</a></span>(<span class="st">"ME11_002"</span>)
 <span class="co">#&gt; [1] "Use datasource: 1 for data requests of this station!"</span>
@@ -210,7 +227,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_path">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">" RH (%)"</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_date">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%b-%d</span><span class="ch">\n</span><span class="st">%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"5 days"</span>)</code></pre></div>
-<p><img src="figures/README-plot_rh-1.png" width="80%"></p>
+<p><img src="/home/stijn_vanhoey/githubs/dev_wateRinfo/figures/README-plot_rh-1.png" width="80%"></p>
 <p>Unfortunately, not all variables are documented, for which the check for the appropriate variable is not (yet) fully supported by the package.</p>
 <p>More detailed tutorials are available in the package vignettes!</p>
 </div>
@@ -224,18 +241,18 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
 <span class="kw">print</span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0ZWMwM2QwMi0zYjU0LTRmYWQtYjRmMy1mNTk2ZmEzOTcwYjMiLCJpYXQiOjE1MTYyNzIyNDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTE2MzU4NjQwfQ.RMlZwxAvtgRyktJEhQ-2eRBMJot5PLr1xXwDMuXXMTs</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ZGNiNTNkOS02MzE1LTQ3NjAtODVlZC0yMjQ2MjJiNDY4ZjkiLCJpYXQiOjE1MjEyODQyMDEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTIxMzcwNjAxfQ._WQPIbVHO4Y3eB2iur5_03hkuaGPJi4JbJQOHj8gJ2E</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2018-01-19 11:44:00 CET</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-03-18 11:56:41 CET</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.expired</span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expires.in</span>(my_token)
-<span class="co">#&gt; Time difference of 24 hours</span></code></pre></div>
+<span class="co">#&gt; Time difference of 23.99999 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">'verdamping_monteith'</span>, <span class="dt">token =</span> my_token)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
@@ -275,7 +292,7 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 <h2 class="hasAnchor">
 <a href="#furthermore" class="anchor"></a>Furthermore…</h2>
 <p>This package is an experimental open-source project. All functionalities are provided as is, without any guarantee.</p>
-<p>Please note that this project is released with a <a href="CONDUCT.md">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
+<p>Please note that this project is released with a <a href="CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
 <p>Please <a href="https://github.com/inbo/wateRinfo/issues/new">report any issues or bugs</a>.</p>
 </div>
 </div>
@@ -288,13 +305,20 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 <ul class="list-unstyled">
 <li>Browse source code at <br><a href="https://github.com/inbo/wateRinfo">https://​github.com/​inbo/​wateRinfo</a>
 </li>
+<li>Report a bug at at <br><a href="https://github.com/inbo/wateRinfo/issues">https://​github.com/​inbo/​wateRinfo/​issues</a>
+</li>
+<li>Developed by Lifewatch INBO at <br><a href="https://lifewatch.inbo.be">https://​lifewatch.inbo.be</a>
+</li>
+<li>Check Waterinfo webapplication at <br><a href="https://www.waterinfo.be/">https://​www.waterinfo.be/​</a>
+</li>
 </ul>
 <h2>License</h2>
-<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE.html">LICENSE</a></p>
+<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Stijn Van Hoey <br><small class="roles"> Author, maintainer </small> <br><small>(http://orcid.org/0000-0001-6413-3185)</small>
+<li>Stijn Van Hoey <br><small class="roles"> Author, maintainer </small>  <br><small>(http://orcid.org/0000-0001-6413-3185)</small>
 </li>
+<li><a href="authors.html">All authors...</a></li>
 </ul>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
@@ -312,7 +336,7 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
