@@ -16,6 +16,8 @@ navbar:
       href: articles/download_timeseries.html
   - text: Functions
     href: reference/index.html
+  - text: Contributing
+    href: CONTRIBUTING.html
   right:
   - icon: fa-github fa-lg
     href: https://github.com/inbo/wateRinfo
