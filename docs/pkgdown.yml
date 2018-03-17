@@ -1,0 +1,8 @@
+pandoc: 1.19.2.1
+pkgdown: 0.1.0.9000
+pkgdown_sha: 7cbafcd6b97e5108ccde816a00d300152534a192
+articles:
+  define_date_periods: define_date_periods.html
+  download_timeseries: download_timeseries.html
+  download_timeseries_batch: download_timeseries_batch.html
+
