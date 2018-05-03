@@ -23,7 +23,8 @@ Imports:
     jsonlite,
     lubridate (>= 1.6.0),
     rlang
-Suggests: testthat,
+Suggests:
+    testthat,
     httptest,
     knitr,
     rmarkdown,
