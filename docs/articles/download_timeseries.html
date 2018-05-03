@@ -117,26 +117,6 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">2015-12-31 23:00:00</td>
-<td align="center">1020.9</td>
-<td align="center">130</td>
-</tr>
-<tr class="even">
-<td align="left">2015-12-31 23:15:00</td>
-<td align="center">1021.0</td>
-<td align="center">130</td>
-</tr>
-<tr class="odd">
-<td align="left">2015-12-31 23:30:00</td>
-<td align="center">1021.1</td>
-<td align="center">130</td>
-</tr>
-<tr class="even">
-<td align="left">2015-12-31 23:45:00</td>
-<td align="center">1021.2</td>
-<td align="center">130</td>
-</tr>
-<tr class="odd">
 <td align="left">2016-01-01 00:00:00</td>
 <td align="center">1021.3</td>
 <td align="center">130</td>
@@ -144,6 +124,26 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 <tr class="even">
 <td align="left">2016-01-01 00:15:00</td>
 <td align="center">1021.5</td>
+<td align="center">130</td>
+</tr>
+<tr class="odd">
+<td align="left">2016-01-01 00:30:00</td>
+<td align="center">1021.6</td>
+<td align="center">130</td>
+</tr>
+<tr class="even">
+<td align="left">2016-01-01 00:45:00</td>
+<td align="center">1021.7</td>
+<td align="center">130</td>
+</tr>
+<tr class="odd">
+<td align="left">2016-01-01 01:00:00</td>
+<td align="center">1021.7</td>
+<td align="center">130</td>
+</tr>
+<tr class="even">
+<td align="left">2016-01-01 01:15:00</td>
+<td align="center">1021.7</td>
 <td align="center">130</td>
 </tr>
 </tbody>
@@ -159,7 +159,6 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 <a href="#search-identifier-based-on-variable-name" class="anchor"></a>Search identifier based on variable name</h2>
 <p>For a number of variables, the <a href="https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0">documentation of the Waterinfo.be API</a> provides a direct overview option of all available VMM measurement stations, using the so-called <code>Timeseriesgroup_id</code>. For these variables, the package provides the function <code>get_stations</code> to download an overview of available measurement stations and the related <code>ts_id</code> identifiers. The latter can be used to <a href="#Downloading-with-known-ts-identifier">download the time series</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)</code></pre></div>
-<pre><code>## Warning: package 'bindrcpp' was built under R version 3.4.4</code></pre>
 <pre><code>##      ts_id station_latitude station_longitude station_id station_no
 ## 1 78124042         51.20300          5.439589      12213   ME11_002
 ## 2 78039042         51.24379          4.266912      12208   ME04_001
