@@ -18,7 +18,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -27,16 +27,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
@@ -59,12 +57,12 @@
   <a href="../reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="../contributing.html">Contributing</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -85,24 +83,25 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Definition of the date period to download</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2018-03-17</h4>
+            <h4 class="date">2018-05-03</h4>
       
-      <small>Source: <a href="https:/github.com/inbo/wateRinfo/blob/master/vignettes/define_date_periods.Rmd"><code>vignettes/define_date_periods.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/inbo/wateRinfo/blob/master/vignettes/define_date_periods.Rmd"><code>vignettes/define_date_periods.Rmd</code></a></small>
+      <div class="hidden name"><code>define_date_periods.Rmd</code></div>
 
     </div>
 
     
     
-<div class="contents">
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>When downloading time series with the <code><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid()</a></code> method, the <code>ts_id</code> argument provides the link with the variable, location and frequency of the time series, but not the extent/period to download. The time period to download is defined by a combination of the arguments <code>from</code>, <code>to</code> and <code>period</code>. The usage is similar with the <a href="https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0">VMM documentation</a> for the API itself. The main difference is that the <code>wateRinfo</code> package uses existing R functions to interpret the date strings given by the user before sending these to the API (as a formatted string according to <code>%Y-%m-%d %H:%M:%S</code>).</p>
+<p>When downloading time series with the <code><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid()</a></code> method, the <code>ts_id</code> argument provides the link with the variable, location and frequency of the time series, but not the extent/period to download.</p>
+<p>The time period to download is defined by a combination of the arguments <code>from</code>, <code>to</code> and <code>period</code>. The usage is similar with the <a href="https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0">VMM documentation</a> for the API itself. The main difference is that the <code>wateRinfo</code> package uses existing R functions to interpret the date strings given by the user before sending these to the API (as a formatted string according to <code>%Y-%m-%d %H:%M:%S</code>).</p>
 <p>This vignette aims to briefly explain how to define the arguments.</p>
 </div>
 <div id="which-combinations" class="section level2">
@@ -138,7 +137,23 @@
 <code>P2DT6H</code> : period of 2 days and 6 hours</li>
 <li>…</li>
 </ul>
-<p>In general, the period string should be provided as <code>P#Y#M#DT#H#M#S</code>, where P defines <code>Period</code> (always required!) and each # is an integer value expressing <em>the number of…</em>. The codes define a specific time interval: * <code>Y</code> - years * <code>M</code> - months * <code>D</code> - days * <code>W</code> - weeks * <code>H</code> - hours * <code>M</code> - minutes * <code>S</code> - seconds</p>
+<p>In general, the period string should be provided as <code>P#Y#M#DT#H#M#S</code>, where P defines <code>Period</code> (always required!) and each # is an integer value expressing <em>the number of…</em>. The codes define a specific time interval:</p>
+<ul>
+<li>
+<code>Y</code> - years</li>
+<li>
+<code>M</code> - months</li>
+<li>
+<code>D</code> - days</li>
+<li>
+<code>W</code> - weeks</li>
+<li>
+<code>H</code> - hours</li>
+<li>
+<code>M</code> - minutes</li>
+<li>
+<code>S</code> - seconds</li>
+</ul>
 <p><code>T</code> is required if codes about sub-day resolution (day, minutes, hours) is part of the period string. Furthermore, <code>D</code> and <code>W</code> are mutually exclusive.</p>
 <p>More examples of valid period strings are:</p>
 <ul>
@@ -156,6 +171,7 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wateRinfo)</code></pre></div>
 <p>When interested in irradiance (15min frequency) data, the following stations provide time series:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"irradiance"</span>)</code></pre></div>
+<pre><code>## Warning: package 'bindrcpp' was built under R version 3.4.4</code></pre>
 <pre><code>##      ts_id station_latitude station_longitude station_id station_no
 ## 1 78845042         51.27226          3.728299      12207   ME03_017
 ## 2 78879042         50.86149          3.411318      12209   ME05_019
@@ -215,7 +231,6 @@
 <span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"irradiance (W/m2)"</span>)</code></pre></div>
 <p><img src="define_date_periods_files/figure-html/day2014-1.png" width="672"></p>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -236,7 +251,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href="https://twitter.com/SVanHoey">Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -245,6 +260,8 @@
 
       </footer>
 </div>
+
+  
 
   </body>
 </html>

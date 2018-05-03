@@ -25,11 +25,16 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Air pressure data of January 1st, 2017 — air_pressure" />
 
 <meta property="og:description" content="A dataset compiled by downloading 1 day of air pressure data for the
 available stations of Waterinfo.be" />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -52,17 +57,15 @@ available stations of Waterinfo.be" />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
      
@@ -84,13 +87,13 @@ available stations of Waterinfo.be" />
   <a href="../reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="../contributing.html">Contributing</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -102,6 +105,7 @@ available stations of Waterinfo.be" />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -109,17 +113,20 @@ available stations of Waterinfo.be" />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Air pressure data of January 1st, 2017</h1>
-    <small>Source: <a href='https:/github.com/inbo/wateRinfo/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/wateRinfo/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <div class="hidden name"><code>air_pressure.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>A dataset compiled by downloading 1 day of air pressure data for the
 available stations of Waterinfo.be</p>
     
+    </div>
 
     <pre class="usage"><span class='no'>air_pressure</span></pre>
         
@@ -161,7 +168,7 @@ available stations of Waterinfo.be</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href='https://twitter.com/SVanHoey'>Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -170,6 +177,8 @@ available stations of Waterinfo.be</p>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

@@ -25,7 +25,12 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Function reference" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -48,17 +53,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
      
@@ -80,13 +83,13 @@
   <a href="../reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="../contributing.html">Contributing</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -98,6 +101,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -105,178 +109,173 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;0.1.1</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    <table class="ref-index">
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <colgroup>
+      <col class="alias" />
+      <col class="title" />
+    </colgroup>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-main-download-functionalities" class="hasAnchor"><a href="#section-main-download-functionalities" class="anchor"></a>Main download functionalities</h2>
-            <p class="section-desc"><p>Functions for downloading stations, variables and time series</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="get_stations.html">get_stations()</a></code> </p>
-          </td>
-          <td><p>Get list of stations for a variable</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="get_variables.html">get_variables()</a></code> </p>
-          </td>
-          <td><p>Get list of variables for a given station</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="get_timeseries_tsid.html">get_timeseries_tsid()</a></code> </p>
-          </td>
-          <td><p>Download timeseries data from waterinfo.be</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-check-the-vmm-supported-variables" class="hasAnchor"><a href="#section-check-the-vmm-supported-variables" class="anchor"></a>Check the VMM supported variables</h2>
-            <p class="section-desc"><p>The supported variables can be requested on timeseriesgroupID</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="supported_frequencies.html">supported_frequencies()</a></code> </p>
-          </td>
-          <td><p>VMM supported timeseriesgroups frequencies</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="supported_variables.html">supported_variables()</a></code> </p>
-          </td>
-          <td><p>VMM supported timeseriesgroups variables</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="is_supported_variable.html">is_supported_variable()</a></code> </p>
-          </td>
-          <td><p>Check if variable is supported by VMM ts group id</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-resolving-of-identifiers-to-names" class="hasAnchor"><a href="#section-resolving-of-identifiers-to-names" class="anchor"></a>Resolving of identifiers to names</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="resolve_timeseriesgroupid.html">resolve_timeseriesgroupid()</a></code> </p>
-          </td>
-          <td><p>Get timeseriesgroupID for a supported variable</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="resolve_datasource.html">resolve_datasource()</a></code> </p>
-          </td>
-          <td><p>Define the datasource using the station number</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-date-handling-support-functions" class="hasAnchor"><a href="#section-date-handling-support-functions" class="anchor"></a>Date handling support functions</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="isdatetime.html">isdatetime()</a></code> </p>
-          </td>
-          <td><p>Check if the string input can be converted to a date, provides FALSE or date</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_date_format.html">check_date_format()</a></code> </p>
-          </td>
-          <td><p>Check if the date can be parsed to a datetim object in R</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="check_period_format.html">check_period_format()</a></code> </p>
-          </td>
-          <td><p>Check period string format</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="parse_period.html">parse_period()</a></code> </p>
-          </td>
-          <td><p>Check the from/to/period arguments</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-token-handling" class="hasAnchor"><a href="#section-token-handling" class="anchor"></a>Token handling</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="get_token.html">get_token()</a></code> <code><a href="get_token.html">is.expired()</a></code> <code><a href="get_token.html">expires.in()</a></code> </p>
-          </td>
-          <td><p>Get waterinfo Token</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-underlying-api-request-function" class="hasAnchor"><a href="#section-underlying-api-request-function" class="anchor"></a>Underlying API request function</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="call_waterinfo.html">call_waterinfo()</a></code> </p>
-          </td>
-          <td><p>http call to waterinfo.be</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-example-datasets" class="hasAnchor"><a href="#section-example-datasets" class="anchor"></a>Example datasets</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="liedekerke.html">liedekerke</a></code> </p>
-          </td>
-          <td><p>Soil moisture data of Liedekerke, January 2017</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="air_pressure.html">air_pressure</a></code> </p>
-          </td>
-          <td><p>Air pressure data of January 1st, 2017</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-main-download-functionalities" class="hasAnchor"><a href="#section-main-download-functionalities" class="anchor"></a>Main download functionalities</h2>
+          <p class="section-desc"><p>Functions for downloading stations, variables and time series</p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="get_stations.html">get_stations()</a></code> </p>
+        </td>
+        <td><p>Get list of stations for a variable</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="get_variables.html">get_variables()</a></code> </p>
+        </td>
+        <td><p>Get list of variables for a given station</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="get_timeseries_tsid.html">get_timeseries_tsid()</a></code> </p>
+        </td>
+        <td><p>Download timeseries data from waterinfo.be</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-check-the-vmm-supported-variables" class="hasAnchor"><a href="#section-check-the-vmm-supported-variables" class="anchor"></a>Check the VMM supported variables</h2>
+          <p class="section-desc"><p>The supported variables can be requested on timeseriesgroupID</p></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="supported_frequencies.html">supported_frequencies()</a></code> </p>
+        </td>
+        <td><p>VMM supported timeseriesgroups frequencies</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="supported_variables.html">supported_variables()</a></code> </p>
+        </td>
+        <td><p>VMM supported timeseriesgroups variables</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="is_supported_variable.html">is_supported_variable()</a></code> </p>
+        </td>
+        <td><p>Check if variable is supported by VMM ts group id</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-resolving-of-identifiers-to-names" class="hasAnchor"><a href="#section-resolving-of-identifiers-to-names" class="anchor"></a>Resolving of identifiers to names</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="resolve_timeseriesgroupid.html">resolve_timeseriesgroupid()</a></code> </p>
+        </td>
+        <td><p>Get timeseriesgroupID for a supported variable</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="resolve_datasource.html">resolve_datasource()</a></code> </p>
+        </td>
+        <td><p>Define the datasource using the station number</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-date-handling-support-functions" class="hasAnchor"><a href="#section-date-handling-support-functions" class="anchor"></a>Date handling support functions</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="isdatetime.html">isdatetime()</a></code> </p>
+        </td>
+        <td><p>Check if the string input can be converted to a date, provides FALSE or date</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="check_date_format.html">check_date_format()</a></code> </p>
+        </td>
+        <td><p>Check if the date can be parsed to a datetime object in R</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="check_period_format.html">check_period_format()</a></code> </p>
+        </td>
+        <td><p>Check period string format</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="parse_period.html">parse_period()</a></code> </p>
+        </td>
+        <td><p>Check the from/to/period arguments</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-token-handling" class="hasAnchor"><a href="#section-token-handling" class="anchor"></a>Token handling</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="get_token.html">get_token()</a></code> <code><a href="get_token.html">is.expired()</a></code> <code><a href="get_token.html">expires.in()</a></code> </p>
+        </td>
+        <td><p>Get waterinfo Token</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-underlying-api-request-function" class="hasAnchor"><a href="#section-underlying-api-request-function" class="anchor"></a>Underlying API request function</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="call_waterinfo.html">call_waterinfo()</a></code> </p>
+        </td>
+        <td><p>http call to waterinfo.be</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-example-datasets" class="hasAnchor"><a href="#section-example-datasets" class="anchor"></a>Example datasets</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        <!--  -->
+        <td>
+          <p><code><a href="liedekerke.html">liedekerke</a></code> </p>
+        </td>
+        <td><p>Soil moisture data of Liedekerke, January 2017</p></td>
+      </tr><tr>
+        <!--  -->
+        <td>
+          <p><code><a href="air_pressure.html">air_pressure</a></code> </p>
+        </td>
+        <td><p>Air pressure data of January 1st, 2017</p></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -295,7 +294,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href='https://twitter.com/SVanHoey'>Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -304,6 +303,8 @@
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

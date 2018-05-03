@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check if the date can be parsed to a datetim object in R — check_date_format • wateRinfo</title>
+<title>Check if the date can be parsed to a datetime object in R — check_date_format • wateRinfo</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -25,11 +25,16 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-<meta property="og:title" content="Check if the date can be parsed to a datetim object in R — check_date_format" />
+
+
+
+<meta property="og:title" content="Check if the date can be parsed to a datetime object in R — check_date_format" />
 
 <meta property="og:description" content="if the date is already a datetime object ("POSIXct" "POSIXt"), the object
 itself is returned" />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -52,17 +57,15 @@ itself is returned" />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
      
@@ -84,13 +87,13 @@ itself is returned" />
   <a href="../reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="../contributing.html">Contributing</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -102,6 +105,7 @@ itself is returned" />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -109,21 +113,24 @@ itself is returned" />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check if the date can be parsed to a datetim object in R</h1>
-    <small>Source: <a href='https:/github.com/inbo/wateRinfo/blob/master/R/parse_period.R'><code>R/parse_period.R</code></a></small>
+    <h1>Check if the date can be parsed to a datetime object in R</h1>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/wateRinfo/blob/master/R/parse_period.R'><code>R/parse_period.R</code></a></small>
+    <div class="hidden name"><code>check_date_format.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>if the date is already a datetime object ("POSIXct" "POSIXt"), the object
 itself is returned</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>check_date_format</span>(<span class='no'>datetime</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -151,7 +158,7 @@ itself is returned</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href='https://twitter.com/SVanHoey'>Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -160,6 +167,8 @@ itself is returned</p>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

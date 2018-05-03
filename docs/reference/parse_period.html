@@ -25,12 +25,17 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Check the from/to/period arguments — parse_period" />
 
 <meta property="og:description" content="Handle the information of provided date information on the period and provide
 feedback to the user. Valid combinations of the arguments are:
 from/to, from/period, to/period, period, from" />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -53,17 +58,15 @@ from/to, from/period, to/period, period, from" />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
      
@@ -85,13 +88,13 @@ from/to, from/period, to/period, period, from" />
   <a href="../reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="../contributing.html">Contributing</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -103,6 +106,7 @@ from/to, from/period, to/period, period, from" />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -110,22 +114,25 @@ from/to, from/period, to/period, period, from" />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Check the from/to/period arguments</h1>
-    <small>Source: <a href='https:/github.com/inbo/wateRinfo/blob/master/R/parse_period.R'><code>R/parse_period.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/wateRinfo/blob/master/R/parse_period.R'><code>R/parse_period.R</code></a></small>
+    <div class="hidden name"><code>parse_period.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Handle the information of provided date information on the period and provide
 feedback to the user. Valid combinations of the arguments are:
 from/to, from/period, to/period, period, from</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>parse_period</span>(<span class='kw'>from</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>period</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -148,7 +155,7 @@ from/to, from/period, to/period, period, from</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>check_period_format</p>
+    <div class='dont-index'><p>check_period_format</p></div>
     
 
   </div>
@@ -167,7 +174,7 @@ from/to, from/period, to/period, period, from</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href='https://twitter.com/SVanHoey'>Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -176,6 +183,8 @@ from/to, from/period, to/period, period, from</p>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>
