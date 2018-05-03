@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check period string format — check_period_format • wateRinfo</title>
+<title>Changelog • wateRinfo</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -28,10 +28,7 @@
 
 
 
-<meta property="og:title" content="Check period string format — check_period_format" />
-
-<meta property="og:description" content="Check if the format of the period is conform the specifications of VMM" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Changelog" />
 
 
 <!-- mathjax -->
@@ -46,7 +43,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,55 +112,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check period string format</h1>
-    <small class="dont-index">Source: <a href='https://github.com/inbo/wateRinfo/blob/master/R/parse_period.R'><code>R/parse_period.R</code></a></small>
-    <div class="hidden name"><code>check_period_format.Rd</code></div>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/inbo/wateRinfo/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    
-    <p>Check if the format of the period is conform the specifications of VMM</p>
-    
-    </div>
-
-    <pre class="usage"><span class='fu'>check_period_format</span>(<span class='no'>period_string</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>period_string</th>
-      <td><p>input string according to format required by waterinfo:
-The period string is provided as P#Y#M#DT#H#M#S, with P defines `Period`,
-each # is an integer value and the codes define the number of...
-Y - years
-M - months
-D - days
-T required if information about sub-day resolution is present
-H - hours
-D - days
-M - minutes
-S - seconds
-Instead of D (days), the usage of W - weeks is possible as well
-Examples of valid period strings: P3D, P1Y, P1DT12H, PT6H, P1Y6M3DT4H20M30S.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>str period string itself if valid</p>
-    
-
+    <div id="waterinfo-0-1-2" class="section level1">
+<h1 class="page-header">
+<a href="#waterinfo-0-1-2" class="anchor"></a>wateRinfo 0.1.2</h1>
+<ul>
+<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+<li>Provide support for parsible non-existing dates (e.g. ‘2018-04-31’)</li>
+<li>Add contributing guidelines</li>
+</ul>
+</div>
+    <div id="waterinfo-0-1-1" class="section level1">
+<h1 class="page-header">
+<a href="#waterinfo-0-1-1" class="anchor"></a>wateRinfo 0.1.1</h1>
+<ul>
+<li>Add support for token handling as distributed by waterinfo.be</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-          </ul>
-
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#waterinfo-0-1-2">0.1.2</a></li>
+        <li><a href="#waterinfo-0-1-1">0.1.1</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 
       <footer>

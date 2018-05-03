@@ -1,6 +1,6 @@
 Package: wateRinfo
 Title: Download TimeSeries Data From Waterinfo.be
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
     person("Stijn", "Van Hoey", role = c("aut", "cre"), email = "stijnvanhoey@gmail.com", comment = c(ORCID = "0000-0001-6413-3185")),
     person("Willem", "Maetens", role = c("ctb"), email = "w.maetens@vmm.be"),
