@@ -26,8 +26,6 @@ navbar:
 
 home:
   links:
-  - text: Report a bug at
-    href: https://github.com/inbo/wateRinfo/issues
   - text: Developed by Lifewatch INBO
     href: https://lifewatch.inbo.be
   - text: Check Waterinfo webapplication
