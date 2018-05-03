@@ -45,6 +45,7 @@ air_pressure <- wateRinfo::air_pressure
 ```
 
 As this results in a tidy data set, we can use the power of ggplot to plot the data of the individual measurement stations:
+
 ```{r plot_pressure, fig.width = 7, fig.height = 6}
 # create a plot of the individual datasets
 air_pressure %>% 
@@ -88,4 +89,3 @@ liedekerke %>%
     scale_x_datetime(date_labels = "%d-%m\n%Y",
                      date_breaks = "10 days")    
 ```
-
