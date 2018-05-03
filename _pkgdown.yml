@@ -20,7 +20,7 @@ navbar:
     href: CONTRIBUTING.html
   right:
   - icon: fa-twitter fa-lg
-    href: https://twitter.com/SVanHoey
+    href: https://twitter.com/LifeWatchINBO
   - icon: fa-github fa-lg
     href: https://github.com/inbo/wateRinfo
 
