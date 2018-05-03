@@ -3,8 +3,6 @@ navbar:
   title: wateRinfo
   type: default
   left:
-  - icon: fa-home fa-lg
-    href: index.html
   - text: Tutorials
     href: articles/index.html
     menu:
