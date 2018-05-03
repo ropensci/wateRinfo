@@ -1,6 +1,5 @@
-
 navbar:
-  title: wateRinfo
+  title: ~
   type: default
   left:
   - text: Tutorials
