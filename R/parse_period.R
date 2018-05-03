@@ -35,7 +35,7 @@ check_period_format <- function(period_string) {
 
 #' Check if the string input can be converted to a date, provides FALSE or date
 #'
-#' (acknowledgments to micstr/isdate.R)
+#' (acknowledgements to micstr/isdate.R)
 #'
 #' @param datetime string representation of a date
 #'
@@ -60,7 +60,7 @@ isdatetime <- function(datetime) {
 }
 
 
-#' Check if the date can be parsed to a datetim object in R
+#' Check if the date can be parsed to a datetime object in R
 #'
 #' if the date is already a datetime object ("POSIXct" "POSIXt"), the object
 #' itself is returned

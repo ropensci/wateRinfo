@@ -13,7 +13,7 @@ isdatetime(datetime)
 FALSE | "POSIXct" "POSIXt"
 }
 \description{
-(acknowledgments to micstr/isdate.R)
+(acknowledgements to micstr/isdate.R)
 }
 \examples{
 isdatetime("1985-11-21")
