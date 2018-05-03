@@ -22,7 +22,6 @@ The [waterinfo.be](https://www.waterinfo.be) API uses a system of identifiers, c
 library(wateRinfo)
 ```
 
-
 ## Downloading with known `ts` identifier
 
 In case you already know the `ts_id` identifier that defines your time serie, the package provides the function `get_timeseries_tsid` to download a specific period of the time series. 
@@ -59,6 +58,7 @@ supported_variables("en") %>%
 ```
 
 To check which predefined frequencies are provided by the Waterinfo.be API for a given variable, the `supported_frequencies` function is available:
+
 ```{r suppfreq1}
 supported_frequencies(variable_name = "air_pressure")
 ```
@@ -69,8 +69,7 @@ Hence, for air pressure data, only the 15 min resolution is supported. Compared 
 supported_frequencies(variable_name = "evaporation_monteith")
 ```
 
-multiple resolutions are available. Using the coarser time resolutions can be helpful when you want to download longer time series while keeping the number of records to download low (if the frequency would be sufficient for your analysis).
-
+Multiple resolutions are available. Using the coarser time resolutions can be helpful when you want to download longer time series while keeping the number of records to download low (if the frequency would be sufficient for your analysis):
 
 ```{r statofvarwithfreq}
 stations <- get_stations("evaporation_monteith", frequency = "year")
@@ -92,7 +91,6 @@ pet_yearly %>%
 ```
 
 (see the vignette on defining date periods for more information on the period argument used)
-
 
 **Remark:** the `get_stations` function only works for those measurement stations belonging to the VMM `meetnet` (network), related to the so-called `datasource = 1`. For [other networks](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting), i.e. `datasource = 2`, the enlisting is not supported. Still, a search for data is provided starting from a given station name, as explained in the next section.
 

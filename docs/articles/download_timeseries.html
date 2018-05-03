@@ -18,7 +18,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -27,16 +27,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
@@ -59,12 +57,12 @@
   <a href="../reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="../contributing.html">Contributing</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -85,20 +83,20 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Download time series from Waterinfo.be</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
             <h4 class="date">2018-05-03</h4>
       
-      <small>Source: <a href="https:/github.com/inbo/wateRinfo/blob/master/vignettes/download_timeseries.Rmd"><code>vignettes/download_timeseries.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/inbo/wateRinfo/blob/master/vignettes/download_timeseries.Rmd"><code>vignettes/download_timeseries.Rmd</code></a></small>
+      <div class="hidden name"><code>download_timeseries.Rmd</code></div>
 
     </div>
 
     
     
-<div class="contents">
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
@@ -207,7 +205,7 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 <p>Hence, for air pressure data, only the 15 min resolution is supported. Compared to evaporation derived by the <a href="https://en.wikipedia.org/wiki/Penman%E2%80%93Monteith_equation">Monteith equation</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/supported_frequencies.html">supported_frequencies</a></span>(<span class="dt">variable_name =</span> <span class="st">"evaporation_monteith"</span>)</code></pre></div>
 <pre><code>## [1] "15min, day, month, year"</code></pre>
-<p>multiple resolutions are available. Using the coarser time resolutions can be helpful when you want to download longer time series while keeping the number of records to download low (if the frequency would be sufficient for your analysis).</p>
+<p>Multiple resolutions are available. Using the coarser time resolutions can be helpful when you want to download longer time series while keeping the number of records to download low (if the frequency would be sufficient for your analysis):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stations &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"evaporation_monteith"</span>, <span class="dt">frequency =</span> <span class="st">"year"</span>)
 subset_of_columns &lt;-<span class="st"> </span>stations <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_no, station_name, 
                                          parametertype_name, ts_unitsymbol)
@@ -296,7 +294,7 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 <a href="#search-identifier-based-on-station-name" class="anchor"></a>Search identifier based on station name</h2>
 <p>Apart from the option to check the measurement stations that can provide data for a given variable, the package provides the function <code>get_variables</code> to get an overview of the available variables for a given station, using the <code>station_no</code>. The advantage compared to the <code>ts_id</code> is that these <code>station_no</code> names are provided by the waterinfo.be website itself when exploring the data. When clicking on a measurement station on the map and checking the time series graph, the <code>station_no</code> is provided in the upper left corner in between brackets.</p>
 <div class="figure">
-<img src="/home/stijn_vanhoey/githubs/dev_wateRinfo/vignettes/waterinfo_screen.png" alt="Waterinfo.be example printscreen of time series"><p class="caption">Waterinfo.be example printscreen of time series</p>
+<img src="waterinfo_screen.png" alt="Waterinfo.be example printscreen of time series"><p class="caption">Waterinfo.be example printscreen of time series</p>
 </div>
 <p>So, for the example in the figure, i.e. <code>station_no = zes42a-1066</code>, the available time series are retrieved by using the <code>get_variables</code> command:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"zes42a-1066"</span>)</code></pre></div>
@@ -386,7 +384,6 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Q (m3/s)"</span>)</code></pre></div>
 <p><img src="download_timeseries_files/figure-html/disch_etik-1.png" width="672"></p>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -406,7 +403,7 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 
 
       <footer><div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href="https://twitter.com/SVanHoey">Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -415,6 +412,8 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 
       </footer>
 </div>
+
+  
 
   </body>
 </html>

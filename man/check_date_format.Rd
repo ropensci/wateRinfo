@@ -2,7 +2,7 @@
 % Please edit documentation in R/parse_period.R
 \name{check_date_format}
 \alias{check_date_format}
-\title{Check if the date can be parsed to a datetim object in R}
+\title{Check if the date can be parsed to a datetime object in R}
 \usage{
 check_date_format(datetime)
 }

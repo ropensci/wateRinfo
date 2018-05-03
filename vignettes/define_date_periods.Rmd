@@ -16,7 +16,8 @@ library(ggplot2)
 
 ## Introduction
 
-When downloading time series with the `get_timeseries_tsid()` method, the `ts_id` argument provides the link with the variable, location and frequency of the time series, but not the extent/period to download. 
+When downloading time series with the `get_timeseries_tsid()` method, the `ts_id` argument provides the link with the variable, location and frequency of the time series, but not the extent/period to download.
+
 The time period to download is defined by a combination of the arguments `from`, `to` and `period`. The usage is similar with the [VMM documentation](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) for the API itself. The main difference is that the `wateRinfo` package uses existing R functions to interpret the date strings given by the user before sending these to the API (as a formatted string according to `%Y-%m-%d %H:%M:%S`).
 
 This vignette aims to briefly explain how to define the arguments. 
@@ -49,14 +50,15 @@ Some examples are:
 * ...
 
 In general, the period string should be provided as `P#Y#M#DT#H#M#S`, where P defines `Period` (always required!) and each # is an integer value expressing *the number of...*. The codes define a specific time interval:
- * `Y` - years
- * `M` - months
- * `D` - days
- * `W` - weeks
- * `H` - hours
- * `M` - minutes
- * `S` - seconds
- 
+
+* `Y` - years
+* `M` - months
+* `D` - days
+* `W` - weeks
+* `H` - hours
+* `M` - minutes
+* `S` - seconds
+
 `T` is required if codes about sub-day resolution (day, minutes, hours) is part of the period string. Furthermore, `D` and `W` are mutually exclusive. 
 
 More examples of valid period strings are:

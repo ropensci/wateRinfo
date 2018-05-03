@@ -1,10 +1,7 @@
-
 navbar:
-  title: wateRinfo
+  title: ~
   type: default
   left:
-  - icon: fa-home fa-lg
-    href: index.html
   - text: Tutorials
     href: articles/index.html
     menu:
@@ -17,21 +14,23 @@ navbar:
   - text: Functions
     href: reference/index.html
   - text: Contributing
-    href: CONTRIBUTING.html
+    href: contributing.html
   right:
   - icon: fa-twitter fa-lg
-    href: https://twitter.com/SVanHoey
+    href: https://twitter.com/LifeWatchINBO
   - icon: fa-github fa-lg
     href: https://github.com/inbo/wateRinfo
 
 home:
   links:
-  - text: Report a bug at
-    href: https://github.com/inbo/wateRinfo/issues
-  - text: Developed by Lifewatch INBO
-    href: https://lifewatch.inbo.be
-  - text: Check Waterinfo webapplication
+  - text: Visit Waterinfo.be
     href: https://www.waterinfo.be/
+  - text: Get to know our team
+    href: https://lifewatch.inbo.be
+
+authors:
+  Stijn Van Hoey:
+    href: https://twitter.com/SVanHoey
 
 reference:
   - title: "Main download functionalities"

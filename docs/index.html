@@ -23,7 +23,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -32,16 +32,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
@@ -64,12 +62,12 @@
   <a href="reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="CONTRIBUTING.html">Contributing</a>
+  <a href="contributing.html">Contributing</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -90,12 +88,11 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     
 
     
     
-<div class="contents">
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <div id="waterinfo" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
@@ -109,7 +106,7 @@
 <p>You can install wateRinfo from github with:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
 devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"inbo/wateRinfo"</span>)</code></pre></div>
-<p>when succesfull, load it as usual:</p>
+<p>When succesfull, load it as usual:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wateRinfo)</code></pre></div>
 </div>
 <div id="example" class="section level2">
@@ -117,7 +114,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <a href="#example" class="anchor"></a>Example</h2>
 <p>For a number of supported variables (<a href="https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0">documented</a> by VMM), the stations providing time series data for a given variable can be listed with the command <code>get_stations</code>.</p>
 <p>If you want to know the supported variables, ask for the supported variables:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/supported_variables.html">supported_variables</a></span>(<span class="st">'en'</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/supported_variables.html">supported_variables</a></span>(<span class="st">"en"</span>)
 <span class="co">#&gt;              variable_en</span>
 <span class="co">#&gt; 1              discharge</span>
 <span class="co">#&gt; 6        soil_saturation</span>
@@ -138,7 +135,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; 40        wind_direction</span>
 <span class="co">#&gt; 41            wind_speed</span></code></pre></div>
 <p>Listing the available air_pressure stations:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="st">'air_pressure'</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
 <span class="co">#&gt; 1 78124042         51.20300          5.439589      12213   ME11_002</span>
 <span class="co">#&gt; 2 78039042         51.24379          4.266912      12208   ME04_001</span>
@@ -184,7 +181,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_path">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"hPa"</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_date">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M</span><span class="ch">\n</span><span class="st">%Y-%m-%d"</span>, <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</code></pre></div>
-<p><img src="/home/stijn_vanhoey/githubs/dev_wateRinfo/figures/README-plot_pressure-1.png" width="80%"></p>
+<p><img src="figures/README-plot_pressure-1.png" width="80%"></p>
 <p>Another option is to check the available variables for a given station, with the function <code>get_variables</code>. Let’s consider again Overpelt (<code>ME11_002</code>) and check the first ten available variables at the Overpelt measurement station:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars_overpelt &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_variables.html">get_variables</a></span>(<span class="st">"ME11_002"</span>)
 <span class="co">#&gt; [1] "Use datasource: 1 for data requests of this station!"</span>
@@ -227,7 +224,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_path">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">" RH (%)"</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_date">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%b-%d</span><span class="ch">\n</span><span class="st">%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"5 days"</span>)</code></pre></div>
-<p><img src="/home/stijn_vanhoey/githubs/dev_wateRinfo/figures/README-plot_rh-1.png" width="80%"></p>
+<p><img src="figures/README-plot_rh-1.png" width="80%"></p>
 <p>Unfortunately, not all variables are documented, for which the check for the appropriate variable is not (yet) fully supported by the package.</p>
 <p>More detailed tutorials are available in the package vignettes!</p>
 </div>
@@ -236,25 +233,25 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <a href="#note-on-restrictions-of-the-downloads" class="anchor"></a>Note on restrictions of the downloads</h2>
 <p>The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <a href="mailto:hydrometrie@waterinfo.be">hydrometrie@waterinfo.be</a> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.</p>
 <p>Get token with client-credit code: (limited client-credit code for testing purposes)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">client &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">'MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4'</span>,
-                 <span class="st">'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=='</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">client &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">"MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4"</span>,
+                 <span class="st">"NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=="</span>)
 my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
 <span class="kw">print</span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2ZTUwMzVkNC02YjU4LTQ3ZWUtYmRlNS0yMWIxYjMxZTZiNGIiLCJpYXQiOjE1MjUzMzg4MjEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTI1NDI1MjIxfQ._irgP1vG41AI5wGp2RuxbXP0nPFKjJeeKWExYfVAXoo</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjNzY4YjEyMC1mMzM2LTQ5MmUtYmU3ZC1hZjQ0MTU0YzZmM2QiLCJpYXQiOjE1MjUzNzc3MzcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTI1NDY0MTM3fQ.8hRFmTNGtWEd0NLG1IAzejnmEWpKACiewFvLYTmu8fM</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2018-05-04 11:13:41 CEST</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-05-04 22:02:16 CEST</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/wateRinfo/topics/get_token">is.expired</a></span>(my_token)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.expired</span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/wateRinfo/topics/get_token">expires.in</a></span>(my_token)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expires.in</span>(my_token)
 <span class="co">#&gt; Time difference of 23.99999 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">'verdamping_monteith'</span>, <span class="dt">token =</span> my_token)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
 <span class="co">#&gt; 1 94310042         51.02263          2.970584      12206   ME01_003</span>
 <span class="co">#&gt; 2 94530042         51.16224          4.845708      12212   ME10_011</span>
@@ -296,30 +293,40 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 <p>Please <a href="https://github.com/inbo/wateRinfo/issues/new">report any issues or bugs</a>.</p>
 </div>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2 class="hasAnchor">
-<a href="#sidebar" class="anchor"></a>Links</h2>
+    <div class="links">
+<h2>Links</h2>
 <ul class="list-unstyled">
 <li>Browse source code at <br><a href="https://github.com/inbo/wateRinfo">https://​github.com/​inbo/​wateRinfo</a>
 </li>
-<li>Report a bug at at <br><a href="https://github.com/inbo/wateRinfo/issues">https://​github.com/​inbo/​wateRinfo/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/inbo/wateRinfo/issues">https://​github.com/​inbo/​wateRinfo/​issues</a>
 </li>
-<li>Developed by Lifewatch INBO at <br><a href="https://lifewatch.inbo.be">https://​lifewatch.inbo.be</a>
+<li>Visit Waterinfo.be at <br><a href="https://www.waterinfo.be/">https://​www.waterinfo.be/​</a>
 </li>
-<li>Check Waterinfo webapplication at <br><a href="https://www.waterinfo.be/">https://​www.waterinfo.be/​</a>
+<li>Get to know our team at <br><a href="https://lifewatch.inbo.be">https://​lifewatch.inbo.be</a>
 </li>
 </ul>
+</div>
+<div class="license">
 <h2>License</h2>
-<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></p>
+<ul class="list-unstyled">
+<li>
+<a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a>
+</li>
+</ul>
+</div>
+<div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Stijn Van Hoey <br><small class="roles"> Author, maintainer </small>  <br><small>(http://orcid.org/0000-0001-6413-3185)</small>
-</li>
+<li>
+<a href="https://twitter.com/SVanHoey">Stijn Van Hoey</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6413-3185" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" height="16"></a> </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
+</div>
+
+      <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/inbo/wateRinfo"><img src="https://travis-ci.org/inbo/wateRinfo.svg?branch=addci" alt="Build Status"></a></li>
@@ -327,12 +334,13 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 <li><a href="https://coveralls.io/r/inbo/wateRinfo?branch=master"><img src="https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg" alt="Coverage Status"></a></li>
 </ul>
 </div>
+</div>
 
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href="https://twitter.com/SVanHoey">Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -341,6 +349,8 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 
       </footer>
 </div>
+
+  
 
   </body>
 </html>

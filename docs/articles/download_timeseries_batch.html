@@ -18,7 +18,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -27,16 +27,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
@@ -59,12 +57,12 @@
   <a href="../reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="../contributing.html">Contributing</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -85,20 +83,20 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Downloading time series in batch</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
             <h4 class="date">2018-05-03</h4>
       
-      <small>Source: <a href="https:/github.com/inbo/wateRinfo/blob/master/vignettes/download_timeseries_batch.Rmd"><code>vignettes/download_timeseries_batch.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/inbo/wateRinfo/blob/master/vignettes/download_timeseries_batch.Rmd"><code>vignettes/download_timeseries_batch.Rmd</code></a></small>
+      <div class="hidden name"><code>download_timeseries_batch.Rmd</code></div>
 
     </div>
 
     
     
-<div class="contents">
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
@@ -160,7 +158,6 @@ liedekerke &lt;-<span class="st"> </span>variables_to_download <span class="op">
                      <span class="dt">date_breaks =</span> <span class="st">"10 days"</span>)    </code></pre></div>
 <p><img src="download_timeseries_batch_files/figure-html/liedekerke_viz-1.png" width="672"></p>
 </div>
-</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -179,7 +176,7 @@ liedekerke &lt;-<span class="st"> </span>variables_to_download <span class="op">
 
 
       <footer><div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href="https://twitter.com/SVanHoey">Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -188,6 +185,8 @@ liedekerke &lt;-<span class="st"> </span>variables_to_download <span class="op">
 
       </footer>
 </div>
+
+  
 
   </body>
 </html>

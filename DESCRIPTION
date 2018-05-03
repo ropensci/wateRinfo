@@ -1,13 +1,11 @@
 Package: wateRinfo
-Type: Package
 Title: Download TimeSeries Data From Waterinfo.be
 Version: 0.1.1
-Authors@R: c(person("Stijn", "Van Hoey", role = c("aut", "cre"),
-    email = "stijnvanhoey@gmail.com",
-    comment = "http://orcid.org/0000-0001-6413-3185"),
-            person("Willem", "Maetens", role = c("ctb"),
-            email = "w.maetens@vmm.be"))
-URL: https://github.com/inbo/wateRinfo
+Authors@R: c(
+    person("Stijn", "Van Hoey", role = c("aut", "cre"), email = "stijnvanhoey@gmail.com", comment = c(ORCID = "0000-0001-6413-3185")),
+    person("Willem", "Maetens", role = c("ctb"), email = "w.maetens@vmm.be"),
+    person("Peter", "Desmet", role = c("ctb"), email = "peter.desmet@inbo.be", comment = c(ORCID = "0000-0002-8442-8025"))
+    )
 Description: The wateRinfo package provides an R interface to the data available
     at waterinfo.be, the data portal provided by the Flemish Environmental
     Agency. The package provides R functions to check the available stations for 
@@ -15,6 +13,8 @@ Description: The wateRinfo package provides an R interface to the data available
     download time series using the database identifiers as well as station 
     names.
 License: MIT + file LICENSE
+URL: https://github.com/inbo/wateRinfo, https://inbo.github.io/wateRinfo
+BugReports: https://github.com/inbo/wateRinfo/issues
 Depends:
     R (>= 2.10)
 Imports:
@@ -24,13 +24,14 @@ Imports:
     jsonlite,
     lubridate (>= 1.6.0),
     rlang
-Encoding: UTF-8
-LazyData: true
-Suggests: testthat,
+Suggests:
+    testthat,
     httptest,
     knitr,
     rmarkdown,
     ggplot2,
     covr
+LazyData: true
+Encoding: UTF-8
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr

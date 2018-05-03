@@ -19,7 +19,7 @@ You can install wateRinfo from github with:
 devtools::install_github("inbo/wateRinfo")
 ```
 
-when succesfull, load it as usual:
+When succesfull, load it as usual:
 
 ``` r
 library(wateRinfo)
@@ -33,7 +33,7 @@ For a number of supported variables ([documented](https://www.waterinfo.be/downl
 If you want to know the supported variables, ask for the supported variables:
 
 ``` r
-supported_variables('en')
+supported_variables("en")
 #>              variable_en
 #> 1              discharge
 #> 6        soil_saturation
@@ -58,7 +58,7 @@ supported_variables('en')
 Listing the available air\_pressure stations:
 
 ``` r
-get_stations('air_pressure')
+get_stations("air_pressure")
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 78124042         51.20300          5.439589      12213   ME11_002
 #> 2 78039042         51.24379          4.266912      12208   ME04_001
@@ -183,8 +183,8 @@ The amount of data downloaded from waterinfo.be is limited via a credit system. 
 Get token with client-credit code: (limited client-credit code for testing purposes)
 
 ``` r
-client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
-                 'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==')
+client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
+                 "NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==")
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
@@ -193,7 +193,7 @@ print(my_token)
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2018-05-04 11:13:38 CEST
+#>  expires: 2018-05-04 18:21:49 CEST
 ```
 
 Receive information on the validity of the token:
@@ -213,7 +213,7 @@ expires.in(my_token)
 Use token when retrieving data:
 
 ``` r
-get_stations(variable_name = 'verdamping_monteith', token = my_token)
+get_stations(variable_name = "verdamping_monteith", token = my_token)
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 94310042         51.02263          2.970584      12206   ME01_003
 #> 2 94530042         51.16224          4.845708      12212   ME10_011

@@ -25,11 +25,16 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Get timeseriesgroupID for a supported variable — resolve_timeseriesgroupid" />
 
 <meta property="og:description" content="Translate the usage of available variables to the corresponding
 timeseriesgroupID, based on the provided lookup table from VMM" />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -52,17 +57,15 @@ timeseriesgroupID, based on the provided lookup table from VMM" />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">wateRinfo</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">wateRinfo</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.1</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li class="dropdown">
+        <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Tutorials
      
@@ -84,13 +87,13 @@ timeseriesgroupID, based on the provided lookup table from VMM" />
   <a href="../reference/index.html">Functions</a>
 </li>
 <li>
-  <a href="../CONTRIBUTING.html">Contributing</a>
+  <a href="../contributing.html">Contributing</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://twitter.com/SVanHoey">
+  <a href="https://twitter.com/LifeWatchINBO">
     <span class="fa fa-twitter fa-lg"></span>
      
   </a>
@@ -102,6 +105,7 @@ timeseriesgroupID, based on the provided lookup table from VMM" />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -109,21 +113,24 @@ timeseriesgroupID, based on the provided lookup table from VMM" />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get timeseriesgroupID for a supported variable</h1>
-    <small>Source: <a href='https:/github.com/inbo/wateRinfo/blob/master/R/resolve_identifiers.R'><code>R/resolve_identifiers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/inbo/wateRinfo/blob/master/R/resolve_identifiers.R'><code>R/resolve_identifiers.R</code></a></small>
+    <div class="hidden name"><code>resolve_timeseriesgroupid.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Translate the usage of available variables to the corresponding
 timeseriesgroupID, based on the provided lookup table from VMM</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>resolve_timeseriesgroupid</span>(<span class='no'>variable_name</span>, <span class='kw'>frequency</span> <span class='kw'>=</span> <span class='st'>"15min"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -158,7 +165,7 @@ see inst/extdata</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Stijn Van Hoey.</p>
+  <p>Developed by <a href='https://twitter.com/SVanHoey'>Stijn Van Hoey</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -167,6 +174,8 @@ see inst/extdata</p>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>
