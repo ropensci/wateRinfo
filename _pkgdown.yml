@@ -28,6 +28,9 @@ home:
   - text: Created by Lifewatch INBO
     href: https://lifewatch.inbo.be
 
+authors:
+  Stijn Van Hoey:
+    href: https://twitter.com/SVanHoey
 
 reference:
   - title: "Main download functionalities"
