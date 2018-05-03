@@ -1,11 +1,10 @@
 Package: wateRinfo
 Title: Download TimeSeries Data From Waterinfo.be
 Version: 0.1.1
-Authors@R: c(person("Stijn", "Van Hoey", role = c("aut", "cre"),
-    email = "stijnvanhoey@gmail.com",
-    comment = "http://orcid.org/0000-0001-6413-3185"),
-            person("Willem", "Maetens", role = c("ctb"),
-            email = "w.maetens@vmm.be"))
+Authors@R: c(
+    person("Stijn", "Van Hoey", role = c("aut", "cre"), email = "stijnvanhoey@gmail.com", comment = c(ORCID = "0000-0001-6413-3185")),
+    person("Willem", "Maetens", role = c("ctb"), email = "w.maetens@vmm.be")
+    )
 Description: The wateRinfo package provides an R interface to the data available
     at waterinfo.be, the data portal provided by the Flemish Environmental
     Agency. The package provides R functions to check the available stations for 
