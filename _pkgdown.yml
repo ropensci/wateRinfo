@@ -26,10 +26,11 @@ navbar:
 
 home:
   links:
-  - text: Developed by Lifewatch INBO
-    href: https://lifewatch.inbo.be
-  - text: Check Waterinfo webapplication
+  - text: Visit Waterinfo.be
     href: https://www.waterinfo.be/
+  - text: Created by Lifewatch INBO
+    href: https://lifewatch.inbo.be
+
 
 reference:
   - title: "Main download functionalities"
