@@ -14,7 +14,7 @@ navbar:
   - text: Functions
     href: reference/index.html
   - text: Contributing
-    href: contributing.html
+    href: CONTRIBUTING.html
   right:
   - icon: fa-twitter fa-lg
     href: https://twitter.com/LifeWatchINBO
