@@ -12,7 +12,7 @@ An [API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?
 Installation
 ------------
 
-You can install wateRinfo from github with:
+You can install wateRinfo from GitHub with:
 
 ``` r
 # install.packages("devtools")
@@ -59,6 +59,7 @@ Listing the available air\_pressure stations:
 
 ``` r
 get_stations("air_pressure")
+#> Warning: package 'bindrcpp' was built under R version 3.4.4
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 78124042         51.20300          5.439589      12213   ME11_002
 #> 2 78039042         51.24379          4.266912      12208   ME04_001
@@ -188,12 +189,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODAxYTZjNS0wOGMwLTRhNzgtODU4Zi0xMWYxMTUwYjZjNzYiLCJpYXQiOjE1MjUzMzg4MTgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTI1NDI1MjE4fQ.xqrandedrsZpNjsAppgtimtHROqxHlDilwZ8lEUMV2E
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyNzMwMDBlZi02NmMyLTQ3OGUtYjRhNy0xZmIzY2Y1YzhmMDEiLCJpYXQiOjE1Mzc0NDg1MTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM3NTM0OTE1fQ.B_QonH9tqHq-yfpbGrX220KMk68SpaT0W9jd7hXEZn8
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2018-05-04 18:21:49 CEST
+#>  expires: 2018-09-21 15:01:55 CEST
 ```
 
 Receive information on the validity of the token:

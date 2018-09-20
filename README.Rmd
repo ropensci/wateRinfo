@@ -22,7 +22,7 @@ An [API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?
 
 ## Installation
 
-You can install wateRinfo from github with:
+You can install wateRinfo from GitHub with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
