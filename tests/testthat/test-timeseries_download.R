@@ -1,7 +1,6 @@
 context("timeseries_download")
 
 test_that("Call works as expected", {
-    skip_if_disconnected()
     skip_on_cran()
 
     pressure <- get_timeseries_tsid("78124042",
@@ -17,7 +16,6 @@ test_that("Call works as expected", {
 
 
 test_that("Response of empty dataframe", {
-    skip_if_disconnected()
     skip_on_cran()
 
     pressure <- get_timeseries_tsid("78124042",
