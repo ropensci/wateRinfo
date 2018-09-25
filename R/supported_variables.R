@@ -12,9 +12,9 @@
 supported_variables <- function(language = "nl") {
 
     if (language == "nl" ) {
-        column_name <- quo(variable_nl)
+        column_name <- "variable_nl"
     } else if (language == "en" ) {
-        column_name <- quo(variable_en)
+        column_name <- "variable_en"
     } else {
         stop("nl and en are the supported languages to present variable names")
     }
