@@ -1,6 +1,7 @@
 
 waterinfo_base <- function() {
     "http://download.waterinfo.be/tsmdownload/KiWIS/KiWIS"
+    #"https://www.waterinfo.be/tsmpub/KiWIS/KiWIS"
 }
 waterinfo_pro_base <- function() {
     "http://pro.waterinfo.be/tsmpro/KiWIS/KiWIS"
@@ -91,6 +92,7 @@ call_waterinfo <- function(query, base_url = "download", token = NULL) {
 #'
 #' @export
 #'
+#' @importFrom utils str
 print.waterinfo_api <- function(x, ...) {
     cat("Waterinfo API query applied: ", x$path, "\n", sep = "")
     str(x$content)
