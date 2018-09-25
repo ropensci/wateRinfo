@@ -17,5 +17,5 @@ FALSE | "POSIXct" "POSIXt"
 }
 \examples{
 isdatetime("1985-11-21")
-
 }
+\keyword{internal}

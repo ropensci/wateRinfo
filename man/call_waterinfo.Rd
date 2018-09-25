@@ -21,3 +21,4 @@ waterinfo_api class object with content and info about call
 General call used to request information and data from waterinfo.be,
 providing error handling and json parsing
 }
+\keyword{internal}

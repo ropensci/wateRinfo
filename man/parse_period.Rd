@@ -24,3 +24,4 @@ from/to, from/period, to/period, period, from
 \seealso{
 check_period_format
 }
+\keyword{internal}
