@@ -40,12 +40,12 @@ check_period_format <- function(period_string) {
 #' @param datetime string representation of a date
 #'
 #' @return FALSE | "POSIXct" "POSIXt"
-#' @export
+#'
+#' @importFrom lubridate parse_date_time
+#' @keywords internal
 #'
 #' @examples
 #' isdatetime("1985-11-21")
-#'
-#' @importFrom lubridate parse_date_time
 isdatetime <- function(datetime) {
     parsed <- tryCatch(parse_date_time(datetime,
                                        orders = c("ymd_HMS", "ymd", "ym", "y")),
@@ -68,7 +68,7 @@ isdatetime <- function(datetime) {
 #' @param datetime string representation of the date
 #'
 #' @return POSIXct date-time object is date is valid representation
-#' @export
+#' @keywords internal
 check_date_format <- function(datetime) {
     date_parsed <- isdatetime(datetime)
     if (date_parsed == FALSE) {
@@ -89,7 +89,8 @@ check_date_format <- function(datetime) {
 #' @param period input string according to format required by waterinfo
 #'
 #' @seealso check_period_format
-#' @export
+#' @keywords internal
+#'
 #' @return list with the relevant period/date information
 parse_period <- function(from = NULL, to = NULL, period = NULL) {
 
