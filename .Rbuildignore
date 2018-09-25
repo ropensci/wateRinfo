@@ -8,5 +8,6 @@ figures/
 ^appveyor\.yml$
 ^docs$
 ^_pkgdown\.yml$
-^CONDUCT\.md$
+^CODE_OF_CONDUCT\.md$
 ^CONTRIBUTING\.md$
+.github/
