@@ -1,5 +1,4 @@
 
-
 #' Check period string format
 #'
 #' Check if the format of the period is conform the specifications of VMM
@@ -20,6 +19,10 @@
 #'
 #' @return str period string itself if valid
 #' @export
+#'
+#' @examples
+#' check_period_format("P2DT6H") # period of 2 days and 6 hours
+#' check_period_format("P3D") # period of 3 days
 check_period_format <- function(period_string) {
     regex <- paste("^P(?=[0-9]+|T)[0-9]*Y?(?!M)[0-9]*M?(?![DW])[0-9]*[D,W]?",
                    "(T)?(?(1)(?![H])[0-9]*H?(?![M])[0-9]*M?(?![S])[0-9]*S?|)$",
