@@ -44,7 +44,7 @@ get_variables <- function(station_no, token = NULL) {
         colnames(df) <- stations[1, ]
     }
 
-    print(sprintf("Use datasource: %s for data requests of this station!",
+    message(sprintf("Use datasource: %s for data requests of this station!",
                   datasource))
 
     df
