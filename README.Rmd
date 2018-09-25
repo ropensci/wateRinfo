@@ -140,10 +140,10 @@ get_stations(variable_name = "verdamping_monteith", token = my_token)
 
 This package is just a small wrapper around waterinfo.be to facilitate researchers and other stakeholders in downloading the data from [waterinfo.be](http://www.waterinfo.be). The availability of this data is made possible by *de Vlaamse Milieumaatschappij, Waterbouwkundig Laboratorium, Maritieme Dienstverlening & Kust, Waterwegen en Zeekanaal NV en De Scheepvaart NV*.
 
-## Furthermore...
+## Meta
 
 This package is an experimental open-source project. All functionalities are provided as is, without any guarantee.
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 Please [report any issues or bugs](https://github.com/inbo/wateRinfo/issues/new).
