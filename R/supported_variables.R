@@ -3,7 +3,7 @@
 #' Provide list of VMM supported variables in the timeseriesgroupID
 #' in either dutch or english
 #'
-#' @param language char nl (dutch) or en (english) variable names
+#' @param language char \code{nl} (dutch) or \code{en} (english) variable names
 #'
 #' @export
 #' @importFrom dplyr select %>%
@@ -40,9 +40,14 @@ supported_variables <- function(language = "nl") {
 #'
 #' @param variable_name char
 #'
+#' @return Raise error when variable is not supported directly, otherwise NULL
+#'
 #' @export
 #' @importFrom dplyr %>% filter
 #' @importFrom rlang .data
+#'
+#' @examples
+#' is_supported_variable("wind_speed")
 is_supported_variable <- function(variable_name) {
     lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
                                package = "wateRinfo")
@@ -71,6 +76,9 @@ is_supported_variable <- function(variable_name) {
 #' @importFrom dplyr %>% filter select
 #' @importFrom utils read.csv
 #' @importFrom rlang .data
+#'
+#' @examples
+#' supported_frequencies('rainfall')
 supported_frequencies <- function(variable_name) {
     is_supported_variable(variable_name)
 
