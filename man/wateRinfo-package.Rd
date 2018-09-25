@@ -4,7 +4,7 @@
 \name{wateRinfo-package}
 \alias{wateRinfo}
 \alias{wateRinfo-package}
-\title{wateRinfo: Download TimeSeries Data From Waterinfo.be}
+\title{wateRinfo: Download Time Series Data from Waterinfo.be}
 \description{
 \if{html}{\figure{logo.png}{options: align='right'}}
 

@@ -15,7 +15,4 @@ FALSE | "POSIXct" "POSIXt"
 \description{
 (acknowledgements to micstr/isdate.R)
 }
-\examples{
-isdatetime("1985-11-21")
-}
 \keyword{internal}
