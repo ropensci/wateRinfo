@@ -9,6 +9,13 @@
 #' @importFrom dplyr select %>%
 #' @importFrom utils read.csv
 #' @importFrom rlang quo
+#'
+#' @examples
+#' # Request supported variables in Dutch
+#' supported_variables("nl")
+#'
+#' # Request supported variables in English
+#' supported_variables("en")
 supported_variables <- function(language = "nl") {
 
     if (language == "nl" ) {
