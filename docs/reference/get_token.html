@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -34,6 +36,7 @@
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -183,22 +186,22 @@ purposes, get your very own client via <a href='mailto:hydrometrie@waterinfo.be'
 <span class='no'>client_secret</span> <span class='kw'>&lt;-</span> <span class='st'>'4ada871a-9528-4b4d-bfd5-b570ce8f4d2d'</span>
 <span class='no'>my_token</span> <span class='kw'>&lt;-</span> <span class='fu'>get_token</span>(<span class='kw'>client_id</span> <span class='kw'>=</span> <span class='no'>client_id</span>,<span class='kw'>client_secret</span> <span class='kw'>=</span> <span class='no'>client_secret</span>)
 <span class='fu'>print</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Token:
-#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjMTk4NWJkNy1hMTk0LTQ2NzktYTYwYi1lZDE2ZTIwNjQzZjkiLCJpYXQiOjE1Mzc0NDg1MTgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM3NTM0OTE4fQ.JA289YqMMMN2mcqpYNbAVEReh8d8a_9kxqzRpoNf0dA
+#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1YTViNTYyOC0zNGM3LTQyMjktYjZkOS0zZDhkYmMyYzVkNDAiLCJpYXQiOjE1Mzc4ODc2MzUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM3OTc0MDM1fQ.Umr2O6YOctb36TqmjskxY6bpXdrSz6MmL3Te3doJ-lI
 #&gt; 
 #&gt; Attributes:
 #&gt;  url: http://download.waterinfo.be/kiwis-auth/token
 #&gt;  type: Bearer
-#&gt;  expires: 2018-09-21 15:01:57 CEST</div><div class='input'><span class='co'># get token via client</span>
+#&gt;  expires: 2018-09-26 17:00:36 CEST</div><div class='input'><span class='co'># get token via client</span>
 <span class='no'>client</span> <span class='kw'>&lt;-</span> <span class='fu'>paste0</span>(<span class='st'>'MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4'</span>,
                 <span class='st'>'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=='</span>)
 <span class='no'>my_token</span> <span class='kw'>&lt;-</span> <span class='fu'>get_token</span>(<span class='kw'>client</span> <span class='kw'>=</span> <span class='no'>client</span>)
 <span class='fu'>print</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Token:
-#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxZTRjYTA1OC02NmUwLTQwN2EtOWEzMi1lMzVhMjEyZTE5NTQiLCJpYXQiOjE1Mzc0NDg1MTgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM3NTM0OTE4fQ.Qjv6_q4-E2hOXcy_td9UbG3ywu6Mt__QYa4XYK6ciJ0
+#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwN2VhZTNlYy00Y2ZlLTQyNGEtOTc2Mi0yZTk1NDc2ZWEwYzUiLCJpYXQiOjE1Mzc4ODc2MzYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM3OTc0MDM2fQ.ixMc7RtwYiJiuNLdlBLljX4cQAK5hrP_CJNlhDNe1-8
 #&gt; 
 #&gt; Attributes:
 #&gt;  url: http://download.waterinfo.be/kiwis-auth/token
 #&gt;  type: Bearer
-#&gt;  expires: 2018-09-21 15:01:57 CEST</div><div class='input'><span class='fu'>is.expired</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>expires.in</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Time difference of 24 hours</div><div class='input'>
+#&gt;  expires: 2018-09-26 17:00:36 CEST</div><div class='input'><span class='fu'>is.expired</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>expires.in</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Time difference of 24 hours</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

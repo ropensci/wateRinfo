@@ -61,6 +61,7 @@ reference:
   - title: "Underlying API request function"
     contents:
       - call_waterinfo
+      - print.waterinfo_api
   - title: "Example datasets"
     contents:
       - liedekerke
