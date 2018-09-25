@@ -43,9 +43,6 @@ check_period_format <- function(period_string) {
 #'
 #' @importFrom lubridate parse_date_time
 #' @keywords internal
-#'
-#' @examples
-#' isdatetime("1985-11-21")
 isdatetime <- function(datetime) {
     parsed <- tryCatch(parse_date_time(datetime,
                                        orders = c("ymd_HMS", "ymd", "ym", "y")),
