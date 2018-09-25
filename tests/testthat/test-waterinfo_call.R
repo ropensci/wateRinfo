@@ -6,6 +6,13 @@ test_that("base url is valid", {
                  regexp = "Base url should be download or pro")
 })
 
+test_that("wrong token object", {
+  query <- list()
+  expect_error(call_waterinfo(query, token = "3AGZ"),
+               regexp = "Token should have proper object type"
+  )
+})
+
 test_that("non existing tsid to API", {
     query <- list(type = "queryServices", service = "kisters",
                   request = "getTimeseriesvalues",
