@@ -239,18 +239,18 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
 <span class="kw">print</span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyNmIxOThjYS1mYmQ0LTRmZDItODJjZi0wMTYwZDA0MWZkZWQiLCJpYXQiOjE1Mzc4ODc2MjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM3OTc0MDI3fQ.3Cs3w55UJ9V6zJxOMcEIEul-pyFQ8l-KfawmgFTh8w8</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzQzMDNhNi1lNGVhLTRkNTktOWVkNS0xNDIzYTUyN2MyNmIiLCJpYXQiOjE1Mzc5MTQyNDcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4MDAwNjQ3fQ.NZUQlZtIVV8grYnZGjW4bDvkTm3DBKWmO7clRaaFULs</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2018-09-26 17:00:28 CEST</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-09-27 00:24:07 CEST</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">is.expired</a></span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">expires.in</a></span>(my_token)
-<span class="co">#&gt; Time difference of 23.99999 hours</span></code></pre></div>
+<span class="co">#&gt; Time difference of 24 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
