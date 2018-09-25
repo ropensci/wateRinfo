@@ -6,9 +6,25 @@
 #' @param token token to use with the call (optional, can be retrieved via
 #' \code{\link{get_token}})
 #'
-#' @return data.frame with the station_name, station_no, ts_id, ts_name  and
+#' @return data.frame with the station_name, station_no, ts_id, ts_name and
 #' parametertype_name for each of the variables for this station
+#'
+#' @format A tibble with 15 variables:
+#' \describe{
+#'   \item{station_name}{Official name of the measurement station.}
+#'   \item{station_no}{Station ID as provided on the waterinfo.be website.}
+#'   \item{ts_id}{Unique timeseries identifier to access time series data
+#'   corresponding to a combination of the station, measured variable and
+#'   frequency.}
+#'   \item{ts_name}{Timeseries identifier description name as provided by
+#'   `waterinfo.be`.}
+#'   \item{parametertype_name}{Measured variable description.}
+#'   \item{stationparameter_name}{Station specific variable description.}
+#' }
 #' @export
+#'
+#' @examples
+#' variables_overpelt <- get_variables("ME11_002")
 get_variables <- function(station_no, token = NULL) {
 
     # try to check the data source required to get the station info
