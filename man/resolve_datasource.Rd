@@ -20,7 +20,9 @@ function tries to identify the datasource to use for the particular variable
 }
 \details{
 Notice that VMM did not provide this in the official documentation, but this
-has just been derived by checking the API response as such
+has just been derived by checking the API response as such. A more automated
+and less hard-coded approach would be beneficial, but this data is not
+available at the moment.
 }
 \examples{
 resolve_datasource('akl03e-1066')

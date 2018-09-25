@@ -3,6 +3,22 @@
 \name{get_stations}
 \alias{get_stations}
 \title{Get list of stations for a variable}
+\format{A data.frame with 10 variables:
+\describe{
+  \item{ts_id}{Unique timeseries identifier to access time series data
+  corresponding to a combination of the station, measured variable and
+  frequency.}
+  \item{station_latitude}{Latitude coordinates of the station (WGS84)}
+  \item{station_longitude}{Longitude coordinates of the station (WGS84)}
+  \item{station_id}{Identifier of the station as used in the waterinfo
+  backend}
+  \item{station_no}{Station ID as provided on the waterinfo.be website.}
+  \item{station_name}{Official name of the measurement station.}
+  \item{stationparameter_name}{Station specific variable description.}
+  \item{parametertype_name}{Measured variable description.}
+  \item{ts_unitsymbol}{Unit of the variable.}
+  \item{dataprovider}{Data provider of the time series data.}
+}}
 \usage{
 get_stations(variable_name = NULL, frequency = "15min", token = NULL)
 }
@@ -15,14 +31,22 @@ variables, the 15min frequency is available}
 \item{token}{token to use with the call (optional, can be retrieved via
 \code{\link{get_token}})}
 }
+\value{
+data.frame with an overview of the available stations for the
+requested variable
+}
 \description{
 For a given timeseriesgroup (variable), provide a list of measurement
 stations providing data. An overview of the variables is provided by the
-function `supported_variables`
+function \code{\link{supported_variables}}.
 }
 \details{
 For the moment, this only works for measurement stations of VMM (meetnet 1),
-and stations from other measurement nets are not included in the list
+and stations from other measurement data sources are not included in the list
+}
+\examples{
+get_stations('irradiance')
+get_stations('soil_saturation')
 }
 \seealso{
 supported_variables

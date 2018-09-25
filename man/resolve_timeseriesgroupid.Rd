@@ -22,3 +22,6 @@ provided by the package itself to make variable names more readable
 The lookup table is provided as external data of the package,
 see inst/extdata
 }
+\examples{
+resolve_timeseriesgroupid("rainfall", "15min")
+}

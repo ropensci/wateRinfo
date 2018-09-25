@@ -27,3 +27,7 @@ str period string itself if valid
 \description{
 Check if the format of the period is conform the specifications of VMM
 }
+\examples{
+check_period_format("P2DT6H") # period of 2 days and 6 hours
+check_period_format("P3D") # period of 3 days
+}
