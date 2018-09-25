@@ -6,7 +6,9 @@
 #' function tries to identify the datasource to use for the particular variable
 #'
 #' Notice that VMM did not provide this in the official documentation, but this
-#' has just been derived by checking the API response as such
+#' has just been derived by checking the API response as such. A more automated
+#' and less hard-coded approach would be beneficial, but this data is not
+#' available at the moment.
 #'
 #' @param station_no 'stations-nummer' as it appears on the download page of
 #' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden
@@ -66,6 +68,9 @@ resolve_datasource <- function(station_no) {
 #' @export
 #' @importFrom dplyr %>% filter_ select
 #' @importFrom rlang .data
+#'
+#' @examples
+#' resolve_timeseriesgroupid("rainfall", "15min")
 resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
 
     is_supported_variable(variable_name)
