@@ -28,6 +28,50 @@
 #' \code{\link{get_token}})
 #'
 #' @return data.frame with the timestamps, values and quality code
+#'
+#' @format A data.frame with 3 variables:
+#' \describe{
+#'   \item{Timestamp}{Datetime of the measurement.}
+#'   \item{Value}{Measured value.}
+#'   \item{Quality Code}{Quality code of the measurement, dependent on the
+#'   data source used:
+#'      \itemize{
+#'         \item{VMM Quality Code Interpretation (datasource 1)
+#'            \itemize{
+#'               \item{10/110 - Excellent}
+#'               \item{30/100/130 - Good}
+#'               \item{50/150 - Moderate}
+#'               \item{70/170 - Poor}
+#'               \item{80/180 - Estimated}
+#'               \item{90/190 - Suspect}
+#'               \item{220 - Default}
+#'               \item{-1 - Missing}
+#'            }
+#'         }
+#'         \item{HIC Quality Code Interpretation (datasource 2)
+#'            \itemize{
+#'               \item{40 - Good}
+#'               \item{80 - Estimated}
+#'               \item{120 - Suspect}
+#'               \item{200 - Unchecked}
+#'               \item{60 - Complete}
+#'               \item{160 - Incomplete}
+#'               \item{-1 - Missing}
+#'            }
+#'         }
+#'         \item{Aggregated timeseries
+#'            \itemize{
+#'               \item{40 - Good}
+#'               \item{100 - Estimated}
+#'               \item{120 - Suspect}
+#'               \item{200 - Unchecked}
+#'               \item{-1 - Missing}
+#'            }
+#'         }
+#'      }
+#'    }
+#' }
+#'
 #' @export
 #' @importFrom lubridate ymd_hms
 #'

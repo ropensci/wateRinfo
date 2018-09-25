@@ -7,9 +7,9 @@
 #' \code{\link{get_token}})
 #'
 #' @return data.frame with the station_name, station_no, ts_id, ts_name and
-#' parametertype_name for each of the variables for this station
+#' parametertype_name for each of the variables for this station.
 #'
-#' @format A tibble with 15 variables:
+#' @format A data.frame with 6 variables:
 #' \describe{
 #'   \item{station_name}{Official name of the measurement station.}
 #'   \item{station_no}{Station ID as provided on the waterinfo.be website.}
@@ -21,6 +21,7 @@
 #'   \item{parametertype_name}{Measured variable description.}
 #'   \item{stationparameter_name}{Station specific variable description.}
 #' }
+#'
 #' @export
 #'
 #' @examples
