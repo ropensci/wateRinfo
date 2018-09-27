@@ -43,6 +43,14 @@ resolve_datasource <- function(station_no) {
         sprintf("Station %s belongs to Meetnet Vlaamse Banken",
                 station_no)
         datasource <- 2
+    } else if (grepl(".*-1060", station_no)) {
+      sprintf("Station %s belongs to Rijkswaterstaat (RWS)",
+              station_no)
+      datasource <- 2
+    } else if (grepl(".*-SF-.*", station_no)) {
+      sprintf("Station %s belongs HIC",
+              station_no)
+      datasource <- 2
     } else {
         datasource <- 1
     }
