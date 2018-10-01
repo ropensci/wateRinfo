@@ -1,11 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-wateRinfo <img src="man/figures/logo.png" align="right" />
-==========================================================
+wateRinfo <img src="man/figures/logo.png" align="right">
+========================================================
 
 [![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg)](https://coveralls.io/r/inbo/wateRinfo?branch=master)
 
-The goal of wateRinfo is to facilitate access to the variety of data available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
+The goal of wateRinfo is to facilitate access to the variety of environmental water-related data about Flanders (Belgium) available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
 
 An [API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) is provided by waterinfo.be to request time series data. However, this still requires the proper composition of the URL with the identification codes (`Timeseriesgroup_id` and `ts_id`) as used by the system itself. To facilitate the user in searching for stations and variables and consequently download the data of interest, this package provides some general R functions to download the `waterinfo.be` data.
 
@@ -59,7 +59,6 @@ Listing the available air\_pressure stations:
 
 ``` r
 get_stations("air_pressure")
-#> Warning: package 'bindrcpp' was built under R version 3.4.4
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 78124042         51.20300          5.439589      12213   ME11_002
 #> 2 78039042         51.24379          4.266912      12208   ME04_001
@@ -121,7 +120,6 @@ Another option is to check the available variables for a given station, with the
 
 ``` r
 vars_overpelt <- get_variables("ME11_002")
-#> [1] "Use datasource: 1 for data requests of this station!"
 head(vars_overpelt, 10)
 #>    station_name station_no    ts_id                    ts_name
 #> 1   Overpelt_ME   ME11_002 78118042                 KalJaarMin
@@ -189,12 +187,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyNzMwMDBlZi02NmMyLTQ3OGUtYjRhNy0xZmIzY2Y1YzhmMDEiLCJpYXQiOjE1Mzc0NDg1MTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM3NTM0OTE1fQ.B_QonH9tqHq-yfpbGrX220KMk68SpaT0W9jd7hXEZn8
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkNWUxMTQ0Mi02Y2Q4LTRmYjgtYTVmYy1mMjgxNWU3NDk2ZjIiLCJpYXQiOjE1MzgzOTMwMjYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4NDc5NDI2fQ.cKQMj01LaYjjDV6CWP-je6xuxSurKOWlJ7FBwFdnmcg
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2018-09-21 15:01:55 CEST
+#>  expires: 2018-10-02 13:23:46 CEST
 ```
 
 Receive information on the validity of the token:
@@ -208,7 +206,7 @@ Check when the token expires:
 
 ``` r
 expires.in(my_token)
-#> Time difference of 24 hours
+#> Time difference of 23.99999 hours
 ```
 
 Use token when retrieving data:
@@ -249,11 +247,11 @@ Acknowledgements
 
 This package is just a small wrapper around waterinfo.be to facilitate researchers and other stakeholders in downloading the data from [waterinfo.be](http://www.waterinfo.be). The availability of this data is made possible by *de Vlaamse Milieumaatschappij, Waterbouwkundig Laboratorium, Maritieme Dienstverlening & Kust, Waterwegen en Zeekanaal NV en De Scheepvaart NV*.
 
-Furthermore...
---------------
+Meta
+----
 
 This package is an experimental open-source project. All functionalities are provided as is, without any guarantee.
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 Please [report any issues or bugs](https://github.com/inbo/wateRinfo/issues/new).
