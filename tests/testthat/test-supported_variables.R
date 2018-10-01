@@ -28,6 +28,8 @@ test_that("datasource support of identifiers", {
   expect_equal(resolve_datasource(station_no = "xxxxxx-1074"), 2)
   expect_equal(resolve_datasource(station_no = "xxxxxx-1095"), 2)
   expect_equal(resolve_datasource(station_no = "xxxxxx-1069"), 2)
+  expect_equal(resolve_datasource(station_no = "xxxxxx-1060"), 2)
+  expect_equal(resolve_datasource(station_no = "xxx-SF-xxx"), 2)
   expect_equal(resolve_datasource(station_no = "xxxxxx"), 1)
 })
 
