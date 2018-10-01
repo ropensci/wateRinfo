@@ -18,6 +18,7 @@
 #' Examples of valid period strings: P3D, P1Y, P1DT12H, PT6H, P1Y6M3DT4H20M30S.
 #'
 #' @return str period string itself if valid
+#'
 #' @export
 #'
 #' @examples
@@ -71,6 +72,7 @@ isdatetime <- function(datetime) {
 #' @param datetime string representation of the date
 #'
 #' @return POSIXct date-time object is date is valid representation
+#'
 #' @keywords internal
 check_date_format <- function(datetime) {
   date_parsed <- isdatetime(datetime)
@@ -91,10 +93,11 @@ check_date_format <- function(datetime) {
 #' @param to string representing date of datetime object
 #' @param period input string according to format required by waterinfo
 #'
+#' @return list with the relevant period/date information
+#'
 #' @seealso check_period_format
 #' @keywords internal
 #'
-#' @return list with the relevant period/date information
 parse_period <- function(from = NULL, to = NULL, period = NULL) {
 
   # if none of 3 provided, error

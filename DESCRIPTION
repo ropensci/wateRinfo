@@ -1,6 +1,6 @@
 Package: wateRinfo
 Title: Download Time Series Data from Waterinfo.be
-Version: 0.1.2
+Version: 0.2.0
 Description: The wateRinfo package provides an R interface to the data available
     at waterinfo.be, the data portal provided by the Flemish Environmental
     Agency. The package provides R functions to check the available stations for 

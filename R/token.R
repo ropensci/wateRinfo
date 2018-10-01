@@ -50,7 +50,8 @@ get_token <- function(client = NULL, client_id = NULL, client_secret = NULL,
     }
   } else {
     if (!is.null(client_id) | !is.null(client_secret)) {
-      warning("both client and client_id and/or client_secret provided,\n              using client")
+      warning("both client and client_id and/or client_secret provided,\n
+              using client")
     }
   }
   POST_call <- POST(

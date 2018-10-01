@@ -13,7 +13,7 @@
 #' @param station_no 'stations-nummer' as it appears on the download page of
 #' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden
 #'
-#' @return integer 1 for VMM, 2 for other meetnetten
+#' @return integer 1 for VMM, 2 for other 'meetnetten' (HIC,...)
 #' @export
 #'
 #' @examples
@@ -86,6 +86,9 @@ resolve_datasource <- function(station_no) {
 #'
 #' @param variable_name valid variable name, supported by VMM API
 #' @param frequency valid frequency for the given variable
+#'
+#' @return list containing the \code{timeseriesgroup_id} of the variable
+#' frequency combination
 #'
 #' @export
 #' @importFrom dplyr %>% filter_ select

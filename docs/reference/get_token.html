@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wateRinfo</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.2</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
       </span>
     </div>
 
@@ -186,22 +186,22 @@ purposes, get your very own client via <a href='mailto:hydrometrie@waterinfo.be'
 <span class='no'>client_secret</span> <span class='kw'>&lt;-</span> <span class='st'>'4ada871a-9528-4b4d-bfd5-b570ce8f4d2d'</span>
 <span class='no'>my_token</span> <span class='kw'>&lt;-</span> <span class='fu'>get_token</span>(<span class='kw'>client_id</span> <span class='kw'>=</span> <span class='no'>client_id</span>,<span class='kw'>client_secret</span> <span class='kw'>=</span> <span class='no'>client_secret</span>)
 <span class='fu'>print</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Token:
-#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhOTkxMjk3MC0zN2QyLTQyNmYtYmMxYS0xNjgzNmExOTFmOGUiLCJpYXQiOjE1MzgzODg0NzQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4NDc0ODc0fQ.03FvVEPZRkRd9UWoQtWukotKM0WCZwz2oZZm505JqKg
+#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwNzBiZGVkMC1iYzFjLTQ2OWEtYTc3MS1kMDU4Nzc5Nzc3NzEiLCJpYXQiOjE1MzgzOTU3NjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4NDgyMTY3fQ.KtxpHKxd7XnPoXog8rR8L6XguWHXCMN_nmOUWT8kqMw
 #&gt; 
 #&gt; Attributes:
 #&gt;  url: http://download.waterinfo.be/kiwis-auth/token
 #&gt;  type: Bearer
-#&gt;  expires: 2018-10-02 12:07:54 CEST</div><div class='input'><span class='co'># get token via client</span>
+#&gt;  expires: 2018-10-02 14:09:26 CEST</div><div class='input'><span class='co'># get token via client</span>
 <span class='no'>client</span> <span class='kw'>&lt;-</span> <span class='fu'>paste0</span>(<span class='st'>'MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4'</span>,
                 <span class='st'>'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=='</span>)
 <span class='no'>my_token</span> <span class='kw'>&lt;-</span> <span class='fu'>get_token</span>(<span class='kw'>client</span> <span class='kw'>=</span> <span class='no'>client</span>)
 <span class='fu'>print</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Token:
-#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjZTUwNjk2YS1lNTVlLTQ0ZjgtODFjMy0zN2UyOTY5MzM4NWMiLCJpYXQiOjE1MzgzODg0NzQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4NDc0ODc0fQ.bfEOmo3n-bz9QjtGLEpDxbEaXykFdilDOhhb6ZEdPdI
+#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3M2I1MTYzYy04OTI2LTRhOTItOWIwNi0zN2U1ZmFjOGZjMTYiLCJpYXQiOjE1MzgzOTU3NjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4NDgyMTY3fQ.g87ITrXZJ4oYg4PIXu-3L0xTm3XTnMcWjCDNnbxY5VM
 #&gt; 
 #&gt; Attributes:
 #&gt;  url: http://download.waterinfo.be/kiwis-auth/token
 #&gt;  type: Bearer
-#&gt;  expires: 2018-10-02 12:07:54 CEST</div><div class='input'><span class='fu'>is.expired</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>expires.in</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Time difference of 24 hours</div><div class='input'>
+#&gt;  expires: 2018-10-02 14:09:26 CEST</div><div class='input'><span class='fu'>is.expired</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>expires.in</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Time difference of 24 hours</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
