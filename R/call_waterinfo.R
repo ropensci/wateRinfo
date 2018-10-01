@@ -18,6 +18,7 @@ waterinfo_pro_base <- function() {
 #' \code{\link{get_token}})
 #'
 #' @return waterinfo_api class object with content and info about call
+#'
 #' @keywords internal
 #'
 #' @importFrom httr GET http_type status_code http_error content add_headers

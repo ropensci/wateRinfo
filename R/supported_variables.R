@@ -5,6 +5,8 @@
 #'
 #' @param language char \code{nl} (dutch) or \code{en} (english) variable names
 #'
+#' @return data.frame containing the variable names in either english or dutch
+#'
 #' @export
 #' @importFrom dplyr select %>%
 #' @importFrom utils read.csv
