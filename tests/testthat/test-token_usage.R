@@ -68,7 +68,7 @@ test_that("Print output of token is data type specific", {
   value <- "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3YjFjMDA4Ni05ZDUyLTQzOTAtYTM"
   token_url <- "http://download.waterinfo.be/kiwis-auth/token"
   token_type <- "Bearer"
-  expires <- as.POSIXct("2018-10-02 15:13:28 CEST", tz = "CEST")
+  expires <- as.POSIXlt("2018-10-02 15:13:28 CEST", tz = "CEST")
 
   token_info <- c("Token:",
                   "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3YjFjMDA4Ni05ZDUyLTQzOTAtYTM",
