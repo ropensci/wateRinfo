@@ -43,3 +43,46 @@ test_that("wrong combination of client information", {
   expect_error(get_token(client_secret = client_secret))
   expect_warning(get_token(client, client_id, client_secret))
 })
+
+test_that("token should get proper inputs to instantiate", {
+  value <- "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3YjFjMDA4Ni05ZDUyLTQzOTAtYTM"
+  token_url <- "http://download.waterinfo.be/kiwis-auth/token"
+  token_type <- "Bearer"
+  expires <- as.POSIXct("2018-10-02 15:13:28 CEST")
+
+  expect_is(token(value = value, url = token_url,
+                  type = token_type, expires = expires), "token")
+  expect_error(token(value = 123, url = token_url,
+                     type = token_type, expires = expires))
+  expect_error(token(value = c("a", "ab"), url = token_url,
+                     type = token_type, expires = expires))
+  expect_error(token(value = value, url = 123,
+                     type = token_type, expires = expires))
+  expect_error(token(value = value, url = token_url,
+                     type = 123, expires = expires))
+  expect_error(token(value = value, url = token_url,
+                     type = c("a", "ab"), expires = expires))
+})
+
+test_that("Print output of token is data type specific", {
+  value <- "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3YjFjMDA4Ni05ZDUyLTQzOTAtYTM"
+  token_url <- "http://download.waterinfo.be/kiwis-auth/token"
+  token_type <- "Bearer"
+  expires <- as.POSIXct("2018-10-02 15:13:28 CEST")
+
+  token_info <- c("Token:",
+                  "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3YjFjMDA4Ni05ZDUyLTQzOTAtYTM",
+                  "",
+                  "Attributes:",
+                  " url: http://download.waterinfo.be/kiwis-auth/token",
+                  " type: Bearer",
+                  " expires: 2018-10-02 15:13:28 CEST")
+
+  token <- token(value = value, url = token_url,
+                 type = token_type, expires = expires)
+  message <- capture.output(print(token))
+  show <- capture.output(show(token))
+
+  expect_equal(c(message), token_info)
+})
+

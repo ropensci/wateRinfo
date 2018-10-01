@@ -82,16 +82,20 @@ get_token <- function(client = NULL, client_id = NULL, client_secret = NULL,
 
 token <- function(value, url, type, expires) {
   if (!inherits(value, "character")) {
+    stop("value must be a character string")
+  } else {
     if (length(value) != 1) {
-      stop("value must be a character string")
+      stop("value must consist of a single string")
     }
   }
   if (!inherits(url, "character")) {
     stop("url must be an url object")
   }
   if (!inherits(type, "character")) {
+    stop("type must be a character string")
+  } else {
     if (length(type) != 1) {
-      stop("type must be a character string")
+      stop("value must consist of a single string")
     }
   }
   token <- structure(
