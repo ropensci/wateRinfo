@@ -76,9 +76,10 @@
 #' @importFrom lubridate ymd_hms
 #'
 #' @examples
-#' get_timeseries_tsid("35055042", from = "2017-01-01", to = "2017-01-02")
-#' get_timeseries_tsid("5156042", period = "P3D")
-#' get_timeseries_tsid("2813562", period = "P1D", datasource = 2)
+#' get_timeseries_tsid("35055042", from = "2017-01-01", to = "2017-01-02") %>%
+#'     head()
+#' get_timeseries_tsid("5156042", period = "P3D") %>% head()
+#' get_timeseries_tsid("2813562", period = "P1D", datasource = 2) %>% head()
 get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
                                 to = NULL, datasource = 1, token = NULL) {
     # define the date fields we require
