@@ -76,46 +76,52 @@
 #' @importFrom lubridate ymd_hms
 #'
 #' @examples
-#' get_timeseries_tsid("35055042", from = "2017-01-01", to = "2017-01-02") %>%
-#'     head()
-#' get_timeseries_tsid("5156042", period = "P3D") %>% head()
-#' get_timeseries_tsid("2813562", period = "P1D", datasource = 2) %>% head()
+#' get_timeseries_tsid("35055042", from = "2017-01-01", to = "2017-01-02")
+#' get_timeseries_tsid("5156042", period = "P3D")
+#' get_timeseries_tsid("2813562", period = "P1D", datasource = 2)
 get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
                                 to = NULL, datasource = 1, token = NULL) {
-    # define the date fields we require
-    return_fields <- c("Timestamp", "Value", "Quality Code")
+  # define the date fields we require
+  return_fields <- c("Timestamp", "Value", "Quality Code")
 
-    # check and handle the date/period information
-    period_info <- parse_period(from, to, period)
+  # check and handle the date/period information
+  period_info <- parse_period(from, to, period)
 
-    # general arguments
-    query_list <- list(type = "queryServices", service = "kisters",
-                       request = "getTimeseriesvalues",
-                       ts_id = ts_id, format = "json",
-                       datasource = datasource,
-                       returnfields = as.character(paste(return_fields,
-                                                         collapse = ",")))
+  # general arguments
+  query_list <- list(
+    type = "queryServices", service = "kisters",
+    request = "getTimeseriesvalues",
+    ts_id = ts_id, format = "json",
+    datasource = datasource,
+    returnfields = as.character(paste(return_fields,
+      collapse = ","
+    ))
+  )
 
-    # http GET call to waterinfo for the dataframe
-    time_series <- call_waterinfo(query = c(query_list, period_info),
-                                  token = token)
+  # http GET call to waterinfo for the dataframe
+  time_series <- call_waterinfo(
+    query = c(query_list, period_info),
+    token = token
+  )
 
-    if (time_series$content$rows == 0) {
-        df <- data.frame(Timestamp = as.POSIXct(character()),
-                         Value = double(),
-                         "Quality Code" = character(),
-                         stringsAsFactors = FALSE)
-        colnames(df) <- return_fields
+  if (time_series$content$rows == 0) {
+    df <- data.frame(
+      Timestamp = as.POSIXct(character()),
+      Value = double(),
+      "Quality Code" = character(),
+      stringsAsFactors = FALSE
+    )
+    colnames(df) <- return_fields
+  } else {
+    df <- as.data.frame(time_series$content$data,
+      stringsAsFactors = FALSE
+    )
 
-    } else {
-        df <- as.data.frame(time_series$content$data,
-                            stringsAsFactors = FALSE)
+    # data formatting:
+    df$X1 <- ymd_hms(df$X1)
+    df$X2 <- as.double(as.character(df$X2))
+    colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
+  }
 
-        # data formatting:
-        df$X1 <- ymd_hms(df$X1)
-        df$X2 <- as.double(as.character(df$X2))
-        colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
-    }
-
-    return(df)
+  return(df)
 }

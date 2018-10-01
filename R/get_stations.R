@@ -44,40 +44,49 @@
 #' get_stations('soil_saturation')
 get_stations <- function(variable_name = NULL, frequency = "15min",
                          token = NULL) {
+  if (is.null(variable_name)) {
+    vars2use <- paste(as.list(supported_variables("en"))[[1]],
+      collapse = ", "
+    )
+    stop("Please select a variable: ", vars2use, call. = FALSE)
+  }
 
-    if (is.null(variable_name)) {
-        vars2use <- paste(as.list(supported_variables("en"))[[1]],
-                          collapse = ", ")
-        stop("Please select a variable: ", vars2use, call. = FALSE)
-    }
+  timeseriesgroupid <- resolve_timeseriesgroupid(variable_name, frequency)
 
-    timeseriesgroupid <- resolve_timeseriesgroupid(variable_name, frequency)
+  custom_attributes <- c("dataprovider")
+  return_fields <- c(
+    "custom_attributes", "station_id", "station_no",
+    "station_name", "stationparameter_name",
+    "ts_unitsymbol", "parametertype_name", "ts_id"
+  )
 
-    custom_attributes <- c("dataprovider")
-    return_fields <- c("custom_attributes", "station_id", "station_no",
-                       "station_name", "stationparameter_name",
-                       "ts_unitsymbol", "parametertype_name", "ts_id")
+  stations <- call_waterinfo(
+    query = list(
+      type = "queryServices",
+      service = "kisters",
+      request = "getTimeseriesValueLayer",
+      datasource = "1",
+      timeseriesgroup_id = timeseriesgroupid$timeseriesgroup_id,
+      format = "json",
+      metadata = TRUE, # essential to get metadata fields
+      md_returnfields = as.character(paste(return_fields,
+        collapse = ","
+      )),
+      custattr_returnfields =
+        as.character(paste(custom_attributes,
+          collapse = ","
+        ))
+    ),
+    token = token
+  )
 
-    stations <- call_waterinfo(
-        query = list(type = "queryServices",
-                     service = "kisters",
-                     request = "getTimeseriesValueLayer",
-                     datasource = "1",
-                     timeseriesgroup_id = timeseriesgroupid$timeseriesgroup_id,
-                     format = "json",
-                     metadata = TRUE, # essential to get metadata fields
-                     md_returnfields = as.character(paste(return_fields,
-                                                          collapse = ",")),
-                     custattr_returnfields =
-                         as.character(paste(custom_attributes,
-                                            collapse = ","))),
-        token = token)
-
-    stations$content %>% select("ts_id", "station_latitude",
-                                "station_longitude", "station_id",
-                                "station_no", "station_name",
-                                "stationparameter_name",
-                                "parametertype_name",
-                                "ts_unitsymbol",
-                                "dataprovider")
+  stations$content %>% select(
+    "ts_id", "station_latitude",
+    "station_longitude", "station_id",
+    "station_no", "station_name",
+    "stationparameter_name",
+    "parametertype_name",
+    "ts_unitsymbol",
+    "dataprovider"
+  )
 }
