@@ -77,7 +77,7 @@ test_that("Print output of token is data type specific", {
                   "Attributes:",
                   " url: http://download.waterinfo.be/kiwis-auth/token",
                   " type: Bearer",
-                  " expires: 2018-10-02 15:13:28 CEST")
+                  " expires: 2018-10-02 15:13:28 GMT")
 
   token <- token(value = value, url = token_url,
                  type = token_type, expires = expires)
