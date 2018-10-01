@@ -41,63 +41,72 @@
 #' @importFrom openssl base64_encode
 #' @export
 get_token <- function(client = NULL, client_id = NULL, client_secret = NULL,
-                token_url = 'http://download.waterinfo.be/kiwis-auth/token'){
+                      token_url = "http://download.waterinfo.be/kiwis-auth/token") {
   if (is.null(client)) {
     if (!is.null(client_id) & !is.null(client_secret)) {
-      client <- base64_encode(paste(client_id,client_secret, sep = ":"))
+      client <- base64_encode(paste(client_id, client_secret, sep = ":"))
     } else {
-      stop('either client or client_id and client_secret must be provided')
+      stop("either client or client_id and client_secret must be provided")
     }
   } else {
     if (!is.null(client_id) | !is.null(client_secret)) {
-      warning('both client and client_id and/or client_secret provided,
-              using client')
+      warning("both client and client_id and/or client_secret provided,\n              using client")
     }
   }
-  POST_call <- POST(url = token_url,
-        config = add_headers(
-            'Authorization' = paste0('Basic ', client),
-            'scope' = 'none',
-            'Content-Type' = 'application/x-www-form-urlencoded;charset=UTF-8'),
-        body = 'grant_type=client_credentials')
+  POST_call <- POST(
+    url = token_url,
+    config = add_headers(
+      "Authorization" = paste0("Basic ", client),
+      "scope" = "none",
+      "Content-Type" = "application/x-www-form-urlencoded;charset=UTF-8"
+    ),
+    body = "grant_type=client_credentials"
+  )
   if (POST_call$status_code == 201) {
-    out <- token(value = content(POST_call)$access_token,
-                 url = token_url,
-                 type = content(POST_call)$token_type,
-                 expires = Sys.time() + content(POST_call)$expires_in)
+    out <- token(
+      value = content(POST_call)$access_token,
+      url = token_url,
+      type = content(POST_call)$token_type,
+      expires = Sys.time() + content(POST_call)$expires_in
+    )
     return(out)
   } else {
-    stop(paste0('no token received, ', POST_call$url,
-                ' returned status code: ', POST_call$status_code))
+    stop(paste0(
+      "no token received, ", POST_call$url,
+      " returned status code: ", POST_call$status_code
+    ))
   }
 }
 
 
-token <- function(value, url, type, expires){
-  if (!inherits(value,'character')) {
+token <- function(value, url, type, expires) {
+  if (!inherits(value, "character")) {
     if (length(value) != 1) {
-      stop('value must be a character string')
+      stop("value must be a character string")
     }
   }
-  if (!inherits(url,'character')) {
-    stop('url must be an url object')
+  if (!inherits(url, "character")) {
+    stop("url must be an url object")
   }
-  if (!inherits(type,'character')) {
+  if (!inherits(type, "character")) {
     if (length(type) != 1) {
-      stop('type must be a character string')
+      stop("type must be a character string")
     }
   }
-  token <- structure(.Data = value, url = url, type = type,
-                     expires = expires, class = 'token')
+  token <- structure(
+    .Data = value, url = url, type = type,
+    expires = expires, class = "token"
+  )
   return(token)
 }
 
 
 #' @export
-print.token <- function(x,...) {
-  cat('Token:\n', x, '\n\nAttributes:\n url: ', attr(x, 'url'), '\n type: ',
-      attr(x, 'type'), '\n expires: ', format(attr(x, 'expires'), '%F %T %Z'),
-      sep = '')
+print.token <- function(x, ...) {
+  cat("Token:\n", x, "\n\nAttributes:\n url: ", attr(x, "url"), "\n type: ",
+    attr(x, "type"), "\n expires: ", format(attr(x, "expires"), "%F %T %Z"),
+    sep = ""
+  )
   invisible(x)
 }
 
@@ -118,7 +127,7 @@ is.expired <- function(token) {
 
 #' @export
 is.expired.token <- function(token) {
-  return(Sys.time() > attr(token, 'expires'))
+  return(Sys.time() > attr(token, "expires"))
 }
 
 
@@ -131,5 +140,5 @@ expires.in <- function(token) {
 
 #' @export
 expires.in.token <- function(token) {
-  return(attr(token,'expires') - Sys.time())
+  return(attr(token, "expires") - Sys.time())
 }

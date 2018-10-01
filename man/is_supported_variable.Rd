@@ -9,6 +9,12 @@ is_supported_variable(variable_name)
 \arguments{
 \item{variable_name}{char}
 }
+\value{
+Raise error when variable is not supported directly, otherwise NULL
+}
 \description{
 Check if variable is supported by VMM ts group id
+}
+\examples{
+is_supported_variable("wind_speed")
 }

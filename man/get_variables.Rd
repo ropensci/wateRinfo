@@ -3,6 +3,18 @@
 \name{get_variables}
 \alias{get_variables}
 \title{Get list of variables for a given station}
+\format{A data.frame with 6 variables:
+\describe{
+  \item{station_name}{Official name of the measurement station.}
+  \item{station_no}{Station ID as provided on the waterinfo.be website.}
+  \item{ts_id}{Unique timeseries identifier to access time series data
+  corresponding to a combination of the station, measured variable and
+  frequency.}
+  \item{ts_name}{Timeseries identifier description name as provided by
+  `waterinfo.be`.}
+  \item{parametertype_name}{Measured variable description.}
+  \item{stationparameter_name}{Station specific variable description.}
+}}
 \usage{
 get_variables(station_no, token = NULL)
 }
@@ -14,9 +26,12 @@ https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}
 \code{\link{get_token}})}
 }
 \value{
-data.frame with the station_name, station_no, ts_id, ts_name  and
-parametertype_name for each of the variables for this station
+data.frame with the station_name, station_no, ts_id, ts_name and
+parametertype_name for each of the variables for this station.
 }
 \description{
 Get list of variables for a given station
+}
+\examples{
+variables_overpelt <- get_variables("ME11_002")
 }

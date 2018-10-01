@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Download TimeSeries Data From Waterinfo.be • wateRinfo</title>
+<title>Download Time Series Data from Waterinfo.be • wateRinfo</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="Download TimeSeries Data From Waterinfo.be">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script><meta property="og:title" content="Download Time Series Data from Waterinfo.be">
 <meta property="og:description" content="The wateRinfo package provides an R interface to the data available
     at waterinfo.be, the data portal provided by the Flemish Environmental
     Agency. The package provides R functions to check the available stations for 
@@ -22,7 +22,6 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <div class="container template-article">
@@ -101,7 +100,7 @@
 <a href="#waterinfo" class="anchor"></a>wateRinfo <img src="reference/figures/logo.png" align="right">
 </h1></div>
 
-<p>The goal of wateRinfo is to facilitate access to the variety of data available on <a href="https://www.waterinfo.be/">waterinfo.be</a> by providing an R-interface to download time series data.</p>
+<p>The goal of wateRinfo is to facilitate access to the variety of environmental water-related data about Flanders (Belgium) available on <a href="https://www.waterinfo.be/">waterinfo.be</a> by providing an R-interface to download time series data.</p>
 <p>An <a href="https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0">API</a> is provided by waterinfo.be to request time series data. However, this still requires the proper composition of the URL with the identification codes (<code>Timeseriesgroup_id</code> and <code>ts_id</code>) as used by the system itself. To facilitate the user in searching for stations and variables and consequently download the data of interest, this package provides some general R functions to download the <code>waterinfo.be</code> data.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -139,7 +138,6 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; 41            wind_speed</span></code></pre></div>
 <p>Listing the available air_pressure stations:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)
-<span class="co">#&gt; Warning: package 'bindrcpp' was built under R version 3.4.4</span>
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
 <span class="co">#&gt; 1 78124042         51.20300          5.439589      12213   ME11_002</span>
 <span class="co">#&gt; 2 78039042         51.24379          4.266912      12208   ME04_001</span>
@@ -188,7 +186,6 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <p><img src="reference/figures/README-plot_pressure-1.png" width="80%"></p>
 <p>Another option is to check the available variables for a given station, with the function <code>get_variables</code>. Let’s consider again Overpelt (<code>ME11_002</code>) and check the first ten available variables at the Overpelt measurement station:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars_overpelt &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_variables.html">get_variables</a></span>(<span class="st">"ME11_002"</span>)
-<span class="co">#&gt; [1] "Use datasource: 1 for data requests of this station!"</span>
 <span class="kw">head</span>(vars_overpelt, <span class="dv">10</span>)
 <span class="co">#&gt;    station_name station_no    ts_id                    ts_name</span>
 <span class="co">#&gt; 1   Overpelt_ME   ME11_002 78118042                 KalJaarMin</span>
@@ -242,17 +239,17 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
 <span class="kw">print</span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwZGRhMTUyZS02NjZhLTQ0ZjAtYTJkMC0zMjVkZTg1ZTE1YjEiLCJpYXQiOjE1Mzc0NDg1MTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM3NTM0OTE1fQ.KVpJgA5myjaIZri5iEbb004rpR8OI_HI3X4LBUVxysk</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwZWUyYzZiOC00Y2E5LTQ2MjgtOTE1My1iODMxY2U0OGVhNDgiLCJpYXQiOjE1MzgzODg0NjUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4NDc0ODY1fQ.pQBeOLJpwVN2GEiKGJVLp4UJKDZbSdQHC1NGk4WYOuo</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2018-09-21 15:01:55 CEST</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-10-02 12:07:45 CEST</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.expired</span>(my_token)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">is.expired</a></span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expires.in</span>(my_token)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">expires.in</a></span>(my_token)
 <span class="co">#&gt; Time difference of 24 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)
@@ -289,11 +286,11 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 <a href="#acknowledgements" class="anchor"></a>Acknowledgements</h2>
 <p>This package is just a small wrapper around waterinfo.be to facilitate researchers and other stakeholders in downloading the data from <a href="http://www.waterinfo.be">waterinfo.be</a>. The availability of this data is made possible by <em>de Vlaamse Milieumaatschappij, Waterbouwkundig Laboratorium, Maritieme Dienstverlening &amp; Kust, Waterwegen en Zeekanaal NV en De Scheepvaart NV</em>.</p>
 </div>
-<div id="furthermore" class="section level2">
+<div id="meta" class="section level2">
 <h2 class="hasAnchor">
-<a href="#furthermore" class="anchor"></a>Furthermore…</h2>
+<a href="#meta" class="anchor"></a>Meta</h2>
 <p>This package is an experimental open-source project. All functionalities are provided as is, without any guarantee.</p>
-<p>Please note that this project is released with a <a href="CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
+<p>Please note that this project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
 <p>Please <a href="https://github.com/inbo/wateRinfo/issues/new">report any issues or bugs</a>.</p>
 </div>
 </div>

@@ -6,7 +6,9 @@
 #' function tries to identify the datasource to use for the particular variable
 #'
 #' Notice that VMM did not provide this in the official documentation, but this
-#' has just been derived by checking the API response as such
+#' has just been derived by checking the API response as such. A more automated
+#' and less hard-coded approach would be beneficial, but this data is not
+#' available at the moment.
 #'
 #' @param station_no 'stations-nummer' as it appears on the download page of
 #' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden
@@ -18,34 +20,56 @@
 #' resolve_datasource('akl03e-1066')
 #' resolve_datasource('K07_OM421')
 resolve_datasource <- function(station_no) {
-    if (grepl(".*-1066", station_no)) {
-        sprintf("Station %s belongs to Meetnet HIC", station_no)
-        datasource <- 2
-    } else if (grepl(".*-1072", station_no)) {
-        sprintf("Station %s belongs to Meetnet De Vlaamse Waterweg - HIC",
-                station_no)
-        datasource <- 2
-    } else if (grepl(".*-1073", station_no)) {
-        sprintf("Station %s belongs to Meetnet EMT - afdeling Bovenschelde",
-                station_no)
-        datasource <- 2
-    } else if (grepl(".*-1074", station_no)) {
-        sprintf("Station %s belongs HIC",
-                station_no)
-        datasource <- 2
-    } else if (grepl(".*-1095", station_no)) {
-        sprintf("Station %s belongs to Meetnet W&Znv - afdeling Zeekanaal",
-                station_no)
-        datasource <- 2
-    } else if (grepl(".*-1069", station_no)) {
-        sprintf("Station %s belongs to Meetnet Vlaamse Banken",
-                station_no)
-        datasource <- 2
-    } else {
-        datasource <- 1
-    }
+  if (grepl(".*-1066", station_no)) {
+    sprintf("Station %s belongs to Meetnet HIC", station_no)
+    datasource <- 2
+  } else if (grepl(".*-1072", station_no)) {
+    sprintf(
+      "Station %s belongs to Meetnet De Vlaamse Waterweg - HIC",
+      station_no
+    )
+    datasource <- 2
+  } else if (grepl(".*-1073", station_no)) {
+    sprintf(
+      "Station %s belongs to Meetnet EMT - afdeling Bovenschelde",
+      station_no
+    )
+    datasource <- 2
+  } else if (grepl(".*-1074", station_no)) {
+    sprintf(
+      "Station %s belongs HIC",
+      station_no
+    )
+    datasource <- 2
+  } else if (grepl(".*-1095", station_no)) {
+    sprintf(
+      "Station %s belongs to Meetnet W&Znv - afdeling Zeekanaal",
+      station_no
+    )
+    datasource <- 2
+  } else if (grepl(".*-1069", station_no)) {
+    sprintf(
+      "Station %s belongs to Meetnet Vlaamse Banken",
+      station_no
+    )
+    datasource <- 2
+  } else if (grepl(".*-1060", station_no)) {
+    sprintf(
+      "Station %s belongs to Rijkswaterstaat (RWS)",
+      station_no
+    )
+    datasource <- 2
+  } else if (grepl(".*-SF-.*", station_no)) {
+    sprintf(
+      "Station %s belongs HIC",
+      station_no
+    )
+    datasource <- 2
+  } else {
+    datasource <- 1
+  }
 
-    return(datasource)
+  return(datasource)
 }
 
 
@@ -66,29 +90,34 @@ resolve_datasource <- function(station_no) {
 #' @export
 #' @importFrom dplyr %>% filter_ select
 #' @importFrom rlang .data
+#'
+#' @examples
+#' resolve_timeseriesgroupid("rainfall", "15min")
 resolve_timeseriesgroupid <- function(variable_name, frequency = "15min") {
+  is_supported_variable(variable_name)
 
-    is_supported_variable(variable_name)
+  lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
+    package = "wateRinfo"
+  )
+  lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
 
-    lookup_file <- system.file("extdata", "lookup_timeseriesgroup.txt",
-                               package = "wateRinfo")
-    lookup <- read.csv(lookup_file, sep = " ", stringsAsFactors = FALSE)
+  selected_variable <- lookup %>%
+    filter(.data$variable_en == variable_name |
+      .data$variable_nl == variable_name)
 
-    selected_variable <- lookup %>%
-        filter(.data$variable_en == variable_name |
-                   .data$variable_nl == variable_name)
+  selected_variable <- selected_variable %>%
+    filter(.data$frequency_nl == frequency |
+      .data$frequency_en == frequency)
 
-    selected_variable <- selected_variable %>%
-        filter(.data$frequency_nl == frequency |
-                   .data$frequency_en == frequency)
+  if (nrow(selected_variable) == 0) {
+    stop(
+      "The provided frequency for this variable is not available. ",
+      "Supported frequencies for this variable are: ",
+      paste(supported_frequencies(variable_name), collapse = ", ")
+    )
+  }
 
-    if (nrow(selected_variable) == 0) {
-        stop("The provided frequency for this variable is not available. ",
-             "Supported frequencies for this variable are: ",
-             paste(supported_frequencies(variable_name), collapse = ", "))
-    }
-
-    selected_variable %>%
-        select(.data$timeseriesgroup_id) %>%
-        as.list()
+  selected_variable %>%
+    select(.data$timeseriesgroup_id) %>%
+    as.list()
 }

@@ -8,8 +8,8 @@
 <title>Download time series from Waterinfo.be • wateRinfo</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><meta property="og:title" content="Download time series from Waterinfo.be">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Download time series from Waterinfo.be">
 <meta property="og:description" content="">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
@@ -89,7 +89,7 @@
       <h1>Download time series from Waterinfo.be</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2018-09-20</h4>
+            <h4 class="date">2018-10-01</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/inbo/wateRinfo/blob/master/vignettes/download_timeseries.Rmd"><code>vignettes/download_timeseries.Rmd</code></a></small>
       <div class="hidden name"><code>download_timeseries.Rmd</code></div>
@@ -160,7 +160,6 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 <a href="#search-identifier-based-on-variable-name" class="anchor"></a>Search identifier based on variable name</h2>
 <p>For a number of variables, the <a href="https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0">documentation of the Waterinfo.be API</a> provides a direct overview option of all available VMM measurement stations, using the so-called <code>Timeseriesgroup_id</code>. For these variables, the package provides the function <code>get_stations</code> to download an overview of available measurement stations and the related <code>ts_id</code> identifiers. The latter can be used to <a href="#Downloading-with-known-ts-identifier">download the time series</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)</code></pre></div>
-<pre><code>## Warning: package 'bindrcpp' was built under R version 3.4.4</code></pre>
 <pre><code>##      ts_id station_latitude station_longitude station_id station_no
 ## 1 78124042         51.20300          5.439589      12213   ME11_002
 ## 2 78039042         51.24379          4.266912      12208   ME04_001
@@ -300,7 +299,7 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 </div>
 <p>So, for the example in the figure, i.e. <code>station_no = zes42a-1066</code>, the available time series are retrieved by using the <code>get_variables</code> command:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"zes42a-1066"</span>)</code></pre></div>
-<pre><code>## [1] "Use datasource: 2 for data requests of this station!"</code></pre>
+<pre><code>## Use datasource: 2 for data requests of this station!</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_name, ts_name, 
                                parametertype_name)</code></pre></div>
 <pre><code>##     ts_id               station_name                    ts_name
@@ -329,12 +328,12 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 <p><img src="download_timeseries_files/figure-html/downloadstamands-1.png" width="672"></p>
 <p>For some measurement stations, the number of variables can be high (lots of precalculated derivative values) and extracting the required time series identifier is not always straightforward. For example, the dat Etikhove/Schuif/Nederaalbeek (<code>K06_OM225</code>), provides the following number of variables:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"K06_OM225"</span>)</code></pre></div>
-<pre><code>## [1] "Use datasource: 1 for data requests of this station!"</code></pre>
+<pre><code>## Use datasource: 1 for data requests of this station!</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(available_variables)</code></pre></div>
 <pre><code>## [1] 118</code></pre>
 <p>As the measured variables at a small time resolution are of most interest, filtering on <code>P.15</code> (or <code>P.1</code>, <code>P.60</code>,…) will help to identify measured time series, for those stations belonging to the <code>meetnet</code> of VMM (<code>datasource = 1</code>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"K06_OM225"</span>)</code></pre></div>
-<pre><code>## [1] "Use datasource: 1 for data requests of this station!"</code></pre>
+<pre><code>## Use datasource: 1 for data requests of this station!</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">filter</span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</code></pre></div>
 <pre><code>##                   station_name station_no    ts_id ts_name
@@ -359,7 +358,7 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 <p><img src="download_timeseries_files/figure-html/afw_etik_fig-1.png" width="672"></p>
 <p>We can do similar filtering to check for time series on other stations, for example the Molenbeek in Etikhove:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"LS06_347"</span>)</code></pre></div>
-<pre><code>## [1] "Use datasource: 1 for data requests of this station!"</code></pre>
+<pre><code>## Use datasource: 1 for data requests of this station!</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">filter</span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</code></pre></div>
 <pre><code>##         station_name station_no    ts_id ts_name parametertype_name

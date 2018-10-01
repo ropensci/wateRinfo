@@ -7,9 +7,16 @@
 supported_variables(language = "nl")
 }
 \arguments{
-\item{language}{char nl (dutch) or en (english) variable names}
+\item{language}{char \code{nl} (dutch) or \code{en} (english) variable names}
 }
 \description{
 Provide list of VMM supported variables in the timeseriesgroupID
 in either dutch or english
+}
+\examples{
+# Request supported variables in Dutch
+supported_variables("nl")
+
+# Request supported variables in English
+supported_variables("en")
 }

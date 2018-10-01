@@ -13,3 +13,6 @@ supported_frequencies(variable_name)
 Provide list of VMM supported frequencies for a given timeseriesgroupID
 in either dutch or english
 }
+\examples{
+supported_frequencies('rainfall')
+}

@@ -21,9 +21,11 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
@@ -32,10 +34,11 @@
 
 <meta property="og:description" content="For a given timeseriesgroup (variable), provide a list of measurement
 stations providing data. An overview of the variables is provided by the
-function `supported_variables`" />
+function supported_variables." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -128,7 +131,7 @@ function `supported_variables`" />
     
     <p>For a given timeseriesgroup (variable), provide a list of measurement
 stations providing data. An overview of the variables is provided by the
-function `supported_variables`</p>
+function <code><a href='supported_variables.html'>supported_variables</a></code>.</p>
     
     </div>
 
@@ -153,26 +156,103 @@ variables, the 15min frequency is available</p></td>
     </tr>
     </table>
     
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A data.frame with 10 variables:</p><dl class='dl-horizontal'>
+  <dt>ts_id</dt><dd><p>Unique timeseries identifier to access time series data
+  corresponding to a combination of the station, measured variable and
+  frequency.</p></dd>
+  <dt>station_latitude</dt><dd><p>Latitude coordinates of the station (WGS84)</p></dd>
+  <dt>station_longitude</dt><dd><p>Longitude coordinates of the station (WGS84)</p></dd>
+  <dt>station_id</dt><dd><p>Identifier of the station as used in the waterinfo
+  backend</p></dd>
+  <dt>station_no</dt><dd><p>Station ID as provided on the waterinfo.be website.</p></dd>
+  <dt>station_name</dt><dd><p>Official name of the measurement station.</p></dd>
+  <dt>stationparameter_name</dt><dd><p>Station specific variable description.</p></dd>
+  <dt>parametertype_name</dt><dd><p>Measured variable description.</p></dd>
+  <dt>ts_unitsymbol</dt><dd><p>Unit of the variable.</p></dd>
+  <dt>dataprovider</dt><dd><p>Data provider of the time series data.</p></dd>
+</dl>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>data.frame with an overview of the available stations for the
+requested variable</p>
+    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>For the moment, this only works for measurement stations of VMM (meetnet 1),
-and stations from other measurement nets are not included in the list</p>
+and stations from other measurement data sources are not included in the list</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>supported_variables</p></div>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>get_stations</span>(<span class='st'>'irradiance'</span>)</div><div class='output co'>#&gt;      ts_id station_latitude station_longitude station_id station_no
+#&gt; 1 78845042         51.27226          3.728299      12207   ME03_017
+#&gt; 2 78879042         50.86149          3.411318      12209   ME05_019
+#&gt; 3 78913042         50.73795          5.141976      12211   ME09_012
+#&gt; 4 78947042         51.20300          5.439589      12213   ME11_002
+#&gt; 5 78896042         50.88663          4.094898      12210   ME07_006
+#&gt; 6 78862042         51.24379          4.266912      12208   ME04_001
+#&gt; 7 78930042         51.16224          4.845708      12212   ME10_011
+#&gt;              station_name stationparameter_name parametertype_name
+#&gt; 1            Boekhoute_ME                   Rad                 Rn
+#&gt; 2              Waregem_ME                   Rad                 Rn
+#&gt; 3 Niel-bij-St.-Truiden_ME                   Rad                 Rn
+#&gt; 4             Overpelt_ME                   Rad                 Rn
+#&gt; 5           Liedekerke_ME                   Rad                 Rn
+#&gt; 6              Melsele_ME                   Rad                 Rn
+#&gt; 7            Herentals_ME                   Rad                 Rn
+#&gt;   ts_unitsymbol dataprovider
+#&gt; 1          W/m²          VMM
+#&gt; 2          W/m²          VMM
+#&gt; 3          W/m²          VMM
+#&gt; 4          W/m²          VMM
+#&gt; 5          W/m²          VMM
+#&gt; 6          W/m²          VMM
+#&gt; 7          W/m²          VMM</div><div class='input'><span class='fu'>get_stations</span>(<span class='st'>'soil_saturation'</span>)</div><div class='output co'>#&gt;       ts_id station_latitude station_longitude station_id station_no
+#&gt; 1  95841042         51.27226          3.728299      12207   ME03_017
+#&gt; 2  95857042         51.27226          3.728299      12207   ME03_017
+#&gt; 3  95891042         50.86149          3.411318      12209   ME05_019
+#&gt; 4  95921042         50.88663          4.094898      12210   ME07_006
+#&gt; 5 201506042         50.73795          5.141976      12211   ME09_012
+#&gt; 6  95876042         50.86149          3.411318      12209   ME05_019
+#&gt; 7  95906042         50.88663          4.094898      12210   ME07_006
+#&gt;              station_name    stationparameter_name parametertype_name
+#&gt; 1            Boekhoute_ME Bodemverzadiging(0-10cm)    Soil Saturation
+#&gt; 2            Boekhoute_ME Bodemverzadiging(0-70cm)    Soil Saturation
+#&gt; 3              Waregem_ME Bodemverzadiging(0-70cm)    Soil Saturation
+#&gt; 4           Liedekerke_ME Bodemverzadiging(0-70cm)    Soil Saturation
+#&gt; 5 Niel-bij-St.-Truiden_ME Bodemverzadiging(0-10cm)    Soil Saturation
+#&gt; 6              Waregem_ME Bodemverzadiging(0-10cm)    Soil Saturation
+#&gt; 7           Liedekerke_ME Bodemverzadiging(0-10cm)    Soil Saturation
+#&gt;   ts_unitsymbol dataprovider
+#&gt; 1             %          VMM
+#&gt; 2             %          VMM
+#&gt; 3             %          VMM
+#&gt; 4             %          VMM
+#&gt; 5             %          VMM
+#&gt; 6             %          VMM
+#&gt; 7             %          VMM</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#value">Value</a></li>
+
       <li><a href="#details">Details</a></li>
 
       <li><a href="#see-also">See also</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

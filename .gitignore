@@ -16,6 +16,7 @@
 
 # RStudio files
 .Rproj.user/
+.Rproj.user
 
 # produced vignettes
 vignettes/*.html
@@ -32,9 +33,8 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# Draft files
-draft.*
-.Rproj.user
+# Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
+rsconnect/
 
 # Mac OS X
 .DS_Store

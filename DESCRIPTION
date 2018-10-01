@@ -1,5 +1,5 @@
 Package: wateRinfo
-Title: Download TimeSeries Data From Waterinfo.be
+Title: Download Time Series Data from Waterinfo.be
 Version: 0.1.2
 Description: The wateRinfo package provides an R interface to the data available
     at waterinfo.be, the data portal provided by the Flemish Environmental
@@ -23,15 +23,15 @@ Imports:
     jsonlite,
     openssl,
     lubridate (>= 1.6.0),
-    rlang
+    rlang,
+    utils
 Suggests:
     covr,
     ggplot2,
-    httptest,
     knitr,
     rmarkdown,
     testthat
 LazyData: true
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0.9000

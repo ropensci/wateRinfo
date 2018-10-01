@@ -28,6 +28,50 @@
 #' \code{\link{get_token}})
 #'
 #' @return data.frame with the timestamps, values and quality code
+#'
+#' @format A data.frame with 3 variables:
+#' \describe{
+#'   \item{Timestamp}{Datetime of the measurement.}
+#'   \item{Value}{Measured value.}
+#'   \item{Quality Code}{Quality code of the measurement, dependent on the
+#'   data source used:
+#'      \itemize{
+#'         \item{VMM Quality Code Interpretation (datasource 1)
+#'            \itemize{
+#'               \item{10/110 - Excellent}
+#'               \item{30/100/130 - Good}
+#'               \item{50/150 - Moderate}
+#'               \item{70/170 - Poor}
+#'               \item{80/180 - Estimated}
+#'               \item{90/190 - Suspect}
+#'               \item{220 - Default}
+#'               \item{-1 - Missing}
+#'            }
+#'         }
+#'         \item{HIC Quality Code Interpretation (datasource 2)
+#'            \itemize{
+#'               \item{40 - Good}
+#'               \item{80 - Estimated}
+#'               \item{120 - Suspect}
+#'               \item{200 - Unchecked}
+#'               \item{60 - Complete}
+#'               \item{160 - Incomplete}
+#'               \item{-1 - Missing}
+#'            }
+#'         }
+#'         \item{Aggregated timeseries
+#'            \itemize{
+#'               \item{40 - Good}
+#'               \item{100 - Estimated}
+#'               \item{120 - Suspect}
+#'               \item{200 - Unchecked}
+#'               \item{-1 - Missing}
+#'            }
+#'         }
+#'      }
+#'    }
+#' }
+#'
 #' @export
 #' @importFrom lubridate ymd_hms
 #'
@@ -37,40 +81,47 @@
 #' get_timeseries_tsid("2813562", period = "P1D", datasource = 2)
 get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
                                 to = NULL, datasource = 1, token = NULL) {
-    # define the date fields we require
-    return_fields <- c("Timestamp", "Value", "Quality Code")
+  # define the date fields we require
+  return_fields <- c("Timestamp", "Value", "Quality Code")
 
-    # check and handle the date/period information
-    period_info <- parse_period(from, to, period)
+  # check and handle the date/period information
+  period_info <- parse_period(from, to, period)
 
-    # general arguments
-    query_list <- list(type = "queryServices", service = "kisters",
-                       request = "getTimeseriesvalues",
-                       ts_id = ts_id, format = "json",
-                       datasource = datasource,
-                       returnfields = as.character(paste(return_fields,
-                                                         collapse = ",")))
+  # general arguments
+  query_list <- list(
+    type = "queryServices", service = "kisters",
+    request = "getTimeseriesvalues",
+    ts_id = ts_id, format = "json",
+    datasource = datasource,
+    returnfields = as.character(paste(return_fields,
+      collapse = ","
+    ))
+  )
 
-    # http GET call to waterinfo for the dataframe
-    time_series <- call_waterinfo(query = c(query_list, period_info),
-                                  token = token)
+  # http GET call to waterinfo for the dataframe
+  time_series <- call_waterinfo(
+    query = c(query_list, period_info),
+    token = token
+  )
 
-    if (time_series$content$rows == 0) {
-        df <- data.frame(Timestamp = as.POSIXct(character()),
-                         Value = double(),
-                         "Quality Code" = character(),
-                         stringsAsFactors = FALSE)
-        colnames(df) <- return_fields
+  if (time_series$content$rows == 0) {
+    df <- data.frame(
+      Timestamp = as.POSIXct(character()),
+      Value = double(),
+      "Quality Code" = character(),
+      stringsAsFactors = FALSE
+    )
+    colnames(df) <- return_fields
+  } else {
+    df <- as.data.frame(time_series$content$data,
+      stringsAsFactors = FALSE
+    )
 
-    } else {
-        df <- as.data.frame(time_series$content$data,
-                            stringsAsFactors = FALSE)
+    # data formatting:
+    df$X1 <- ymd_hms(df$X1)
+    df$X2 <- as.double(as.character(df$X2))
+    colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
+  }
 
-        # data formatting:
-        df$X1 <- ymd_hms(df$X1)
-        df$X2 <- as.double(as.character(df$X2))
-        colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
-    }
-
-    return(df)
+  return(df)
 }

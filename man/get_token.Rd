@@ -9,8 +9,6 @@
 \alias{expires.in.token}
 \alias{is.expired}
 \alias{is.expired.token}
-\alias{is.expired}
-\alias{expires.in}
 \title{Get waterinfo Token}
 \usage{
 get_token(client = NULL, client_id = NULL, client_secret = NULL,

@@ -16,3 +16,4 @@ POSIXct date-time object is date is valid representation
 if the date is already a datetime object ("POSIXct" "POSIXt"), the object
 itself is returned
 }
+\keyword{internal}
