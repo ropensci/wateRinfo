@@ -9,6 +9,9 @@ supported_variables(language = "nl")
 \arguments{
 \item{language}{char \code{nl} (dutch) or \code{en} (english) variable names}
 }
+\value{
+data.frame containing the variable names in either english or dutch
+}
 \description{
 Provide list of VMM supported variables in the timeseriesgroupID
 in either dutch or english

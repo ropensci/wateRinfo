@@ -11,6 +11,10 @@ resolve_timeseriesgroupid(variable_name, frequency = "15min")
 
 \item{frequency}{valid frequency for the given variable}
 }
+\value{
+list containing the \code{timeseriesgroup_id} of the variable
+frequency combination
+}
 \description{
 Translate the usage of available variables to the corresponding
 timeseriesgroupID, based on the provided lookup table from VMM

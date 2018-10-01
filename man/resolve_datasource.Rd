@@ -11,7 +11,7 @@ resolve_datasource(station_no)
 https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}
 }
 \value{
-integer 1 for VMM, 2 for other meetnetten
+integer 1 for VMM, 2 for other 'meetnetten' (HIC,...)
 }
 \description{
 Using the 'stations-nummer' as provided on
