@@ -22,14 +22,14 @@ test_that("variables in en and nl", {
 
 
 test_that("datasource support of identifiers", {
-  expect_equal(resolve_datasource(station_no = "xxxxxx-1066"), 2)
-  expect_equal(resolve_datasource(station_no = "xxxxxx-1072"), 2)
-  expect_equal(resolve_datasource(station_no = "xxxxxx-1073"), 2)
-  expect_equal(resolve_datasource(station_no = "xxxxxx-1074"), 2)
-  expect_equal(resolve_datasource(station_no = "xxxxxx-1095"), 2)
-  expect_equal(resolve_datasource(station_no = "xxxxxx-1069"), 2)
-  expect_equal(resolve_datasource(station_no = "xxxxxx-1060"), 2)
-  expect_equal(resolve_datasource(station_no = "xxx-SF-xxx"), 2)
+  expect_equal(resolve_datasource(station_no = "xxxxxx-1066"), 4)
+  expect_equal(resolve_datasource(station_no = "xxxxxx-1072"), 4)
+  expect_equal(resolve_datasource(station_no = "xxxxxx-1073"), 4)
+  expect_equal(resolve_datasource(station_no = "xxxxxx-1074"), 4)
+  expect_equal(resolve_datasource(station_no = "xxxxxx-1095"), 4)
+  expect_equal(resolve_datasource(station_no = "xxxxxx-1069"), 4)
+  expect_equal(resolve_datasource(station_no = "xxxxxx-1060"), 4)
+  expect_equal(resolve_datasource(station_no = "xxx-SF-xxx"), 4)
   expect_equal(resolve_datasource(station_no = "xxxxxx"), 1)
 })
 

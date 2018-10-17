@@ -22,49 +22,49 @@
 resolve_datasource <- function(station_no) {
   if (grepl(".*-1066", station_no)) {
     sprintf("Station %s belongs to Meetnet HIC", station_no)
-    datasource <- 2
+    datasource <- 4
   } else if (grepl(".*-1072", station_no)) {
     sprintf(
       "Station %s belongs to Meetnet De Vlaamse Waterweg - HIC",
       station_no
     )
-    datasource <- 2
+    datasource <- 4
   } else if (grepl(".*-1073", station_no)) {
     sprintf(
       "Station %s belongs to Meetnet EMT - afdeling Bovenschelde",
       station_no
     )
-    datasource <- 2
+    datasource <- 4
   } else if (grepl(".*-1074", station_no)) {
     sprintf(
       "Station %s belongs HIC",
       station_no
     )
-    datasource <- 2
+    datasource <- 4
   } else if (grepl(".*-1095", station_no)) {
     sprintf(
       "Station %s belongs to Meetnet W&Znv - afdeling Zeekanaal",
       station_no
     )
-    datasource <- 2
+    datasource <- 4
   } else if (grepl(".*-1069", station_no)) {
     sprintf(
       "Station %s belongs to Meetnet Vlaamse Banken",
       station_no
     )
-    datasource <- 2
+    datasource <- 4
   } else if (grepl(".*-1060", station_no)) {
     sprintf(
       "Station %s belongs to Rijkswaterstaat (RWS)",
       station_no
     )
-    datasource <- 2
+    datasource <- 4
   } else if (grepl(".*-SF-.*", station_no)) {
     sprintf(
       "Station %s belongs HIC",
       station_no
     )
-    datasource <- 2
+    datasource <- 4
   } else {
     datasource <- 1
   }
