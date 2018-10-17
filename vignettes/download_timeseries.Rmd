@@ -110,10 +110,10 @@ available_variables %>% select(ts_id, station_name, ts_name,
 
 The available number of variables depends on the measurement station. The representation is not standardized and depends also from the type of [`meetnet`](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting). Nevertheless, one can derive the required `ts_id` from the list when interpreting the field names. Remark that the datasource can be 4 instead of 1 for specific `meetnetten` (networks). The datasource to use is printed when asking the variables for a station. 
 
-In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the `ts_id = 2810011` can be used in the `get_timeseries_tsid` function, taking into account the `datasource = 4` (default is 1):
+In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the `ts_id = 55419010` can be used in the `get_timeseries_tsid` function, taking into account the `datasource = 4` (default is 1):
 
 ```{r downloadstamands, fig.width = 7}
-tide_stamands <- get_timeseries_tsid("2810011", 
+tide_stamands <- get_timeseries_tsid("55419010", 
                                      from = "2017-06-01", to = "2017-06-05",
                                      datasource = 4)
 ggplot(tide_stamands, aes(Timestamp, Value)) + 
