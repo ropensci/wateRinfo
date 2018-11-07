@@ -87,5 +87,6 @@ corresponding time series from the waterinfo.be website
 \examples{
 get_timeseries_tsid("35055042", from = "2017-01-01", to = "2017-01-02")
 get_timeseries_tsid("5156042", period = "P3D")
-get_timeseries_tsid("2813562", period = "P1D", datasource = 2)
+get_timeseries_tsid("55419010", from = "2017-06-01", to = "2017-06-03",
+                    datasource = 4)
 }
