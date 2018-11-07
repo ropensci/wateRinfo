@@ -48,6 +48,8 @@ test_that("add call to waterinfo explicitly to the print output", {
     ts_id = "5156042", format = "json", datasource = 1
   )
   response <- call_waterinfo(query)
-  raw_call_info <- "Waterinfo API query applied: type=queryServices&service=kisters&request=getTimeseriesvalues&ts_id=5156042&format=json&datasource=1"
+  raw_call_info <- paste0("Waterinfo API query applied: type=queryServices&",
+                          "service=kisters&request=getTimeseriesvalues&",
+                          "ts_id=5156042&format=json&datasource=1")
   expect_equal(capture.output(print(response))[1], raw_call_info)
 })
