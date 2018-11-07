@@ -2,8 +2,9 @@
 #' Define the datasource using the station number
 #'
 #' Using the 'stations-nummer' as provided on
-#' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden, this
-#' function tries to identify the datasource to use for the particular variable
+#' \href{https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}{
+#' waterinfo.be}, this function tries to identify the datasource to use for
+#' the particular variable
 #'
 #' Notice that VMM did not provide this in the official documentation, but this
 #' has just been derived by checking the API response as such. A more automated
@@ -11,9 +12,10 @@
 #' available at the moment.
 #'
 #' @param station_no 'stations-nummer' as it appears on the download page of
-#' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden
+#' \href{https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}{
+#' waterinfo.be}
 #'
-#' @return integer 1 for VMM, 2 for other 'meetnetten' (HIC,...)
+#' @return integer 1 for VMM, 4 for other 'meetnetten' (HIC,...)
 #' @export
 #'
 #' @examples

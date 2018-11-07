@@ -2,7 +2,8 @@
 #' Get list of variables for a given station
 #'
 #' @param station_no 'stations-nummer' as it appears on the download page of
-#' https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden
+#' \href{https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}{
+#' waterinfo.be}
 #' @param token token to use with the call (optional, can be retrieved via
 #' \code{\link{get_token}})
 #'
