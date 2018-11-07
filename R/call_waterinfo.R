@@ -54,13 +54,22 @@ call_waterinfo <- function(query, base_url = "download", token = NULL) {
   }
 
   if (http_type(res) != "application/json") {
-    if (http_type(res) != "application/xml") {
+    if (http_type(res) == "application/xml") {
       custom_error <- content(res, "text", encoding = "UTF-8")
       pattern <- "(?<=ExceptionText>).*(?=</ExceptionText>)"
       error_message <- regmatches(
         custom_error,
         regexpr(pattern, custom_error,
           perl = TRUE
+        )
+      )
+    } else if (http_type(res) == "text/html") {
+      custom_error <- content(res, "text", encoding = "UTF-8")
+      pattern <- "(?<=description</b> <u>).*(?=</u>)"
+      error_message <- regmatches(
+        custom_error,
+        regexpr(pattern, custom_error,
+                perl = TRUE
         )
       )
     }
