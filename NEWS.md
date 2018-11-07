@@ -1,3 +1,14 @@
+wateRinfo 0.2.2 (2018-11-07)
+=============================
+
+### CRUCIAL QUICK FIX
+
+* When no `datasource` is added to the waterinfo.be query, the server gives a html/text response containing a tomcat server error messag. This error is now captured properly. As the user normally only uses the wrapped API call functions, there should no difference on the user level.
+
+### DOCUMENTATION FIXES
+
+* Bring documentation up to date with the new `datasource` handling
+
 wateRinfo 0.2.1 (2018-10-17)
 =============================
 
