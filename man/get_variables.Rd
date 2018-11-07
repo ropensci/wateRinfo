@@ -20,7 +20,8 @@ get_variables(station_no, token = NULL)
 }
 \arguments{
 \item{station_no}{'stations-nummer' as it appears on the download page of
-https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}
+\href{https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}{
+waterinfo.be}}
 
 \item{token}{token to use with the call (optional, can be retrieved via
 \code{\link{get_token}})}

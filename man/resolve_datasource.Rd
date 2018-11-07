@@ -8,15 +8,17 @@ resolve_datasource(station_no)
 }
 \arguments{
 \item{station_no}{'stations-nummer' as it appears on the download page of
-https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}
+\href{https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}{
+waterinfo.be}}
 }
 \value{
-integer 1 for VMM, 2 for other 'meetnetten' (HIC,...)
+integer 1 for VMM, 4 for other 'meetnetten' (HIC,...)
 }
 \description{
 Using the 'stations-nummer' as provided on
-https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden, this
-function tries to identify the datasource to use for the particular variable
+\href{https://www.waterinfo.be/default.aspx?path=NL/Rapporten/Downloaden}{
+waterinfo.be}, this function tries to identify the datasource to use for
+the particular variable
 }
 \details{
 Notice that VMM did not provide this in the official documentation, but this
