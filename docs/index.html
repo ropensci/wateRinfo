@@ -35,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">wateRinfo</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.1</span>
       </span>
     </div>
 
@@ -107,7 +107,7 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install wateRinfo from GitHub with:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
-devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"inbo/wateRinfo"</span>)</code></pre></div>
+devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"inbo/wateRinfo"</span>)</code></pre></div>
 <p>When succesfull, load it as usual:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wateRinfo)</code></pre></div>
 </div>
@@ -142,20 +142,20 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; 1 78124042         51.20300          5.439589      12213   ME11_002</span>
 <span class="co">#&gt; 2 78039042         51.24379          4.266912      12208   ME04_001</span>
 <span class="co">#&gt; 3 78005042         51.02263          2.970584      12206   ME01_003</span>
-<span class="co">#&gt; 4 78107042         51.16224          4.845708      12212   ME10_011</span>
-<span class="co">#&gt; 5 78073042         50.88663          4.094898      12210   ME07_006</span>
+<span class="co">#&gt; 4 78073042         50.88663          4.094898      12210   ME07_006</span>
+<span class="co">#&gt; 5 78107042         51.16224          4.845708      12212   ME10_011</span>
 <span class="co">#&gt; 6 78022042         51.27226          3.728299      12207   ME03_017</span>
-<span class="co">#&gt; 7 78056042         50.86149          3.411318      12209   ME05_019</span>
-<span class="co">#&gt; 8 78090042         50.73795          5.141976      12211   ME09_012</span>
+<span class="co">#&gt; 7 78090042         50.73795          5.141976      12211   ME09_012</span>
+<span class="co">#&gt; 8 78056042         50.86149          3.411318      12209   ME05_019</span>
 <span class="co">#&gt;              station_name stationparameter_name parametertype_name</span>
 <span class="co">#&gt; 1             Overpelt_ME                    Pa                 Pa</span>
 <span class="co">#&gt; 2              Melsele_ME                    Pa                 Pa</span>
 <span class="co">#&gt; 3               Zarren_ME                    Pa                 Pa</span>
-<span class="co">#&gt; 4            Herentals_ME                    Pa                 Pa</span>
-<span class="co">#&gt; 5           Liedekerke_ME                    BP                 Pa</span>
+<span class="co">#&gt; 4           Liedekerke_ME                    BP                 Pa</span>
+<span class="co">#&gt; 5            Herentals_ME                    Pa                 Pa</span>
 <span class="co">#&gt; 6            Boekhoute_ME                    Pa                 Pa</span>
-<span class="co">#&gt; 7              Waregem_ME                    Pa                 Pa</span>
-<span class="co">#&gt; 8 Niel-bij-St.-Truiden_ME                    Pa                 Pa</span>
+<span class="co">#&gt; 7 Niel-bij-St.-Truiden_ME                    Pa                 Pa</span>
+<span class="co">#&gt; 8              Waregem_ME                    Pa                 Pa</span>
 <span class="co">#&gt;   ts_unitsymbol dataprovider</span>
 <span class="co">#&gt; 1           hPa          VMM</span>
 <span class="co">#&gt; 2           hPa          VMM</span>
@@ -179,36 +179,36 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; 6 2017-04-01 01:15:00 1008.4          130</span></code></pre></div>
 <p>Making a plot of the data with ggplot:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(overpelt_pressure, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_path">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"hPa"</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_date">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M</span><span class="ch">\n</span><span class="st">%Y-%m-%d"</span>, <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</code></pre></div>
+<span class="kw"><a href="ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_pressure, <span class="kw"><a href="ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"hPa"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M</span><span class="ch">\n</span><span class="st">%Y-%m-%d"</span>, <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</code></pre></div>
 <p><img src="reference/figures/README-plot_pressure-1.png" width="80%"></p>
 <p>Another option is to check the available variables for a given station, with the function <code>get_variables</code>. Let’s consider again Overpelt (<code>ME11_002</code>) and check the first ten available variables at the Overpelt measurement station:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars_overpelt &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_variables.html">get_variables</a></span>(<span class="st">"ME11_002"</span>)
 <span class="kw">head</span>(vars_overpelt, <span class="dv">10</span>)
-<span class="co">#&gt;    station_name station_no    ts_id                    ts_name</span>
-<span class="co">#&gt; 1   Overpelt_ME   ME11_002 78118042                 KalJaarMin</span>
-<span class="co">#&gt; 2   Overpelt_ME   ME11_002 96256042 Penman.IWRS.DagTotaal.8:00</span>
-<span class="co">#&gt; 3   Overpelt_ME   ME11_002 78693042                       P.15</span>
-<span class="co">#&gt; 4   Overpelt_ME   ME11_002 78522042                 HydJaarMax</span>
-<span class="co">#&gt; 5   Overpelt_ME   ME11_002 90366042                 HydJaarMax</span>
-<span class="co">#&gt; 6   Overpelt_ME   ME11_002 78804042                 KalJaarMax</span>
-<span class="co">#&gt; 7   Overpelt_ME   ME11_002 78797042                     DagGem</span>
-<span class="co">#&gt; 8   Overpelt_ME   ME11_002 78523042                 HydJaarMin</span>
-<span class="co">#&gt; 9   Overpelt_ME   ME11_002 94682042                   MaandMin</span>
-<span class="co">#&gt; 10  Overpelt_ME   ME11_002 78382042                     DagGem</span>
-<span class="co">#&gt;    parametertype_name stationparameter_name</span>
-<span class="co">#&gt; 1                  Pa                    Pa</span>
-<span class="co">#&gt; 2                 PET                   pET</span>
-<span class="co">#&gt; 3                  Ud                  WDir</span>
-<span class="co">#&gt; 4                  Ts                 SoilT</span>
-<span class="co">#&gt; 5                  Ta             Ta(1.75m)</span>
-<span class="co">#&gt; 6                  Td                    Td</span>
-<span class="co">#&gt; 7                  Td                    Td</span>
-<span class="co">#&gt; 8                  Ts                 SoilT</span>
-<span class="co">#&gt; 9                  Ta                    Ta</span>
-<span class="co">#&gt; 10                 RH                    RH</span></code></pre></div>
+<span class="co">#&gt;    station_name station_no    ts_id    ts_name parametertype_name</span>
+<span class="co">#&gt; 1   Overpelt_ME   ME11_002 96216042  DagTotaal         Noverschot</span>
+<span class="co">#&gt; 2   Overpelt_ME   ME11_002 78663042   MaandGem                  U</span>
+<span class="co">#&gt; 3   Overpelt_ME   ME11_002 78664042   MaandMax                  U</span>
+<span class="co">#&gt; 4   Overpelt_ME   ME11_002 78667042       P.10                  U</span>
+<span class="co">#&gt; 5   Overpelt_ME   ME11_002 78654042     DagGem                  U</span>
+<span class="co">#&gt; 6   Overpelt_ME   ME11_002 78656042     DagMin                  U</span>
+<span class="co">#&gt; 7   Overpelt_ME   ME11_002 78658042 HydJaarMax                  U</span>
+<span class="co">#&gt; 8   Overpelt_ME   ME11_002 78668042       P.15                  U</span>
+<span class="co">#&gt; 9   Overpelt_ME   ME11_002 78660042 KalJaarGem                  U</span>
+<span class="co">#&gt; 10  Overpelt_ME   ME11_002 78661042 KalJaarMax                  U</span>
+<span class="co">#&gt;    stationparameter_name</span>
+<span class="co">#&gt; 1             Noverschot</span>
+<span class="co">#&gt; 2                 WSpeed</span>
+<span class="co">#&gt; 3                 WSpeed</span>
+<span class="co">#&gt; 4                 WSpeed</span>
+<span class="co">#&gt; 5                 WSpeed</span>
+<span class="co">#&gt; 6                 WSpeed</span>
+<span class="co">#&gt; 7                 WSpeed</span>
+<span class="co">#&gt; 8                 WSpeed</span>
+<span class="co">#&gt; 9                 WSpeed</span>
+<span class="co">#&gt; 10                WSpeed</span></code></pre></div>
 <p>Different pre-calculated variables are already available and a <code>ts_id</code> value is available for each of them to download the corresponding data. For example, <code>DagGem</code> (= daily mean values) of <code>RH</code> (= relative humidity), i.e. <code>ts_id = 78382042</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">overpelt_rh_daily &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"78382042"</span>, 
                                          <span class="dt">from =</span> <span class="st">"2017-04-01"</span>, 
@@ -221,10 +221,10 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; 4 2017-04-04 23:00:00 84.13          130</span>
 <span class="co">#&gt; 5 2017-04-05 23:00:00 84.19          130</span>
 <span class="co">#&gt; 6 2017-04-06 23:00:00 82.71          130</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(overpelt_rh_daily, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_path">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">" RH (%)"</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_date">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%b-%d</span><span class="ch">\n</span><span class="st">%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"5 days"</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_rh_daily, <span class="kw"><a href="ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">" RH (%)"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%b-%d</span><span class="ch">\n</span><span class="st">%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"5 days"</span>)</code></pre></div>
 <p><img src="reference/figures/README-plot_rh-1.png" width="80%"></p>
 <p>Unfortunately, not all variables are documented, for which the check for the appropriate variable is not (yet) fully supported by the package.</p>
 <p>More detailed tutorials are available in the package vignettes!</p>
@@ -239,12 +239,12 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
 <span class="kw">print</span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmYjU4M2E0ZS1kMGQwLTQ2MjEtOWNjMi02NGIyMGUzYmQxZTEiLCJpYXQiOjE1MzgzOTU3NTksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4NDgyMTU5fQ.nO0Dcxvdx8WVfTo5mkLI1cAaV8QoBo7u5Qv0Shxn7nE</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlMjM4ZmU5YS0yZjQ3LTRmMDMtYWM0Ni0yNzk5MjQ1ZGM5YjQiLCJpYXQiOjE1NDE2MDAyMjAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQxNjg2NjIwfQ.KOttZqRRvGCiT8x_ulb93N-RNGp_E713anRbfPGWGms</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2018-10-02 14:09:18 CEST</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-11-08 15:17:00 CET</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">is.expired</a></span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
@@ -255,22 +255,22 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
 <span class="co">#&gt; 1 94310042         51.02263          2.970584      12206   ME01_003</span>
-<span class="co">#&gt; 2 94530042         51.16224          4.845708      12212   ME10_011</span>
-<span class="co">#&gt; 3 94516042         50.73795          5.141976      12211   ME09_012</span>
-<span class="co">#&gt; 4 94544042         51.20300          5.439589      12213   ME11_002</span>
-<span class="co">#&gt; 5 94488042         50.86149          3.411318      12209   ME05_019</span>
-<span class="co">#&gt; 6 94460042         51.27226          3.728299      12207   ME03_017</span>
-<span class="co">#&gt; 7 94502042         50.88663          4.094898      12210   ME07_006</span>
-<span class="co">#&gt; 8 94474042         51.24379          4.266912      12208   ME04_001</span>
+<span class="co">#&gt; 2 94544042         51.20300          5.439589      12213   ME11_002</span>
+<span class="co">#&gt; 3 94530042         51.16224          4.845708      12212   ME10_011</span>
+<span class="co">#&gt; 4 94516042         50.73795          5.141976      12211   ME09_012</span>
+<span class="co">#&gt; 5 94502042         50.88663          4.094898      12210   ME07_006</span>
+<span class="co">#&gt; 6 94474042         51.24379          4.266912      12208   ME04_001</span>
+<span class="co">#&gt; 7 94488042         50.86149          3.411318      12209   ME05_019</span>
+<span class="co">#&gt; 8 94460042         51.27226          3.728299      12207   ME03_017</span>
 <span class="co">#&gt;              station_name stationparameter_name parametertype_name</span>
 <span class="co">#&gt; 1               Zarren_ME                   pET                PET</span>
-<span class="co">#&gt; 2            Herentals_ME                   pET                PET</span>
-<span class="co">#&gt; 3 Niel-bij-St.-Truiden_ME                   pET                PET</span>
-<span class="co">#&gt; 4             Overpelt_ME                   pET                PET</span>
-<span class="co">#&gt; 5              Waregem_ME                   pET                PET</span>
-<span class="co">#&gt; 6            Boekhoute_ME                   pET                PET</span>
-<span class="co">#&gt; 7           Liedekerke_ME                   pET                PET</span>
-<span class="co">#&gt; 8              Melsele_ME                   pET                PET</span>
+<span class="co">#&gt; 2             Overpelt_ME                   pET                PET</span>
+<span class="co">#&gt; 3            Herentals_ME                   pET                PET</span>
+<span class="co">#&gt; 4 Niel-bij-St.-Truiden_ME                   pET                PET</span>
+<span class="co">#&gt; 5           Liedekerke_ME                   pET                PET</span>
+<span class="co">#&gt; 6              Melsele_ME                   pET                PET</span>
+<span class="co">#&gt; 7              Waregem_ME                   pET                PET</span>
+<span class="co">#&gt; 8            Boekhoute_ME                   pET                PET</span>
 <span class="co">#&gt;   ts_unitsymbol dataprovider</span>
 <span class="co">#&gt; 1            mm          VMM</span>
 <span class="co">#&gt; 2            mm          VMM</span>
