@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wateRinfo</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.0</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.1</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
       <h1>Download time series from Waterinfo.be</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2018-10-01</h4>
+            <h4 class="date">2018-11-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/inbo/wateRinfo/blob/master/vignettes/download_timeseries.Rmd"><code>vignettes/download_timeseries.Rmd</code></a></small>
       <div class="hidden name"><code>download_timeseries.Rmd</code></div>
@@ -164,20 +164,20 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 ## 1 78124042         51.20300          5.439589      12213   ME11_002
 ## 2 78039042         51.24379          4.266912      12208   ME04_001
 ## 3 78005042         51.02263          2.970584      12206   ME01_003
-## 4 78107042         51.16224          4.845708      12212   ME10_011
-## 5 78073042         50.88663          4.094898      12210   ME07_006
+## 4 78073042         50.88663          4.094898      12210   ME07_006
+## 5 78107042         51.16224          4.845708      12212   ME10_011
 ## 6 78022042         51.27226          3.728299      12207   ME03_017
-## 7 78056042         50.86149          3.411318      12209   ME05_019
-## 8 78090042         50.73795          5.141976      12211   ME09_012
+## 7 78090042         50.73795          5.141976      12211   ME09_012
+## 8 78056042         50.86149          3.411318      12209   ME05_019
 ##              station_name stationparameter_name parametertype_name
 ## 1             Overpelt_ME                    Pa                 Pa
 ## 2              Melsele_ME                    Pa                 Pa
 ## 3               Zarren_ME                    Pa                 Pa
-## 4            Herentals_ME                    Pa                 Pa
-## 5           Liedekerke_ME                    BP                 Pa
+## 4           Liedekerke_ME                    BP                 Pa
+## 5            Herentals_ME                    Pa                 Pa
 ## 6            Boekhoute_ME                    Pa                 Pa
-## 7              Waregem_ME                    Pa                 Pa
-## 8 Niel-bij-St.-Truiden_ME                    Pa                 Pa
+## 7 Niel-bij-St.-Truiden_ME                    Pa                 Pa
+## 8              Waregem_ME                    Pa                 Pa
 ##   ts_unitsymbol dataprovider
 ## 1           hPa          VMM
 ## 2           hPa          VMM
@@ -228,23 +228,37 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 <td align="left">mm</td>
 </tr>
 <tr class="even">
+<td align="right">94540042</td>
+<td align="left">ME11_002</td>
+<td align="left">Overpelt_ME</td>
+<td align="left">PET</td>
+<td align="left">mm</td>
+</tr>
+<tr class="odd">
 <td align="right">94512042</td>
 <td align="left">ME09_012</td>
 <td align="left">Niel-bij-St.-Truiden_ME</td>
 <td align="left">PET</td>
 <td align="left">mm</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="right">94526042</td>
 <td align="left">ME10_011</td>
 <td align="left">Herentals_ME</td>
 <td align="left">PET</td>
 <td align="left">mm</td>
 </tr>
+<tr class="odd">
+<td align="right">94498042</td>
+<td align="left">ME07_006</td>
+<td align="left">Liedekerke_ME</td>
+<td align="left">PET</td>
+<td align="left">mm</td>
+</tr>
 <tr class="even">
-<td align="right">94540042</td>
-<td align="left">ME11_002</td>
-<td align="left">Overpelt_ME</td>
+<td align="right">94470042</td>
+<td align="left">ME04_001</td>
+<td align="left">Melsele_ME</td>
 <td align="left">PET</td>
 <td align="left">mm</td>
 </tr>
@@ -262,20 +276,6 @@ knitr<span class="op">::</span><span class="kw"><a href="http://www.rdocumentati
 <td align="left">PET</td>
 <td align="left">mm</td>
 </tr>
-<tr class="odd">
-<td align="right">94470042</td>
-<td align="left">ME04_001</td>
-<td align="left">Melsele_ME</td>
-<td align="left">PET</td>
-<td align="left">mm</td>
-</tr>
-<tr class="even">
-<td align="right">94498042</td>
-<td align="left">ME07_006</td>
-<td align="left">Liedekerke_ME</td>
-<td align="left">PET</td>
-<td align="left">mm</td>
-</tr>
 </tbody>
 </table>
 <p>When interesed in the data of <code>Herentals_ME</code>, we can use the corresponding <code>ts_id</code> to download the time series of PET with a yearly frequency and make a plot with <code>ggplot</code>:</p>
@@ -288,7 +288,7 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"PET Herentals (mm)"</span>)</code></pre></div>
 <p><img src="download_timeseries_files/figure-html/yearly_pet-1.png" width="672"></p>
 <p>(see the vignette on defining date periods for more information on the period argument used)</p>
-<p><strong>Remark:</strong> the <code>get_stations</code> function only works for those measurement stations belonging to the VMM <code>meetnet</code> (network), related to the so-called <code>datasource = 1</code>. For <a href="http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting">other networks</a>, i.e. <code>datasource = 2</code>, the enlisting is not supported. Still, a search for data is provided starting from a given station name, as explained in the next section.</p>
+<p><strong>Remark:</strong> the <code>get_stations</code> function only works for those measurement stations belonging to the VMM <code>meetnet</code> (network), related to the so-called <code>datasource = 1</code>. For <a href="http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting">other networks</a>, i.e. <code>datasource = 4</code>, the enlisting is not supported. Still, a search for data is provided starting from a given station name, as explained in the next section.</p>
 </div>
 <div id="search-identifier-based-on-station-name" class="section level2">
 <h2 class="hasAnchor">
@@ -299,30 +299,116 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 </div>
 <p>So, for the example in the figure, i.e. <code>station_no = zes42a-1066</code>, the available time series are retrieved by using the <code>get_variables</code> command:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"zes42a-1066"</span>)</code></pre></div>
-<pre><code>## Use datasource: 2 for data requests of this station!</code></pre>
+<pre><code>## Use datasource: 4 for data requests of this station!</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_name, ts_name, 
                                parametertype_name)</code></pre></div>
-<pre><code>##     ts_id               station_name                    ts_name
-## 1 3066658 Sint-Amands tij/Zeeschelde  zes42aSTAM.W_t6.HWLW.base
-## 2 2810041 Sint-Amands tij/Zeeschelde  zes42aSTAM.W_t6.1min.base
-## 3 2810011 Sint-Amands tij/Zeeschelde zes42aSTAM.W_t6.10min.base
-## 4 3066655 Sint-Amands tij/Zeeschelde    zes42aSTAM.W_t6.LW.base
-## 5 2809769 Sint-Amands tij/Zeeschelde             zes42aSTAM.W_r
-## 6 3066652 Sint-Amands tij/Zeeschelde    zes42aSTAM.W_t6.HW.base
-## 7 3047251 Sint-Amands tij/Zeeschelde zes42aSTAM.W_r.KK.HWLW.tpk
-##   parametertype_name
-## 1                  h
-## 2                  h
-## 3                  h
-## 4                  h
-## 5                  h
-## 6                  h
-## 7                  h</code></pre>
-<p>The available number of variables depends on the measurement station. The representation is not standardized and depends also from the type of <a href="http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting"><code>meetnet</code></a>. Nevertheless, one can derive the required <code>ts_id</code> from the list when interpreting the field names. Remark that the datasource can be 2 instead of 1 for specific <code>meetnetten</code> (networks). The datasource to use is printed when asking the variables for a station.</p>
-<p>In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the <code>ts_id = 2810011</code> can be used in the <code>get_timeseries_tsid</code> function, taking into account the <code>datasource = 2</code> (default is 1):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tide_stamands &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"2810011"</span>, 
+<pre><code>##       ts_id               station_name              ts_name
+## 1  94251010 Sint-Amands tij/Zeeschelde        AlarmStatus.O
+## 2  55429010 Sint-Amands tij/Zeeschelde                Pv.HW
+## 3  55431010 Sint-Amands tij/Zeeschelde            Base.Lang
+## 4  55436010 Sint-Amands tij/Zeeschelde           Pv.HW.Lang
+## 5  55437010 Sint-Amands tij/Zeeschelde           Pv.LW.Lang
+## 6  55442010 Sint-Amands tij/Zeeschelde             Gaugings
+## 7  55447010 Sint-Amands tij/Zeeschelde                LW.KK
+## 8  55420010 Sint-Amands tij/Zeeschelde               HW.tpk
+## 9  89205010 Sint-Amands tij/Zeeschelde             KT-det.O
+## 10 96963010 Sint-Amands tij/Zeeschelde              KT-HWLW
+## 11 55421010 Sint-Amands tij/Zeeschelde            HW.KD_NKD
+## 12 55423010 Sint-Amands tij/Zeeschelde        GaugingsGDiff
+## 13 55434010 Sint-Amands tij/Zeeschelde          HWLW.Kidigi
+## 14 55446010 Sint-Amands tij/Zeeschelde         GaugingsDiff
+## 15 55450010 Sint-Amands tij/Zeeschelde          O.HW.KD_NKD
+## 16 55414010 Sint-Amands tij/Zeeschelde           O.Gaugings
+## 17 55441010 Sint-Amands tij/Zeeschelde            LW.KD_NKD
+## 18 55449010 Sint-Amands tij/Zeeschelde               LW.tpk
+## 19 55418010 Sint-Amands tij/Zeeschelde                HW.KK
+## 20 55430010 Sint-Amands tij/Zeeschelde                Pv.LW
+## 21 55448010 Sint-Amands tij/Zeeschelde                   Pv
+## 22 88622010 Sint-Amands tij/Zeeschelde             Astro.05
+## 23 55422010 Sint-Amands tij/Zeeschelde               HW.typ
+## 24 55428010 Sint-Amands tij/Zeeschelde        O.TerrainCorr
+## 25 55433010 Sint-Amands tij/Zeeschelde                Model
+## 26 55440010 Sint-Amands tij/Zeeschelde              HW.Hist
+## 27 55445010 Sint-Amands tij/Zeeschelde               LW.typ
+## 28 88621010 Sint-Amands tij/Zeeschelde             Astro.10
+## 29 96962010 Sint-Amands tij/Zeeschelde                KT-LW
+## 30 58546010 Sint-Amands tij/Zeeschelde              LW.hulp
+## 31 55424010 Sint-Amands tij/Zeeschelde                Pv.05
+## 32 55443010 Sint-Amands tij/Zeeschelde               LW.rco
+## 33 55415010 Sint-Amands tij/Zeeschelde                   RC
+## 34 88623010 Sint-Amands tij/Zeeschelde           Astro.HWLW
+## 35 55425010 Sint-Amands tij/Zeeschelde              Pv.HWLW
+## 36 55427010 Sint-Amands tij/Zeeschelde              LW.Hist
+## 37 55432010 Sint-Amands tij/Zeeschelde          O.LW.KD_NKD
+## 38 55435010 Sint-Amands tij/Zeeschelde              Pv.Lang
+## 39 55439010 Sint-Amands tij/Zeeschelde        O.HWLW.Kidigi
+## 40 88620010 Sint-Amands tij/Zeeschelde             Astro.01
+## 41 99870010 Sint-Amands tij/Zeeschelde KT-AlarmStatus-Max.O
+## 42 55416010 Sint-Amands tij/Zeeschelde                O.01b
+## 43 55417010 Sint-Amands tij/Zeeschelde                 Base
+## 44 55419010 Sint-Amands tij/Zeeschelde                Pv.10
+## 45 55426010 Sint-Amands tij/Zeeschelde               Kidigi
+## 46 55438010 Sint-Amands tij/Zeeschelde           HW.t-h.wdw
+## 47 55444010 Sint-Amands tij/Zeeschelde           LW.t-h.wdw
+## 48 84309010 Sint-Amands tij/Zeeschelde      KT-Percentile.O
+## 49 96864010 Sint-Amands tij/Zeeschelde              KT-Last
+## 50 96961010 Sint-Amands tij/Zeeschelde                KT-HW
+##    parametertype_name
+## 1                   W
+## 2                   W
+## 3                   W
+## 4                   W
+## 5                   W
+## 6                   W
+## 7                   W
+## 8                   W
+## 9         W_voorspeld
+## 10        W_voorspeld
+## 11                  W
+## 12                  W
+## 13                  W
+## 14                  W
+## 15                  W
+## 16                  W
+## 17                  W
+## 18                  W
+## 19                  W
+## 20                  W
+## 21                  W
+## 22        W_voorspeld
+## 23                  W
+## 24                  W
+## 25                  W
+## 26                  W
+## 27                  W
+## 28        W_voorspeld
+## 29        W_voorspeld
+## 30                  W
+## 31                  W
+## 32                  W
+## 33                  W
+## 34        W_voorspeld
+## 35                  W
+## 36                  W
+## 37                  W
+## 38                  W
+## 39                  W
+## 40        W_voorspeld
+## 41        W_voorspeld
+## 42                  W
+## 43                  W
+## 44                  W
+## 45                  W
+## 46                  W
+## 47                  W
+## 48        W_voorspeld
+## 49        W_voorspeld
+## 50        W_voorspeld</code></pre>
+<p>The available number of variables depends on the measurement station. The representation is not standardized and depends also from the type of <a href="http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting"><code>meetnet</code></a>. Nevertheless, one can derive the required <code>ts_id</code> from the list when interpreting the field names. Remark that the datasource can be 4 instead of 1 for specific <code>meetnetten</code> (networks). The datasource to use is printed when asking the variables for a station.</p>
+<p>In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the <code>ts_id = 55419010</code> can be used in the <code>get_timeseries_tsid</code> function, taking into account the <code>datasource = 4</code> (default is 1):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tide_stamands &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"55419010"</span>, 
                                      <span class="dt">from =</span> <span class="st">"2017-06-01"</span>, <span class="dt">to =</span> <span class="st">"2017-06-05"</span>,
-                                     <span class="dt">datasource =</span> <span class="dv">2</span>)
+                                     <span class="dt">datasource =</span> <span class="dv">4</span>)
 <span class="kw">ggplot</span>(tide_stamands, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"waterlevel"</span>)</code></pre></div>
 <p><img src="download_timeseries_files/figure-html/downloadstamands-1.png" width="672"></p>
@@ -337,17 +423,17 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">filter</span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</code></pre></div>
 <pre><code>##                   station_name station_no    ts_id ts_name
-## 1 Etikhove/Schuif/Nederaalbeek  K06_OM225 84094042    P.15
+## 1 Etikhove/Schuif/Nederaalbeek  K06_OM225 22322042    P.15
 ## 2 Etikhove/Schuif/Nederaalbeek  K06_OM225 31882042    P.15
-## 3 Etikhove/Schuif/Nederaalbeek  K06_OM225 22322042    P.15
+## 3 Etikhove/Schuif/Nederaalbeek  K06_OM225 22302042    P.15
 ## 4 Etikhove/Schuif/Nederaalbeek  K06_OM225 29156042    P.15
-## 5 Etikhove/Schuif/Nederaalbeek  K06_OM225 22302042    P.15
+## 5 Etikhove/Schuif/Nederaalbeek  K06_OM225 84094042    P.15
 ##   parametertype_name stationparameter_name
-## 1 Volume Wachtbekken    Volume_wachtbekken
+## 1                  H                  Hopw
 ## 2                 Hk               Hschuif
-## 3                  H                  Hopw
+## 3                  H                  Hafw
 ## 4                  H    Hafw 100m afwaarts
-## 5                  H                  Hafw</code></pre>
+## 5 Volume Wachtbekken    Volume_wachtbekken</code></pre>
 <p>Loading and visualizing the last day (period <code>P1D</code>) of available data for the water level 100m downstream (<code>Hafw 100m afwaarts</code>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">afw_etikhove &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"29156042"</span>, 
                                     <span class="dt">period =</span> <span class="st">"P1D"</span>,
@@ -362,21 +448,21 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">filter</span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</code></pre></div>
 <pre><code>##         station_name station_no    ts_id ts_name parametertype_name
-## 1 Etikhove/Molenbeek   LS06_347 63483042    P.15                  H
-## 2 Etikhove/Molenbeek   LS06_347 96428042    P.15         Sed.vracht
+## 1 Etikhove/Molenbeek   LS06_347 70346042    P.15                  Q
+## 2 Etikhove/Molenbeek   LS06_347 66411042    P.15              Sed.Q
 ## 3 Etikhove/Molenbeek   LS06_347 27648042    P.15                  T
-## 4 Etikhove/Molenbeek   LS06_347 60850042    P.15           Sed.conc
-## 5 Etikhove/Molenbeek   LS06_347 66411042    P.15              Sed.Q
-## 6 Etikhove/Molenbeek   LS06_347 38635042    P.15                  v
-## 7 Etikhove/Molenbeek   LS06_347 70346042    P.15                  Q
+## 4 Etikhove/Molenbeek   LS06_347 96428042    P.15         Sed.vracht
+## 5 Etikhove/Molenbeek   LS06_347 38635042    P.15                  v
+## 6 Etikhove/Molenbeek   LS06_347 63483042    P.15                  H
+## 7 Etikhove/Molenbeek   LS06_347 60850042    P.15           Sed.conc
 ##   stationparameter_name
-## 1                     H
-## 2            Sed.vracht
+## 1                     Q
+## 2                 Sed.Q
 ## 3                     T
-## 4              Sed.conc
-## 5                 Sed.Q
-## 6                     v
-## 7                     Q</code></pre>
+## 4            Sed.vracht
+## 5                     v
+## 6                     H
+## 7              Sed.conc</code></pre>
 <p>And use the <code>ts_id</code> code representing discharge to create a plot of the discharge during a storm in 2010:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">etikhove &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"70346042"</span>, 
                                 <span class="dt">from =</span> <span class="st">"2010-11-09"</span>, <span class="dt">to =</span> <span class="st">"2010-11-16"</span>)

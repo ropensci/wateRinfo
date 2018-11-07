@@ -16,10 +16,26 @@ test_that("non existing tsid to API", {
   query <- list(
     type = "queryServices", service = "kisters",
     request = "getTimeseriesvalues",
-    ts_id = "notsid", format = "json"
+    ts_id = "notsid", format = "json",
+    datasource = 1
   )
   expect_error(call_waterinfo(query),
     regexp = "Waterinfo API request failed.*InvalidParameterValue"
+  )
+})
+
+# tackle specific case when tomcat error is thrown by the server
+# (missing datasource)
+test_that("datasource not included in the API call", {
+  query <- list(
+    type = "queryServices", service = "kisters",
+    request = "getTimeseriesvalues",
+    ts_id = "notsid", format = "json"
+  )
+  expect_error(call_waterinfo(query),
+               regexp = paste0("API did not return json - The server ",
+                               "encountered an internal error that prevented ",
+                               "it from fulfilling this request.")
   )
 })
 
@@ -32,6 +48,8 @@ test_that("add call to waterinfo explicitly to the print output", {
     ts_id = "5156042", format = "json", datasource = 1
   )
   response <- call_waterinfo(query)
-  raw_call_info <- "Waterinfo API query applied: type=queryServices&service=kisters&request=getTimeseriesvalues&ts_id=5156042&format=json&datasource=1"
+  raw_call_info <- paste0("Waterinfo API query applied: type=queryServices&",
+                          "service=kisters&request=getTimeseriesvalues&",
+                          "ts_id=5156042&format=json&datasource=1")
   expect_equal(capture.output(print(response))[1], raw_call_info)
 })

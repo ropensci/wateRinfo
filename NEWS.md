@@ -1,3 +1,14 @@
+wateRinfo 0.2.1 (2018-10-17)
+=============================
+
+The `datasource` of the non-VMM stations changed recently (our tests on CI broke). Moreover, the 
+`ts_identifiers` for these stations changed as well. Both are adaptations on the data source (waterinfo.be) level. 
+
+### CRUCIAL QUICK FIX
+
+* Change the datasource to 4 for non-VMM stations
+* Adapt the examples and vignettes to existing `ts_identifiers`
+
 wateRinfo 0.2.0 (2018-10-01)
 =============================
 

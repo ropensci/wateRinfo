@@ -41,7 +41,8 @@
 #' @importFrom openssl base64_encode
 #' @export
 get_token <- function(client = NULL, client_id = NULL, client_secret = NULL,
-                      token_url = "http://download.waterinfo.be/kiwis-auth/token") {
+                      token_url =
+                        "http://download.waterinfo.be/kiwis-auth/token") {
   if (is.null(client)) {
     if (!is.null(client_id) & !is.null(client_secret)) {
       client <- base64_encode(paste(client_id, client_secret, sep = ":"))
