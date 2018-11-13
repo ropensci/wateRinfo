@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wateRinfo</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.1</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.2.2</span>
       </span>
     </div>
 
@@ -122,13 +122,31 @@
       <small>Source: <a href='https://github.com/inbo/wateRinfo/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="waterinfo-0-2-2-2018-11-07" class="section level1">
+<h1 class="page-header">
+<a href="#waterinfo-0-2-2-2018-11-07" class="anchor"></a>wateRinfo 0.2.2 (2018-11-07)</h1>
+<div id="crucial-quick-fix" class="section level3">
+<h3 class="hasAnchor">
+<a href="#crucial-quick-fix" class="anchor"></a>CRUCIAL QUICK FIX</h3>
+<ul>
+<li>When no <code>datasource</code> is added to the waterinfo.be query, the server gives a html/text response containing a tomcat server error messag. This error is now captured properly. As the user normally only uses the wrapped API call functions, there should no difference on the user level.</li>
+</ul>
+</div>
+<div id="documentation-fixes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#documentation-fixes" class="anchor"></a>DOCUMENTATION FIXES</h3>
+<ul>
+<li>Bring documentation up to date with the new <code>datasource</code> handling</li>
+</ul>
+</div>
+</div>
     <div id="waterinfo-0-2-1-2018-10-17" class="section level1">
 <h1 class="page-header">
 <a href="#waterinfo-0-2-1-2018-10-17" class="anchor"></a>wateRinfo 0.2.1 (2018-10-17)</h1>
 <p>The <code>datasource</code> of the non-VMM stations changed recently (our tests on CI broke). Moreover, the <code>ts_identifiers</code> for these stations changed as well. Both are adaptations on the data source (waterinfo.be) level.</p>
-<div id="crucial-quick-fix" class="section level3">
+<div id="crucial-quick-fix-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#crucial-quick-fix" class="anchor"></a>CRUCIAL QUICK FIX</h3>
+<a href="#crucial-quick-fix-1" class="anchor"></a>CRUCIAL QUICK FIX</h3>
 <ul>
 <li>Change the datasource to 4 for non-VMM stations</li>
 <li>Adapt the examples and vignettes to existing <code>ts_identifiers</code>
@@ -156,9 +174,9 @@
 <li>Update code style using styler</li>
 </ul>
 </div>
-<div id="documentation-fixes" class="section level3">
+<div id="documentation-fixes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#documentation-fixes" class="anchor"></a>DOCUMENTATION FIXES</h3>
+<a href="#documentation-fixes-1" class="anchor"></a>DOCUMENTATION FIXES</h3>
 <ul>
 <li>Describe the table output format explicitly in roxygen docs and add the quality codes of the waterinfo.be dataproviders (<a href='https://github.com/inbo/wateRinfo/issues/27'>#27</a>)</li>
 <li>Update contributing guidelines, thanks to <a href='http://github.com/peterdesmet'>@peterdesmet</a> who did a great effort on providing welcoming, clear written and engaging contributing guidelines</li>
@@ -190,6 +208,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#waterinfo-0-2-2-2018-11-07">0.2.2</a></li>
         <li><a href="#waterinfo-0-2-1-2018-10-17">0.2.1</a></li>
         <li><a href="#waterinfo-0-2-0-2018-10-01">0.2.0</a></li>
         <li><a href="#waterinfo-0-1-2-2018-05-03">0.1.2</a></li>
