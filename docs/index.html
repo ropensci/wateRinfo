@@ -179,10 +179,10 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; 6 2017-04-01 01:15:00 1008.4          130</span></code></pre></div>
 <p>Making a plot of the data with ggplot:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw"><a href="ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_pressure, <span class="kw"><a href="ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"hPa"</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M</span><span class="ch">\n</span><span class="st">%Y-%m-%d"</span>, <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</code></pre></div>
+<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_pressure, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"hPa"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M</span><span class="ch">\n</span><span class="st">%Y-%m-%d"</span>, <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</code></pre></div>
 <p><img src="reference/figures/README-plot_pressure-1.png" width="80%"></p>
 <p>Another option is to check the available variables for a given station, with the function <code>get_variables</code>. Let’s consider again Overpelt (<code>ME11_002</code>) and check the first ten available variables at the Overpelt measurement station:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars_overpelt &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_variables.html">get_variables</a></span>(<span class="st">"ME11_002"</span>)
@@ -221,10 +221,10 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <span class="co">#&gt; 4 2017-04-04 23:00:00 84.13          130</span>
 <span class="co">#&gt; 5 2017-04-05 23:00:00 84.19          130</span>
 <span class="co">#&gt; 6 2017-04-06 23:00:00 82.71          130</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_rh_daily, <span class="kw"><a href="ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">" RH (%)"</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%b-%d</span><span class="ch">\n</span><span class="st">%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"5 days"</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_rh_daily, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">" RH (%)"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%b-%d</span><span class="ch">\n</span><span class="st">%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"5 days"</span>)</code></pre></div>
 <p><img src="reference/figures/README-plot_rh-1.png" width="80%"></p>
 <p>Unfortunately, not all variables are documented, for which the check for the appropriate variable is not (yet) fully supported by the package.</p>
 <p>More detailed tutorials are available in the package vignettes!</p>
@@ -239,18 +239,18 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
 <span class="kw">print</span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ZGQxZWEzZS0wM2MxLTQxZTItODFlMS0yYmJlNzQ4MjkyODciLCJpYXQiOjE1NDIxMDY3MjgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQyMTkzMTI4fQ.dCTqehPHJjgsZOqfXCDVCj5IkmWUeXojZobQZMWCYiU</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3NjA5YmIxYi1iZDJmLTQ1ZjAtOWMxMS04YjhjNTE3NzI4YjQiLCJpYXQiOjE1NDMzMTEzMDksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQzMzk3NzA5fQ.FSWXS6QNSEPi_PESLiDHrc5fOYRH79mPMazkDDS8h-A</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2018-11-14 11:58:48 CET</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-11-28 10:35:08 CET</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">is.expired</a></span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">expires.in</a></span>(my_token)
-<span class="co">#&gt; Time difference of 24 hours</span></code></pre></div>
+<span class="co">#&gt; Time difference of 23.99999 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>

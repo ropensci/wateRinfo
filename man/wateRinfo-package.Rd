@@ -31,6 +31,7 @@ Other contributors:
 \itemize{
   \item Willem Maetens \email{w.maetens@vmm.be} [contributor]
   \item Peter Desmet \email{peter.desmet@inbo.be} (0000-0002-8442-8025) [contributor]
+  \item Research Institute for Nature and Forest \email{info@inbo.be} [copyright holder]
 }
 
 }
