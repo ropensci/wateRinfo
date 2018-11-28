@@ -18,6 +18,10 @@ test_that("works as expected", {
   expect_true(55175010 %in% ostend$ts_id)
   expect_true("ts_id" %in% colnames(ostend))
 
+  # all character data types
+  expect_equal(prod(sapply(overpelt, is.character)), 1)
+  expect_equal(prod(sapply(ostend, is.character)), 1)
+
   expect_equal(
     colnames(overpelt),
     c(
