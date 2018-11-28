@@ -71,6 +71,9 @@
 #'      }
 #'    }
 #' }
+#' The URL of the specific request is provided as a comment attribute to the
+#' returned data.frame. Use \code{comment(df)} to get the request URL.
+#'
 #'
 #' @export
 #' @importFrom lubridate ymd_hms
