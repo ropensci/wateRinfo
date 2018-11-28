@@ -77,5 +77,8 @@ get_variables <- function(station_no, token = NULL) {
     datasource
   ))
 
+  # add request URL as df comment
+  comment(df) <- station_variables$response$url
+
   df
 }

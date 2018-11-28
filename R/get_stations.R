@@ -80,7 +80,7 @@ get_stations <- function(variable_name = NULL, frequency = "15min",
     token = token
   )
 
-  stations$content %>% select(
+  df <- stations$content %>% select(
     "ts_id", "station_latitude",
     "station_longitude", "station_id",
     "station_no", "station_name",
@@ -89,4 +89,9 @@ get_stations <- function(variable_name = NULL, frequency = "15min",
     "ts_unitsymbol",
     "dataprovider"
   )
+
+  # add request URL as df comment
+  comment(df) <- stations$response$url
+
+  return(df)
 }

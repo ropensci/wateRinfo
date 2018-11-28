@@ -124,5 +124,8 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
     colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
   }
 
+  # add request URL as df comment
+  comment(df) <- time_series$response$url
+
   return(df)
 }
