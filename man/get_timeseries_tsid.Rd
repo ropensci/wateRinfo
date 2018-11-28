@@ -44,7 +44,9 @@
         }
      }
    }
-}}
+}
+The URL of the specific request is provided as a comment attribute to the
+returned data.frame. Use \code{comment(df)} to get the request URL.}
 \usage{
 get_timeseries_tsid(ts_id, period = NULL, from = NULL, to = NULL,
   datasource = 1, token = NULL)

@@ -18,7 +18,9 @@
   \item{parametertype_name}{Measured variable description.}
   \item{ts_unitsymbol}{Unit of the variable.}
   \item{dataprovider}{Data provider of the time series data.}
-}}
+}
+The URL of the specific request is provided as a comment attribute to the
+returned data.frame. Use \code{comment(df)} to get the request URL.}
 \usage{
 get_stations(variable_name = NULL, frequency = "15min", token = NULL)
 }
