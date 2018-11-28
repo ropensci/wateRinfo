@@ -19,8 +19,8 @@ test_that("works as expected", {
   expect_true("ts_id" %in% colnames(ostend))
 
   # all character data types
-  expect_equal(prod(sapply(overpelt, is.character)), 1)
-  expect_equal(prod(sapply(ostend, is.character)), 1)
+  expect_equal(prod(vapply(overpelt, is.character, TRUE)), 1)
+  expect_equal(prod(vapply(overpelt, is.character, TRUE)), 1)
 
   expect_equal(
     colnames(overpelt),
