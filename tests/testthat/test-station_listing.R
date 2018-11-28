@@ -5,6 +5,11 @@ test_that("Check station list dataframe output format", {
   heat_stat <- get_stations("ground_heat")
 
   expect_is(heat_stat, "data.frame")
+
+  expect_is(comment(heat_stat), "character")
+  expect_true(grepl("http://download.waterinfo.be/tsmdownload/KiWIS/KiWIS",
+                    comment(heat_stat)))
+
   expect_true(94385042 %in% heat_stat$ts_id)
   expect_false(85541042 %in% heat_stat$ts_id)
   expect_true("ts_id" %in% colnames(heat_stat))
