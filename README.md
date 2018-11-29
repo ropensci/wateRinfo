@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file and knit -->
-wateRinfo <img src="man/figures/logo.png" align="right" alt="" width="120" />
-=============================================================================
+wateRinfo <img src="man/figures/logo.png" align="right" alt="" width="120">
+===========================================================================
 
 [![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg)](https://coveralls.io/r/inbo/wateRinfo?branch=master)
 
