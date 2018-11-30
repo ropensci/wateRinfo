@@ -22,6 +22,8 @@
 #'   \item{parametertype_name}{Measured variable description.}
 #'   \item{stationparameter_name}{Station specific variable description.}
 #' }
+#' The URL of the specific request is provided as a comment attribute to the
+#' returned data.frame. Use \code{comment(df)} to get the request URL.
 #'
 #' @export
 #'
@@ -63,10 +65,12 @@ get_variables <- function(station_no, token = NULL) {
 
   stations <- station_variables$content
   if (dim(stations)[1] == 2) {
-    df <- as.data.frame(t(stations[2:nrow(stations), ]))
+    df <- as.data.frame(t(stations[2:nrow(stations), ]),
+                        stringsAsFactors = FALSE)
     colnames(df) <- stations[1, ]
   } else {
-    df <- as.data.frame(stations[2:nrow(stations), ])
+    df <- as.data.frame(stations[2:nrow(stations), ],
+                        stringsAsFactors = FALSE)
     colnames(df) <- stations[1, ]
   }
 
@@ -74,6 +78,9 @@ get_variables <- function(station_no, token = NULL) {
     "Use datasource: %s for data requests of this station!",
     datasource
   ))
+
+  # add request URL as df comment
+  comment(df) <- station_variables$response$url
 
   df
 }

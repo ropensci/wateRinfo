@@ -14,7 +14,9 @@
   `waterinfo.be`.}
   \item{parametertype_name}{Measured variable description.}
   \item{stationparameter_name}{Station specific variable description.}
-}}
+}
+The URL of the specific request is provided as a comment attribute to the
+returned data.frame. Use \code{comment(df)} to get the request URL.}
 \usage{
 get_variables(station_no, token = NULL)
 }

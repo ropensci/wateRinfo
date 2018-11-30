@@ -96,5 +96,5 @@ supported_frequencies <- function(variable_name) {
     filter(.data$variable_en == variable_name |
       .data$variable_nl == variable_name)
 
-  paste(variable_subset$frequency_en, collapse = ", ")
+  return(variable_subset$frequency_en)
 }

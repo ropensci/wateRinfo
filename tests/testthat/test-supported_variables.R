@@ -17,7 +17,7 @@ test_that("variables in en and nl", {
   freqs <- supported_frequencies("afvoer")
 
   expect_is(freqs, "character")
-  expect_true(grepl("15min", freqs))
+  expect_true("15min" %in% freqs)
 })
 
 

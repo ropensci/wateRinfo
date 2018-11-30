@@ -163,3 +163,23 @@ etikhove <- get_timeseries_tsid("70346042",
 ggplot(etikhove, aes(Timestamp, Value)) + 
     geom_line() + xlab("") + ylab("Q (m3/s)")
 ```
+
+## Check the URL used to request the data
+
+As each of these data requests is actually a call to the [waterinfo.be](https://www.waterinfo.be/) API, the call can be tested in a browser as well. To retrieve the URL used to request certain data (using `get_variables`, `get_stations` or `get_timeseries_tsid`), check the `comment` attribute of the returned `data.frame`, for example:
+
+```
+air_stations <- get_stations("air_pressure")
+comment(air_stations)
+```
+
+or 
+
+```
+etikhove <- get_timeseries_tsid("70346042", 
+                                from = "2010-11-09", to = "2010-11-16")
+comment(etikhove)
+```
+
+
+

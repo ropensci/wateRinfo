@@ -63,20 +63,20 @@ get_stations("air_pressure")
 #> 1 78124042         51.20300          5.439589      12213   ME11_002
 #> 2 78039042         51.24379          4.266912      12208   ME04_001
 #> 3 78005042         51.02263          2.970584      12206   ME01_003
-#> 4 78107042         51.16224          4.845708      12212   ME10_011
-#> 5 78073042         50.88663          4.094898      12210   ME07_006
+#> 4 78073042         50.88663          4.094898      12210   ME07_006
+#> 5 78107042         51.16224          4.845708      12212   ME10_011
 #> 6 78022042         51.27226          3.728299      12207   ME03_017
-#> 7 78056042         50.86149          3.411318      12209   ME05_019
-#> 8 78090042         50.73795          5.141976      12211   ME09_012
+#> 7 78090042         50.73795          5.141976      12211   ME09_012
+#> 8 78056042         50.86149          3.411318      12209   ME05_019
 #>              station_name stationparameter_name parametertype_name
 #> 1             Overpelt_ME                    Pa                 Pa
 #> 2              Melsele_ME                    Pa                 Pa
 #> 3               Zarren_ME                    Pa                 Pa
-#> 4            Herentals_ME                    Pa                 Pa
-#> 5           Liedekerke_ME                    BP                 Pa
+#> 4           Liedekerke_ME                    BP                 Pa
+#> 5            Herentals_ME                    Pa                 Pa
 #> 6            Boekhoute_ME                    Pa                 Pa
-#> 7              Waregem_ME                    Pa                 Pa
-#> 8 Niel-bij-St.-Truiden_ME                    Pa                 Pa
+#> 7 Niel-bij-St.-Truiden_ME                    Pa                 Pa
+#> 8              Waregem_ME                    Pa                 Pa
 #>   ts_unitsymbol dataprovider
 #> 1           hPa          VMM
 #> 2           hPa          VMM
@@ -121,28 +121,28 @@ Another option is to check the available variables for a given station, with the
 ``` r
 vars_overpelt <- get_variables("ME11_002")
 head(vars_overpelt, 10)
-#>    station_name station_no    ts_id                    ts_name
-#> 1   Overpelt_ME   ME11_002 78118042                 KalJaarMin
-#> 2   Overpelt_ME   ME11_002 96256042 Penman.IWRS.DagTotaal.8:00
-#> 3   Overpelt_ME   ME11_002 78693042                       P.15
-#> 4   Overpelt_ME   ME11_002 78522042                 HydJaarMax
-#> 5   Overpelt_ME   ME11_002 90366042                 HydJaarMax
-#> 6   Overpelt_ME   ME11_002 78804042                 KalJaarMax
-#> 7   Overpelt_ME   ME11_002 78797042                     DagGem
-#> 8   Overpelt_ME   ME11_002 78523042                 HydJaarMin
-#> 9   Overpelt_ME   ME11_002 94682042                   MaandMin
-#> 10  Overpelt_ME   ME11_002 78382042                     DagGem
-#>    parametertype_name stationparameter_name
-#> 1                  Pa                    Pa
-#> 2                 PET                   pET
-#> 3                  Ud                  WDir
-#> 4                  Ts                 SoilT
-#> 5                  Ta             Ta(1.75m)
-#> 6                  Td                    Td
-#> 7                  Td                    Td
-#> 8                  Ts                 SoilT
-#> 9                  Ta                    Ta
-#> 10                 RH                    RH
+#>    station_name station_no    ts_id    ts_name parametertype_name
+#> 1   Overpelt_ME   ME11_002 96216042  DagTotaal         Noverschot
+#> 2   Overpelt_ME   ME11_002 78663042   MaandGem                  U
+#> 3   Overpelt_ME   ME11_002 78664042   MaandMax                  U
+#> 4   Overpelt_ME   ME11_002 78667042       P.10                  U
+#> 5   Overpelt_ME   ME11_002 78654042     DagGem                  U
+#> 6   Overpelt_ME   ME11_002 78656042     DagMin                  U
+#> 7   Overpelt_ME   ME11_002 78658042 HydJaarMax                  U
+#> 8   Overpelt_ME   ME11_002 78668042       P.15                  U
+#> 9   Overpelt_ME   ME11_002 78660042 KalJaarGem                  U
+#> 10  Overpelt_ME   ME11_002 78661042 KalJaarMax                  U
+#>    stationparameter_name
+#> 1             Noverschot
+#> 2                 WSpeed
+#> 3                 WSpeed
+#> 4                 WSpeed
+#> 5                 WSpeed
+#> 6                 WSpeed
+#> 7                 WSpeed
+#> 8                 WSpeed
+#> 9                 WSpeed
+#> 10                WSpeed
 ```
 
 Different pre-calculated variables are already available and a `ts_id` value is available for each of them to download the corresponding data. For example, `DagGem` (= daily mean values) of `RH` (= relative humidity), i.e. `ts_id = 78382042`:
@@ -177,7 +177,9 @@ More detailed tutorials are available in the package vignettes!
 Note on restrictions of the downloads
 -------------------------------------
 
-The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
+The amount of data downloaded from waterinfo.be is limited via a credit system. You do not need to get a token right away to download data. For limited and irregular downloads, a token will not be required.
+
+When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
 
 Get token with client-credit code: (limited client-credit code for testing purposes)
 
@@ -187,12 +189,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkNWUxMTQ0Mi02Y2Q4LTRmYjgtYTVmYy1mMjgxNWU3NDk2ZjIiLCJpYXQiOjE1MzgzOTMwMjYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTM4NDc5NDI2fQ.cKQMj01LaYjjDV6CWP-je6xuxSurKOWlJ7FBwFdnmcg
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0ZGMxNzI1ZC0zZDc2LTQxNGEtOTRjNS0xZWExZmI2NTY2NWIiLCJpYXQiOjE1NDM0MzY4NDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQzNTIzMjQwfQ.r9YjvVoCzilvHC0XLF9gOD3h32cYshhOoyjLoRtzU7U
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2018-10-02 13:23:46 CEST
+#>  expires: 2018-11-29 21:27:19 CET
 ```
 
 Receive information on the validity of the token:
@@ -215,22 +217,22 @@ Use token when retrieving data:
 get_stations(variable_name = "verdamping_monteith", token = my_token)
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 94310042         51.02263          2.970584      12206   ME01_003
-#> 2 94530042         51.16224          4.845708      12212   ME10_011
-#> 3 94516042         50.73795          5.141976      12211   ME09_012
-#> 4 94544042         51.20300          5.439589      12213   ME11_002
-#> 5 94488042         50.86149          3.411318      12209   ME05_019
-#> 6 94460042         51.27226          3.728299      12207   ME03_017
-#> 7 94502042         50.88663          4.094898      12210   ME07_006
-#> 8 94474042         51.24379          4.266912      12208   ME04_001
+#> 2 94544042         51.20300          5.439589      12213   ME11_002
+#> 3 94530042         51.16224          4.845708      12212   ME10_011
+#> 4 94516042         50.73795          5.141976      12211   ME09_012
+#> 5 94502042         50.88663          4.094898      12210   ME07_006
+#> 6 94474042         51.24379          4.266912      12208   ME04_001
+#> 7 94488042         50.86149          3.411318      12209   ME05_019
+#> 8 94460042         51.27226          3.728299      12207   ME03_017
 #>              station_name stationparameter_name parametertype_name
 #> 1               Zarren_ME                   pET                PET
-#> 2            Herentals_ME                   pET                PET
-#> 3 Niel-bij-St.-Truiden_ME                   pET                PET
-#> 4             Overpelt_ME                   pET                PET
-#> 5              Waregem_ME                   pET                PET
-#> 6            Boekhoute_ME                   pET                PET
-#> 7           Liedekerke_ME                   pET                PET
-#> 8              Melsele_ME                   pET                PET
+#> 2             Overpelt_ME                   pET                PET
+#> 3            Herentals_ME                   pET                PET
+#> 4 Niel-bij-St.-Truiden_ME                   pET                PET
+#> 5           Liedekerke_ME                   pET                PET
+#> 6              Melsele_ME                   pET                PET
+#> 7              Waregem_ME                   pET                PET
+#> 8            Boekhoute_ME                   pET                PET
 #>   ts_unitsymbol dataprovider
 #> 1            mm          VMM
 #> 2            mm          VMM

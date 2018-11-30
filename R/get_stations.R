@@ -33,6 +33,8 @@
 #'   \item{ts_unitsymbol}{Unit of the variable.}
 #'   \item{dataprovider}{Data provider of the time series data.}
 #' }
+#' The URL of the specific request is provided as a comment attribute to the
+#' returned data.frame. Use \code{comment(df)} to get the request URL.
 #'
 #' @export
 #' @importFrom dplyr %>% select
@@ -80,7 +82,7 @@ get_stations <- function(variable_name = NULL, frequency = "15min",
     token = token
   )
 
-  stations$content %>% select(
+  df <- stations$content %>% select(
     "ts_id", "station_latitude",
     "station_longitude", "station_id",
     "station_no", "station_name",
@@ -89,4 +91,9 @@ get_stations <- function(variable_name = NULL, frequency = "15min",
     "ts_unitsymbol",
     "dataprovider"
   )
+
+  # add request URL as df comment
+  comment(df) <- stations$response$url
+
+  return(df)
 }

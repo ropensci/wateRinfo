@@ -1,6 +1,7 @@
 #' Get waterinfo Token
 #'
-#' Retrieve a fresh waterinfo token.
+#' Retrieve a fresh waterinfo token. A token is not required to get started,
+#' see Details section for more information.
 #'
 #' @aliases token print.token show.token expires.in expires.in.token is.expired
 #' is.expired.token
@@ -12,13 +13,19 @@
 #' @param token_url url to get the token from
 #' @param token a token object
 #'
-#' @details Either client or client_id and client_secret need to be passed as
+#' @details Notice you do not need to get a token right away to download data.
+#' For limited and irregular downloads, a token will not be required. The amount
+#' of data downloaded from waterinfo.be is limited via a credit system.
+#' When you require more extended data requests, request a download token.
+#'
+#' Either client or client_id and client_secret need to be passed as
 #' arguments. If provided, client is always used. Tokens remain valid for
 #' 24 hours, after which a fresh one must be acquired.
 #' To limit load on the server, token objects should be reused as much as
 #' possible until expiration in stead of creating fresh ones for each call.
+#'
 #' The client_id and client_secret provided in the examples are for test
-#' purposes, get your very own client via \email{hydrometrie@@waterinfo.be}!
+#' purposes, get your very own client via \email{hydrometrie@@waterinfo.be}.
 #'
 #' @return An object of class token containing the token string with the
 #' token_url, token type and moment of expiration as attributes.

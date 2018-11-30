@@ -9,10 +9,18 @@ test_that("works as expected", {
   expect_is(overpelt, "data.frame")
   expect_is(ostend, "data.frame")
 
+  expect_is(comment(overpelt), "character")
+  expect_true(grepl("https://pro.waterinfo.be/tsmpro/KiWIS/KiWIS",
+                    comment(overpelt)))
+
   expect_true(78118042 %in% overpelt$ts_id)
   expect_true("ts_id" %in% colnames(overpelt))
   expect_true(55175010 %in% ostend$ts_id)
   expect_true("ts_id" %in% colnames(ostend))
+
+  # all character data types
+  expect_equal(prod(vapply(overpelt, is.character, TRUE)), 1)
+  expect_equal(prod(vapply(overpelt, is.character, TRUE)), 1)
 
   expect_equal(
     colnames(overpelt),

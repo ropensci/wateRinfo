@@ -71,6 +71,9 @@
 #'      }
 #'    }
 #' }
+#' The URL of the specific request is provided as a comment attribute to the
+#' returned data.frame. Use \code{comment(df)} to get the request URL.
+#'
 #'
 #' @export
 #' @importFrom lubridate ymd_hms
@@ -123,6 +126,9 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
     df$X2 <- as.double(as.character(df$X2))
     colnames(df) <- strsplit(time_series$content$columns, ",")[[1]]
   }
+
+  # add request URL as df comment
+  comment(df) <- time_series$response$url
 
   return(df)
 }
