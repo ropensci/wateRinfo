@@ -46,7 +46,7 @@ test_that("wrong combination of client information", {
 
 test_that("token should get proper inputs to instantiate", {
   value <- "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3YjFjMDA4Ni05ZDUyLTQzOTAtYTM"
-  token_url <- "http://download.waterinfo.be/kiwis-auth/token"
+  token_url <- "https://download.waterinfo.be/kiwis-auth/token"
   token_type <- "Bearer"
   expires <- as.POSIXct("2018-10-02 15:13:28 CEST")
 
@@ -66,7 +66,7 @@ test_that("token should get proper inputs to instantiate", {
 
 test_that("Print output of token is data type specific", {
   value <- "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3YjFjMDA4Ni05ZDUyLTQzOTAtYTM"
-  token_url <- "http://download.waterinfo.be/kiwis-auth/token"
+  token_url <- "https://download.waterinfo.be/kiwis-auth/token"
   token_type <- "Bearer"
 
   expires <- as.POSIXlt("2018-10-02 15:13:28 CEST", tz = "GMT")
@@ -76,7 +76,7 @@ test_that("Print output of token is data type specific", {
     "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3YjFjMDA4Ni05ZDUyLTQzOTAtYTM",
     "",
     "Attributes:",
-    " url: http://download.waterinfo.be/kiwis-auth/token",
+    " url: https://download.waterinfo.be/kiwis-auth/token",
     " type: Bearer",
     " expires: 2018-10-02 15:13:28 GMT"
     )
