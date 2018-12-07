@@ -7,7 +7,7 @@ test_that("Check station list dataframe output format", {
   expect_is(heat_stat, "data.frame")
 
   expect_is(comment(heat_stat), "character")
-  expect_true(grepl("http://download.waterinfo.be/tsmdownload/KiWIS/KiWIS",
+  expect_true(grepl("https://download.waterinfo.be/tsmdownload/KiWIS/KiWIS",
                     comment(heat_stat)))
 
   expect_true(94385042 %in% heat_stat$ts_id)

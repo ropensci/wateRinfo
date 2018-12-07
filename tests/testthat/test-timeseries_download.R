@@ -11,7 +11,7 @@ test_that("Call works as expected", {
   expect_is(pressure, "data.frame")
 
   expect_is(comment(pressure), "character")
-  expect_true(grepl("http://download.waterinfo.be/tsmdownload/KiWIS/KiWIS",
+  expect_true(grepl("https://download.waterinfo.be/tsmdownload/KiWIS/KiWIS",
                     comment(pressure)))
 
   expect_equal(

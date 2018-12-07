@@ -1,10 +1,10 @@
 
 waterinfo_base <- function() {
-  "http://download.waterinfo.be/tsmdownload/KiWIS/KiWIS"
+  "https://download.waterinfo.be/tsmdownload/KiWIS/KiWIS"
   # "https://www.waterinfo.be/tsmpub/KiWIS/KiWIS"
 }
 waterinfo_pro_base <- function() {
-  "http://pro.waterinfo.be/tsmpro/KiWIS/KiWIS"
+  "https://pro.waterinfo.be/tsmpro/KiWIS/KiWIS"
 }
 
 #' http call to waterinfo.be
