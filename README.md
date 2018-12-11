@@ -189,12 +189,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0ZGMxNzI1ZC0zZDc2LTQxNGEtOTRjNS0xZWExZmI2NTY2NWIiLCJpYXQiOjE1NDM0MzY4NDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQzNTIzMjQwfQ.r9YjvVoCzilvHC0XLF9gOD3h32cYshhOoyjLoRtzU7U
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5ZGU5ZmU1ZS1mYTk2LTQ5MDgtOWM2OC02MGI1ZWQ5N2U5YWIiLCJpYXQiOjE1NDQ1MTYwMDMsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQ0NjAyNDAzfQ.GjzeocYzcKooh_9K4l_6zZjiUBRIUJTWguJs8hRQFmk
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2018-11-29 21:27:19 CET
+#>  expires: 2018-12-12 09:13:23 CET
 ```
 
 Receive information on the validity of the token:
