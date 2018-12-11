@@ -257,3 +257,5 @@ This package is an experimental open-source project. All functionalities are pro
 Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 Please [report any issues or bugs](https://github.com/inbo/wateRinfo/issues/new).
+
+[![ropensci\_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
