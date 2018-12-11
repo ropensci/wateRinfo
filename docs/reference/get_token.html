@@ -32,7 +32,8 @@
 
 <meta property="og:title" content="Get waterinfo Token — get_token" />
 
-<meta property="og:description" content="Retrieve a fresh waterinfo token." />
+<meta property="og:description" content="Retrieve a fresh waterinfo token. A token is not required to get started,
+see Details section for more information." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -127,7 +128,8 @@
 
     <div class="ref-description">
     
-    <p>Retrieve a fresh waterinfo token.</p>
+    <p>Retrieve a fresh waterinfo token. A token is not required to get started,
+see Details section for more information.</p>
     
     </div>
 
@@ -171,13 +173,17 @@ token_url, token type and moment of expiration as attributes.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Either client or client_id and client_secret need to be passed as
+    <p>Notice you do not need to get a token right away to download data.
+For limited and irregular downloads, a token will not be required. The amount
+of data downloaded from waterinfo.be is limited via a credit system.
+When you require more extended data requests, request a download token.</p>
+<p>Either client or client_id and client_secret need to be passed as
 arguments. If provided, client is always used. Tokens remain valid for
 24 hours, after which a fresh one must be acquired.
 To limit load on the server, token objects should be reused as much as
-possible until expiration in stead of creating fresh ones for each call.
-The client_id and client_secret provided in the examples are for test
-purposes, get your very own client via <a href='mailto:hydrometrie@waterinfo.be'>hydrometrie@waterinfo.be</a>!</p>
+possible until expiration in stead of creating fresh ones for each call.</p>
+<p>The client_id and client_secret provided in the examples are for test
+purposes, get your very own client via <a href='mailto:hydrometrie@waterinfo.be'>hydrometrie@waterinfo.be</a>.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -186,22 +192,22 @@ purposes, get your very own client via <a href='mailto:hydrometrie@waterinfo.be'
 <span class='no'>client_secret</span> <span class='kw'>&lt;-</span> <span class='st'>'4ada871a-9528-4b4d-bfd5-b570ce8f4d2d'</span>
 <span class='no'>my_token</span> <span class='kw'>&lt;-</span> <span class='fu'>get_token</span>(<span class='kw'>client_id</span> <span class='kw'>=</span> <span class='no'>client_id</span>,<span class='kw'>client_secret</span> <span class='kw'>=</span> <span class='no'>client_secret</span>)
 <span class='fu'>print</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Token:
-#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ZmQ1ODNjMS02OWNjLTQyZGMtODcxNC1hOTlhYTAzNzFjOTkiLCJpYXQiOjE1NDMzMTEzMjcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQzMzk3NzI3fQ.WY3R3rlWK5or54ejZSm6h-KMkHM5j0D105hLGAyPYtA
+#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhNTE5OWUyYS1lNTA5LTQ3MmYtYjZhYi01MWY4MDY1MmRlZjAiLCJpYXQiOjE1NDQ1MTY5MjUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQ0NjAzMzI1fQ.CkJQmqNHqkNovmEMEr2P6saaoB1XNDGfUUNvzDNPH5I
 #&gt; 
 #&gt; Attributes:
 #&gt;  url: http://download.waterinfo.be/kiwis-auth/token
 #&gt;  type: Bearer
-#&gt;  expires: 2018-11-28 10:35:27 CET</div><div class='input'><span class='co'># get token via client</span>
+#&gt;  expires: 2018-12-12 09:28:45 CET</div><div class='input'><span class='co'># get token via client</span>
 <span class='no'>client</span> <span class='kw'>&lt;-</span> <span class='fu'>paste0</span>(<span class='st'>'MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4'</span>,
                 <span class='st'>'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=='</span>)
 <span class='no'>my_token</span> <span class='kw'>&lt;-</span> <span class='fu'>get_token</span>(<span class='kw'>client</span> <span class='kw'>=</span> <span class='no'>client</span>)
 <span class='fu'>print</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Token:
-#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5NWM2OGM2ZS0xNjMwLTQyYzAtOTM3MC1mZmEzNTZhNzgyOTYiLCJpYXQiOjE1NDMzMTEzMjgsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQzMzk3NzI4fQ.GJKxR5SqkfuTx3PDCROwiC0QhsKiwM55etXoEdnlrp8
+#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJiMzM2NDhhMC1lOWM0LTQ0NzMtODc2NS00ZjQ4ZjQzYjg4NDIiLCJpYXQiOjE1NDQ1MTY5MjUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQ0NjAzMzI1fQ.zVmIJheVdXAeOAm7UU41NQAF6GPNa0Vk500qZnEW6tY
 #&gt; 
 #&gt; Attributes:
 #&gt;  url: http://download.waterinfo.be/kiwis-auth/token
 #&gt;  type: Bearer
-#&gt;  expires: 2018-11-28 10:35:28 CET</div><div class='input'><span class='fu'>is.expired</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>expires.in</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Time difference of 24 hours</div><div class='input'>
+#&gt;  expires: 2018-12-12 09:28:45 CET</div><div class='input'><span class='fu'>is.expired</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='fu'>expires.in</span>(<span class='no'>my_token</span>)</div><div class='output co'>#&gt; Time difference of 24 hours</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

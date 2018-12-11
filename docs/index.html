@@ -94,10 +94,10 @@
 
     
     
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.Rmd. Please edit that file and knit -->
 <div id="waterinfo" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#waterinfo" class="anchor"></a>wateRinfo <img src="reference/figures/logo.png" align="right">
+<a href="#waterinfo" class="anchor"></a>wateRinfo <img src="reference/figures/logo.png" align="right" alt="" width="120">
 </h1></div>
 
 <p>The goal of wateRinfo is to facilitate access to the variety of environmental water-related data about Flanders (Belgium) available on <a href="https://www.waterinfo.be/">waterinfo.be</a> by providing an R-interface to download time series data.</p>
@@ -107,7 +107,7 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install wateRinfo from GitHub with:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
-devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"inbo/wateRinfo"</span>)</code></pre></div>
+devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ropensci/wateRinfo"</span>)</code></pre></div>
 <p>When succesfull, load it as usual:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wateRinfo)</code></pre></div>
 </div>
@@ -232,25 +232,26 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="note-on-restrictions-of-the-downloads" class="section level2">
 <h2 class="hasAnchor">
 <a href="#note-on-restrictions-of-the-downloads" class="anchor"></a>Note on restrictions of the downloads</h2>
-<p>The amount of data downloaded from waterinfo.be is limited via a credit system. When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <a href="mailto:hydrometrie@waterinfo.be">hydrometrie@waterinfo.be</a> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.</p>
+<p>The amount of data downloaded from waterinfo.be is limited via a credit system. You do not need to get a token right away to download data. For limited and irregular downloads, a token will not be required.</p>
+<p>When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <a href="mailto:hydrometrie@waterinfo.be">hydrometrie@waterinfo.be</a> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.</p>
 <p>Get token with client-credit code: (limited client-credit code for testing purposes)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">client &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">"MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4"</span>,
                  <span class="st">"NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=="</span>)
 my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
 <span class="kw">print</span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3NjA5YmIxYi1iZDJmLTQ1ZjAtOWMxMS04YjhjNTE3NzI4YjQiLCJpYXQiOjE1NDMzMTEzMDksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQzMzk3NzA5fQ.FSWXS6QNSEPi_PESLiDHrc5fOYRH79mPMazkDDS8h-A</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlOGZkMmQzZS1lNGJiLTQ4YjItYmM0ZC1lNWU1MzQ4MmUxOTYiLCJpYXQiOjE1NDQ1MTY5MjAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQ0NjAzMzIwfQ.Fp8CH09smvLogKJbXcRAeSwaftHNd2gZnuY9Yx1HSk4</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2018-11-28 10:35:08 CET</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-12-12 09:28:40 CET</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">is.expired</a></span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">expires.in</a></span>(my_token)
-<span class="co">#&gt; Time difference of 23.99999 hours</span></code></pre></div>
+<span class="co">#&gt; Time difference of 24 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
@@ -291,7 +292,8 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
 <a href="#meta" class="anchor"></a>Meta</h2>
 <p>This package is an experimental open-source project. All functionalities are provided as is, without any guarantee.</p>
 <p>Please note that this project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
-<p>Please <a href="https://github.com/inbo/wateRinfo/issues/new">report any issues or bugs</a>.</p>
+<p>Please <a href="https://github.com/ropensci/wateRinfo/issues/new">report any issues or bugs</a>.</p>
+<p><a href="https://ropensci.org"><img src="https://ropensci.org/public_images/ropensci_footer.png" alt="ropensci_footer"></a></p>
 </div>
 </div>
   </div>
@@ -330,9 +332,9 @@ my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_t
       <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/inbo/wateRinfo"><img src="https://travis-ci.org/inbo/wateRinfo.svg?branch=addci" alt="Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/stijnvanhoey/waterinfo/branch/master"><img src="https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true" alt="AppVeyor Build status"></a></li>
-<li><a href="https://coveralls.io/r/inbo/wateRinfo?branch=master"><img src="https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg" alt="Coverage Status"></a></li>
+<li><a href="https://travis-ci.org/ropensci/wateRinfo"><img src="https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci" alt="Build Status"></a></li>
+<li><a href="https://ci.appveyor.com/project/ropensci/waterinfo/branch/master"><img src="https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true" alt="AppVeyor Build status"></a></li>
+<li><a href="https://coveralls.io/r/ropensci/wateRinfo?branch=master"><img src="https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg" alt="Coverage Status"></a></li>
 </ul>
 </div>
 </div>
