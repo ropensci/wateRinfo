@@ -18,9 +18,9 @@ The wateRinfo package provides an R interface to the data available
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/inbo/wateRinfo}
-  \item \url{https://inbo.github.io/wateRinfo}
-  \item Report bugs at \url{https://github.com/inbo/wateRinfo/issues}
+  \item \url{https://github.com/ropensci/wateRinfo}
+  \item \url{https://ropensci.github.io/wateRinfo}
+  \item Report bugs at \url{https://github.com/ropensci/wateRinfo/issues}
 }
 
 }

@@ -4,11 +4,11 @@ First of all, thanks for considering contributing to wateRinfo! 👍 It's people
 
 wateRinfo is an open source project, maintained by people who care. We are not directly funded to do so.
 
-[repo]: https://github.com/inbo/wateRinfo
-[issues]: https://github.com/inbo/wateRinfo/issues
-[new_issue]: https://github.com/inbo/wateRinfo/issues/new
-[website]: https://inbo.github.io/wateRinfo
-[citation]: https://inbo.github.io/wateRinfo/authors.html
+[repo]: https://github.com/ropensci/wateRinfo
+[issues]: https://github.com/ropensci/wateRinfo/issues
+[new_issue]: https://github.com/ropensci/wateRinfo/issues/new
+[website]: https://ropensci.github.io/wateRinfo
+[citation]: https://ropensci.github.io/wateRinfo/authors.html
 [email]: mailto:stijn.vanhoey@inbo.be
 
 ## Code of conduct
