@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 # wateRinfo <img src="man/figures/logo.png" align="right" alt="" width="120">
 
-[![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg)](https://coveralls.io/r/inbo/wateRinfo?branch=master)
+[![Build Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
 
 The goal of wateRinfo is to facilitate access to the variety of environmental water-related data about Flanders (Belgium) available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
 
@@ -26,7 +26,7 @@ You can install wateRinfo from GitHub with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("inbo/wateRinfo")
+devtools::install_github("ropensci/wateRinfo")
 ```
 
 When succesfull, load it as usual:
@@ -148,4 +148,6 @@ This package is an experimental open-source project. All functionalities are pro
 
 Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-Please [report any issues or bugs](https://github.com/inbo/wateRinfo/issues/new).
+Please [report any issues or bugs](https://github.com/ropensci/wateRinfo/issues/new).
+
+[![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)

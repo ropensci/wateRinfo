@@ -1,6 +1,6 @@
 Package: wateRinfo
 Title: Download Time Series Data from Waterinfo.be
-Version: 0.2.2
+Version: 0.3.0.9047
 Description: The wateRinfo package provides an R interface to the data available
     at waterinfo.be, the data portal provided by the Flemish Environmental
     Agency. The package provides R functions to check the available stations for 
@@ -14,8 +14,8 @@ Authors@R: c(
     person("Research Institute for Nature and Forest (INBO)", role = c("cph"), email = "info@inbo.be")
     )
 License: MIT + file LICENSE
-URL: https://github.com/inbo/wateRinfo, https://inbo.github.io/wateRinfo
-BugReports: https://github.com/inbo/wateRinfo/issues
+URL: https://github.com/ropensci/wateRinfo, https://ropensci.github.io/wateRinfo
+BugReports: https://github.com/ropensci/wateRinfo/issues
 Depends:
     R (>= 2.10)
 Imports:

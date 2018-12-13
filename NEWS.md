@@ -1,3 +1,26 @@
+wateRinfo 0.3.0.9047 (2018-12-13)
+=============================
+
+### NEW FEATURES
+
+* WateRinfo moved to ropensci, thanks to @ldecicco-USGS for the review and @karthik for editing the submission
+
+### MINOR IMPROVEMENTS
+
+* Change the URLs to `https` version, which are now supported by waterinfo.be
+* Make sure data.frame content are characters and not factors
+* Return supported frequencies as vector instead of single ling character
+
+### DOCUMENTATION FIXES
+
+* Update to usage of pkgdown 1.3.0
+* Moved link references from INBO tp ropensci
+* Add ropensci footer
+* Mark Institute of Nature and Forest Research (INBO) as copyright holder
+* Updated logo base color
+
+Notice, we will add an in-development fourth component to the release tag with the development version. For more information, see [package guide](http://r-pkgs.had.co.nz/description.html#version).
+
 wateRinfo 0.2.2 (2018-11-07)
 =============================
 

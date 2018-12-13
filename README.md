@@ -3,7 +3,7 @@
 wateRinfo <img src="man/figures/logo.png" align="right" alt="" width="120">
 ===========================================================================
 
-[![Build Status](https://travis-ci.org/inbo/wateRinfo.svg?branch=addci)](https://travis-ci.org/inbo/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/inbo/wateRinfo/badge.svg)](https://coveralls.io/r/inbo/wateRinfo?branch=master)
+[![Build Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
 
 The goal of wateRinfo is to facilitate access to the variety of environmental water-related data about Flanders (Belgium) available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
 
@@ -16,7 +16,7 @@ You can install wateRinfo from GitHub with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("inbo/wateRinfo")
+devtools::install_github("ropensci/wateRinfo")
 ```
 
 When succesfull, load it as usual:
@@ -189,12 +189,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0ZGMxNzI1ZC0zZDc2LTQxNGEtOTRjNS0xZWExZmI2NTY2NWIiLCJpYXQiOjE1NDM0MzY4NDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQzNTIzMjQwfQ.r9YjvVoCzilvHC0XLF9gOD3h32cYshhOoyjLoRtzU7U
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhMDg5MDU2Ni05MWMxLTQwMjItOTk0OC1mNWFiMzcxMTgwZWQiLCJpYXQiOjE1NDQ1MTYzOTMsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQ0NjAyNzkzfQ.2ehKedVmJWSk8I10v0y5uSrOOst5NFIf3CjsWaF6vp0
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2018-11-29 21:27:19 CET
+#>  expires: 2018-12-12 09:19:53 CET
 ```
 
 Receive information on the validity of the token:
@@ -256,4 +256,6 @@ This package is an experimental open-source project. All functionalities are pro
 
 Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-Please [report any issues or bugs](https://github.com/inbo/wateRinfo/issues/new).
+Please [report any issues or bugs](https://github.com/ropensci/wateRinfo/issues/new).
+
+[![ropensci\_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
