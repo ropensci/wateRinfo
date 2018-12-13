@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wateRinfo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9047</span>
       </span>
     </div>
 
@@ -124,6 +124,38 @@
       <small>Source: <a href='https://github.com/ropensci/wateRinfo/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="waterinfo-0-3-0-9047-2018-12-13" class="section level1">
+<h1 class="page-header">
+<a href="#waterinfo-0-3-0-9047-2018-12-13" class="anchor"></a>wateRinfo 0.3.0.9047 (2018-12-13)</h1>
+<div id="new-features" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>NEW FEATURES</h3>
+<ul>
+<li>WateRinfo moved to ropensci, thanks to <a href='https://github.com/ldecicco-USGS'>@ldecicco-USGS</a> for the review and <a href='https://github.com/karthik'>@karthik</a> for editing the submission</li>
+</ul>
+</div>
+<div id="minor-improvements" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-improvements" class="anchor"></a>MINOR IMPROVEMENTS</h3>
+<ul>
+<li>Change the URLs to <code>https</code> version, which are now supported by waterinfo.be</li>
+<li>Make sure data.frame content are characters and not factors</li>
+<li>Return supported frequencies as vector instead of single ling character</li>
+</ul>
+</div>
+<div id="documentation-fixes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#documentation-fixes" class="anchor"></a>DOCUMENTATION FIXES</h3>
+<ul>
+<li>Update to usage of pkgdown 1.3.0</li>
+<li>Moved link references from INBO tp ropensci</li>
+<li>Add ropensci footer</li>
+<li>Mark Institute of Nature and Forest Research (INBO) as copyright holder</li>
+<li>Updated logo base color</li>
+</ul>
+<p>Notice, we will add an in-development fourth component to the release tag with the development version. For more information, see <a href="http://r-pkgs.had.co.nz/description.html#version">package guide</a>.</p>
+</div>
+</div>
     <div id="waterinfo-0-2-2-2018-11-07" class="section level1">
 <h1 class="page-header">
 <a href="#waterinfo-0-2-2-2018-11-07" class="anchor"></a>wateRinfo 0.2.2 (2018-11-07)</h1>
@@ -134,9 +166,9 @@
 <li>When no <code>datasource</code> is added to the waterinfo.be query, the server gives a html/text response containing a tomcat server error messag. This error is now captured properly. As the user normally only uses the wrapped API call functions, there should no difference on the user level.</li>
 </ul>
 </div>
-<div id="documentation-fixes" class="section level3">
+<div id="documentation-fixes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#documentation-fixes" class="anchor"></a>DOCUMENTATION FIXES</h3>
+<a href="#documentation-fixes-1" class="anchor"></a>DOCUMENTATION FIXES</h3>
 <ul>
 <li>Bring documentation up to date with the new <code>datasource</code> handling</li>
 </ul>
@@ -159,16 +191,16 @@
     <div id="waterinfo-0-2-0-2018-10-01" class="section level1">
 <h1 class="page-header">
 <a href="#waterinfo-0-2-0-2018-10-01" class="anchor"></a>wateRinfo 0.2.0 (2018-10-01)</h1>
-<div id="new-features" class="section level3">
+<div id="new-features-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#new-features" class="anchor"></a>NEW FEATURES</h3>
+<a href="#new-features-1" class="anchor"></a>NEW FEATURES</h3>
 <ul>
 <li>Better support for changed station identifiers of the waterinfo.be dataproviders</li>
 </ul>
 </div>
-<div id="minor-improvements" class="section level3">
+<div id="minor-improvements-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-improvements" class="anchor"></a>MINOR IMPROVEMENTS</h3>
+<a href="#minor-improvements-1" class="anchor"></a>MINOR IMPROVEMENTS</h3>
 <ul>
 <li>Change print statements for message statements</li>
 <li>Add missing test to check token object type (remark: current missing tests are hard to introduce without having control on the original API behaviour)</li>
@@ -176,9 +208,9 @@
 <li>Update code style using styler</li>
 </ul>
 </div>
-<div id="documentation-fixes-1" class="section level3">
+<div id="documentation-fixes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#documentation-fixes-1" class="anchor"></a>DOCUMENTATION FIXES</h3>
+<a href="#documentation-fixes-2" class="anchor"></a>DOCUMENTATION FIXES</h3>
 <ul>
 <li>Describe the table output format explicitly in roxygen docs and add the quality codes of the waterinfo.be dataproviders (<a href='https://github.com/ropensci/wateRinfo/issues/27'>#27</a>)</li>
 <li>Update contributing guidelines, thanks to <a href='https://github.com/peterdesmet'>@peterdesmet</a> who did a great effort on providing welcoming, clear written and engaging contributing guidelines</li>
@@ -210,6 +242,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#waterinfo-0-3-0-9047-2018-12-13">0.3.0.9047</a></li>
         <li><a href="#waterinfo-0-2-2-2018-11-07">0.2.2</a></li>
         <li><a href="#waterinfo-0-2-1-2018-10-17">0.2.1</a></li>
         <li><a href="#waterinfo-0-2-0-2018-10-01">0.2.0</a></li>

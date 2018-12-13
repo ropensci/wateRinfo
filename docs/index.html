@@ -36,7 +36,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">wateRinfo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9047</span>
       </span>
     </div>
 
@@ -241,18 +241,18 @@ devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumen
 my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(my_token)
 <span class="co">#&gt; Token:</span>
-<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ZTU5MjAyOS1mYjkyLTQ4NGItYmY2YS03ZGI0ZDA4NDdmZDIiLCJpYXQiOjE1NDQ1MzI2NzksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQ0NjE5MDc5fQ.5YNv9jEtrfUtOYUK3fPcXl_P4mOJdEke1EX3qTAxCrs</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyZWU2OGU0OS02NTBiLTQ1N2ItYmFjYy04NzU2ZDY2ZTE5ZGIiLCJpYXQiOjE1NDQ3MDk3MDcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQ0Nzk2MTA3fQ.MpsMUNcg18Agay9xzt4y0iTQXRdl6RXxKRSCV4W2Xqc</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attributes:</span>
 <span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
 <span class="co">#&gt;  type: Bearer</span>
-<span class="co">#&gt;  expires: 2018-12-12 13:51:19 CET</span></code></pre></div>
+<span class="co">#&gt;  expires: 2018-12-14 15:01:47 CET</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">is.expired</a></span>(my_token)
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">expires.in</a></span>(my_token)
-<span class="co">#&gt; Time difference of 24 hours</span></code></pre></div>
+<span class="co">#&gt; Time difference of 23.99999 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)
 <span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>

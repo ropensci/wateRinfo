@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wateRinfo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9047</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@
       <h1>Download time series from Waterinfo.be</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2018-12-11</h4>
+            <h4 class="date">2018-12-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/wateRinfo/blob/master/vignettes/download_timeseries.Rmd"><code>vignettes/download_timeseries.Rmd</code></a></small>
       <div class="hidden name"><code>download_timeseries.Rmd</code></div>
@@ -206,7 +206,7 @@ knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentat
 <pre><code>## [1] "15min"</code></pre>
 <p>Hence, for air pressure data, only the 15 min resolution is supported. Compared to evaporation derived by the <a href="https://en.wikipedia.org/wiki/Penman%E2%80%93Monteith_equation">Monteith equation</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/supported_frequencies.html">supported_frequencies</a></span>(<span class="dt">variable_name =</span> <span class="st">"evaporation_monteith"</span>)</code></pre></div>
-<pre><code>## [1] "15min, day, month, year"</code></pre>
+<pre><code>## [1] "15min" "day"   "month" "year"</code></pre>
 <p>Multiple resolutions are available. Using the coarser time resolutions can be helpful when you want to download longer time series while keeping the number of records to download low (if the frequency would be sufficient for your analysis):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stations &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"evaporation_monteith"</span>, <span class="dt">frequency =</span> <span class="st">"year"</span>)
 subset_of_columns &lt;-<span class="st"> </span>stations <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_no, station_name, 
