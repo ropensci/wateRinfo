@@ -144,10 +144,9 @@ This package is just a small wrapper around waterinfo.be to facilitate researche
 
 ## Meta
 
-This package is an experimental open-source project. All functionalities are provided as is, without any guarantee.
-
-Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
-
-Please [report any issues or bugs](https://github.com/ropensci/wateRinfo/issues/new).
+* We welcome [contributions](.github/CONTRIBUTING.md) including bug reports.
+* License: MIT
+* Get citation information for `wateRinfo` in R doing `citation("wateRinfo")`.
+* Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
