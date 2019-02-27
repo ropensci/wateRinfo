@@ -1,3 +1,16 @@
+authors:
+  Stijn Van Hoey:
+    href: "https://twitter.com/SVanHoey"
+  Peter Desmet:
+    href: "https://twitter.com/peterdesmet"
+
+home:
+  links:
+  - text: Visit waterinfo.be
+    href: https://www.waterinfo.be/
+  - text: Get to know our team
+    href: https://lifewatch.inbo.be
+
 navbar:
   title: ~
   type: default
@@ -20,19 +33,6 @@ navbar:
     href: https://twitter.com/LifeWatchINBO
   - icon: fa-github fa-lg
     href: https://github.com/ropensci/wateRinfo
-
-home:
-  links:
-  - text: Visit waterinfo.be
-    href: https://www.waterinfo.be/
-  - text: Get to know our team
-    href: https://lifewatch.inbo.be
-
-authors:
-  Stijn Van Hoey:
-    href: https://twitter.com/SVanHoey
-  Peter Desmet:
-    href: https://twitter.com/peterdesmet
 
 reference:
   - title: "Main download functionalities"
