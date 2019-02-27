@@ -9,7 +9,7 @@ navbar:
       href: articles/define_date_periods.html
     - text: Downloading time series in batch
       href: articles/download_timeseries_batch.html
-    - text: Download time series from Waterinfo.be
+    - text: Download time series from waterinfo.be
       href: articles/download_timeseries.html
   - text: Functions
     href: reference/index.html
@@ -23,7 +23,7 @@ navbar:
 
 home:
   links:
-  - text: Visit Waterinfo.be
+  - text: Visit waterinfo.be
     href: https://www.waterinfo.be/
   - text: Get to know our team
     href: https://lifewatch.inbo.be
