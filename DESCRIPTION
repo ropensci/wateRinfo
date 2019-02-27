@@ -1,12 +1,13 @@
 Package: wateRinfo
 Title: Download Time Series Data from Waterinfo.be
 Version: 0.3.0.9047
-Description: The wateRinfo package provides an R interface to the data available
-    at waterinfo.be, the data portal provided by the Flemish Environmental
-    Agency. The package provides R functions to check the available stations for 
-    a given variable, check the available variable for a given station and 
-    download time series using the database identifiers as well as station 
-    names.
+Description: wateRinfo facilitates access to waterinfo.be 
+    (<https://www.waterinfo.be>), a website managed by the Flanders Environment 
+    Agency (VMM) and Flanders Hydraulics Research, where one can find real-time 
+    water and weather related environmental variables for Flanders (Belgium), 
+    such as rainfall, air pressure, discharge, and water level. The package 
+    provides functions to search for stations and variables, and download time 
+    series.
 Authors@R: c(
     person("Stijn", "Van Hoey", role = c("aut", "cre"), email = "stijn.vanhoey@inbo.be", comment = c(ORCID = "0000-0001-6413-3185")),
     person("Willem", "Maetens", role = "ctb", email = "w.maetens@vmm.be"),
