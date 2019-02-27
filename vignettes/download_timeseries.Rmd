@@ -1,5 +1,5 @@
 ---
-title: "Download time series from Waterinfo.be"
+title: "Download time series from waterinfo.be"
 author: "Stijn Van Hoey"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -44,7 +44,7 @@ As such, knowing the identifier is the most straightforward way of downloading a
 
 ## Search identifier based on variable name
 
-For a number of variables, the [documentation of the Waterinfo.be API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) provides a direct overview option of all available VMM measurement stations, using the so-called `Timeseriesgroup_id`. For these variables, the package provides the function `get_stations` to download an overview of available measurement stations and the related `ts_id` identifiers. The latter can be used to [download the time series](#Downloading-with-known-ts-identifier). 
+For a number of variables, the [documentation of the waterinfo.be API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) provides a direct overview option of all available VMM measurement stations, using the so-called `Timeseriesgroup_id`. For these variables, the package provides the function `get_stations` to download an overview of available measurement stations and the related `ts_id` identifiers. The latter can be used to [download the time series](#Downloading-with-known-ts-identifier). 
 
 ```{r statofvar}
 get_stations("air_pressure")
@@ -57,7 +57,7 @@ supported_variables("en") %>%
     as.list()
 ```
 
-To check which predefined frequencies are provided by the Waterinfo.be API for a given variable, the `supported_frequencies` function is available:
+To check which predefined frequencies are provided by the waterinfo.be API for a given variable, the `supported_frequencies` function is available:
 
 ```{r suppfreq1}
 supported_frequencies(variable_name = "air_pressure")
