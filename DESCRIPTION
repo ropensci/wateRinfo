@@ -3,11 +3,11 @@ Title: Download Time Series Data from Waterinfo.be
 Version: 0.3.0.9047
 Description: wateRinfo facilitates access to waterinfo.be 
     (<https://www.waterinfo.be>), a website managed by the Flanders Environment 
-    Agency (VMM) and Flanders Hydraulics Research, where one can find real-time 
-    water and weather related environmental variables for Flanders (Belgium), 
-    such as rainfall, air pressure, discharge, and water level. The package 
-    provides functions to search for stations and variables, and download time 
-    series.
+    Agency (VMM) and Flanders Hydraulics Research. The website provides access 
+    to real-time water and weather related environmental variables for Flanders 
+    (Belgium), such as rainfall, air pressure, discharge, and water level. The 
+    package provides functions to search for stations and variables, and 
+    download time series.
 Authors@R: c(
     person("Stijn", "Van Hoey", role = c("aut", "cre"), email = "stijn.vanhoey@inbo.be", comment = c(ORCID = "0000-0001-6413-3185")),
     person("Willem", "Maetens", role = "ctb", email = "w.maetens@vmm.be"),
