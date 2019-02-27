@@ -15,7 +15,9 @@ navbar:
   title: ~
   type: default
   left:
-  - text: Tutorials
+  - text: Reference
+    href: reference/index.html
+  - text: Articles
     href: articles/index.html
     menu:
     - text: Definition of the date period to download
@@ -24,8 +26,6 @@ navbar:
       href: articles/download_timeseries_batch.html
     - text: Download time series from waterinfo.be
       href: articles/download_timeseries.html
-  - text: Functions
-    href: reference/index.html
   - text: Contributing
     href: CONTRIBUTING.html
   right:
