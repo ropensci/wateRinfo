@@ -1,55 +1,43 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file and knit -->
+
+
 
 # wateRinfo <img src="man/figures/logo.png" align="right" alt="" width="120">
 
-[![Build
-Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo)
-[![AppVeyor Build
-status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/waterinfo/branch/master)
-[![Coverage
-Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
+[![Build Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
 
-The goal of wateRinfo is to facilitate access to the variety of
-environmental water-related data about Flanders (Belgium) available on
-[waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to
-download time series data.
+wateRinfo facilitates access to [waterinfo.be](https://www.waterinfo.be/), a website managed by the [Flanders Environment Agency (VMM)](https://en.vmm.be/) and [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/). The website provides access to real-time water and weather related environmental variables for Flanders (Belgium), such as rainfall, air pressure, discharge, and water level. The package provides functions to search for stations and variables, and download time series.
 
-An
-[API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0)
-is provided by waterinfo.be to request time series data. However, this
-still requires the proper composition of the URL with the identification
-codes (`Timeseriesgroup_id` and `ts_id`) as used by the system itself.
-To facilitate the user in searching for stations and variables and
-consequently download the data of interest, this package provides some
-general R functions to download the `waterinfo.be` data.
+To get started, see:
+
+* [Function reference](https://ropensci.github.io/wateRinfo/reference/index.html): an overview of all wateRinfo functions.
+* [Articles](https://ropensci.github.io/wateRinfo/articles/): tutorials on how to use the package.
 
 ## Installation
 
-You can install wateRinfo from GitHub with:
+You can install wateRinfo from [GitHub](https://github.com/ropensci/wateRinfo) with:
 
-``` r
+
+```r
 # install.packages("devtools")
 devtools::install_github("ropensci/wateRinfo")
 ```
 
 When succesfull, load it as usual:
 
-``` r
+
+```r
 library(wateRinfo)
 ```
 
 ## Example
 
-For a number of supported variables
-([documented](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0)
-by VMM), the stations providing time series data for a given variable
-can be listed with the command `get_stations`.
+For a number of supported variables ([documented](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) by VMM), the stations providing time series data for a given variable can be listed with the command `get_stations`.
 
-If you want to know the supported variables, ask for the supported
-variables:
+If you want to know the supported variables, ask for the supported variables:
 
-``` r
+
+```r
 supported_variables("en")
 #>              variable_en
 #> 1              discharge
@@ -72,9 +60,10 @@ supported_variables("en")
 #> 41            wind_speed
 ```
 
-Listing the available air\_pressure stations:
+Listing the available air_pressure stations:
 
-``` r
+
+```r
 get_stations("air_pressure")
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 78124042         51.20300          5.439589      12213   ME11_002
@@ -105,12 +94,10 @@ get_stations("air_pressure")
 #> 8           hPa          VMM
 ```
 
-Each of the stations in the list for a given variable, are represented
-by a `ts_id`. These can be used to download the data of a given period
-with the command `get_timeseries_tsid`, for example Overpelt (`ts_id
-= 78124042`):
+Each of the stations in the list for a given variable, are represented by a `ts_id`. These can be used to download the data of a given period with the command `get_timeseries_tsid`, for example Overpelt (`ts_id = 78124042`):
 
-``` r
+
+```r
 overpelt_pressure <- get_timeseries_tsid("78124042", 
                                          from = "2017-04-01", 
                                          to = "2017-04-02")
@@ -126,7 +113,8 @@ head(overpelt_pressure)
 
 Making a plot of the data with ggplot:
 
-``` r
+
+```r
 library(ggplot2)
 ggplot(overpelt_pressure, aes(x = Timestamp, y = Value)) + 
     geom_line() + 
@@ -134,14 +122,12 @@ ggplot(overpelt_pressure, aes(x = Timestamp, y = Value)) +
     scale_x_datetime(date_labels = "%H:%M\n%Y-%m-%d", date_breaks = "6 hours")
 ```
 
-<img src="man/figures/README-plot_pressure-1.png" width="80%" />
+<img src="man/figures/README-plot_pressure-1.png" title="plot of chunk showplot1" alt="plot of chunk showplot1" width="80%" />
 
-Another option is to check the available variables for a given station,
-with the function `get_variables`. Let’s consider again Overpelt
-(`ME11_002`) and check the first ten available variables at the Overpelt
-measurement station:
+Another option is to check the available variables for a given station, with the function `get_variables`. Let's consider again Overpelt (`ME11_002`) and check the first ten available variables at the Overpelt measurement station:
 
-``` r
+
+```r
 vars_overpelt <- get_variables("ME11_002")
 head(vars_overpelt, 10)
 #>    station_name station_no    ts_id    ts_name parametertype_name
@@ -168,12 +154,10 @@ head(vars_overpelt, 10)
 #> 10                WSpeed
 ```
 
-Different pre-calculated variables are already available and a `ts_id`
-value is available for each of them to download the corresponding data.
-For example, `DagGem` (= daily mean values) of `RH` (= relative
-humidity), i.e. `ts_id = 78382042`:
+Different pre-calculated variables are already available and a `ts_id` value is available for each of them to download the corresponding data. For example, `DagGem` (= daily mean values) of `RH` (= relative humidity), i.e. `ts_id = 78382042`:
 
-``` r
+
+```r
 overpelt_rh_daily <- get_timeseries_tsid("78382042", 
                                          from = "2017-04-01", 
                                          to = "2017-04-30")
@@ -187,69 +171,63 @@ head(overpelt_rh_daily)
 #> 6 2017-04-06 23:00:00 82.71          130
 ```
 
-``` r
+
+```r
 ggplot(overpelt_rh_daily, aes(x = Timestamp, y = Value)) + 
     geom_line() + 
     xlab("") + ylab(" RH (%)") + 
     scale_x_datetime(date_labels = "%b-%d\n%Y", date_breaks = "5 days")
 ```
 
-<img src="man/figures/README-plot_rh-1.png" width="80%" />
+<img src="man/figures/README-plot_rh-1.png" title="plot of chunk showplot2" alt="plot of chunk showplot2" width="80%" />
 
-Unfortunately, not all variables are documented, for which the check for
-the appropriate variable is not (yet) fully supported by the package.
+Unfortunately, not all variables are documented, for which the check for the appropriate variable is not (yet) fully supported by the package.
 
-More detailed tutorials are available in the package vignettes\!
+More detailed tutorials are available in the package vignettes!
 
 ## Note on restrictions of the downloads
 
-The amount of data downloaded from waterinfo.be is limited via a credit
-system. You do not need to get a token right away to download data. For
-limited and irregular downloads, a token will not be required.
+The amount of data downloaded from waterinfo.be is limited via a credit system. You do not need to get a token right away to download data. For limited and irregular downloads, a token will not be required.
 
-When you require more extended data requests, please request a download
-token from the waterinfo.be site administrators via the e-mail adress
-<hydrometrie@waterinfo.be> with a statement of which data and how
-frequently you would like to download data. You will then receive a
-client-credit code that can be used to obtain a token that is valid for
-24 hours, after which the token can be refreshed with the same
-client-credit code.
+When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
 
-Get token with client-credit code: (limited client-credit code for
-testing
-purposes)
+Get token with client-credit code: (limited client-credit code for testing purposes)
 
-``` r
+
+```r
 client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
                  "NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==")
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1NjEwNTk1OS02OTRiLTQwYjEtOTdlYy04YTNhNzc0MjQ0MjUiLCJpYXQiOjE1NDQ3NDExMjEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTQ0ODI3NTIxfQ.15M1dSilAl7Ui_59wR5nWI9mQawJXZn6j_NFk_YUXYA
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3NjI2NzA4Yi0xNjdiLTRlZGMtOWI0OC01YmQ2MWY5ZDZmMmQiLCJpYXQiOjE1NTEyNzI4MjUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTUxMzU5MjI1fQ.ySiyJdkmwFf-hy9hNAGqWFqWiAG18go7fFje3T_8uYE
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2018-12-14 23:45:20 CET
+#>  expires: 2019-02-28 14:07:05 CET
 ```
 
 Receive information on the validity of the token:
 
-``` r
+
+```r
 is.expired(my_token)
 #> [1] FALSE
 ```
 
 Check when the token expires:
 
-``` r
+
+```r
 expires.in(my_token)
 #> Time difference of 24 hours
 ```
 
 Use token when retrieving data:
 
-``` r
+
+```r
 get_stations(variable_name = "verdamping_monteith", token = my_token)
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 94310042         51.02263          2.970584      12206   ME01_003
@@ -282,23 +260,13 @@ get_stations(variable_name = "verdamping_monteith", token = my_token)
 
 ## Acknowledgements
 
-This package is just a small wrapper around waterinfo.be to facilitate
-researchers and other stakeholders in downloading the data from
-[waterinfo.be](http://www.waterinfo.be). The availability of this data
-is made possible by *de Vlaamse Milieumaatschappij, Waterbouwkundig
-Laboratorium, Maritieme Dienstverlening & Kust, Waterwegen en Zeekanaal
-NV en De Scheepvaart NV*.
+This package is just a small wrapper around waterinfo.be to facilitate researchers and other stakeholders in downloading the data from [waterinfo.be](http://www.waterinfo.be). The availability of this data is made possible by *de Vlaamse Milieumaatschappij, Waterbouwkundig Laboratorium, Maritieme Dienstverlening & Kust, Waterwegen en Zeekanaal NV en De Scheepvaart NV*.
 
 ## Meta
 
-  - We welcome [contributions](.github/CONTRIBUTING.md) including bug
-    reports.
-  - License: MIT
-  - Get citation information for `wateRinfo` in R doing
-    `citation("wateRinfo")`.
-  - Please note that this project is released with a [Contributor Code
-    of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this
-    project you agree to abide by its
-terms.
+* We welcome [contributions](.github/CONTRIBUTING.md) including bug reports.
+* License: MIT
+* Get citation information for `wateRinfo` in R doing `citation("wateRinfo")`.
+* Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-[![ropensci\_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
+[![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
