@@ -18,10 +18,14 @@ knitr::opts_chunk$set(
 
 wateRinfo facilitates access to [waterinfo.be](https://www.waterinfo.be/), a website managed by the [Flanders Environment Agency (VMM)](https://en.vmm.be/) and [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/), where one can find real-time water and weather related environmental variables for Flanders (Belgium), such as rainfall, air pressure, discharge, and water level. The package provides functions to search for stations and variables, and download time series.
 
+To get started, see:
+
+* [Function reference](https://ropensci.github.io/wateRinfo/reference/index.html): an overview of all wateRinfo functions.
+* [Articles](https://ropensci.github.io/wateRinfo/articles/): tutorials on how to use the package.
 
 ## Installation
 
-You can install wateRinfo from GitHub with:
+You can install wateRinfo from [GitHub](https://github.com/ropensci/wateRinfo) with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
