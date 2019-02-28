@@ -34,8 +34,7 @@ test_that("datasource not included in the API call", {
   )
   expect_error(call_waterinfo(query),
                regexp = paste0("API did not return json - The server ",
-                               "encountered an internal error that prevented ",
-                               "it from fulfilling this request.")
+                               "encountered an .*")
   )
 })
 
