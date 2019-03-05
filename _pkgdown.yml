@@ -1,7 +1,22 @@
+authors:
+  Stijn Van Hoey:
+    href: "https://twitter.com/SVanHoey"
+  Peter Desmet:
+    href: "https://twitter.com/peterdesmet"
+
+home:
+  links:
+  - text: Visit waterinfo.be
+    href: https://www.waterinfo.be/
+  - text: Get to know our team
+    href: https://lifewatch.inbo.be
+
 navbar:
   title: ~
   type: default
   left:
+  - text: Reference
+    href: reference/index.html
   - text: Tutorials
     href: articles/index.html
     menu:
@@ -9,30 +24,15 @@ navbar:
       href: articles/define_date_periods.html
     - text: Downloading time series in batch
       href: articles/download_timeseries_batch.html
-    - text: Download time series from Waterinfo.be
+    - text: Download time series from waterinfo.be
       href: articles/download_timeseries.html
-  - text: Functions
-    href: reference/index.html
   - text: Contributing
     href: CONTRIBUTING.html
   right:
   - icon: fa-twitter fa-lg
-    href: https://twitter.com/LifeWatchINBO
+    href: https://twitter.com/oscibio
   - icon: fa-github fa-lg
     href: https://github.com/ropensci/wateRinfo
-
-home:
-  links:
-  - text: Visit Waterinfo.be
-    href: https://www.waterinfo.be/
-  - text: Get to know our team
-    href: https://lifewatch.inbo.be
-
-authors:
-  Stijn Van Hoey:
-    href: https://twitter.com/SVanHoey
-  Peter Desmet:
-    href: https://twitter.com/peterdesmet
 
 reference:
   - title: "Main download functionalities"

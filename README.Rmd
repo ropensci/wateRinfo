@@ -1,7 +1,3 @@
----
-output: github_document
----
-
 <!-- README.md is generated from README.Rmd. Please edit that file and knit -->
 
 ```{r, echo = FALSE}
@@ -16,13 +12,16 @@ knitr::opts_chunk$set(
 
 [![Build Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true)](https://ci.appveyor.com/project/ropensci/waterinfo/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
 
-The goal of wateRinfo is to facilitate access to the variety of environmental water-related data about Flanders (Belgium) available on [waterinfo.be](https://www.waterinfo.be/) by providing an R-interface to download time series data.
+wateRinfo facilitates access to [waterinfo.be](https://www.waterinfo.be/), a website managed by the [Flanders Environment Agency (VMM)](https://en.vmm.be/) and [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/). The website provides access to real-time water and weather related environmental variables for Flanders (Belgium), such as rainfall, air pressure, discharge, and water level. The package provides functions to search for stations and variables, and download time series.
 
-An [API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) is provided by waterinfo.be to request time series data. However, this still requires the proper composition of the URL with the identification codes (`Timeseriesgroup_id` and `ts_id`) as used by the system itself. To facilitate the user in searching for stations and variables and consequently download the data of interest, this package provides some general R functions to download the `waterinfo.be` data.
+To get started, see:
+
+* [Function reference](https://ropensci.github.io/wateRinfo/reference/index.html): an overview of all wateRinfo functions.
+* [Articles](https://ropensci.github.io/wateRinfo/articles/): tutorials on how to use the package.
 
 ## Installation
 
-You can install wateRinfo from GitHub with:
+You can install wateRinfo from [GitHub](https://github.com/ropensci/wateRinfo) with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")

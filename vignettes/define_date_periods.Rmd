@@ -24,7 +24,7 @@ This vignette aims to briefly explain how to define the arguments.
 
 ## Which combinations?
 
-In order to define a period, a start and end date is required. Defining all three will result in an error, but any combination of `from/to`, `from/period` and `to/period` is allowed. Moreover, if only `period` or `from` are defined, the Waterinfo.be API will automatically define `to` as the current time. Hence, defining *the last x days/months/years/...* can be achieved by only using the `period` option.
+In order to define a period, a start and end date is required. Defining all three will result in an error, but any combination of `from/to`, `from/period` and `to/period` is allowed. Moreover, if only `period` or `from` are defined, the waterinfo.be API will automatically define `to` as the current time. Hence, defining *the last x days/months/years/...* can be achieved by only using the `period` option.
 
 ## How to define the from/to dates
 
