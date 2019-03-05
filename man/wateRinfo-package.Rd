@@ -8,12 +8,13 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right'}}
 
-The wateRinfo package provides an R interface to the data available
-    at waterinfo.be, the data portal provided by the Flemish Environmental
-    Agency. The package provides R functions to check the available stations for 
-    a given variable, check the available variable for a given station and 
-    download time series using the database identifiers as well as station 
-    names.
+wateRinfo facilitates access to waterinfo.be 
+    (<https://www.waterinfo.be>), a website managed by the Flanders Environment 
+    Agency (VMM) and Flanders Hydraulics Research. The website provides access 
+    to real-time water and weather related environmental variables for Flanders 
+    (Belgium), such as rainfall, air pressure, discharge, and water level. The 
+    package provides functions to search for stations and variables, and 
+    download time series.
 }
 \seealso{
 Useful links:
