@@ -65,7 +65,8 @@ call_waterinfo <- function(query, base_url = "download", token = NULL) {
       )
     } else if (http_type(res) == "text/html") {
       custom_error <- content(res, "text", encoding = "UTF-8")
-      pattern <- "(?<=description</b> <u>).*(?=</u>)"
+      pattern <- paste0("(?<=Description</b>).*(?=</p><p>)|",
+                        "(?<=description</b> <u>).*(?=</u>)")
       error_message <- regmatches(
         custom_error,
         regexpr(pattern, custom_error,
@@ -73,7 +74,7 @@ call_waterinfo <- function(query, base_url = "download", token = NULL) {
         )
       )
     }
-    stop("API did not return json - ", error_message, call. = FALSE)
+    stop("API did not return json - ", trimws(error_message), call. = FALSE)
   }
 
   parsed <- fromJSON(content(res, "text"))
