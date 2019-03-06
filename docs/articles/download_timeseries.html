@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wateRinfo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9047</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9058</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@
       <h1>Download time series from waterinfo.be</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2019-03-05</h4>
+            <h4 class="date">2019-03-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/wateRinfo/blob/master/vignettes/download_timeseries.Rmd"><code>vignettes/download_timeseries.Rmd</code></a></small>
       <div class="hidden name"><code>download_timeseries.Rmd</code></div>
@@ -109,8 +109,8 @@
 <a href="#downloading-with-known-ts-identifier" class="anchor"></a>Downloading with known <code>ts</code> identifier</h2>
 <p>In case you already know the <code>ts_id</code> identifier that defines your time serie, the package provides the function <code>get_timeseries_tsid</code> to download a specific period of the time series.</p>
 <p>As an example, to download the air pressure time series data of Liedekerke with a 15 min resolution (<code>ts_id = 78073042</code>) for the first of January 2016:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">my_data &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"78073042"</span>, <span class="dt">from =</span> <span class="st">"2016-01-01"</span>, <span class="dt">to =</span> <span class="st">"2016-01-02"</span>)</a>
-<a class="sourceLine" id="cb1-2" title="2">knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/knitr/topics/kable">kable</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(my_data), <span class="dt">align =</span> <span class="st">"lcc"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_data &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"78073042"</span>, <span class="dt">from =</span> <span class="st">"2016-01-01"</span>, <span class="dt">to =</span> <span class="st">"2016-01-02"</span>)
+knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/knitr/topics/kable">kable</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(my_data), <span class="dt">align =</span> <span class="st">"lcc"</span>)</code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Timestamp</th>
@@ -151,8 +151,8 @@
 </tbody>
 </table>
 <p>For more information on defining the period of the download, a separate vignette is available. Let’s have a visual check of our data, using the <code>ggplot2</code> package:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">ggplot</span>(my_data, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="st">    </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(my_data, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_line</span>()</code></pre></div>
 <p><img src="download_timeseries_files/figure-html/tsvisual-1.png" width="672"></p>
 <p>As such, knowing the identifier is the most straightforward way of downloading a time series. In order to find these <code>ts_id</code> identifier, the package supports looking for identifiers based on a supported variable name (limited set of supported variables by VMM) or looking for identifiers by checking all variables for an individual station. These methods are explained in the next sections.</p>
 </div>
@@ -160,7 +160,7 @@
 <h2 class="hasAnchor">
 <a href="#search-identifier-based-on-variable-name" class="anchor"></a>Search identifier based on variable name</h2>
 <p>For a number of variables, the <a href="https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0">documentation of the waterinfo.be API</a> provides a direct overview option of all available VMM measurement stations, using the so-called <code>Timeseriesgroup_id</code>. For these variables, the package provides the function <code>get_stations</code> to download an overview of available measurement stations and the related <code>ts_id</code> identifiers. The latter can be used to <a href="#Downloading-with-known-ts-identifier">download the time series</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)</code></pre></div>
 <pre><code>##      ts_id station_latitude station_longitude station_id station_no
 ## 1 78124042         51.20300          5.439589      12213   ME11_002
 ## 2 78039042         51.24379          4.266912      12208   ME04_001
@@ -189,8 +189,8 @@
 ## 7           hPa          VMM
 ## 8           hPa          VMM</code></pre>
 <p>By default, the expected frequency is the 15 min frequency of the time series. However, for some of the variables, multiple frequencies are supported by the API. The package provides a check on the supported variables and frequencies. An overview of the currently supported variables can be requested with the command <code><a href="../reference/supported_variables.html">supported_variables()</a></code> (either in dutch, <code>nl</code>, or in english, <code>en</code>). Actually, more variables are available with the API (see next section), but for each of these variables the <code>get_stations</code> function is supported (i.e. the <code>Timeseriesgroup_id</code> is documented by VMM).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="../reference/supported_variables.html">supported_variables</a></span>(<span class="st">"en"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">as.list</a></span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/supported_variables.html">supported_variables</a></span>(<span class="st">"en"</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">as.list</a></span>()</code></pre></div>
 <pre><code>## $variable_en
 ##  [1] "discharge"             "soil_saturation"      
 ##  [3] "soil_moisture"         "dew_point_temperature"
@@ -202,16 +202,16 @@
 ## [15] "water_level"           "water_temperature"    
 ## [17] "wind_direction"        "wind_speed"</code></pre>
 <p>To check which predefined frequencies are provided by the waterinfo.be API for a given variable, the <code>supported_frequencies</code> function is available:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="../reference/supported_frequencies.html">supported_frequencies</a></span>(<span class="dt">variable_name =</span> <span class="st">"air_pressure"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/supported_frequencies.html">supported_frequencies</a></span>(<span class="dt">variable_name =</span> <span class="st">"air_pressure"</span>)</code></pre></div>
 <pre><code>## [1] "15min"</code></pre>
 <p>Hence, for air pressure data, only the 15 min resolution is supported. Compared to evaporation derived by the <a href="https://en.wikipedia.org/wiki/Penman%E2%80%93Monteith_equation">Monteith equation</a>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="../reference/supported_frequencies.html">supported_frequencies</a></span>(<span class="dt">variable_name =</span> <span class="st">"evaporation_monteith"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/supported_frequencies.html">supported_frequencies</a></span>(<span class="dt">variable_name =</span> <span class="st">"evaporation_monteith"</span>)</code></pre></div>
 <pre><code>## [1] "15min" "day"   "month" "year"</code></pre>
 <p>Multiple resolutions are available. Using the coarser time resolutions can be helpful when you want to download longer time series while keeping the number of records to download low (if the frequency would be sufficient for your analysis):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">stations &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"evaporation_monteith"</span>, <span class="dt">frequency =</span> <span class="st">"year"</span>)</a>
-<a class="sourceLine" id="cb11-2" title="2">subset_of_columns &lt;-<span class="st"> </span>stations <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_no, station_name, </a>
-<a class="sourceLine" id="cb11-3" title="3">                                         parametertype_name, ts_unitsymbol)</a>
-<a class="sourceLine" id="cb11-4" title="4">knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/knitr/topics/kable">kable</a></span>(subset_of_columns)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stations &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"evaporation_monteith"</span>, <span class="dt">frequency =</span> <span class="st">"year"</span>)
+subset_of_columns &lt;-<span class="st"> </span>stations <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_no, station_name, 
+                                         parametertype_name, ts_unitsymbol)
+knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/knitr/topics/kable">kable</a></span>(subset_of_columns)</code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="right">ts_id</th>
@@ -280,16 +280,16 @@
 </tbody>
 </table>
 <p>When interesed in the data of <code>Herentals_ME</code>, we can use the corresponding <code>ts_id</code> to download the time series of PET with a yearly frequency and make a plot with <code>ggplot</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">pet_yearly &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"94526042"</span>, <span class="dt">period =</span> <span class="st">"P10Y"</span>)</a>
-<a class="sourceLine" id="cb12-2" title="2">pet_yearly <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/na.fail">na.omit</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb12-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-5" title="5"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">"identity"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-6" title="6"><span class="st">    </span><span class="kw">scale_x_datetime</span>(<span class="dt">date_labels =</span> <span class="st">"%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"1 year"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-7" title="7"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"PET Herentals (mm)"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pet_yearly &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"94526042"</span>, <span class="dt">period =</span> <span class="st">"P10Y"</span>)
+pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/na.fail">na.omit</a></span>() <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">"identity"</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_x_datetime</span>(<span class="dt">date_labels =</span> <span class="st">"%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"1 year"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"PET Herentals (mm)"</span>)</code></pre></div>
 <p><img src="download_timeseries_files/figure-html/yearly_pet-1.png" width="672"></p>
 <p>(see the vignette on defining date periods for more information on the period argument used)</p>
-<p><strong>Remark:</strong> the <code>get_stations</code> function only works for those measurement stations belonging to the VMM <code>meetnet</code> (network), related to the so-called <code>datasource = 1</code>. For <a href="http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting">other networks</a>, i.e. <code>datasource = 4</code>, the enlisting is not supported. Still, a search for data is provided starting from a given station name, as explained in the next section.</p>
+<p><strong>Remark:</strong> the <code>get_stations</code> function only works for those measurement stations belonging to the VMM <code>meetnet</code> (network), related to the so-called <code>datasource = 1</code>. For <a href="http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting">other networks</a>, i.e. <code>datasource = 4</code>, the enlisting is not supported. Still, a search for data is provided starting from a given station name, as explained in the next section.</p>
 </div>
 <div id="search-identifier-based-on-station-name" class="section level2">
 <h2 class="hasAnchor">
@@ -298,11 +298,11 @@
 <div class="figure">
 <img src="waterinfo_screen.png" alt="Waterinfo.be example printscreen of time series"><p class="caption">Waterinfo.be example printscreen of time series</p>
 </div>
-<p>So, for the example in the figure, i.e. <code>station_no = zes42a-1066</code>, the available time series are retrieved by using the <code>get_variables</code> command:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"zes42a-1066"</span>)</a></code></pre></div>
+<p>So, for the example in the figure, i.e. <code>station_no = zes42a-1066</code>, the available time series are retrieved by using the <code>get_variables</code> command:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"zes42a-1066"</span>)</code></pre></div>
 <pre><code>## Use datasource: 4 for data requests of this station!</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">available_variables <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_name, ts_name, </a>
-<a class="sourceLine" id="cb15-2" title="2">                               parametertype_name)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_name, ts_name, 
+                               parametertype_name)</code></pre></div>
 <pre><code>##       ts_id               station_name              ts_name
 ## 1  94251010 Sint-Amands tij/Zeeschelde        AlarmStatus.O
 ## 2  55429010 Sint-Amands tij/Zeeschelde                Pv.HW
@@ -407,22 +407,22 @@
 ## 50        W_voorspeld</code></pre>
 <p>The available number of variables depends on the measurement station. The representation is not standardized and depends also from the type of <a href="http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting"><code>meetnet</code></a>. Nevertheless, one can derive the required <code>ts_id</code> from the list when interpreting the field names. Remark that the datasource can be 4 instead of 1 for specific <code>meetnetten</code> (networks). The datasource to use is printed when asking the variables for a station.</p>
 <p>In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the <code>ts_id = 55419010</code> can be used in the <code>get_timeseries_tsid</code> function, taking into account the <code>datasource = 4</code> (default is 1):</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">tide_stamands &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"55419010"</span>, </a>
-<a class="sourceLine" id="cb17-2" title="2">                                     <span class="dt">from =</span> <span class="st">"2017-06-01"</span>, <span class="dt">to =</span> <span class="st">"2017-06-05"</span>,</a>
-<a class="sourceLine" id="cb17-3" title="3">                                     <span class="dt">datasource =</span> <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="kw">ggplot</span>(tide_stamands, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-5" title="5"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"waterlevel"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tide_stamands &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"55419010"</span>, 
+                                     <span class="dt">from =</span> <span class="st">"2017-06-01"</span>, <span class="dt">to =</span> <span class="st">"2017-06-05"</span>,
+                                     <span class="dt">datasource =</span> <span class="dv">4</span>)
+<span class="kw">ggplot</span>(tide_stamands, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"waterlevel"</span>)</code></pre></div>
 <p><img src="download_timeseries_files/figure-html/downloadstamands-1.png" width="672"></p>
 <p>For some measurement stations, the number of variables can be high (lots of precalculated derivative values) and extracting the required time series identifier is not always straightforward. For example, the dat Etikhove/Schuif/Nederaalbeek (<code>K06_OM225</code>), provides the following number of variables:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"K06_OM225"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"K06_OM225"</span>)</code></pre></div>
 <pre><code>## Use datasource: 1 for data requests of this station!</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/nrow">nrow</a></span>(available_variables)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/nrow">nrow</a></span>(available_variables)</code></pre></div>
 <pre><code>## [1] 118</code></pre>
 <p>As the measured variables at a small time resolution are of most interest, filtering on <code>P.15</code> (or <code>P.1</code>, <code>P.60</code>,…) will help to identify measured time series, for those stations belonging to the <code>meetnet</code> of VMM (<code>datasource = 1</code>):</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"K06_OM225"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"K06_OM225"</span>)</code></pre></div>
 <pre><code>## Use datasource: 1 for data requests of this station!</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">available_variables <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb24-2" title="2"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</code></pre></div>
 <pre><code>##                   station_name station_no    ts_id ts_name
 ## 1 Etikhove/Schuif/Nederaalbeek  K06_OM225 22322042    P.15
 ## 2 Etikhove/Schuif/Nederaalbeek  K06_OM225 31882042    P.15
@@ -436,18 +436,18 @@
 ## 4                  H    Hafw 100m afwaarts
 ## 5 Volume Wachtbekken    Volume_wachtbekken</code></pre>
 <p>Loading and visualizing the last day (period <code>P1D</code>) of available data for the water level 100m downstream (<code>Hafw 100m afwaarts</code>):</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">afw_etikhove &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"29156042"</span>, </a>
-<a class="sourceLine" id="cb26-2" title="2">                                    <span class="dt">period =</span> <span class="st">"P1D"</span>,</a>
-<a class="sourceLine" id="cb26-3" title="3">                                    <span class="dt">datasource =</span> <span class="dv">1</span>) <span class="co"># 1 is default</span></a>
-<a class="sourceLine" id="cb26-4" title="4"></a>
-<a class="sourceLine" id="cb26-5" title="5"><span class="kw">ggplot</span>(afw_etikhove, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb26-6" title="6"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Volume"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">afw_etikhove &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"29156042"</span>, 
+                                    <span class="dt">period =</span> <span class="st">"P1D"</span>,
+                                    <span class="dt">datasource =</span> <span class="dv">1</span>) <span class="co"># 1 is default</span>
+
+<span class="kw">ggplot</span>(afw_etikhove, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Volume"</span>)</code></pre></div>
 <p><img src="download_timeseries_files/figure-html/afw_etik_fig-1.png" width="672"></p>
 <p>We can do similar filtering to check for time series on other stations, for example the Molenbeek in Etikhove:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"LS06_347"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(<span class="st">"LS06_347"</span>)</code></pre></div>
 <pre><code>## Use datasource: 1 for data requests of this station!</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">available_variables <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb29-2" title="2"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</code></pre></div>
 <pre><code>##         station_name station_no    ts_id ts_name parametertype_name
 ## 1 Etikhove/Molenbeek   LS06_347 70346042    P.15                  Q
 ## 2 Etikhove/Molenbeek   LS06_347 66411042    P.15              Sed.Q
@@ -465,11 +465,11 @@
 ## 6                     H
 ## 7              Sed.conc</code></pre>
 <p>And use the <code>ts_id</code> code representing discharge to create a plot of the discharge during a storm in 2010:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">etikhove &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"70346042"</span>, </a>
-<a class="sourceLine" id="cb31-2" title="2">                                <span class="dt">from =</span> <span class="st">"2010-11-09"</span>, <span class="dt">to =</span> <span class="st">"2010-11-16"</span>)</a>
-<a class="sourceLine" id="cb31-3" title="3"></a>
-<a class="sourceLine" id="cb31-4" title="4"><span class="kw">ggplot</span>(etikhove, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb31-5" title="5"><span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Q (m3/s)"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">etikhove &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"70346042"</span>, 
+                                <span class="dt">from =</span> <span class="st">"2010-11-09"</span>, <span class="dt">to =</span> <span class="st">"2010-11-16"</span>)
+
+<span class="kw">ggplot</span>(etikhove, <span class="kw">aes</span>(Timestamp, Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">"Q (m3/s)"</span>)</code></pre></div>
 <p><img src="download_timeseries_files/figure-html/disch_etik-1.png" width="672"></p>
 </div>
 <div id="check-the-url-used-to-request-the-data" class="section level2">

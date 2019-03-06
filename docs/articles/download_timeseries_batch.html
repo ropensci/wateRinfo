@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wateRinfo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9047</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9058</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@
       <h1>Downloading time series in batch</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2019-03-05</h4>
+            <h4 class="date">2019-03-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/wateRinfo/blob/master/vignettes/download_timeseries_batch.Rmd"><code>vignettes/download_timeseries_batch.Rmd</code></a></small>
       <div class="hidden name"><code>download_timeseries_batch.Rmd</code></div>
@@ -108,56 +108,56 @@
 <li>downloading all measured variables at a frequency of 15 minutes for a given measurement station.</li>
 </ul>
 <p>In this vignette, this type of batch downloads is explained, using the available functions of the <code>wateRinfo</code> package in combination with already existing <a href="https://www.tidyverse.org/">tidyverse</a> functionalities.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</code></pre></div>
 </div>
 <div id="download-all-stations-for-a-given-variable" class="section level2">
 <h2 class="hasAnchor">
 <a href="#download-all-stations-for-a-given-variable" class="anchor"></a>Download all stations for a given variable</h2>
 <p>Consider the scenario: “downloading air pressure data for the last day for all available measurement stations”. We can achieve this by downloading all the stations information providing air_pressure data (<code><a href="../reference/get_stations.html">get_stations()</a></code>) and for each of the <code>ts_id</code> values in the resulting data.frame, applying the <code><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid()</a></code> function:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># extract the available stations for a predefined variable</span></a>
-<a class="sourceLine" id="cb2-2" title="2">variable_of_interest &lt;-<span class="st"> "air_pressure"</span></a>
-<a class="sourceLine" id="cb2-3" title="3">stations &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(variable_of_interest)</a>
-<a class="sourceLine" id="cb2-4" title="4"></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="co"># Download the data for a given period for each of the stations</span></a>
-<a class="sourceLine" id="cb2-6" title="6">air_pressure &lt;-<span class="st"> </span>stations <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(ts_id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/do.html">do</a></span>(<span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(.<span class="op">$</span>ts_id, <span class="dt">period =</span> <span class="st">"P1D"</span>, <span class="dt">to =</span> <span class="st">"2017-01-02"</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(stations, <span class="dt">by =</span> <span class="st">"ts_id"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># extract the available stations for a predefined variable</span>
+variable_of_interest &lt;-<span class="st"> "air_pressure"</span>
+stations &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(variable_of_interest)
+
+<span class="co"># Download the data for a given period for each of the stations</span>
+air_pressure &lt;-<span class="st"> </span>stations <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(ts_id) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/do.html">do</a></span>(<span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(.<span class="op">$</span>ts_id, <span class="dt">period =</span> <span class="st">"P1D"</span>, <span class="dt">to =</span> <span class="st">"2017-01-02"</span>)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span>() <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(stations, <span class="dt">by =</span> <span class="st">"ts_id"</span>)</code></pre></div>
 <p>As this results in a tidy data set, we can use the power of ggplot to plot the data of the individual measurement stations:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># create a plot of the individual datasets</span></a>
-<a class="sourceLine" id="cb3-2" title="2">air_pressure <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">"1 Jan 2017"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"station_name"</span>, <span class="st">"stationparameter_name"</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M"</span>,</a>
-<a class="sourceLine" id="cb3-7" title="7">                     <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a plot of the individual datasets</span>
+air_pressure <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">"1 Jan 2017"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"station_name"</span>, <span class="st">"stationparameter_name"</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M"</span>,
+                     <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</code></pre></div>
 <p><img src="download_timeseries_batch_files/figure-html/plot_pressure-1.png" width="672"></p>
 </div>
 <div id="download-set-of-variables-from-a-station" class="section level2">
 <h2 class="hasAnchor">
 <a href="#download-set-of-variables-from-a-station" class="anchor"></a>Download set of variables from a station</h2>
 <p>Consider the scenario: “downloading all soil_moisture (in dutch: ‘bodemvocht’) variables at a frequency of 15 minutes for the measurement station Liedekerke”. We can achieve this by downloading all the variables information of the Liedekerke station(<code><a href="../reference/get_variables.html">get_variables()</a></code>) using the station code of the waterinfo.be interface (<code>ME07_006</code>), filtering on the <code>P.15</code> time series and for each of the <code>ts_id</code> values, applying the <code><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid()</a></code> function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">liedekerke_stat &lt;-<span class="st"> "ME07_006"</span></a>
-<a class="sourceLine" id="cb4-2" title="2">variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(liedekerke_stat)</a>
-<a class="sourceLine" id="cb4-3" title="3"></a>
-<a class="sourceLine" id="cb4-4" title="4">variables_to_download &lt;-<span class="st"> </span>variables <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(parametertype_name <span class="op">==</span><span class="st"> "Bodemvocht"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)</a>
-<a class="sourceLine" id="cb4-7" title="7"></a>
-<a class="sourceLine" id="cb4-8" title="8">liedekerke &lt;-<span class="st"> </span>variables_to_download <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(ts_id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/do.html">do</a></span>(<span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(.<span class="op">$</span>ts_id, <span class="dt">period =</span> <span class="st">"P1M"</span>, <span class="dt">from =</span> <span class="st">"2017-01-01"</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(variables, <span class="dt">by =</span> <span class="st">"ts_id"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">liedekerke_stat &lt;-<span class="st"> "ME07_006"</span>
+variables &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_variables.html">get_variables</a></span>(liedekerke_stat)
+
+variables_to_download &lt;-<span class="st"> </span>variables <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(parametertype_name <span class="op">==</span><span class="st"> "Bodemvocht"</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(ts_name <span class="op">==</span><span class="st"> "P.15"</span>)
+
+liedekerke &lt;-<span class="st"> </span>variables_to_download <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(ts_id) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/do.html">do</a></span>(<span class="kw"><a href="../reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(.<span class="op">$</span>ts_id, <span class="dt">period =</span> <span class="st">"P1M"</span>, <span class="dt">from =</span> <span class="st">"2017-01-01"</span>)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span>() <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(variables, <span class="dt">by =</span> <span class="st">"ts_id"</span>)</code></pre></div>
 <p>As this results in a tidy data set, we can use the power of ggplot to plot the data of the individual measurement stations:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">liedekerke <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"bodemvocht"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"ts_name"</span>, <span class="st">"stationparameter_name"</span>), <span class="dt">scales =</span> <span class="st">"free"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%d-%m</span><span class="ch">\n</span><span class="st">%Y"</span>,</a>
-<a class="sourceLine" id="cb5-6" title="6">                     <span class="dt">date_breaks =</span> <span class="st">"10 days"</span>)    </a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">liedekerke <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"bodemvocht"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"ts_name"</span>, <span class="st">"stationparameter_name"</span>), <span class="dt">scales =</span> <span class="st">"free"</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%d-%m</span><span class="ch">\n</span><span class="st">%Y"</span>,
+                     <span class="dt">date_breaks =</span> <span class="st">"10 days"</span>)    </code></pre></div>
 <p><img src="download_timeseries_batch_files/figure-html/liedekerke_viz-1.png" width="672"></p>
 </div>
   </div>
