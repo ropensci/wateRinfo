@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">wateRinfo</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9047</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9058</span>
       </span>
     </div>
 
@@ -114,125 +114,125 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install wateRinfo from <a href="https://github.com/ropensci/wateRinfo">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-2" title="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ropensci/wateRinfo"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
+devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ropensci/wateRinfo"</span>)</code></pre></div>
 <p>When succesfull, load it as usual:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(wateRinfo)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(wateRinfo)</code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>For a number of supported variables (<a href="https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0">documented</a> by VMM), the stations providing time series data for a given variable can be listed with the command <code>get_stations</code>.</p>
 <p>If you want to know the supported variables, ask for the supported variables:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="reference/supported_variables.html">supported_variables</a></span>(<span class="st">"en"</span>)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="co">#&gt;              variable_en</span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="co">#&gt; 1              discharge</span></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="co">#&gt; 6        soil_saturation</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="co">#&gt; 7          soil_moisture</span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="co">#&gt; 8  dew_point_temperature</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="co">#&gt; 9     ground_temperature</span></a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt; 10           ground_heat</span></a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt; 11            irradiance</span></a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="co">#&gt; 12          air_pressure</span></a>
-<a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt; 13 air_temperature_175cm</span></a>
-<a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt; 14              rainfall</span></a>
-<a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt; 20     relative_humidity</span></a>
-<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt; 21  evaporation_monteith</span></a>
-<a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt; 25    evaporation_penman</span></a>
-<a class="sourceLine" id="cb3-16" title="16"><span class="co">#&gt; 29        water_velocity</span></a>
-<a class="sourceLine" id="cb3-17" title="17"><span class="co">#&gt; 34           water_level</span></a>
-<a class="sourceLine" id="cb3-18" title="18"><span class="co">#&gt; 39     water_temperature</span></a>
-<a class="sourceLine" id="cb3-19" title="19"><span class="co">#&gt; 40        wind_direction</span></a>
-<a class="sourceLine" id="cb3-20" title="20"><span class="co">#&gt; 41            wind_speed</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/supported_variables.html">supported_variables</a></span>(<span class="st">"en"</span>)
+<span class="co">#&gt;              variable_en</span>
+<span class="co">#&gt; 1              discharge</span>
+<span class="co">#&gt; 6        soil_saturation</span>
+<span class="co">#&gt; 7          soil_moisture</span>
+<span class="co">#&gt; 8  dew_point_temperature</span>
+<span class="co">#&gt; 9     ground_temperature</span>
+<span class="co">#&gt; 10           ground_heat</span>
+<span class="co">#&gt; 11            irradiance</span>
+<span class="co">#&gt; 12          air_pressure</span>
+<span class="co">#&gt; 13 air_temperature_175cm</span>
+<span class="co">#&gt; 14              rainfall</span>
+<span class="co">#&gt; 20     relative_humidity</span>
+<span class="co">#&gt; 21  evaporation_monteith</span>
+<span class="co">#&gt; 25    evaporation_penman</span>
+<span class="co">#&gt; 29        water_velocity</span>
+<span class="co">#&gt; 34           water_level</span>
+<span class="co">#&gt; 39     water_temperature</span>
+<span class="co">#&gt; 40        wind_direction</span>
+<span class="co">#&gt; 41            wind_speed</span></code></pre></div>
 <p>Listing the available air_pressure stations:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; 1 78124042         51.20300          5.439589      12213   ME11_002</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="co">#&gt; 2 78039042         51.24379          4.266912      12208   ME04_001</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt; 3 78005042         51.02263          2.970584      12206   ME01_003</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 4 78073042         50.88663          4.094898      12210   ME07_006</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 5 78107042         51.16224          4.845708      12212   ME10_011</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; 6 78022042         51.27226          3.728299      12207   ME03_017</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 7 78090042         50.73795          5.141976      12211   ME09_012</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 8 78056042         50.86149          3.411318      12209   ME05_019</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt;              station_name stationparameter_name parametertype_name</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 1             Overpelt_ME                    Pa                 Pa</span></a>
-<a class="sourceLine" id="cb4-13" title="13"><span class="co">#&gt; 2              Melsele_ME                    Pa                 Pa</span></a>
-<a class="sourceLine" id="cb4-14" title="14"><span class="co">#&gt; 3               Zarren_ME                    Pa                 Pa</span></a>
-<a class="sourceLine" id="cb4-15" title="15"><span class="co">#&gt; 4           Liedekerke_ME                    BP                 Pa</span></a>
-<a class="sourceLine" id="cb4-16" title="16"><span class="co">#&gt; 5            Herentals_ME                    Pa                 Pa</span></a>
-<a class="sourceLine" id="cb4-17" title="17"><span class="co">#&gt; 6            Boekhoute_ME                    Pa                 Pa</span></a>
-<a class="sourceLine" id="cb4-18" title="18"><span class="co">#&gt; 7 Niel-bij-St.-Truiden_ME                    Pa                 Pa</span></a>
-<a class="sourceLine" id="cb4-19" title="19"><span class="co">#&gt; 8              Waregem_ME                    Pa                 Pa</span></a>
-<a class="sourceLine" id="cb4-20" title="20"><span class="co">#&gt;   ts_unitsymbol dataprovider</span></a>
-<a class="sourceLine" id="cb4-21" title="21"><span class="co">#&gt; 1           hPa          VMM</span></a>
-<a class="sourceLine" id="cb4-22" title="22"><span class="co">#&gt; 2           hPa          VMM</span></a>
-<a class="sourceLine" id="cb4-23" title="23"><span class="co">#&gt; 3           hPa          VMM</span></a>
-<a class="sourceLine" id="cb4-24" title="24"><span class="co">#&gt; 4           hPa          VMM</span></a>
-<a class="sourceLine" id="cb4-25" title="25"><span class="co">#&gt; 5           hPa          VMM</span></a>
-<a class="sourceLine" id="cb4-26" title="26"><span class="co">#&gt; 6           hPa          VMM</span></a>
-<a class="sourceLine" id="cb4-27" title="27"><span class="co">#&gt; 7           hPa          VMM</span></a>
-<a class="sourceLine" id="cb4-28" title="28"><span class="co">#&gt; 8           hPa          VMM</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)
+<span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
+<span class="co">#&gt; 1 78124042         51.20300          5.439589      12213   ME11_002</span>
+<span class="co">#&gt; 2 78039042         51.24379          4.266912      12208   ME04_001</span>
+<span class="co">#&gt; 3 78005042         51.02263          2.970584      12206   ME01_003</span>
+<span class="co">#&gt; 4 78073042         50.88663          4.094898      12210   ME07_006</span>
+<span class="co">#&gt; 5 78107042         51.16224          4.845708      12212   ME10_011</span>
+<span class="co">#&gt; 6 78022042         51.27226          3.728299      12207   ME03_017</span>
+<span class="co">#&gt; 7 78090042         50.73795          5.141976      12211   ME09_012</span>
+<span class="co">#&gt; 8 78056042         50.86149          3.411318      12209   ME05_019</span>
+<span class="co">#&gt;              station_name stationparameter_name parametertype_name</span>
+<span class="co">#&gt; 1             Overpelt_ME                    Pa                 Pa</span>
+<span class="co">#&gt; 2              Melsele_ME                    Pa                 Pa</span>
+<span class="co">#&gt; 3               Zarren_ME                    Pa                 Pa</span>
+<span class="co">#&gt; 4           Liedekerke_ME                    BP                 Pa</span>
+<span class="co">#&gt; 5            Herentals_ME                    Pa                 Pa</span>
+<span class="co">#&gt; 6            Boekhoute_ME                    Pa                 Pa</span>
+<span class="co">#&gt; 7 Niel-bij-St.-Truiden_ME                    Pa                 Pa</span>
+<span class="co">#&gt; 8              Waregem_ME                    Pa                 Pa</span>
+<span class="co">#&gt;   ts_unitsymbol dataprovider</span>
+<span class="co">#&gt; 1           hPa          VMM</span>
+<span class="co">#&gt; 2           hPa          VMM</span>
+<span class="co">#&gt; 3           hPa          VMM</span>
+<span class="co">#&gt; 4           hPa          VMM</span>
+<span class="co">#&gt; 5           hPa          VMM</span>
+<span class="co">#&gt; 6           hPa          VMM</span>
+<span class="co">#&gt; 7           hPa          VMM</span>
+<span class="co">#&gt; 8           hPa          VMM</span></code></pre></div>
 <p>Each of the stations in the list for a given variable, are represented by a <code>ts_id</code>. These can be used to download the data of a given period with the command <code>get_timeseries_tsid</code>, for example Overpelt (<code>ts_id = 78124042</code>):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">overpelt_pressure &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"78124042"</span>, </a>
-<a class="sourceLine" id="cb5-2" title="2">                                         <span class="dt">from =</span> <span class="st">"2017-04-01"</span>, </a>
-<a class="sourceLine" id="cb5-3" title="3">                                         <span class="dt">to =</span> <span class="st">"2017-04-02"</span>)</a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(overpelt_pressure)</a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt;             Timestamp  Value Quality Code</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt; 1 2017-04-01 00:00:00 1008.8          130</span></a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; 2 2017-04-01 00:15:00 1008.7          130</span></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; 3 2017-04-01 00:30:00 1008.7          130</span></a>
-<a class="sourceLine" id="cb5-9" title="9"><span class="co">#&gt; 4 2017-04-01 00:45:00 1008.6          130</span></a>
-<a class="sourceLine" id="cb5-10" title="10"><span class="co">#&gt; 5 2017-04-01 01:00:00 1008.5          130</span></a>
-<a class="sourceLine" id="cb5-11" title="11"><span class="co">#&gt; 6 2017-04-01 01:15:00 1008.4          130</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">overpelt_pressure &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"78124042"</span>, 
+                                         <span class="dt">from =</span> <span class="st">"2017-04-01"</span>, 
+                                         <span class="dt">to =</span> <span class="st">"2017-04-02"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(overpelt_pressure)
+<span class="co">#&gt;             Timestamp  Value Quality Code</span>
+<span class="co">#&gt; 1 2017-04-01 00:00:00 1008.8          130</span>
+<span class="co">#&gt; 2 2017-04-01 00:15:00 1008.7          130</span>
+<span class="co">#&gt; 3 2017-04-01 00:30:00 1008.7          130</span>
+<span class="co">#&gt; 4 2017-04-01 00:45:00 1008.6          130</span>
+<span class="co">#&gt; 5 2017-04-01 01:00:00 1008.5          130</span>
+<span class="co">#&gt; 6 2017-04-01 01:15:00 1008.4          130</span></code></pre></div>
 <p>Making a plot of the data with ggplot:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_pressure, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"hPa"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M</span><span class="ch">\n</span><span class="st">%Y-%m-%d"</span>, <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)
+<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_pressure, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"hPa"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%H:%M</span><span class="ch">\n</span><span class="st">%Y-%m-%d"</span>, <span class="dt">date_breaks =</span> <span class="st">"6 hours"</span>)</code></pre></div>
 <p><img src="reference/figures/README-plot_pressure-1.png" width="80%"></p>
 <p>Another option is to check the available variables for a given station, with the function <code>get_variables</code>. Let’s consider again Overpelt (<code>ME11_002</code>) and check the first ten available variables at the Overpelt measurement station:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">vars_overpelt &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_variables.html">get_variables</a></span>(<span class="st">"ME11_002"</span>)</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(vars_overpelt, <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">#&gt;    station_name station_no    ts_id    ts_name parametertype_name</span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co">#&gt; 1   Overpelt_ME   ME11_002 96216042  DagTotaal         Noverschot</span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#&gt; 2   Overpelt_ME   ME11_002 78663042   MaandGem                  U</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt; 3   Overpelt_ME   ME11_002 78664042   MaandMax                  U</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">#&gt; 4   Overpelt_ME   ME11_002 78667042       P.10                  U</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="co">#&gt; 5   Overpelt_ME   ME11_002 78654042     DagGem                  U</span></a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="co">#&gt; 6   Overpelt_ME   ME11_002 78656042     DagMin                  U</span></a>
-<a class="sourceLine" id="cb7-10" title="10"><span class="co">#&gt; 7   Overpelt_ME   ME11_002 78658042 HydJaarMax                  U</span></a>
-<a class="sourceLine" id="cb7-11" title="11"><span class="co">#&gt; 8   Overpelt_ME   ME11_002 78668042       P.15                  U</span></a>
-<a class="sourceLine" id="cb7-12" title="12"><span class="co">#&gt; 9   Overpelt_ME   ME11_002 78660042 KalJaarGem                  U</span></a>
-<a class="sourceLine" id="cb7-13" title="13"><span class="co">#&gt; 10  Overpelt_ME   ME11_002 78661042 KalJaarMax                  U</span></a>
-<a class="sourceLine" id="cb7-14" title="14"><span class="co">#&gt;    stationparameter_name</span></a>
-<a class="sourceLine" id="cb7-15" title="15"><span class="co">#&gt; 1             Noverschot</span></a>
-<a class="sourceLine" id="cb7-16" title="16"><span class="co">#&gt; 2                 WSpeed</span></a>
-<a class="sourceLine" id="cb7-17" title="17"><span class="co">#&gt; 3                 WSpeed</span></a>
-<a class="sourceLine" id="cb7-18" title="18"><span class="co">#&gt; 4                 WSpeed</span></a>
-<a class="sourceLine" id="cb7-19" title="19"><span class="co">#&gt; 5                 WSpeed</span></a>
-<a class="sourceLine" id="cb7-20" title="20"><span class="co">#&gt; 6                 WSpeed</span></a>
-<a class="sourceLine" id="cb7-21" title="21"><span class="co">#&gt; 7                 WSpeed</span></a>
-<a class="sourceLine" id="cb7-22" title="22"><span class="co">#&gt; 8                 WSpeed</span></a>
-<a class="sourceLine" id="cb7-23" title="23"><span class="co">#&gt; 9                 WSpeed</span></a>
-<a class="sourceLine" id="cb7-24" title="24"><span class="co">#&gt; 10                WSpeed</span></a></code></pre></div>
-<p>Different pre-calculated variables are already available and a <code>ts_id</code> value is available for each of them to download the corresponding data. For example, <code>DagGem</code> (= daily mean values) of <code>RH</code> (= relative humidity), i.e. <code>ts_id = 78382042</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">overpelt_rh_daily &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"78382042"</span>, </a>
-<a class="sourceLine" id="cb8-2" title="2">                                         <span class="dt">from =</span> <span class="st">"2017-04-01"</span>, </a>
-<a class="sourceLine" id="cb8-3" title="3">                                         <span class="dt">to =</span> <span class="st">"2017-04-30"</span>)</a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(overpelt_rh_daily)</a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="co">#&gt;             Timestamp Value Quality Code</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#&gt; 1 2017-04-01 23:00:00 80.19          130</span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#&gt; 2 2017-04-02 23:00:00 89.58          130</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#&gt; 3 2017-04-03 23:00:00 79.56          130</span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#&gt; 4 2017-04-04 23:00:00 84.13          130</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#&gt; 5 2017-04-05 23:00:00 84.19          130</span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#&gt; 6 2017-04-06 23:00:00 82.71          130</span></a></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_rh_daily, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">" RH (%)"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%b-%d</span><span class="ch">\n</span><span class="st">%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"5 days"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vars_overpelt &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_variables.html">get_variables</a></span>(<span class="st">"ME11_002"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(vars_overpelt, <span class="dv">10</span>)
+<span class="co">#&gt;    station_name station_no    ts_id    ts_name parametertype_name</span>
+<span class="co">#&gt; 1   Overpelt_ME   ME11_002 96216042  DagTotaal         Noverschot</span>
+<span class="co">#&gt; 2   Overpelt_ME   ME11_002 78663042   MaandGem                  U</span>
+<span class="co">#&gt; 3   Overpelt_ME   ME11_002 78664042   MaandMax                  U</span>
+<span class="co">#&gt; 4   Overpelt_ME   ME11_002 78667042       P.10                  U</span>
+<span class="co">#&gt; 5   Overpelt_ME   ME11_002 78654042     DagGem                  U</span>
+<span class="co">#&gt; 6   Overpelt_ME   ME11_002 78656042     DagMin                  U</span>
+<span class="co">#&gt; 7   Overpelt_ME   ME11_002 78658042 HydJaarMax                  U</span>
+<span class="co">#&gt; 8   Overpelt_ME   ME11_002 78668042       P.15                  U</span>
+<span class="co">#&gt; 9   Overpelt_ME   ME11_002 78660042 KalJaarGem                  U</span>
+<span class="co">#&gt; 10  Overpelt_ME   ME11_002 78661042 KalJaarMax                  U</span>
+<span class="co">#&gt;    stationparameter_name</span>
+<span class="co">#&gt; 1             Noverschot</span>
+<span class="co">#&gt; 2                 WSpeed</span>
+<span class="co">#&gt; 3                 WSpeed</span>
+<span class="co">#&gt; 4                 WSpeed</span>
+<span class="co">#&gt; 5                 WSpeed</span>
+<span class="co">#&gt; 6                 WSpeed</span>
+<span class="co">#&gt; 7                 WSpeed</span>
+<span class="co">#&gt; 8                 WSpeed</span>
+<span class="co">#&gt; 9                 WSpeed</span>
+<span class="co">#&gt; 10                WSpeed</span></code></pre></div>
+<p>Different pre-calculated variables are already available and a <code>ts_id</code> value is available for each of them to download the corresponding data. For example, <code>DagGem</code> (= daily mean values) of <code>RH</code> (= relative humidity), i.e. <code>ts_id = 78382042</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">overpelt_rh_daily &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_timeseries_tsid.html">get_timeseries_tsid</a></span>(<span class="st">"78382042"</span>, 
+                                         <span class="dt">from =</span> <span class="st">"2017-04-01"</span>, 
+                                         <span class="dt">to =</span> <span class="st">"2017-04-30"</span>)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(overpelt_rh_daily)
+<span class="co">#&gt;             Timestamp Value Quality Code</span>
+<span class="co">#&gt; 1 2017-04-01 23:00:00 80.19          130</span>
+<span class="co">#&gt; 2 2017-04-02 23:00:00 89.58          130</span>
+<span class="co">#&gt; 3 2017-04-03 23:00:00 79.56          130</span>
+<span class="co">#&gt; 4 2017-04-04 23:00:00 84.13          130</span>
+<span class="co">#&gt; 5 2017-04-05 23:00:00 84.19          130</span>
+<span class="co">#&gt; 6 2017-04-06 23:00:00 82.71          130</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(overpelt_rh_daily, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Timestamp, <span class="dt">y =</span> Value)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span>(<span class="st">""</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">" RH (%)"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_date.html">scale_x_datetime</a></span>(<span class="dt">date_labels =</span> <span class="st">"%b-%d</span><span class="ch">\n</span><span class="st">%Y"</span>, <span class="dt">date_breaks =</span> <span class="st">"5 days"</span>)</code></pre></div>
 <p><img src="reference/figures/README-plot_rh-1.png" width="80%"></p>
 <p>Unfortunately, not all variables are documented, for which the check for the appropriate variable is not (yet) fully supported by the package.</p>
 <p>More detailed tutorials are available in the package vignettes!</p>
@@ -241,54 +241,54 @@
 <h2 class="hasAnchor">
 <a href="#note-on-restrictions-of-the-downloads" class="anchor"></a>Note on restrictions of the downloads</h2>
 <p>The amount of data downloaded from waterinfo.be is limited via a credit system. You do not need to get a token right away to download data. For limited and irregular downloads, a token will not be required.</p>
-<p>When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <a href="mailto:hydrometrie@waterinfo.be" class="email">hydrometrie@waterinfo.be</a> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.</p>
+<p>When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <a href="mailto:hydrometrie@waterinfo.be">hydrometrie@waterinfo.be</a> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.</p>
 <p>Get token with client-credit code: (limited client-credit code for testing purposes)</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">client &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="st">"MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4"</span>,</a>
-<a class="sourceLine" id="cb10-2" title="2">                 <span class="st">"NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=="</span>)</a>
-<a class="sourceLine" id="cb10-3" title="3">my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)</a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(my_token)</a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="co">#&gt; Token:</span></a>
-<a class="sourceLine" id="cb10-6" title="6"><span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0Mzg1ZjA3Ny00OWZhLTQ1YmQtOTI3OC01MzAxZjlmNDg1MDUiLCJpYXQiOjE1NTE3ODEwNDAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTUxODY3NDQwfQ.XnJRJ3UqnYeLFCujg3Q9_7P_D-eF_dGjCtANiqaqWlc</span></a>
-<a class="sourceLine" id="cb10-7" title="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb10-8" title="8"><span class="co">#&gt; Attributes:</span></a>
-<a class="sourceLine" id="cb10-9" title="9"><span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span></a>
-<a class="sourceLine" id="cb10-10" title="10"><span class="co">#&gt;  type: Bearer</span></a>
-<a class="sourceLine" id="cb10-11" title="11"><span class="co">#&gt;  expires: 2019-03-06 11:17:20 CET</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">client &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="st">"MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4"</span>,
+                 <span class="st">"NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA=="</span>)
+my_token &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_token.html">get_token</a></span>(<span class="dt">client =</span> client)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(my_token)
+<span class="co">#&gt; Token:</span>
+<span class="co">#&gt; eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhYmUzNjc5Yi1hOTI4LTQ5Y2MtYTIwYi0xZGU3ZjM3YjlhODUiLCJpYXQiOjE1NTE4NzY1ODMsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTUxOTYyOTgzfQ.tNUAvS_-oIfYTRaJ-R88usJq4X-HaY3ltI_phriCzSo</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attributes:</span>
+<span class="co">#&gt;  url: http://download.waterinfo.be/kiwis-auth/token</span>
+<span class="co">#&gt;  type: Bearer</span>
+<span class="co">#&gt;  expires: 2019-03-07 13:49:43 CET</span></code></pre></div>
 <p>Receive information on the validity of the token:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw"><a href="reference/get_token.html">is.expired</a></span>(my_token)</a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="co">#&gt; [1] FALSE</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">is.expired</a></span>(my_token)
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>Check when the token expires:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="reference/get_token.html">expires.in</a></span>(my_token)</a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="co">#&gt; Time difference of 24 hours</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_token.html">expires.in</a></span>(my_token)
+<span class="co">#&gt; Time difference of 23.99999 hours</span></code></pre></div>
 <p>Use token when retrieving data:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)</a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="co">#&gt; 1 94310042         51.02263          2.970584      12206   ME01_003</span></a>
-<a class="sourceLine" id="cb13-4" title="4"><span class="co">#&gt; 2 94544042         51.20300          5.439589      12213   ME11_002</span></a>
-<a class="sourceLine" id="cb13-5" title="5"><span class="co">#&gt; 3 94530042         51.16224          4.845708      12212   ME10_011</span></a>
-<a class="sourceLine" id="cb13-6" title="6"><span class="co">#&gt; 4 94516042         50.73795          5.141976      12211   ME09_012</span></a>
-<a class="sourceLine" id="cb13-7" title="7"><span class="co">#&gt; 5 94502042         50.88663          4.094898      12210   ME07_006</span></a>
-<a class="sourceLine" id="cb13-8" title="8"><span class="co">#&gt; 6 94474042         51.24379          4.266912      12208   ME04_001</span></a>
-<a class="sourceLine" id="cb13-9" title="9"><span class="co">#&gt; 7 94488042         50.86149          3.411318      12209   ME05_019</span></a>
-<a class="sourceLine" id="cb13-10" title="10"><span class="co">#&gt; 8 94460042         51.27226          3.728299      12207   ME03_017</span></a>
-<a class="sourceLine" id="cb13-11" title="11"><span class="co">#&gt;              station_name stationparameter_name parametertype_name</span></a>
-<a class="sourceLine" id="cb13-12" title="12"><span class="co">#&gt; 1               Zarren_ME                   pET                PET</span></a>
-<a class="sourceLine" id="cb13-13" title="13"><span class="co">#&gt; 2             Overpelt_ME                   pET                PET</span></a>
-<a class="sourceLine" id="cb13-14" title="14"><span class="co">#&gt; 3            Herentals_ME                   pET                PET</span></a>
-<a class="sourceLine" id="cb13-15" title="15"><span class="co">#&gt; 4 Niel-bij-St.-Truiden_ME                   pET                PET</span></a>
-<a class="sourceLine" id="cb13-16" title="16"><span class="co">#&gt; 5           Liedekerke_ME                   pET                PET</span></a>
-<a class="sourceLine" id="cb13-17" title="17"><span class="co">#&gt; 6              Melsele_ME                   pET                PET</span></a>
-<a class="sourceLine" id="cb13-18" title="18"><span class="co">#&gt; 7              Waregem_ME                   pET                PET</span></a>
-<a class="sourceLine" id="cb13-19" title="19"><span class="co">#&gt; 8            Boekhoute_ME                   pET                PET</span></a>
-<a class="sourceLine" id="cb13-20" title="20"><span class="co">#&gt;   ts_unitsymbol dataprovider</span></a>
-<a class="sourceLine" id="cb13-21" title="21"><span class="co">#&gt; 1            mm          VMM</span></a>
-<a class="sourceLine" id="cb13-22" title="22"><span class="co">#&gt; 2            mm          VMM</span></a>
-<a class="sourceLine" id="cb13-23" title="23"><span class="co">#&gt; 3            mm          VMM</span></a>
-<a class="sourceLine" id="cb13-24" title="24"><span class="co">#&gt; 4            mm          VMM</span></a>
-<a class="sourceLine" id="cb13-25" title="25"><span class="co">#&gt; 5            mm          VMM</span></a>
-<a class="sourceLine" id="cb13-26" title="26"><span class="co">#&gt; 6            mm          VMM</span></a>
-<a class="sourceLine" id="cb13-27" title="27"><span class="co">#&gt; 7            mm          VMM</span></a>
-<a class="sourceLine" id="cb13-28" title="28"><span class="co">#&gt; 8            mm          VMM</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/get_stations.html">get_stations</a></span>(<span class="dt">variable_name =</span> <span class="st">"verdamping_monteith"</span>, <span class="dt">token =</span> my_token)
+<span class="co">#&gt;      ts_id station_latitude station_longitude station_id station_no</span>
+<span class="co">#&gt; 1 94310042         51.02263          2.970584      12206   ME01_003</span>
+<span class="co">#&gt; 2 94544042         51.20300          5.439589      12213   ME11_002</span>
+<span class="co">#&gt; 3 94530042         51.16224          4.845708      12212   ME10_011</span>
+<span class="co">#&gt; 4 94516042         50.73795          5.141976      12211   ME09_012</span>
+<span class="co">#&gt; 5 94502042         50.88663          4.094898      12210   ME07_006</span>
+<span class="co">#&gt; 6 94474042         51.24379          4.266912      12208   ME04_001</span>
+<span class="co">#&gt; 7 94488042         50.86149          3.411318      12209   ME05_019</span>
+<span class="co">#&gt; 8 94460042         51.27226          3.728299      12207   ME03_017</span>
+<span class="co">#&gt;              station_name stationparameter_name parametertype_name</span>
+<span class="co">#&gt; 1               Zarren_ME                   pET                PET</span>
+<span class="co">#&gt; 2             Overpelt_ME                   pET                PET</span>
+<span class="co">#&gt; 3            Herentals_ME                   pET                PET</span>
+<span class="co">#&gt; 4 Niel-bij-St.-Truiden_ME                   pET                PET</span>
+<span class="co">#&gt; 5           Liedekerke_ME                   pET                PET</span>
+<span class="co">#&gt; 6              Melsele_ME                   pET                PET</span>
+<span class="co">#&gt; 7              Waregem_ME                   pET                PET</span>
+<span class="co">#&gt; 8            Boekhoute_ME                   pET                PET</span>
+<span class="co">#&gt;   ts_unitsymbol dataprovider</span>
+<span class="co">#&gt; 1            mm          VMM</span>
+<span class="co">#&gt; 2            mm          VMM</span>
+<span class="co">#&gt; 3            mm          VMM</span>
+<span class="co">#&gt; 4            mm          VMM</span>
+<span class="co">#&gt; 5            mm          VMM</span>
+<span class="co">#&gt; 6            mm          VMM</span>
+<span class="co">#&gt; 7            mm          VMM</span>
+<span class="co">#&gt; 8            mm          VMM</span></code></pre></div>
 </div>
 <div id="acknowledgements" class="section level2">
 <h2 class="hasAnchor">
@@ -344,7 +344,7 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/ropensci/wateRinfo"><img src="https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci" alt="Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/ropensci/waterinfo/branch/master"><img src="https://ci.appveyor.com/api/projects/status/5ia9va0jyskbvhev/branch/master?svg=true" alt="AppVeyor Build status"></a></li>
+<li><a href="https://ci.appveyor.com/project/stijnvanhoey/waterinfo-agry3/branch/master"><img src="https://ci.appveyor.com/api/projects/status/crmofvs8c7oja0mn/branch/master?svg=true" alt="Appveyor Build status"></a></li>
 <li><a href="https://coveralls.io/r/ropensci/wateRinfo?branch=master"><img src="https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg" alt="Coverage Status"></a></li>
 </ul>
 </div>
