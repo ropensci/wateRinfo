@@ -1,3 +1,7 @@
+template:
+  params:
+    bootswatch: yeti
+
 authors:
   Stijn Van Hoey:
     href: "https://twitter.com/SVanHoey"
@@ -79,7 +83,3 @@ articles:
   - title: "Downloading the data of multiple stations/variables"
     contents:
     - download_timeseries_batch
-
-template:
-  params:
-    bootswatch: yeti
