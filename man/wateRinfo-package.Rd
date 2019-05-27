@@ -26,7 +26,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Stijn Van Hoey \email{stijn.vanhoey@inbo.be} (0000-0001-6413-3185)
+\strong{Maintainer}: Stijn Van Hoey \email{stijnvanhoey@gmail.com} (0000-0001-6413-3185)
 
 Other contributors:
 \itemize{

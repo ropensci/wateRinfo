@@ -90,7 +90,7 @@
       <h1>Download time series from waterinfo.be</h1>
                         <h4 class="author">Stijn Van Hoey</h4>
             
-            <h4 class="date">2019-03-06</h4>
+            <h4 class="date">2019-05-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/wateRinfo/blob/master/vignettes/download_timeseries.Rmd"><code>vignettes/download_timeseries.Rmd</code></a></small>
       <div class="hidden name"><code>download_timeseries.Rmd</code></div>
@@ -163,8 +163,8 @@ knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentat
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/get_stations.html">get_stations</a></span>(<span class="st">"air_pressure"</span>)</code></pre></div>
 <pre><code>##      ts_id station_latitude station_longitude station_id station_no
 ## 1 78124042         51.20300          5.439589      12213   ME11_002
-## 2 78039042         51.24379          4.266912      12208   ME04_001
-## 3 78005042         51.02263          2.970584      12206   ME01_003
+## 2 78005042         51.02263          2.970584      12206   ME01_003
+## 3 78039042         51.24379          4.266912      12208   ME04_001
 ## 4 78073042         50.88663          4.094898      12210   ME07_006
 ## 5 78107042         51.16224          4.845708      12212   ME10_011
 ## 6 78022042         51.27226          3.728299      12207   ME03_017
@@ -172,9 +172,9 @@ knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentat
 ## 8 78056042         50.86149          3.411318      12209   ME05_019
 ##              station_name stationparameter_name parametertype_name
 ## 1             Overpelt_ME                    Pa                 Pa
-## 2              Melsele_ME                    Pa                 Pa
-## 3               Zarren_ME                    Pa                 Pa
-## 4           Liedekerke_ME                    BP                 Pa
+## 2               Zarren_ME                    Pa                 Pa
+## 3              Melsele_ME                    Pa                 Pa
+## 4           Liedekerke_ME                    Pa                 Pa
 ## 5            Herentals_ME                    Pa                 Pa
 ## 6            Boekhoute_ME                    Pa                 Pa
 ## 7 Niel-bij-St.-Truiden_ME                    Pa                 Pa
@@ -229,37 +229,23 @@ knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentat
 <td align="left">mm</td>
 </tr>
 <tr class="even">
-<td align="right">94540042</td>
-<td align="left">ME11_002</td>
-<td align="left">Overpelt_ME</td>
-<td align="left">PET</td>
-<td align="left">mm</td>
-</tr>
-<tr class="odd">
 <td align="right">94512042</td>
 <td align="left">ME09_012</td>
 <td align="left">Niel-bij-St.-Truiden_ME</td>
 <td align="left">PET</td>
 <td align="left">mm</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="right">94526042</td>
 <td align="left">ME10_011</td>
 <td align="left">Herentals_ME</td>
 <td align="left">PET</td>
 <td align="left">mm</td>
 </tr>
-<tr class="odd">
-<td align="right">94498042</td>
-<td align="left">ME07_006</td>
-<td align="left">Liedekerke_ME</td>
-<td align="left">PET</td>
-<td align="left">mm</td>
-</tr>
 <tr class="even">
-<td align="right">94470042</td>
-<td align="left">ME04_001</td>
-<td align="left">Melsele_ME</td>
+<td align="right">94540042</td>
+<td align="left">ME11_002</td>
+<td align="left">Overpelt_ME</td>
 <td align="left">PET</td>
 <td align="left">mm</td>
 </tr>
@@ -271,9 +257,23 @@ knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentat
 <td align="left">mm</td>
 </tr>
 <tr class="even">
+<td align="right">94498042</td>
+<td align="left">ME07_006</td>
+<td align="left">Liedekerke_ME</td>
+<td align="left">PET</td>
+<td align="left">mm</td>
+</tr>
+<tr class="odd">
 <td align="right">94484042</td>
 <td align="left">ME05_019</td>
 <td align="left">Waregem_ME</td>
+<td align="left">PET</td>
+<td align="left">mm</td>
+</tr>
+<tr class="even">
+<td align="right">94470042</td>
+<td align="left">ME04_001</td>
+<td align="left">Melsele_ME</td>
 <td align="left">PET</td>
 <td align="left">mm</td>
 </tr>
@@ -303,57 +303,57 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 <pre><code>## Use datasource: 4 for data requests of this station!</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">available_variables <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(ts_id, station_name, ts_name, 
                                parametertype_name)</code></pre></div>
-<pre><code>##       ts_id               station_name              ts_name
-## 1  94251010 Sint-Amands tij/Zeeschelde        AlarmStatus.O
-## 2  55429010 Sint-Amands tij/Zeeschelde                Pv.HW
-## 3  55431010 Sint-Amands tij/Zeeschelde            Base.Lang
-## 4  55436010 Sint-Amands tij/Zeeschelde           Pv.HW.Lang
-## 5  55437010 Sint-Amands tij/Zeeschelde           Pv.LW.Lang
-## 6  55442010 Sint-Amands tij/Zeeschelde             Gaugings
-## 7  55447010 Sint-Amands tij/Zeeschelde                LW.KK
-## 8  55420010 Sint-Amands tij/Zeeschelde               HW.tpk
-## 9  89205010 Sint-Amands tij/Zeeschelde             KT-det.O
-## 10 96963010 Sint-Amands tij/Zeeschelde              KT-HWLW
-## 11 55421010 Sint-Amands tij/Zeeschelde            HW.KD_NKD
-## 12 55423010 Sint-Amands tij/Zeeschelde        GaugingsGDiff
-## 13 55434010 Sint-Amands tij/Zeeschelde          HWLW.Kidigi
-## 14 55446010 Sint-Amands tij/Zeeschelde         GaugingsDiff
-## 15 55450010 Sint-Amands tij/Zeeschelde          O.HW.KD_NKD
-## 16 55414010 Sint-Amands tij/Zeeschelde           O.Gaugings
-## 17 55441010 Sint-Amands tij/Zeeschelde            LW.KD_NKD
-## 18 55449010 Sint-Amands tij/Zeeschelde               LW.tpk
-## 19 55418010 Sint-Amands tij/Zeeschelde                HW.KK
-## 20 55430010 Sint-Amands tij/Zeeschelde                Pv.LW
-## 21 55448010 Sint-Amands tij/Zeeschelde                   Pv
-## 22 88622010 Sint-Amands tij/Zeeschelde             Astro.05
-## 23 55422010 Sint-Amands tij/Zeeschelde               HW.typ
-## 24 55428010 Sint-Amands tij/Zeeschelde        O.TerrainCorr
-## 25 55433010 Sint-Amands tij/Zeeschelde                Model
-## 26 55440010 Sint-Amands tij/Zeeschelde              HW.Hist
-## 27 55445010 Sint-Amands tij/Zeeschelde               LW.typ
-## 28 88621010 Sint-Amands tij/Zeeschelde             Astro.10
-## 29 96962010 Sint-Amands tij/Zeeschelde                KT-LW
-## 30 58546010 Sint-Amands tij/Zeeschelde              LW.hulp
-## 31 55424010 Sint-Amands tij/Zeeschelde                Pv.05
-## 32 55443010 Sint-Amands tij/Zeeschelde               LW.rco
-## 33 55415010 Sint-Amands tij/Zeeschelde                   RC
-## 34 88623010 Sint-Amands tij/Zeeschelde           Astro.HWLW
-## 35 55425010 Sint-Amands tij/Zeeschelde              Pv.HWLW
-## 36 55427010 Sint-Amands tij/Zeeschelde              LW.Hist
-## 37 55432010 Sint-Amands tij/Zeeschelde          O.LW.KD_NKD
-## 38 55435010 Sint-Amands tij/Zeeschelde              Pv.Lang
-## 39 55439010 Sint-Amands tij/Zeeschelde        O.HWLW.Kidigi
-## 40 88620010 Sint-Amands tij/Zeeschelde             Astro.01
-## 41 99870010 Sint-Amands tij/Zeeschelde KT-AlarmStatus-Max.O
-## 42 55416010 Sint-Amands tij/Zeeschelde                O.01b
-## 43 55417010 Sint-Amands tij/Zeeschelde                 Base
-## 44 55419010 Sint-Amands tij/Zeeschelde                Pv.10
-## 45 55426010 Sint-Amands tij/Zeeschelde               Kidigi
-## 46 55438010 Sint-Amands tij/Zeeschelde           HW.t-h.wdw
-## 47 55444010 Sint-Amands tij/Zeeschelde           LW.t-h.wdw
-## 48 84309010 Sint-Amands tij/Zeeschelde      KT-Percentile.O
-## 49 96864010 Sint-Amands tij/Zeeschelde              KT-Last
-## 50 96961010 Sint-Amands tij/Zeeschelde                KT-HW
+<pre><code>##        ts_id               station_name              ts_name
+## 1   94251010 Sint-Amands tij/Zeeschelde        AlarmStatus.O
+## 2   55429010 Sint-Amands tij/Zeeschelde                Pv.HW
+## 3   55431010 Sint-Amands tij/Zeeschelde            Base.Lang
+## 4   55436010 Sint-Amands tij/Zeeschelde           Pv.HW.Lang
+## 5   55437010 Sint-Amands tij/Zeeschelde           Pv.LW.Lang
+## 6   55442010 Sint-Amands tij/Zeeschelde             Gaugings
+## 7   55447010 Sint-Amands tij/Zeeschelde                LW.KK
+## 8   55420010 Sint-Amands tij/Zeeschelde               HW.tpk
+## 9   89205010 Sint-Amands tij/Zeeschelde             KT-det.O
+## 10  96963010 Sint-Amands tij/Zeeschelde              KT-HWLW
+## 11  55421010 Sint-Amands tij/Zeeschelde            HW.KD_NKD
+## 12  55423010 Sint-Amands tij/Zeeschelde        GaugingsGDiff
+## 13  55434010 Sint-Amands tij/Zeeschelde          HWLW.Kidigi
+## 14  55446010 Sint-Amands tij/Zeeschelde         GaugingsDiff
+## 15  55450010 Sint-Amands tij/Zeeschelde          O.HW.KD_NKD
+## 16  55414010 Sint-Amands tij/Zeeschelde           O.Gaugings
+## 17  55441010 Sint-Amands tij/Zeeschelde            LW.KD_NKD
+## 18  55449010 Sint-Amands tij/Zeeschelde               LW.tpk
+## 19  55418010 Sint-Amands tij/Zeeschelde                HW.KK
+## 20  55430010 Sint-Amands tij/Zeeschelde                Pv.LW
+## 21  55448010 Sint-Amands tij/Zeeschelde                   Pv
+## 22 112686010 Sint-Amands tij/Zeeschelde             Astro.10
+## 23  55422010 Sint-Amands tij/Zeeschelde               HW.typ
+## 24  55428010 Sint-Amands tij/Zeeschelde        O.TerrainCorr
+## 25  55433010 Sint-Amands tij/Zeeschelde                Model
+## 26  55440010 Sint-Amands tij/Zeeschelde              HW.Hist
+## 27  55445010 Sint-Amands tij/Zeeschelde               LW.typ
+## 28  96962010 Sint-Amands tij/Zeeschelde                KT-LW
+## 29  58546010 Sint-Amands tij/Zeeschelde              LW.hulp
+## 30  55424010 Sint-Amands tij/Zeeschelde                Pv.05
+## 31  55443010 Sint-Amands tij/Zeeschelde               LW.rco
+## 32  55415010 Sint-Amands tij/Zeeschelde                   RC
+## 33  88623010 Sint-Amands tij/Zeeschelde           Astro.HWLW
+## 34  55425010 Sint-Amands tij/Zeeschelde              Pv.HWLW
+## 35  55427010 Sint-Amands tij/Zeeschelde              LW.Hist
+## 36  55432010 Sint-Amands tij/Zeeschelde          O.LW.KD_NKD
+## 37  55435010 Sint-Amands tij/Zeeschelde              Pv.Lang
+## 38  55439010 Sint-Amands tij/Zeeschelde        O.HWLW.Kidigi
+## 39  88620010 Sint-Amands tij/Zeeschelde             Astro.01
+## 40 112685010 Sint-Amands tij/Zeeschelde             Astro.05
+## 41  99870010 Sint-Amands tij/Zeeschelde KT-AlarmStatus-Max.O
+## 42  55416010 Sint-Amands tij/Zeeschelde                O.01b
+## 43  55417010 Sint-Amands tij/Zeeschelde                 Base
+## 44  55419010 Sint-Amands tij/Zeeschelde                Pv.10
+## 45  55426010 Sint-Amands tij/Zeeschelde               Kidigi
+## 46  55438010 Sint-Amands tij/Zeeschelde           HW.t-h.wdw
+## 47  55444010 Sint-Amands tij/Zeeschelde           LW.t-h.wdw
+## 48  84309010 Sint-Amands tij/Zeeschelde      KT-Percentile.O
+## 49  96864010 Sint-Amands tij/Zeeschelde              KT-Last
+## 50  96961010 Sint-Amands tij/Zeeschelde                KT-HW
 ##    parametertype_name
 ## 1                   W
 ## 2                   W
@@ -383,17 +383,17 @@ pet_yearly <span class="op">%&gt;%</span><span class="st"> </span>
 ## 26                  W
 ## 27                  W
 ## 28        W_voorspeld
-## 29        W_voorspeld
+## 29                  W
 ## 30                  W
 ## 31                  W
 ## 32                  W
-## 33                  W
-## 34        W_voorspeld
+## 33        W_voorspeld
+## 34                  W
 ## 35                  W
 ## 36                  W
 ## 37                  W
 ## 38                  W
-## 39                  W
+## 39        W_voorspeld
 ## 40        W_voorspeld
 ## 41        W_voorspeld
 ## 42                  W
