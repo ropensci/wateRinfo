@@ -9,7 +9,7 @@ wateRinfo is an open source project, maintained by people who care. We are not d
 [new_issue]: https://github.com/ropensci/wateRinfo/issues/new
 [website]: https://ropensci.github.io/wateRinfo
 [citation]: https://ropensci.github.io/wateRinfo/authors.html
-[email]: mailto:stijn.vanhoey@inbo.be
+[email]: mailto:stijnvanhoey@gmail.com
 
 ## Code of conduct
 
