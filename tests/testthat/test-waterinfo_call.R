@@ -24,17 +24,15 @@ test_that("non existing tsid to API", {
   )
 })
 
-# tackle specific case when tomcat error is thrown by the server
-# (missing datasource)
+# tackle specific case when error is thrown by the server on missing datasource
 test_that("datasource not included in the API call", {
   query <- list(
     type = "queryServices", service = "kisters",
     request = "getTimeseriesvalues",
-    ts_id = "notsid", format = "json"
+    ts_id = "5156042", format = "json"
   )
   expect_error(call_waterinfo(query),
-               regexp = paste0("API did not return json - The server ",
-                               "encountered an .*")
+               regexp = "Waterinfo API request failed.*InvalidParameterValue.*Could not find a datasource"
   )
 })
 
