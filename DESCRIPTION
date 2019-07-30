@@ -1,6 +1,6 @@
 Package: wateRinfo
 Title: Download Time Series Data from Waterinfo.be
-Version: 0.3.0.9058
+Version: 0.3.0.9065
 Description: wateRinfo facilitates access to waterinfo.be 
     (<https://www.waterinfo.be>), a website managed by the Flanders Environment 
     Agency (VMM) and Flanders Hydraulics Research. The website provides access 

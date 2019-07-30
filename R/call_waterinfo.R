@@ -53,30 +53,6 @@ call_waterinfo <- function(query, base_url = "download", token = NULL) {
     }
   }
 
-  if (http_type(res) != "application/json") {
-    if (http_type(res) == "application/xml") {
-      custom_error <- content(res, "text", encoding = "UTF-8")
-      pattern <- "(?<=ExceptionText>).*(?=</ExceptionText>)"
-      error_message <- regmatches(
-        custom_error,
-        regexpr(pattern, custom_error,
-          perl = TRUE
-        )
-      )
-    } else if (http_type(res) == "text/html") {
-      custom_error <- content(res, "text", encoding = "UTF-8")
-      pattern <- paste0("(?<=Description</b>).*(?=</p><p>)|",
-                        "(?<=description</b> <u>).*(?=</u>)")
-      error_message <- regmatches(
-        custom_error,
-        regexpr(pattern, custom_error,
-                perl = TRUE
-        )
-      )
-    }
-    stop("API did not return json - ", trimws(error_message), call. = FALSE)
-  }
-
   parsed <- fromJSON(content(res, "text"))
 
   if (http_error(res)) {
