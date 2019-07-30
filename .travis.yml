@@ -10,6 +10,7 @@ r_github_packages:
 
 after_success:
   - Rscript -e "covr::coveralls()"
+  - R CMD INSTALL . # Install the package to build vignettes
   - Rscript -e "pkgdown::build_site(preview = FALSE)"
 
 deploy:
