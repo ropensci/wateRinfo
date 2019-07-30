@@ -1,15 +1,22 @@
-# R for travis: see documentation at Travis docs https://docs.travis-ci.com/user/languages/r
-
 language: r
-sudo: false
 cache: packages
-warnings_are_errors: true
 
 os:
-    - linux
-    - osx
+  - linux
+  - osx
+
+r_github_packages:
+  - r-lib/pkgdown
 
 after_success:
-  - Rscript -e 'covr::coveralls()'
+  - Rscript -e "covr::coveralls()"
+  - Rscript -e "pkgdown::build_site(preview = FALSE)"
 
-
+deploy:
+  provider: pages
+  local_dir: docs
+  skip_cleanup: true
+  keep_history: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
