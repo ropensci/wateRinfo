@@ -24,7 +24,7 @@ library(wateRinfo)
 
 ## Downloading with known `ts` identifier
 
-In case you already know the `ts_id` identifier that defines your time serie, the package provides the function `get_timeseries_tsid` to download a specific period of the time series. 
+In case you already know the `ts_id` identifier that defines your time serie, the package provides the function `get_timeseries_tsid()` to download a specific period of the time series. 
 
 As an example, to download the air pressure time series data of Liedekerke with a 15 min resolution (`ts_id = 78073042`) for the first of January 2016:
 
@@ -57,7 +57,7 @@ supported_variables("en") %>%
     as.list()
 ```
 
-To check which predefined frequencies are provided by the waterinfo.be API for a given variable, the `supported_frequencies` function is available:
+To check which predefined frequencies are provided by the waterinfo.be API for a given variable, the `supported_frequencies()` function is available:
 
 ```{r suppfreq1}
 supported_frequencies(variable_name = "air_pressure")
@@ -92,7 +92,7 @@ pet_yearly %>%
 
 (see the vignette on defining date periods for more information on the period argument used)
 
-**Remark:** the `get_stations` function only works for those measurement stations belonging to the VMM `meetnet` (network), related to the so-called `datasource = 1`. For [other networks](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting), i.e. `datasource = 4`, the enlisting is not supported. Still, a search for data is provided starting from a given station name, as explained in the next section.
+**Remark:** the `get_stations()` function only works for those measurement stations belonging to the VMM `meetnet` (network), related to the so-called `datasource = 1`. For [other networks](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting), i.e. `datasource = 4`, the enlisting is not supported. Still, a search for data is provided starting from a given station name, as explained in the next section.
 
 ## Search identifier based on station name
 
@@ -100,7 +100,7 @@ Apart from the option to check the measurement stations that can provide data fo
 
 ![Waterinfo.be example printscreen of time series](./waterinfo_screen.png)
 
-So, for the example in the figure, i.e. `station_no = zes42a-1066`, the available time series are retrieved by using the `get_variables` command:
+So, for the example in the figure, i.e. `station_no = zes42a-1066`, the available time series are retrieved by using the `get_variables()` command:
 
 ```{r varforstat}
 available_variables <- get_variables("zes42a-1066")
@@ -110,7 +110,7 @@ available_variables %>% select(ts_id, station_name, ts_name,
 
 The available number of variables depends on the measurement station. The representation is not standardized and depends also from the type of [`meetnet`](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting). Nevertheless, one can derive the required `ts_id` from the list when interpreting the field names. Remark that the datasource can be 4 instead of 1 for specific `meetnetten` (networks). The datasource to use is printed when asking the variables for a station. 
 
-In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the `ts_id = 55419010` can be used in the `get_timeseries_tsid` function, taking into account the `datasource = 4` (default is 1):
+In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the `ts_id = 55419010` can be used in the `get_timeseries_tsid()` function, taking into account the `datasource = 4` (default is 1):
 
 ```{r downloadstamands, fig.width = 7}
 tide_stamands <- get_timeseries_tsid("55419010", 
@@ -166,7 +166,7 @@ ggplot(etikhove, aes(Timestamp, Value)) +
 
 ## Check the URL used to request the data
 
-As each of these data requests is actually a call to the [waterinfo.be](https://www.waterinfo.be/) API, the call can be tested in a browser as well. To retrieve the URL used to request certain data (using `get_variables`, `get_stations` or `get_timeseries_tsid`), check the `comment` attribute of the returned `data.frame`, for example:
+As each of these data requests is actually a call to the [waterinfo.be](https://www.waterinfo.be/) API, the call can be tested in a browser as well. To retrieve the URL used to request certain data (using `get_variables()`, `get_stations()` or `get_timeseries_tsid()`), check the `comment()` attribute of the returned `data.frame`, for example:
 
 ```
 air_stations <- get_stations("air_pressure")

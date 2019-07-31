@@ -36,7 +36,7 @@ library(wateRinfo)
 
 ## Example
 
-For a number of supported variables ([documented](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) by VMM), the stations providing time series data for a given variable can be listed with the command `get_stations`.
+For a number of supported variables ([documented](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) by VMM), the stations providing time series data for a given variable can be listed with the command `get_stations()`.
 
 If you want to know the supported variables, ask for the supported variables:
 
@@ -50,7 +50,7 @@ Listing the available air_pressure stations:
 get_stations("air_pressure")
 ```
 
-Each of the stations in the list for a given variable, are represented by a `ts_id`. These can be used to download the data of a given period with the command `get_timeseries_tsid`, for example Overpelt (`ts_id = 78124042`):
+Each of the stations in the list for a given variable, are represented by a `ts_id`. These can be used to download the data of a given period with the command `get_timeseries_tsid()`, for example Overpelt (`ts_id = 78124042`):
 
 ```{r download_pressure}
 overpelt_pressure <- get_timeseries_tsid("78124042", 
@@ -73,7 +73,7 @@ ggplot(overpelt_pressure, aes(x = Timestamp, y = Value)) +
 knitr::include_graphics("man/figures/README-plot_pressure-1.png")
 ```
 
-Another option is to check the available variables for a given station, with the function `get_variables`. Let's consider again Overpelt (`ME11_002`) and check the first ten available variables at the Overpelt measurement station:
+Another option is to check the available variables for a given station, with the function `get_variables()`. Let's consider again Overpelt (`ME11_002`) and check the first ten available variables at the Overpelt measurement station:
 
 ```{r var_overpelt, message = FALSE}
 vars_overpelt <- get_variables("ME11_002")
