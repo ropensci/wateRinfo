@@ -1,5 +1,5 @@
 ---
-title: "Definition of the date period to download"
+title: "Define the date period to download"
 author: "Stijn Van Hoey"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette

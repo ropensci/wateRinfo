@@ -1,5 +1,5 @@
 ---
-title: "Download time series from waterinfo.be"
+title: "Introduction to downloading time series data from waterinfo.be"
 author: "Stijn Van Hoey"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
