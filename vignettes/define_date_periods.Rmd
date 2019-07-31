@@ -1,5 +1,5 @@
 ---
-title: "Definition of the date period to download"
+title: "Define the date period to download"
 author: "Stijn Van Hoey"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -35,11 +35,11 @@ The package will both except valid date strings as well as valid date objects (`
 * "2017-01"
 * "2017"
 
-According to the `lubridate` package, these orders are accepted: ymd_hms, ymd, ym, y. As a result, also "2017/01/01", "2017 01 01" or "20170101" are valid date string inputs. Make sure the order of year-month-day is respected. For example, "01/01/2017", "01-01-2017" and "01-2017" are NOT valid. 
+According to the [`lubridate`](https://lubridate.tidyverse.org/) package, these orders are accepted: `ymd_hms`, `ymd`, `ym`, `y`. As a result, also `"2017/01/01"`, `"2017 01 01"` or `"20170101"` are valid date string inputs. Make sure the order of year-month-day is respected. For example, `"01/01/2017"`, `"01-01-2017"` and `"01-2017"` are NOT valid. 
 
 ## How to define the period
 
-The period string provides a flexible way to extract a time period starting (in combination with `from`) or ending (in combination with `to`) at a given moment. Moreover, by using only the `period` as argument, it will cover all cases where one is interesed in *the last x days/months/years/...*.
+The period string provides a flexible way to extract a time period starting (in combination with `from`) or ending (in combination with `to`) at a given moment. Moreover, by using only the `period` as argument, it will cover all cases where one is interested in *the last x days/months/years/...*.
 
 Some examples are:
 
@@ -59,7 +59,7 @@ In general, the period string should be provided as `P#Y#M#DT#H#M#S`, where P de
 * `M` - minutes
 * `S` - seconds
 
-`T` is required if codes about sub-day resolution (day, minutes, hours) is part of the period string. Furthermore, `D` and `W` are mutually exclusive. 
+`T` is required if codes about sub-day resolution (day, minutes, hours) is part of the period string. Furthermore, `D` and `W` are mutually exclusive.
 
 More examples of valid period strings are:
 
@@ -67,7 +67,7 @@ More examples of valid period strings are:
 * `P2WT12H` : period of 2 weeks and 12 hours
 * `P1Y6M3DT4H20M30S`: period of 1 year, six months, 3 days, 4 hours, 20 minutes and 30 seconds
 
-## Example applications
+## Examples
 
 ```{r loadlibrary, warning = FALSE}
 library(wateRinfo)

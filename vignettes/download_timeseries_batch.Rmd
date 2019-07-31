@@ -1,5 +1,5 @@
 ---
-title: "Downloading time series in batch"
+title: "Download time series from multiple stations/variables"
 author: "Stijn Van Hoey"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
