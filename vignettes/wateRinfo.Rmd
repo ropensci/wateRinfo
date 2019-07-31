@@ -33,7 +33,7 @@ my_data <- get_timeseries_tsid("78073042", from = "2016-01-01", to = "2016-01-02
 knitr::kable(head(my_data), align = "lcc")
 ```
 
-For more information on defining the period of the download, a separate vignette is available. Let's have a visual check of our data, using the `ggplot2` package:
+For more information on defining the date period of the download, see [this vignette](https://ropensci.github.io/wateRinfo/articles/define_date_periods.html). Let's have a visual check of our data, using the `ggplot2` package:
 
 ```{r tsvisual, fig.width = 7}
 ggplot(my_data, aes(Timestamp, Value)) + 
@@ -90,7 +90,7 @@ pet_yearly %>%
     xlab("") + ylab("PET Herentals (mm)")
 ```
 
-(see the vignette on defining date periods for more information on the period argument used)
+See [this vignette](https://ropensci.github.io/wateRinfo/articles/define_date_periods.html) to understand the `period = "P10Y"` format.
 
 **Remark:** the `get_stations()` function only works for those measurement stations belonging to the VMM `meetnet` (network), related to the so-called `datasource = 1`. For [other networks](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting), i.e. `datasource = 4`, the enlisting is not supported. Still, a search for data is provided starting from a given station name, as explained in the next section.
 
