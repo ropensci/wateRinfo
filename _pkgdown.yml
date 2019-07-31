@@ -15,29 +15,6 @@ home:
   - text: Get to know our team
     href: https://oscibio.inbo.be
 
-navbar:
-  title: ~
-  type: default
-  left:
-  - text: Reference
-    href: reference/index.html
-  - text: Tutorials
-    href: articles/index.html
-    menu:
-    - text: Definition of the date period to download
-      href: articles/define_date_periods.html
-    - text: Downloading time series in batch
-      href: articles/download_timeseries_batch.html
-    - text: Download time series from waterinfo.be
-      href: articles/download_timeseries.html
-  - text: Contributing
-    href: CONTRIBUTING.html
-  right:
-  - icon: fa-twitter fa-lg
-    href: https://twitter.com/oscibio
-  - icon: fa-github fa-lg
-    href: https://github.com/ropensci/wateRinfo
-
 reference:
   - title: "Main download functionalities"
     desc: "Functions for downloading stations, variables and time series"
@@ -72,14 +49,3 @@ reference:
     contents:
       - liedekerke
       - air_pressure
-
-articles:
-  - title: "Tutorial on the main downloading functionalities"
-    contents:
-    - download_timeseries
-  - title: "How to define the period?"
-    contents:
-    - define_date_periods
-  - title: "Downloading the data of multiple stations/variables"
-    contents:
-    - download_timeseries_batch
