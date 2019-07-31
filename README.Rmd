@@ -44,7 +44,7 @@ If you want to know the supported variables, ask for the supported variables:
 supported_variables("en")
 ```
 
-Listing the available air_pressure stations:
+Listing the available air pressure stations:
 
 ```{r station_listing}
 get_stations("air_pressure")
@@ -59,7 +59,7 @@ overpelt_pressure <- get_timeseries_tsid("78124042",
 head(overpelt_pressure)
 ```
 
-Making a plot of the data with ggplot:
+Making a plot of the data with [`ggplot2`](https://ggplot2.tidyverse.org/):
 
 ```{r plot_pressure, echo = TRUE, eval = FALSE}
 library(ggplot2)
@@ -108,7 +108,7 @@ More detailed tutorials are available in the package vignettes!
 
 The amount of data downloaded from waterinfo.be is limited via a credit system. You do not need to get a token right away to download data. For limited and irregular downloads, a token will not be required.
 
-When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
+When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail address <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
 
 Get token with client-credit code: (limited client-credit code for testing purposes)
 

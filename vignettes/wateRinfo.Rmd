@@ -22,7 +22,7 @@ The [waterinfo.be](https://www.waterinfo.be) API uses a system of identifiers, c
 library(wateRinfo)
 ```
 
-## Downloading with known `ts` identifier
+## Download with known `ts` identifier
 
 In case you already know the `ts_id` identifier that defines your time serie, the package provides the function `get_timeseries_tsid()` to download a specific period of the time series. 
 
@@ -44,13 +44,13 @@ As such, knowing the identifier is the most straightforward way of downloading a
 
 ## Search identifier based on variable name
 
-For a number of variables, the [documentation of the waterinfo.be API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) provides a direct overview option of all available VMM measurement stations, using the so-called `Timeseriesgroup_id`. For these variables, the package provides the function `get_stations` to download an overview of available measurement stations and the related `ts_id` identifiers. The latter can be used to [download the time series](#Downloading-with-known-ts-identifier). 
+For a number of variables, the [documentation of the waterinfo.be API](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) provides a direct overview option of all available VMM measurement stations, using the so-called `Timeseriesgroup_id`. For these variables, the package provides the function `get_stations()` to download an overview of available measurement stations and the related `ts_id` identifiers. The latter can be used to [download the time series](#download-with-known-ts-identifier). 
 
 ```{r statofvar}
 get_stations("air_pressure")
 ```
 
-By default, the expected frequency is the 15 min frequency of the time series. However, for some of the variables, multiple frequencies are supported by the API. The package provides a check on the supported variables and frequencies. An overview of the currently supported variables can be requested with the command `supported_variables()` (either in dutch, `nl`, or in english, `en`). Actually, more variables are available with the API (see next section), but for each of these variables the `get_stations` function is supported (i.e. the `Timeseriesgroup_id` is documented by VMM). 
+By default, the expected frequency is the 15 min frequency of the time series. However, for some of the variables, multiple frequencies are supported by the API. The package provides a check on the supported variables and frequencies. An overview of the currently supported variables can be requested with the command `supported_variables()` (either in Dutch, `nl`, or in English, `en`). Actually, more variables are available with the API (see next section), but for each of these variables the `get_stations()` function is supported (i.e. the `Timeseriesgroup_id` is documented by VMM). 
 
 ```{r suppvar}
 supported_variables("en") %>% 
@@ -78,7 +78,7 @@ subset_of_columns <- stations %>% select(ts_id, station_no, station_name,
 knitr::kable(subset_of_columns)
 ```
 
-When interesed in the data of `Herentals_ME`, we can use the corresponding `ts_id` to download the time series of PET with a yearly frequency and make a plot with `ggplot`:
+When interested in the data of `Herentals_ME`, we can use the corresponding `ts_id` to download the time series of PET with a yearly frequency and make a plot with `ggplot`:
 
 ```{r yearly_pet, fig.width = 7}
 pet_yearly <- get_timeseries_tsid("94526042", period = "P10Y")
@@ -96,7 +96,7 @@ pet_yearly %>%
 
 ## Search identifier based on station name
 
-Apart from the option to check the measurement stations that can provide data for a given variable, the package provides the function `get_variables` to get an overview of the available variables for a given station, using the `station_no`. The advantage compared to the `ts_id` is that these `station_no` names are provided by the waterinfo.be website itself when exploring the data. When clicking on a measurement station on the map and checking the time series graph, the `station_no` is provided in the upper left corner in between brackets. 
+In addition to the option to check the measurement stations that can provide data for a given variable, the package provides the function `get_variables()` to get an overview of the available variables for a given station, using the `station_no`. The advantage compared to the `ts_id` is that these `station_no` names are provided by the waterinfo.be website itself when exploring the data. When clicking on a measurement station on the map and checking the time series graph, the `station_no` is provided in the upper left corner in between brackets. 
 
 ![Waterinfo.be example printscreen of time series](./waterinfo_screen.png)
 
@@ -108,7 +108,7 @@ available_variables %>% select(ts_id, station_name, ts_name,
                                parametertype_name)
 ```
 
-The available number of variables depends on the measurement station. The representation is not standardized and depends also from the type of [`meetnet`](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting). Nevertheless, one can derive the required `ts_id` from the list when interpreting the field names. Remark that the datasource can be 4 instead of 1 for specific `meetnetten` (networks). The datasource to use is printed when asking the variables for a station. 
+The available number of variables depends on the measurement station. The representation is not standardized and also depends on the type of [`meetnet`](http://www.waterinfo.be/default.aspx?path=NL/HIC/Recent_toelichting). Nevertheless, one can derive the required `ts_id` from the list when interpreting the field names. Remark that the datasource can be 4 instead of 1 for specific `meetnetten` (networks). The datasource to use is printed when asking the variables for a station. 
 
 In order to download the 10 min time series water level data for the station in Sint-Amands tij/Zeeschelde, the `ts_id = 55419010` can be used in the `get_timeseries_tsid()` function, taking into account the `datasource = 4` (default is 1):
 
