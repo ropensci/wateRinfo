@@ -32,7 +32,7 @@ library(wateRinfo)
 
 ## Example
 
-For a number of supported variables ([documented](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) by VMM), the stations providing time series data for a given variable can be listed with the command `get_stations`.
+For a number of supported variables ([documented](https://www.waterinfo.be/download/9f5ee0c9-dafa-46de-958b-7cac46eb8c23?dl=0) by VMM), the stations providing time series data for a given variable can be listed with the command `get_stations()`.
 
 If you want to know the supported variables, ask for the supported variables:
 
@@ -60,7 +60,7 @@ supported_variables("en")
 #> 41            wind_speed
 ```
 
-Listing the available air_pressure stations:
+Listing the available air pressure stations:
 
 
 ```r
@@ -69,8 +69,8 @@ get_stations("air_pressure")
 #> 1 78124042         51.20300          5.439589      12213   ME11_002
 #> 2 78039042         51.24379          4.266912      12208   ME04_001
 #> 3 78005042         51.02263          2.970584      12206   ME01_003
-#> 4 78073042         50.88663          4.094898      12210   ME07_006
-#> 5 78107042         51.16224          4.845708      12212   ME10_011
+#> 4 78107042         51.16224          4.845708      12212   ME10_011
+#> 5 78073042         50.88663          4.094898      12210   ME07_006
 #> 6 78022042         51.27226          3.728299      12207   ME03_017
 #> 7 78090042         50.73795          5.141976      12211   ME09_012
 #> 8 78056042         50.86149          3.411318      12209   ME05_019
@@ -78,8 +78,8 @@ get_stations("air_pressure")
 #> 1             Overpelt_ME                    Pa                 Pa
 #> 2              Melsele_ME                    Pa                 Pa
 #> 3               Zarren_ME                    Pa                 Pa
-#> 4           Liedekerke_ME                    BP                 Pa
-#> 5            Herentals_ME                    Pa                 Pa
+#> 4            Herentals_ME                    Pa                 Pa
+#> 5           Liedekerke_ME                    Pa                 Pa
 #> 6            Boekhoute_ME                    Pa                 Pa
 #> 7 Niel-bij-St.-Truiden_ME                    Pa                 Pa
 #> 8              Waregem_ME                    Pa                 Pa
@@ -94,7 +94,7 @@ get_stations("air_pressure")
 #> 8           hPa          VMM
 ```
 
-Each of the stations in the list for a given variable, are represented by a `ts_id`. These can be used to download the data of a given period with the command `get_timeseries_tsid`, for example Overpelt (`ts_id = 78124042`):
+Each of the stations in the list for a given variable, are represented by a `ts_id`. These can be used to download the data of a given period with the command `get_timeseries_tsid()`, for example Overpelt (`ts_id = 78124042`):
 
 
 ```r
@@ -111,7 +111,7 @@ head(overpelt_pressure)
 #> 6 2017-04-01 01:15:00 1008.4          130
 ```
 
-Making a plot of the data with ggplot:
+Making a plot of the data with [`ggplot2`](https://ggplot2.tidyverse.org/):
 
 
 ```r
@@ -124,7 +124,7 @@ ggplot(overpelt_pressure, aes(x = Timestamp, y = Value)) +
 
 <img src="man/figures/README-plot_pressure-1.png" title="plot of chunk showplot1" alt="plot of chunk showplot1" width="80%" />
 
-Another option is to check the available variables for a given station, with the function `get_variables`. Let's consider again Overpelt (`ME11_002`) and check the first ten available variables at the Overpelt measurement station:
+Another option is to check the available variables for a given station, with the function `get_variables()`. Let's consider again Overpelt (`ME11_002`) and check the first ten available variables at the Overpelt measurement station:
 
 
 ```r
@@ -189,7 +189,7 @@ More detailed tutorials are available in the package vignettes!
 
 The amount of data downloaded from waterinfo.be is limited via a credit system. You do not need to get a token right away to download data. For limited and irregular downloads, a token will not be required.
 
-When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail adress <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
+When you require more extended data requests, please request a download token from the waterinfo.be site administrators via the e-mail address <hydrometrie@waterinfo.be> with a statement of which data and how frequently you would like to download data. You will then receive a client-credit code that can be used to obtain a token that is valid for 24 hours, after which the token can be refreshed with the same client-credit code.
 
 Get token with client-credit code: (limited client-credit code for testing purposes)
 
@@ -200,12 +200,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3NjI2NzA4Yi0xNjdiLTRlZGMtOWI0OC01YmQ2MWY5ZDZmMmQiLCJpYXQiOjE1NTEyNzI4MjUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTUxMzU5MjI1fQ.ySiyJdkmwFf-hy9hNAGqWFqWiAG18go7fFje3T_8uYE
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhNDlkOGNkMS03MWI1LTQxMDgtOGRlNy0wYjA3MWMwMDQ5NTgiLCJpYXQiOjE1NjQ1NjY0NzcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTY0NjUyODc3fQ.z-gFCTmpPmvjQ_d46vmKMkmUh_7GgBtycb3NpRobx58
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2019-02-28 14:07:05 CET
+#>  expires: 2019-08-01 11:47:57 CEST
 ```
 
 Receive information on the validity of the token:
