@@ -3,7 +3,7 @@ context("waterinfo_call")
 test_that("base url is valid", {
   query <- list()
   expect_error(call_waterinfo(query, base_url = "www"),
-    regexp = "Base url should be download or pro"
+    regexp = "Base url should be vmm, hic or pro"
   )
 })
 
