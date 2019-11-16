@@ -59,7 +59,8 @@ get_stations <- function(variable_name = NULL, frequency = "15min",
   return_fields <- c(
     "custom_attributes", "station_id", "station_no",
     "station_name", "stationparameter_name",
-    "ts_unitsymbol", "parametertype_name", "ts_id"
+    "ts_unitsymbol", "parametertype_name", "ts_id",
+    "ca_sta"
   )
 
   stations <- call_waterinfo(
@@ -74,7 +75,7 @@ get_stations <- function(variable_name = NULL, frequency = "15min",
       md_returnfields = as.character(paste(return_fields,
         collapse = ","
       )),
-      custattr_returnfields =
+      ca_sta_returnfields =
         as.character(paste(custom_attributes,
           collapse = ","
         ))
