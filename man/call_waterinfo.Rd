@@ -4,12 +4,12 @@
 \alias{call_waterinfo}
 \title{http call to waterinfo.be}
 \usage{
-call_waterinfo(query, base_url = "download", token = NULL)
+call_waterinfo(query, base_url = "vmm", token = NULL)
 }
 \arguments{
 \item{query}{list of query options to be used together with the base string}
 
-\item{base_url}{str download | pro, default download defined}
+\item{base_url}{str vmm | hic | pro, default download defined}
 
 \item{token}{token to use with the call (optional, can be retrieved via
 \code{\link{get_token}})}

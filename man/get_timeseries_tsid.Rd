@@ -73,7 +73,7 @@ Examples of valid period strings: P3D, P1Y, P1DT12H, PT6H, P1Y6M3DT4H20M30S.}
 
 \item{to}{date of datestring as end of the time series}
 
-\item{datasource}{int [0-3] defines the `meetnet` of which the measurement
+\item{datasource}{int [0-4] defines the `meetnet` of which the measurement
 station is part of. VMM based stations are net '1', MOW-HIC is net '2'}
 
 \item{token}{token to use with the call (optional, can be retrieved via
