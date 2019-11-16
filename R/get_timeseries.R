@@ -22,7 +22,7 @@
 #' Examples of valid period strings: P3D, P1Y, P1DT12H, PT6H, P1Y6M3DT4H20M30S.
 #' @param from date of datestring as start of the time series
 #' @param to date of datestring as end of the time series
-#' @param datasource int [0-3] defines the `meetnet` of which the measurement
+#' @param datasource int [0-4] defines the `meetnet` of which the measurement
 #' station is part of. VMM based stations are net '1', MOW-HIC is net '2'
 #' @param token token to use with the call (optional, can be retrieved via
 #' \code{\link{get_token}})
@@ -91,6 +91,14 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
   # check and handle the date/period information
   period_info <- parse_period(from, to, period)
 
+  if (datasource == 1) {
+    base <- "vmm"
+  } else if (datasource == 4) {
+    base <- "hic"
+  } else {
+    base <- "vmm"
+  }
+
   # general arguments
   query_list <- list(
     type = "queryServices", service = "kisters",
@@ -105,6 +113,7 @@ get_timeseries_tsid <- function(ts_id, period = NULL, from = NULL,
   # http GET call to waterinfo for the dataframe
   time_series <- call_waterinfo(
     query = c(query_list, period_info),
+    base_url = base,
     token = token
   )
 
