@@ -15,7 +15,7 @@ Authors@R: c(
     person("Research Institute for Nature and Forest (INBO)", role = "cph", email = "info@inbo.be")
     )
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/wateRinfo, https://ropensci.github.io/wateRinfo
+URL: https://github.com/ropensci/wateRinfo, https://docs.ropensci.org/wateRinfo
 BugReports: https://github.com/ropensci/wateRinfo/issues
 Depends:
     R (>= 2.10)

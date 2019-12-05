@@ -10,8 +10,8 @@ wateRinfo facilitates access to [waterinfo.be](https://www.waterinfo.be/), a web
 
 To get started, see:
 
-* [Function reference](https://ropensci.github.io/wateRinfo/reference/index.html): an overview of all wateRinfo functions.
-* [Articles](https://ropensci.github.io/wateRinfo/articles/): tutorials on how to use the package.
+* [Function reference](https://docs.ropensci.org/wateRinfo/reference/index.html): an overview of all wateRinfo functions.
+* [Articles](https://docs.ropensci.org/wateRinfo/articles/): tutorials on how to use the package.
 
 ## Installation
 

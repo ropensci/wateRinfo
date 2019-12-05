@@ -20,7 +20,7 @@ wateRinfo facilitates access to waterinfo.be
 Useful links:
 \itemize{
   \item \url{https://github.com/ropensci/wateRinfo}
-  \item \url{https://ropensci.github.io/wateRinfo}
+  \item \url{https://docs.ropensci.org/wateRinfo}
   \item Report bugs at \url{https://github.com/ropensci/wateRinfo/issues}
 }
 
