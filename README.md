@@ -23,7 +23,7 @@ You can install wateRinfo from [GitHub](https://github.com/ropensci/wateRinfo) w
 devtools::install_github("ropensci/wateRinfo")
 ```
 
-When succesfull, load it as usual:
+When successful, load it as usual:
 
 
 ```r
@@ -200,12 +200,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhNDlkOGNkMS03MWI1LTQxMDgtOGRlNy0wYjA3MWMwMDQ5NTgiLCJpYXQiOjE1NjQ1NjY0NzcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTY0NjUyODc3fQ.z-gFCTmpPmvjQ_d46vmKMkmUh_7GgBtycb3NpRobx58
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxNzAyOWQ2ZC05ZDhmLTQ1YzYtOWJiOC0yN2MzMmQ2N2YyOGUiLCJpYXQiOjE1NzYwNzUxODAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTc2MTYxNTgwfQ.lOPJZ52e2Z2kjtfYRZHiW9H89ZwUw0c26lo6nXc2rUY
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2019-08-01 11:47:57 CEST
+#>  expires: 2019-12-12 15:39:40 CET
 ```
 
 Receive information on the validity of the token:
@@ -221,7 +221,7 @@ Check when the token expires:
 
 ```r
 expires.in(my_token)
-#> Time difference of 24 hours
+#> Time difference of 23.99999 hours
 ```
 
 Use token when retrieving data:
@@ -231,22 +231,22 @@ Use token when retrieving data:
 get_stations(variable_name = "verdamping_monteith", token = my_token)
 #>      ts_id station_latitude station_longitude station_id station_no
 #> 1 94310042         51.02263          2.970584      12206   ME01_003
-#> 2 94544042         51.20300          5.439589      12213   ME11_002
+#> 2 94516042         50.73795          5.141976      12211   ME09_012
 #> 3 94530042         51.16224          4.845708      12212   ME10_011
-#> 4 94516042         50.73795          5.141976      12211   ME09_012
-#> 5 94502042         50.88663          4.094898      12210   ME07_006
-#> 6 94474042         51.24379          4.266912      12208   ME04_001
+#> 4 94544042         51.20300          5.439589      12213   ME11_002
+#> 5 94460042         51.27226          3.728299      12207   ME03_017
+#> 6 94502042         50.88663          4.094898      12210   ME07_006
 #> 7 94488042         50.86149          3.411318      12209   ME05_019
-#> 8 94460042         51.27226          3.728299      12207   ME03_017
+#> 8 94474042         51.24379          4.266912      12208   ME04_001
 #>              station_name stationparameter_name parametertype_name
 #> 1               Zarren_ME                   pET                PET
-#> 2             Overpelt_ME                   pET                PET
+#> 2 Niel-bij-St.-Truiden_ME                   pET                PET
 #> 3            Herentals_ME                   pET                PET
-#> 4 Niel-bij-St.-Truiden_ME                   pET                PET
-#> 5           Liedekerke_ME                   pET                PET
-#> 6              Melsele_ME                   pET                PET
+#> 4             Overpelt_ME                   pET                PET
+#> 5            Boekhoute_ME                   pET                PET
+#> 6           Liedekerke_ME                   pET                PET
 #> 7              Waregem_ME                   pET                PET
-#> 8            Boekhoute_ME                   pET                PET
+#> 8              Melsele_ME                   pET                PET
 #>   ts_unitsymbol dataprovider
 #> 1            mm          VMM
 #> 2            mm          VMM

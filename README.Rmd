@@ -28,7 +28,7 @@ You can install wateRinfo from [GitHub](https://github.com/ropensci/wateRinfo) w
 devtools::install_github("ropensci/wateRinfo")
 ```
 
-When succesfull, load it as usual:
+When successful, load it as usual:
 
 ```{r load_lib}
 library(wateRinfo)
