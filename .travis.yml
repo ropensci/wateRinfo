@@ -11,14 +11,4 @@ r_github_packages:
 after_success:
   - Rscript -e "covr::coveralls()"
   - test $TRAVIS_OS_NAME = "linux" && R CMD INSTALL . # Install the package to build vignettes
-  - test $TRAVIS_OS_NAME = "linux" && Rscript -e "pkgdown::build_site(preview = FALSE)"
-
-deploy:
-  provider: pages
-  local_dir: docs
-  skip_cleanup: true
-  keep_history: true
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
-    condition: $TRAVIS_OS_NAME = "linux"
+  - test $TRAVIS_OS_NAME = "linux" && Rscript -e "pkgdown::build_site(preview = FALSE)" # Run pkgdown to check for issues (actual build happens on docs.ropensci.org)
