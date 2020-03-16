@@ -60,6 +60,20 @@ call_waterinfo <- function(query, base_url = "vmm", token = NULL) {
     }
   }
 
+  if (http_type(res) != "application/json") {
+    if (http_type(res) == "text/xml") {
+      custom_error <- content(res, "text", encoding = "UTF-8")
+
+      pattern <- "(?<=ExceptionText>).*(?=</ExceptionText>)"
+      error_message <- regmatches(
+        custom_error,
+        regexpr(pattern, custom_error,
+                perl = TRUE
+        ))
+    }
+    stop("API did not return json - ", trimws(error_message), call. = FALSE)
+  }
+
   parsed <- fromJSON(content(res, "text"))
 
   if (http_error(res)) {
