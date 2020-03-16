@@ -76,7 +76,8 @@ call_waterinfo <- function(query, base_url = "vmm", token = NULL) {
           "- When you require more extended data requests, please request",
           "a download token from the waterinfo.be site administrators via",
           "the e-mail address hydrometrie@waterinfo.be with a statement of",
-          "which data and how frequently you would like to download data.")
+          "which data and how frequently you would like to download data.",
+          "Run `?wateRinfo::token` for more information on token usage.")
     }
     stop("API did not return json - ", trimws(error_message), call. = FALSE)
   }
