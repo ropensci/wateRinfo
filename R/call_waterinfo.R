@@ -60,6 +60,28 @@ call_waterinfo <- function(query, base_url = "vmm", token = NULL) {
     }
   }
 
+  if (http_type(res) != "application/json") {
+    if (http_type(res) == "text/xml") {
+      custom_error <- content(res, "text", encoding = "UTF-8")
+
+      pattern <- "(?<=ExceptionText>).*(?=</ExceptionText>)"
+      error_message <- regmatches(
+        custom_error,
+        regexpr(pattern, custom_error,
+                perl = TRUE
+        ))
+    }
+    if (grep(pattern = "Credit limit exceeded", error_message) == 1) {
+      error_message <- paste(error_message,
+          "- When you require more extended data requests, please request",
+          "a download token from the waterinfo.be site administrators via",
+          "the e-mail address hydrometrie@waterinfo.be with a statement of",
+          "which data and how frequently you would like to download data.",
+          "Run `?wateRinfo::token` for more information on token usage.")
+    }
+    stop("API did not return json - ", trimws(error_message), call. = FALSE)
+  }
+
   parsed <- fromJSON(content(res, "text"))
 
   if (http_error(res)) {

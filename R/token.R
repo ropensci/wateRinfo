@@ -36,13 +36,17 @@
 #' client_secret <- '4ada871a-9528-4b4d-bfd5-b570ce8f4d2d'
 #' my_token <- get_token(client_id = client_id,client_secret = client_secret)
 #' print(my_token)
+#'
 #' # get token via client
 #' client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
 #'                 'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==')
 #' my_token <- get_token(client = client)
 #' print(my_token)
 #' is.expired(my_token)
-#' expires.in(my_token)
+#' expires.in
+#'
+#' # Use the token when requesting for data (i.e. get_* functions), e.g.
+#' get_stations(variable_name = "verdamping_monteith", token = my_token)
 #'
 #' @importFrom httr POST add_headers content
 #' @importFrom openssl base64_encode
