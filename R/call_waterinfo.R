@@ -79,7 +79,7 @@ call_waterinfo <- function(query, base_url = "vmm", token = NULL) {
             "Run `?wateRinfo::token` for more information on token usage.")
       }
     } else {
-      error_message <- "API returned response type not known to wateRinfo pakcage (no json or XML)."
+      error_message <- "API returned response type not known to wateRinfo package (no json or XML)."
     }
     stop("API did not return json - ", trimws(error_message), call. = FALSE)
   }
