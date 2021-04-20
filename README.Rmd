@@ -11,8 +11,7 @@ knitr::opts_chunk$set(
 # wateRinfo <img src="man/figures/logo.png" align="right" alt="" width="120">
 
 <!-- badges: start -->
-[![Build Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo) [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/crmofvs8c7oja0mn/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo-agry3/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
-[![R-CMD-check](https://github.com/ropensci/wateRinfo/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/wateRinfo/actions)
+[![R-CMD-check](https://github.com/ropensci/wateRinfo/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/wateRinfo/actions) [![Build Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo) [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/crmofvs8c7oja0mn/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo-agry3/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
 <!-- badges: end -->
 
 wateRinfo facilitates access to [waterinfo.be](https://www.waterinfo.be/), a website managed by the [Flanders Environment Agency (VMM)](https://en.vmm.be/) and [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/). The website provides access to real-time water and weather related environmental variables for Flanders (Belgium), such as rainfall, air pressure, discharge, and water level. The package provides functions to search for stations and variables, and download time series.
