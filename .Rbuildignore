@@ -10,3 +10,4 @@
 ^appveyor\.yml$
 draft_calls.R
 figures/
+^\.github$
