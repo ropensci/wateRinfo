@@ -1,3 +1,6 @@
+# Adapted from https://github.com/r-lib/actions/blob/master/examples/pkgdown.yaml
+# to only test build, but not commit site. Production build is handled by
+# https://docs.ropensci.org/wateRinfo/
 on:
   push:
     branches:
@@ -41,8 +44,6 @@ jobs:
       - name: Install package
         run: R CMD INSTALL .
 
-      - name: Deploy package
+      - name: Build site
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+          pkgdown::build_site()
