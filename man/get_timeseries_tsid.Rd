@@ -3,7 +3,8 @@
 \name{get_timeseries_tsid}
 \alias{get_timeseries_tsid}
 \title{Download timeseries data from waterinfo.be}
-\format{A data.frame with 3 variables:
+\format{
+A data.frame with 3 variables:
 \describe{
   \item{Timestamp}{Datetime of the measurement.}
   \item{Value}{Measured value.}
@@ -46,10 +47,17 @@
    }
 }
 The URL of the specific request is provided as a comment attribute to the
-returned data.frame. Use \code{comment(df)} to get the request URL.}
+returned data.frame. Use \code{comment(df)} to get the request URL.
+}
 \usage{
-get_timeseries_tsid(ts_id, period = NULL, from = NULL, to = NULL,
-  datasource = 1, token = NULL)
+get_timeseries_tsid(
+  ts_id,
+  period = NULL,
+  from = NULL,
+  to = NULL,
+  datasource = 1,
+  token = NULL
+)
 }
 \arguments{
 \item{ts_id}{waterinfo.be database ts_id, defining a timeserie variable and

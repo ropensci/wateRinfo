@@ -6,7 +6,7 @@
 \alias{wateRinfo-package}
 \title{wateRinfo: Download Time Series Data from Waterinfo.be}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 wateRinfo facilitates access to waterinfo.be 
     (<https://www.waterinfo.be>), a website managed by the Flanders Environment 
@@ -26,12 +26,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Stijn Van Hoey \email{stijnvanhoey@gmail.com} (0000-0001-6413-3185)
+\strong{Maintainer}: Stijn Van Hoey \email{stijnvanhoey@gmail.com} (\href{https://orcid.org/0000-0001-6413-3185}{ORCID})
 
 Other contributors:
 \itemize{
   \item Willem Maetens \email{w.maetens@vmm.be} [contributor]
-  \item Peter Desmet \email{peter.desmet@inbo.be} (0000-0002-8442-8025) [contributor]
+  \item Peter Desmet \email{peter.desmet@inbo.be} (\href{https://orcid.org/0000-0002-8442-8025}{ORCID}) [contributor]
   \item Research Institute for Nature and Forest (INBO) \email{info@inbo.be} [copyright holder]
 }
 

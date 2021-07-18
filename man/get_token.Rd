@@ -11,8 +11,12 @@
 \alias{is.expired.token}
 \title{Get waterinfo Token}
 \usage{
-get_token(client = NULL, client_id = NULL, client_secret = NULL,
-  token_url = "http://download.waterinfo.be/kiwis-auth/token")
+get_token(
+  client = NULL,
+  client_id = NULL,
+  client_secret = NULL,
+  token_url = "http://download.waterinfo.be/kiwis-auth/token"
+)
 
 is.expired(token)
 
@@ -59,12 +63,16 @@ client_id <- '32dceece-826c-4b98-9c2d-b16978f0ca6a'
 client_secret <- '4ada871a-9528-4b4d-bfd5-b570ce8f4d2d'
 my_token <- get_token(client_id = client_id,client_secret = client_secret)
 print(my_token)
+
 # get token via client
 client <- paste0('MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4',
                 'NzFhLTk1MjgtNGI0ZC1iZmQ1LWI1NzBjZThmNGQyZA==')
 my_token <- get_token(client = client)
 print(my_token)
 is.expired(my_token)
-expires.in(my_token)
+expires.in
+
+# Use the token when requesting for data (i.e. get_* functions), e.g.
+get_stations(variable_name = "verdamping_monteith", token = my_token)
 
 }
