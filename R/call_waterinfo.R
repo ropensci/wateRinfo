@@ -9,6 +9,10 @@ waterinfo_pro_base <- function() {
 hic_base <- function() {
   "https://www.waterinfo.be/tsmhic/KiWIS/KiWIS"
 }
+hydro_base <- function() {
+  "https://hydro.vmm.be/grid/kiwis/KiWIS"
+}
+
 
 #' http call to waterinfo.be
 #'
@@ -26,20 +30,15 @@ hic_base <- function() {
 #'
 #' @importFrom httr GET http_type status_code http_error content add_headers
 #' @importFrom jsonlite fromJSON
-call_waterinfo <- function(query, base_url = "vmm", token = NULL) {
-
-  hic_base
-
+call_waterinfo <- function(
+  query, base_url = c("vmm", "hic", "pro", "hydro"), token = NULL
+) {
   # check the base url, which depends of the query to execute
-  if (base_url == "vmm") {
-    base <- waterinfo_base()
-  } else if (base_url == "hic") {
-    base <- hic_base()
-  } else if (base_url == "pro") {
-    base <- waterinfo_pro_base()
-  } else {
-    stop("Base url should be vmm, hic or pro")
-  }
+  base_url <- match.arg(base_url)
+  base <- switch(
+    base_url, vmm = waterinfo_base(), hic = hic_base(),
+    pro = waterinfo_pro_base(), hydro = hydro_base()
+  )
 
   if (is.null(token)) {
     res <- GET(base, query = query)
