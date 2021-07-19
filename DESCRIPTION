@@ -20,10 +20,12 @@ BugReports: https://github.com/ropensci/wateRinfo/issues
 Depends:
     R (>= 2.10)
 Imports:
+    assertthat,
     dplyr,
     httr,
     jsonlite,
     openssl,
+    purrr,
     lubridate (>= 1.6.0),
     rlang,
     utils
