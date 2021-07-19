@@ -3,7 +3,8 @@
 \name{get_variables}
 \alias{get_variables}
 \title{Get list of variables for a given station}
-\format{A data.frame with 6 variables:
+\format{
+A data.frame with 6 variables:
 \describe{
   \item{station_name}{Official name of the measurement station.}
   \item{station_no}{Station ID as provided on the waterinfo.be website.}
@@ -16,7 +17,8 @@
   \item{stationparameter_name}{Station specific variable description.}
 }
 The URL of the specific request is provided as a comment attribute to the
-returned data.frame. Use \code{comment(df)} to get the request URL.}
+returned data.frame. Use \code{comment(df)} to get the request URL.
+}
 \usage{
 get_variables(station_no, token = NULL)
 }

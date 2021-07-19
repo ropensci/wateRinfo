@@ -3,7 +3,8 @@
 \name{get_stations}
 \alias{get_stations}
 \title{Get list of stations for a variable}
-\format{A data.frame with 10 variables:
+\format{
+A data.frame with 10 variables:
 \describe{
   \item{ts_id}{Unique timeseries identifier to access time series data
   corresponding to a combination of the station, measured variable and
@@ -20,7 +21,8 @@
   \item{dataprovider}{Data provider of the time series data.}
 }
 The URL of the specific request is provided as a comment attribute to the
-returned data.frame. Use \code{comment(df)} to get the request URL.}
+returned data.frame. Use \code{comment(df)} to get the request URL.
+}
 \usage{
 get_stations(variable_name = NULL, frequency = "15min", token = NULL)
 }

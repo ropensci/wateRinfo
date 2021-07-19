@@ -1,9 +1,11 @@
 context("waterinfo_call")
 
+options(useFancyQuotes = FALSE)
+
 test_that("base url is valid", {
   query <- list()
   expect_error(call_waterinfo(query, base_url = "www"),
-    regexp = "Base url should be vmm, hic or pro"
+    regexp = "'arg' should be one of \"vmm\", \"hic\", \"pro\", \"hydro\""
   )
 })
 

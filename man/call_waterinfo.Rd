@@ -4,7 +4,7 @@
 \alias{call_waterinfo}
 \title{http call to waterinfo.be}
 \usage{
-call_waterinfo(query, base_url = "vmm", token = NULL)
+call_waterinfo(query, base_url = c("vmm", "hic", "pro", "hydro"), token = NULL)
 }
 \arguments{
 \item{query}{list of query options to be used together with the base string}

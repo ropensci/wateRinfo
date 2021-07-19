@@ -12,6 +12,7 @@ Authors@R: c(
     person("Stijn", "Van Hoey", role = c("aut", "cre"), email = "stijnvanhoey@gmail.com", comment = c(ORCID = "0000-0001-6413-3185")),
     person("Willem", "Maetens", role = "ctb", email = "w.maetens@vmm.be"),
     person("Peter", "Desmet", role = "ctb", email = "peter.desmet@inbo.be", comment = c(ORCID = "0000-0002-8442-8025")),
+    person(given = "Thierry", family = "Onkelinx", role = "ctb", email = "thierry.onkelinx@inbo.be", comment = c(ORCID = "0000-0001-8804-4216")),
     person("Research Institute for Nature and Forest (INBO)", role = "cph", email = "info@inbo.be")
     )
 License: MIT + file LICENSE
@@ -20,10 +21,12 @@ BugReports: https://github.com/ropensci/wateRinfo/issues
 Depends:
     R (>= 2.10)
 Imports:
+    assertthat,
     dplyr,
     httr,
     jsonlite,
     openssl,
+    purrr,
     lubridate (>= 1.6.0),
     rlang,
     utils
@@ -36,4 +39,4 @@ Suggests:
 LazyData: true
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
