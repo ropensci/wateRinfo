@@ -72,10 +72,10 @@ call_waterinfo <- function(query, base_url = "vmm", token = NULL) {
         ))
       if (isTRUE(grep(pattern = "Credit limit exceeded", error_message))) {
         error_message <- paste(error_message,
-            "- When you require more extended data requests, please request",
-            "a download token from the waterinfo.be site administrators via",
-            "the e-mail address hydrometrie@waterinfo.be with a statement of",
-            "which data and how frequently you would like to download data.",
+            "- When you require more extended data requests, please request ",
+            "a download token from the waterinfo.be site administrators via ",
+            "the e-mail address hydrometrie@waterinfo.be with a statement of ",
+            "which data and how frequently you would like to download data. ",
             "Run `?wateRinfo::token` for more information on token usage.")
       }
     } else {
