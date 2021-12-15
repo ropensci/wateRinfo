@@ -150,7 +150,7 @@ We can do similar filtering to check for time series on other stations, for exam
 
 ```{r check_etikhove}
 available_variables <- get_variables("L06_347")
-available_variables %>%  
+available_variables %>%
     filter(ts_name == "P.15")
 ```
 
