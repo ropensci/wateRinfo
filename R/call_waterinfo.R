@@ -71,15 +71,20 @@ call_waterinfo <- function(query, base_url = "vmm", token = NULL) {
                 perl = TRUE
         ))
       if (isTRUE(grep(pattern = "Credit limit exceeded", error_message))) {
-        error_message <- paste(error_message,
-            "- When you require more extended data requests, please request ",
-            "a download token from the waterinfo.be site administrators via ",
-            "the e-mail address hydrometrie@waterinfo.be with a statement of ",
-            "which data and how frequently you would like to download data. ",
-            "Run `?wateRinfo::token` for more information on token usage.")
+        error_message <- paste(
+          error_message,
+          "- When you require more extended data requests, please request a",
+          "download token from the waterinfo.be site administrators via the",
+          "email address hydrometrie@waterinfo.be with a statement of which",
+          "data and how frequently you would like to download data.",
+          "Run `?wateRinfo::token` for more information on token usage."
+        )
       }
     } else {
-      error_message <- "API returned response type not known to wateRinfo package (no json or XML)."
+      error_message <- paste(
+        "API returned response type not known to wateRinfo package (no json",
+        "or XML)."
+      )
     }
     stop("API did not return json - ", trimws(error_message), call. = FALSE)
   }
