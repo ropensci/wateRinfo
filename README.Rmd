@@ -10,7 +10,9 @@ knitr::opts_chunk$set(
 
 # wateRinfo <img src="man/figures/logo.png" align="right" alt="" width="120">
 
-[![Build Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo) [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/crmofvs8c7oja0mn/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo-agry3/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/ropensci/wateRinfo/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/wateRinfo/actions) [![codecov](https://codecov.io/gh/ropensci/wateRinfo/branch/master/graph/badge.svg?token=4MT1hZyw2l)](https://codecov.io/gh/ropensci/wateRinfo)
+<!-- badges: end -->
 
 wateRinfo facilitates access to [waterinfo.be](https://www.waterinfo.be/), a website managed by the [Flanders Environment Agency (VMM)](https://en.vmm.be/) and [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/). The website provides access to real-time water and weather related environmental variables for Flanders (Belgium), such as rainfall, air pressure, discharge, and water level. The package provides functions to search for stations and variables, and download time series.
 
@@ -136,6 +138,12 @@ Use token when retrieving data:
 ```{r use_expires_when}
 get_stations(variable_name = "verdamping_monteith", token = my_token)
 ```
+
+## Other clients
+
+Besides this wateRinfo R client to gather data from [waterinfo.be](https://www.waterinfo.be/), there is also a Python client available. The [pywaterinfo](https://fluves.github.io/pywaterinfo/) package contains similar functionalities.
+
+The [Flanders Hydraulics Research center](https://www.waterbouwkundiglaboratorium.be/en/) also distributes clients for R, Python and Matlab upon request to download the data they share on [waterinfo.be](https://www.waterinfo.be/). For more information, contact them directly via [hic@vlaanderen.be](mailto:hic@vlaanderen.be).
 
 ## Acknowledgements
 

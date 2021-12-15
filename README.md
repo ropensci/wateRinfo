@@ -4,7 +4,9 @@
 
 # wateRinfo <img src="man/figures/logo.png" align="right" alt="" width="120">
 
-[![Build Status](https://travis-ci.org/ropensci/wateRinfo.svg?branch=addci)](https://travis-ci.org/ropensci/wateRinfo) [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/crmofvs8c7oja0mn/branch/master?svg=true)](https://ci.appveyor.com/project/stijnvanhoey/waterinfo-agry3/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ropensci/wateRinfo/badge.svg)](https://coveralls.io/r/ropensci/wateRinfo?branch=master)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/ropensci/wateRinfo/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/wateRinfo/actions) [![codecov](https://codecov.io/gh/ropensci/wateRinfo/branch/master/graph/badge.svg?token=4MT1hZyw2l)](https://codecov.io/gh/ropensci/wateRinfo)
+<!-- badges: end -->
 
 wateRinfo facilitates access to [waterinfo.be](https://www.waterinfo.be/), a website managed by the [Flanders Environment Agency (VMM)](https://en.vmm.be/) and [Flanders Hydraulics Research](https://www.waterbouwkundiglaboratorium.be/). The website provides access to real-time water and weather related environmental variables for Flanders (Belgium), such as rainfall, air pressure, discharge, and water level. The package provides functions to search for stations and variables, and download time series.
 
@@ -65,33 +67,24 @@ Listing the available air pressure stations:
 
 ```r
 get_stations("air_pressure")
-#>      ts_id station_latitude station_longitude station_id station_no
-#> 1 78124042         51.20300          5.439589      12213   ME11_002
-#> 2 78039042         51.24379          4.266912      12208   ME04_001
-#> 3 78005042         51.02263          2.970584      12206   ME01_003
-#> 4 78107042         51.16224          4.845708      12212   ME10_011
-#> 5 78073042         50.88663          4.094898      12210   ME07_006
-#> 6 78022042         51.27226          3.728299      12207   ME03_017
-#> 7 78090042         50.73795          5.141976      12211   ME09_012
-#> 8 78056042         50.86149          3.411318      12209   ME05_019
-#>              station_name stationparameter_name parametertype_name
-#> 1             Overpelt_ME                    Pa                 Pa
-#> 2              Melsele_ME                    Pa                 Pa
-#> 3               Zarren_ME                    Pa                 Pa
-#> 4            Herentals_ME                    Pa                 Pa
-#> 5           Liedekerke_ME                    Pa                 Pa
-#> 6            Boekhoute_ME                    Pa                 Pa
-#> 7 Niel-bij-St.-Truiden_ME                    Pa                 Pa
-#> 8              Waregem_ME                    Pa                 Pa
-#>   ts_unitsymbol dataprovider
-#> 1           hPa          VMM
-#> 2           hPa          VMM
-#> 3           hPa          VMM
-#> 4           hPa          VMM
-#> 5           hPa          VMM
-#> 6           hPa          VMM
-#> 7           hPa          VMM
-#> 8           hPa          VMM
+#>      ts_id station_latitude station_longitude station_id station_no            station_name
+#> 1 78124042         51.20300          5.439589      12213   ME11_002             Overpelt_ME
+#> 2 78005042         51.02263          2.970584      12206   ME01_003               Zarren_ME
+#> 3 78039042         51.24379          4.266912      12208   ME04_001              Melsele_ME
+#> 4 78073042         50.88663          4.094898      12210   ME07_006           Liedekerke_ME
+#> 5 78107042         51.16224          4.845708      12212   ME10_011            Herentals_ME
+#> 6 78022042         51.27226          3.728299      12207   ME03_017            Boekhoute_ME
+#> 7 78056042         50.86149          3.411318      12209   ME05_019              Waregem_ME
+#> 8 78090042         50.73795          5.141976      12211   ME09_012 Niel-bij-St.-Truiden_ME
+#>   stationparameter_name parametertype_name ts_unitsymbol dataprovider
+#> 1                    Pa                 Pa           hPa          VMM
+#> 2                    Pa                 Pa           hPa          VMM
+#> 3                    Pa                 Pa           hPa          VMM
+#> 4                    Pa                 Pa           hPa          VMM
+#> 5                    Pa                 Pa           hPa          VMM
+#> 6                    Pa                 Pa           hPa          VMM
+#> 7                    Pa                 Pa           hPa          VMM
+#> 8                    Pa                 Pa           hPa          VMM
 ```
 
 Each of the stations in the list for a given variable, are represented by a `ts_id`. These can be used to download the data of a given period with the command `get_timeseries_tsid()`, for example Overpelt (`ts_id = 78124042`):
@@ -130,28 +123,17 @@ Another option is to check the available variables for a given station, with the
 ```r
 vars_overpelt <- get_variables("ME11_002")
 head(vars_overpelt, 10)
-#>    station_name station_no    ts_id    ts_name parametertype_name
-#> 1   Overpelt_ME   ME11_002 96216042  DagTotaal         Noverschot
-#> 2   Overpelt_ME   ME11_002 78663042   MaandGem                  U
-#> 3   Overpelt_ME   ME11_002 78664042   MaandMax                  U
-#> 4   Overpelt_ME   ME11_002 78667042       P.10                  U
-#> 5   Overpelt_ME   ME11_002 78654042     DagGem                  U
-#> 6   Overpelt_ME   ME11_002 78656042     DagMin                  U
-#> 7   Overpelt_ME   ME11_002 78658042 HydJaarMax                  U
-#> 8   Overpelt_ME   ME11_002 78668042       P.15                  U
-#> 9   Overpelt_ME   ME11_002 78660042 KalJaarGem                  U
-#> 10  Overpelt_ME   ME11_002 78661042 KalJaarMax                  U
-#>    stationparameter_name
-#> 1             Noverschot
-#> 2                 WSpeed
-#> 3                 WSpeed
-#> 4                 WSpeed
-#> 5                 WSpeed
-#> 6                 WSpeed
-#> 7                 WSpeed
-#> 8                 WSpeed
-#> 9                 WSpeed
-#> 10                WSpeed
+#>    station_name station_no    ts_id    ts_name parametertype_name stationparameter_name
+#> 1   Overpelt_ME   ME11_002 78522042 HydJaarMax                 Ts                 SoilT
+#> 2   Overpelt_ME   ME11_002 78523042 HydJaarMin                 Ts                 SoilT
+#> 3   Overpelt_ME   ME11_002 78693042       P.15                 Ud                  WDir
+#> 4   Overpelt_ME   ME11_002 94682042   MaandMin                 Ta                    Ta
+#> 5   Overpelt_ME   ME11_002 78531042       P.10                 Ts                 SoilT
+#> 6   Overpelt_ME   ME11_002 78518042     DagGem                 Ts                 SoilT
+#> 7   Overpelt_ME   ME11_002 78521042 HydJaarGem                 Ts                 SoilT
+#> 8   Overpelt_ME   ME11_002 78524042 KalJaarGem                 Ts                 SoilT
+#> 9   Overpelt_ME   ME11_002 78533042       P.60                 Ts                 SoilT
+#> 10  Overpelt_ME   ME11_002 78694042      Pv.15                 Ud                  WDir
 ```
 
 Different pre-calculated variables are already available and a `ts_id` value is available for each of them to download the corresponding data. For example, `DagGem` (= daily mean values) of `RH` (= relative humidity), i.e. `ts_id = 78382042`:
@@ -200,12 +182,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxNzAyOWQ2ZC05ZDhmLTQ1YzYtOWJiOC0yN2MzMmQ2N2YyOGUiLCJpYXQiOjE1NzYwNzUxODAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNTc2MTYxNTgwfQ.lOPJZ52e2Z2kjtfYRZHiW9H89ZwUw0c26lo6nXc2rUY
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5ODI5NDIzYS01NTNjLTQ3YTUtODUzNS1hZTBhN2FmMTFhN2MiLCJpYXQiOjE2MTk3Nzg0NDYsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNjE5ODY0ODQ2fQ.7pUqf8x0OxE-sA0PJUcKYGysl-DI5-KiodJ1ahfaMCA
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2019-12-12 15:39:40 CET
+#>  expires: 2021-05-01 12:27:26 CEST
 ```
 
 Receive information on the validity of the token:
@@ -221,7 +203,7 @@ Check when the token expires:
 
 ```r
 expires.in(my_token)
-#> Time difference of 23.99999 hours
+#> Time difference of 24 hours
 ```
 
 Use token when retrieving data:
@@ -229,34 +211,31 @@ Use token when retrieving data:
 
 ```r
 get_stations(variable_name = "verdamping_monteith", token = my_token)
-#>      ts_id station_latitude station_longitude station_id station_no
-#> 1 94310042         51.02263          2.970584      12206   ME01_003
-#> 2 94516042         50.73795          5.141976      12211   ME09_012
-#> 3 94530042         51.16224          4.845708      12212   ME10_011
-#> 4 94544042         51.20300          5.439589      12213   ME11_002
-#> 5 94460042         51.27226          3.728299      12207   ME03_017
-#> 6 94502042         50.88663          4.094898      12210   ME07_006
-#> 7 94488042         50.86149          3.411318      12209   ME05_019
-#> 8 94474042         51.24379          4.266912      12208   ME04_001
-#>              station_name stationparameter_name parametertype_name
-#> 1               Zarren_ME                   pET                PET
-#> 2 Niel-bij-St.-Truiden_ME                   pET                PET
-#> 3            Herentals_ME                   pET                PET
-#> 4             Overpelt_ME                   pET                PET
-#> 5            Boekhoute_ME                   pET                PET
-#> 6           Liedekerke_ME                   pET                PET
-#> 7              Waregem_ME                   pET                PET
-#> 8              Melsele_ME                   pET                PET
-#>   ts_unitsymbol dataprovider
-#> 1            mm          VMM
-#> 2            mm          VMM
-#> 3            mm          VMM
-#> 4            mm          VMM
-#> 5            mm          VMM
-#> 6            mm          VMM
-#> 7            mm          VMM
-#> 8            mm          VMM
+#>      ts_id station_latitude station_longitude station_id station_no            station_name
+#> 1 94310042         51.02263          2.970584      12206   ME01_003               Zarren_ME
+#> 2 94530042         51.16224          4.845708      12212   ME10_011            Herentals_ME
+#> 3 94544042         51.20300          5.439589      12213   ME11_002             Overpelt_ME
+#> 4 94516042         50.73795          5.141976      12211   ME09_012 Niel-bij-St.-Truiden_ME
+#> 5 94488042         50.86149          3.411318      12209   ME05_019              Waregem_ME
+#> 6 94502042         50.88663          4.094898      12210   ME07_006           Liedekerke_ME
+#> 7 94474042         51.24379          4.266912      12208   ME04_001              Melsele_ME
+#> 8 94460042         51.27226          3.728299      12207   ME03_017            Boekhoute_ME
+#>   stationparameter_name parametertype_name ts_unitsymbol dataprovider
+#> 1                   pET                PET            mm          VMM
+#> 2                   pET                PET            mm          VMM
+#> 3                   pET                PET            mm          VMM
+#> 4                   pET                PET            mm          VMM
+#> 5                   pET                PET            mm          VMM
+#> 6                   pET                PET            mm          VMM
+#> 7                   pET                PET            mm          VMM
+#> 8                   pET                PET            mm          VMM
 ```
+
+## Other clients
+
+Besides this wateRinfo R client to gather data from [waterinfo.be](https://www.waterinfo.be/), there is also a Python client available. The [pywaterinfo](https://fluves.github.io/pywaterinfo/) package contains similar functionalities.
+
+The [Flanders Hydraulics Research center](https://www.waterbouwkundiglaboratorium.be/en/) also distributes clients for R, Python and Matlab upon request to download the data they share on [waterinfo.be](https://www.waterinfo.be/). For more information, contact them directly via [hic@vlaanderen.be](mailto:hic@vlaanderen.be).
 
 ## Acknowledgements
 
