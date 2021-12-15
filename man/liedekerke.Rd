@@ -4,7 +4,8 @@
 \name{liedekerke}
 \alias{liedekerke}
 \title{Soil moisture data of Liedekerke, January 2017}
-\format{A data frame with 23,816 rows and 9 variables:
+\format{
+A data frame with 23,816 rows and 9 variables:
 \describe{
   \item{ts_id}{identifier of the downloaded time serie}
   \item{Timestamp}{datetime}
@@ -15,7 +16,8 @@
   \item{ts_name}{type/frequency of the time serie}
   \item{parametertype_name}{parameter type name}
   \item{stationparameter_name}{parameter name on station level}
-}}
+}
+}
 \source{
 \url{https://www.waterinfo.be/}
 }

@@ -4,7 +4,8 @@
 \name{air_pressure}
 \alias{air_pressure}
 \title{Air pressure data of January 1st, 2017}
-\format{A data frame with 710 rows and 13 variables:
+\format{
+A data frame with 710 rows and 13 variables:
 \describe{
   \item{ts_id}{identifier of the downloaded time serie}
   \item{Timestamp}{datetime}
@@ -19,7 +20,8 @@
   \item{parametertype_name}{parameter type name}
   \item{ts_unitsymbol}{unit of the variable}
   \item{dataprovider}{provider of the time series value}
-}}
+}
+}
 \source{
 \url{https://www.waterinfo.be/}
 }
