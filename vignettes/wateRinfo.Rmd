@@ -120,25 +120,25 @@ ggplot(tide_stamands, aes(Timestamp, Value)) +
     geom_line() + xlab("") + ylab("waterlevel")
 ```
 
-For some measurement stations, the number of variables can be high (lots of precalculated derivative values) and extracting the required time series identifier is not always straightforward. For example, the dat Etikhove/Schuif/Nederaalbeek (`K06_OM225`), provides the following number of variables:
+For some measurement stations, the number of variables can be high (lots of precalculated derivative values) and extracting the required time series identifier is not always straightforward. For example, the dat Etikhove/Schuif/Nederaalbeek (`K06_221`), provides the following number of variables:
 
 ```{r check_bekken}
-available_variables <- get_variables("K06_OM225")
+available_variables <- get_variables("K06_221")
 nrow(available_variables)
 ```
 
 As the measured variables at a small time resolution are of most interest, filtering on `P.15` (or `P.1`, `P.60`,...) will help to identify measured time series, for those stations belonging to the `meetnet` of VMM (`datasource = 1`):
 
 ```{r check_bekken_filter}
-available_variables <- get_variables("K06_OM225")
+available_variables <- get_variables("K06_221")
 available_variables %>% 
     filter(ts_name == "P.15")
 ```
 
-Loading and visualizing the last day (period `P1D`) of available data for the water level 100m downstream (`Hafw 100m afwaarts`):
+Loading and visualizing the last day (period `P1D`) of available data for the water level downstream (`Hafw`):
 
 ```{r afw_etik_fig, fig.width = 7}
-afw_etikhove <- get_timeseries_tsid("29156042", 
+afw_etikhove <- get_timeseries_tsid("22302042", 
                                     period = "P1D",
                                     datasource = 1) # 1 is default
 
@@ -149,15 +149,15 @@ ggplot(afw_etikhove, aes(Timestamp, Value)) +
 We can do similar filtering to check for time series on other stations, for example the Molenbeek in Etikhove:
 
 ```{r check_etikhove}
-available_variables <- get_variables("LS06_347")
-available_variables %>% 
+available_variables <- get_variables("L06_347")
+available_variables %>%
     filter(ts_name == "P.15")
 ```
 
 And use the `ts_id` code representing discharge to create a plot of the discharge during a storm in 2010:
 
 ```{r disch_etik, fig.width = 7}
-etikhove <- get_timeseries_tsid("70346042", 
+etikhove <- get_timeseries_tsid("276494042", 
                                 from = "2010-11-09", to = "2010-11-16")
 
 ggplot(etikhove, aes(Timestamp, Value)) + 
@@ -176,7 +176,7 @@ comment(air_stations)
 or 
 
 ```{r check_url_2}
-etikhove <- get_timeseries_tsid("70346042", 
+etikhove <- get_timeseries_tsid("276494042", 
                                 from = "2010-11-09", to = "2010-11-16")
 comment(etikhove)
 ```
