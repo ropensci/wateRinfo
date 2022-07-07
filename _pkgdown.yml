@@ -1,8 +1,10 @@
-url: https://docs.ropensci.org/wateRinfo
+url: ~
 
 template:
-  params:
-    bootswatch: yeti
+  bootstrap: 5
+
+navbar:
+  bg: dark
 
 authors:
   Stijn Van Hoey:
@@ -17,8 +19,6 @@ home:
   links:
   - text: Visit waterinfo.be
     href: https://www.waterinfo.be/
-  - text: Get to know our team
-    href: https://oscibio.inbo.be
 
 reference:
   - title: "Main download functionalities"
