@@ -1,6 +1,18 @@
 Package: wateRinfo
 Title: Download Time Series Data from Waterinfo.be
 Version: 0.3.0.9065
+Authors@R: c(
+    person("Stijn", "Van Hoey", email = "stijnvanhoey@gmail.com",
+           role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6413-3185")),
+    person("Willem", "Maetens", email = "w.maetens@vmm.be",
+           role = "ctb"),
+    person("Peter", "Desmet", email = "peter.desmet@inbo.be",
+           role = "ctb", comment = c(ORCID = "0000-0002-8442-8025")),
+    person("Research Institute for Nature and Forest (INBO)",
+           role = "cph", comment = "https://www.vlaanderen.be/inbo/en-gb/"),
+    person("LifeWatch Belgium",
+           role = "fnd", comment = "https://lifewatch.be")
+  )
 Description: wateRinfo facilitates access to waterinfo.be 
     (<https://www.waterinfo.be>), a website managed by the Flanders Environment 
     Agency (VMM) and Flanders Hydraulics Research. The website provides access 
@@ -8,12 +20,6 @@ Description: wateRinfo facilitates access to waterinfo.be
     (Belgium), such as rainfall, air pressure, discharge, and water level. The 
     package provides functions to search for stations and variables, and 
     download time series.
-Authors@R: c(
-    person("Stijn", "Van Hoey", role = c("aut", "cre"), email = "stijnvanhoey@gmail.com", comment = c(ORCID = "0000-0001-6413-3185")),
-    person("Willem", "Maetens", role = "ctb", email = "w.maetens@vmm.be"),
-    person("Peter", "Desmet", role = "ctb", email = "peter.desmet@inbo.be", comment = c(ORCID = "0000-0002-8442-8025")),
-    person("Research Institute for Nature and Forest (INBO)", role = "cph", email = "info@inbo.be")
-    )
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/wateRinfo, https://docs.ropensci.org/wateRinfo
 BugReports: https://github.com/ropensci/wateRinfo/issues
