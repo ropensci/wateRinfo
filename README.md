@@ -7,7 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/wateRinfo)](https://CRAN.R-project.org/package=wateRinfo)
-[![R-CMD-check](https://github.com/ropensci/wateRinfo/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/wateRinfo/actions)
+[![R-CMD-check](https://github.com/inbo/wateRinfo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inbo/wateRinfo/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/ropensci/wateRinfo/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropensci/wateRinfo/)
 [![repo
 status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -235,12 +235,12 @@ client <- paste0("MzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhOjRhZGE4",
 my_token <- get_token(client = client)
 print(my_token)
 #> Token:
-#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlZTQyZjZjYi0zMGJhLTRjZTktYTNmNC03NzA0YWVmMzk0Y2IiLCJpYXQiOjE2NTcyMTIwOTQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNjU3Mjk4NDk0fQ.I-M-eeyjg9YszInMVyGJNbx5y8ANvziigMJ1bJnX1-I
+#> eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJiNTFlM2U5MC1iY2FjLTQ4Y2ItYmNmOS0wM2NmMDIwODA5MDIiLCJpYXQiOjE2NTcyMTI0NTAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9LaVdlYlBvcnRhbC9hdXRoIiwiYXVkIjoiMzJkY2VlY2UtODI2Yy00Yjk4LTljMmQtYjE2OTc4ZjBjYTZhIiwiZXhwIjoxNjU3Mjk4ODUwfQ.PQv_g2cfrOCdfcpmINZncTAbZgwchzxXwmSjlJU3WIk
 #> 
 #> Attributes:
 #>  url: http://download.waterinfo.be/kiwis-auth/token
 #>  type: Bearer
-#>  expires: 2022-07-08 18:41:34 CEST
+#>  expires: 2022-07-08 18:47:30 CEST
 ```
 
 Receive information on the validity of the token:

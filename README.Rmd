@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/wateRinfo)](https://CRAN.R-project.org/package=wateRinfo)
-[![R-CMD-check](https://github.com/ropensci/wateRinfo/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/wateRinfo/actions)
+[![R-CMD-check](https://github.com/inbo/wateRinfo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/inbo/wateRinfo/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/ropensci/wateRinfo/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ropensci/wateRinfo/)
 [![repo status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![rOpenSci](https://badges.ropensci.org/255_status.svg)](https://github.com/ropensci/software-review/issues/255)
